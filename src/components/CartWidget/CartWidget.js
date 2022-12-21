@@ -1,11 +1,11 @@
 import { AiOutlineShoppingCart } from 'react-icons/ai'
 import './CartWidget.css'
 
-export const CartWidget = () => {
+export const CartWidget = ({cartCounter}) => {
 
   return (
     <button className="cartWidgetBtn">
-      <AiOutlineShoppingCart className="cartWidget"/><p className="cartCounter">1</p>
+      <AiOutlineShoppingCart className="cartWidget"/><p className="cartCounter">{cartCounter}</p>
     </button>
   )
 }

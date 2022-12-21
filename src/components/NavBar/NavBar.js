@@ -12,7 +12,7 @@ export const Navbar = () =>{
         <a className="header_link" href="#">Cuidado Corporal</a>
         <a className="header_link" href="#">Cuidado Capilar</a>
         <a className="header_link" href="#">Maquillaje</a>
-        <CartWidget/>
+        <CartWidget cartCounter={1} />
       </nav>
     </header>
   )
