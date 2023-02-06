@@ -1,9 +1,8 @@
-import { useContext } from "react"
-import { CartContext } from "../../context/CartContext"
+import {  useCartContext } from "../../context/CartContext"
 import { FaTrashAlt } from "react-icons/fa"
 
 const Cart = () => {
-    const {cart, emptyCart, totalCart, removeItem} = useContext(CartContext)
+    const {cart, emptyCart, totalCart, removeItem} = useCartContext()
 
     return (
         <div className="container my-5">

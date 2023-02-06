@@ -2,7 +2,7 @@ import { CartWidget } from '../CartWidget/CartWidget'
 import './NavBar.css'
 import { Link } from 'react-router-dom'
 
-export const Navbar = ( {cartCounter}) =>{
+export const Navbar = () =>{
     return (
     <header className="header">
       <h1 className="header_logo my-4">DYS Cosmetic</h1>
@@ -14,7 +14,7 @@ export const Navbar = ( {cartCounter}) =>{
         <Link className="header_link" to="/productos/carniceria">Carniceria</Link>
         <Link className="header_link" to="/productos/panaderia">Panaderia</Link>
         <Link className="header_link" to="/productos/perfumeria">Perfumeria</Link>
-        <CartWidget cartCounter={cartCounter} />
+        <CartWidget/>
       </nav>
     </header>
   )
