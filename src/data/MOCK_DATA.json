@@ -13,15 +13,15 @@
 
   { "id": 7, "name": "Crema Hidratante", "description": "Renueva tu piel mientras duermes. Colabora retrasando los signos de la edad. Protege los niveles de colágeno e hidratación de la piel. Hidratación y suavidad para una piel con mayor vitalidad. Mejora la elasticidad de la piel", "image": "/images/products/product_7.jpg", "price": 17245, "stock": 11, "category": "corporal" },
 
-  { "id": 8, "name": "Omniplus Gel", "description": "Potente efecto antioxidante, es decir, que retrasa el envejecimiento de tu piel Disminuye las manchitas que suelen aparecer producto de la sobre exposición constante al sol. Elimina los brotes de ese molesto acné, que vienen dados de las impurezas acumuladas en tu piel. Poderoso regenerador de piel, ideal para estrías, quemaduras y cicatrices. Eficaz Antihongos para pies", "image": "/images/products/product_8.jpg", "price": 3661, "stock": 70, "category": "carniceria" },
+  { "id": 8, "name": "Omniplus Gel", "description": "Potente efecto antioxidante, es decir, que retrasa el envejecimiento de tu piel Disminuye las manchitas que suelen aparecer producto de la sobre exposición constante al sol. Elimina los brotes de ese molesto acné, que vienen dados de las impurezas acumuladas en tu piel. Poderoso regenerador de piel, ideal para estrías, quemaduras y cicatrices. Eficaz Antihongos para pies", "image": "/images/products/product_8.jpg", "price": 3661, "stock": 70, "category": "corporal" },
 
-  { "id": 9, "name": "Rimel - Seytú", "description": "Suero con Ácido Hialurónico y Hidratación profunda. Maquillaje Up+ FP 15 Colágeno hidrolizado, acabo homogéneo y mate. Maquillaje 2 en 1 húmedo o seco, textura ultra fina y controla el brillo de la piel. La cosmética es libre de crueldad animal, libre de parabenos, resistente al agua, sudor y son hipoalergénicos", "image": "/images/products/product_9.jpg", "price": 17308, "stock": 99, "category": "maquillaje" },
+  { "id": 9, "name": "Rimel - Seytú", "description": "Máximo alargamiento de las pestañas. Da volumen. Brinda un acabado natural. Es libre de grumos. Tiene un color intenso. Su secado es rápido. Es fácil de retirar por que es a base de agua.", "image": "/images/products/product_9.jpg", "price": 17308, "stock": 99, "category": "maquillaje" },
 
   { "id": 10, "name": "Base líquida - Seytú", "description": "", "image": "/images/products/product_10.jpg", "price": 5971, "stock": 26, "category": "maquillaje" },
 
   { "id": 11, "name": "Labial - Seytú U5", "description": "Larga duración 24h. Secado rápido. Delicioso aroma. A prueba de agua. Nuestra línea de cosméticos no experimenta con animales", "image": "/images/products/product_11.jpg", "price": 3210, "stock": 89, "category": "maquillaje" },
 
-  { "id": 12, "name": "Maquillaje compacto", "description": "", "image": "/images/products/product_12.jpg", "price": 1298, "stock": 61, "category": "maquillaje" },
+  { "id": 12, "name": "Maquillaje compacto", "description": "Posee suero con Ácido Hialurónico y Hidratación profunda. Maquillaje Up+ FP 15 Colágeno. Hidrolizado, acabo homogéneo y mate. Maquillaje 2 en 1 húmedo o seco, textura ultra fina y controla el brillo de la piel. La cosmética es libre de crueldad animal, libre de parabenos, resistente al agua, sudor y son hipoalergénicos", "image": "/images/products/product_12.jpg", "price": 1298, "stock": 61, "category": "maquillaje" },
 
   { "id": 13, "name": "Omnilife Homo Plus", "description": "", "image": "/images/products/product_13.jpg", "price": 7003, "stock": 69, "category": "suplementos" },
 
@@ -29,5 +29,5 @@
 
   { "id": 15, "name": "Omnilife ThermogenTea", "description": "Posee Cromo, nutriente encargado de disminuir la probabilidad que desarrolles diabetes y enfermedades cardiovasculares. Ayuda con el proceso de digestión, evitando que sufras del terrible estreñimiento. TERMOGÉNICO: convierte las grasas y azúcares de tu cuerpo en energía. Ayuda a controlar la ansiedad.", "image": "/images/products/product_15.jpg", "price": 14859, "stock": 19, "category": "suplementos" },
 
-  { "id": 16, "name": "Omnilife Cafezzino", "description": "CAFEZINO PLUS contiene cafe verde que funciona como un poderoso antioxidante que ayuda a disminuir el porcentaje de grasa en el cuerpo, incluso en aquellas zonas más complejas de tonificar y modelar. Insulina de agave que ayuda a disminuir la resión arterial. Endulzado con estevia, cero calorias. Caja con 30 sobres", "image": "/images/products/product_16.jpg", "price": 18704, "stock": 48, "category": "perfumeria" }
+  { "id": 16, "name": "Omnilife Cafezzino", "description": "CAFEZINO PLUS contiene cafe verde que funciona como un poderoso antioxidante que ayuda a disminuir el porcentaje de grasa en el cuerpo, incluso en aquellas zonas más complejas de tonificar y modelar. Insulina de agave que ayuda a disminuir la resión arterial. Endulzado con estevia, cero calorias. Caja con 30 sobres", "image": "/images/products/product_16.jpg", "price": 18704, "stock": 48, "category": "suplementos" }
 ]

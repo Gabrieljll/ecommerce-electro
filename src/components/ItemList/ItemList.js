@@ -1,4 +1,5 @@
 import Item from '../Item/Item'
+import { Loader } from '../Loader/Loader'
 
 
 const ItemList = ( {productos, loading}) => {
@@ -9,11 +10,7 @@ const ItemList = ( {productos, loading}) => {
       <section className="row my-4">
         {
             loading
-            ?   <>
-                <div className="loader-div">
-                    <img src="/images/gif/loader.gif" className='loader' alt="" />
-                </div>
-                </>
+            ? <Loader />
             : productos.map( (prod => <Item key={prod.id} {...prod} /> ))
         }
       </section>
