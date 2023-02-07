@@ -8,15 +8,16 @@ const Cart = () => {
     if (cart.length === 0){
         return (
             <>
+            <div className="container my-5">
                 <h2>Tu carrito está vacío</h2>
                 <hr />
                 <Link to="/" className="btn btn-primary">Volver</Link>
+            </div>
             </> 
         )
     }
 
     return (
-        <div className="container my-5">
             <div className="container my-5">
                 <h2>Tu compra</h2>
                 <hr />
@@ -34,7 +35,6 @@ const Cart = () => {
                 <h4>Total: ${totalCart()}</h4>
                 <button className="btn btn-danger" onClick={emptyCart}>Vaciar Carrito</button>
             </div>
-        </div>
     )
 }
 
