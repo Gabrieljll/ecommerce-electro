@@ -7,9 +7,12 @@ import { useParams } from "react-router-dom"
 export const ItemListContainer = ({ greeting }) => {
 
   const [productos, setProductos] = useState([])
+  const [loading, setLoading] = useState(true)
   const { categoryId } = useParams()
 
   useEffect( () => {
+    setLoading(true)
+    
     pedirDatos()
       .then ( (res) => {
         if (categoryId){
@@ -21,12 +24,19 @@ export const ItemListContainer = ({ greeting }) => {
       .catch( (err) => {
         console.log(err)
       })
+      .finally( () => {
+        setLoading(false)
+      })
   }, [categoryId])
 
   return (
-      <div>
-        <ItemList productos={productos}/>
-      </div>    
+        <div>
+            {
+                loading
+                ? <h2>Cargando...</h2>
+                : <ItemList productos={productos}/>
+            }
+        </div>    
     )
 }
 

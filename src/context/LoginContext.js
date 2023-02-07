@@ -29,30 +29,35 @@ export const LoginProvider = ({children}) => {
         error: null
     })
 
+    const [loading, setLoading] = useState(false)
     const login = (values) => {
+        setLoading(true)
         const match = MOCK_USERS.find(user => user.email === values.email)
-
-        if (!match){
-            setUser ({
-                email: null,
-                logged: false,
-                error: "Usuario no encontrado"
-            })
-            return
-        }
-        if (match.password === values.password) {
-            setUser ({
-                email: match.email,
-                logged: true,
-                error: null
-            })
-        } else {
-            setUser ({
-                email: null,
-                logged: false,
-                error: "Clave incorrecta"
-            })
-        }
+        setTimeout( () => {
+            if (!match){
+                setUser ({
+                    email: null,
+                    logged: false,
+                    error: "Usuario no encontrado"
+                })
+                setLoading(false)
+                return
+            }
+            if (match.password === values.password) {
+                setUser ({
+                    email: match.email,
+                    logged: true,
+                    error: null
+                })
+            } else {
+                setUser ({
+                    email: null,
+                    logged: false,
+                    error: "Clave incorrecta"
+                })
+                setLoading(false)
+            }
+        }, 1500)
     }
 
     const logout = () => {
@@ -64,7 +69,7 @@ export const LoginProvider = ({children}) => {
     }
 
     return (
-        <LoginContext.Provider value={{user, login, logout}}>
+        <LoginContext.Provider value={{user, login, logout, loading}}>
             {children}
         </LoginContext.Provider>
     )

@@ -3,7 +3,7 @@ import "./LoginScreen.css"
 import { useLoginContext } from "../../context/LoginContext"
 
 const LoginScreen = () => {
-    const {login, user} = useLoginContext()
+    const {login, user, loading} = useLoginContext()
 
     const [values, setValues] = useState( { 
         email: "",
@@ -30,7 +30,7 @@ const LoginScreen = () => {
                     <input type="email" className="form-control my-2" value={values.email} onChange={handleInputChange}
                     name="email" />
                     <input type="password" className="form-control my-2" value={values.password} onChange={handleInputChange} name="password" />
-                    <button className="btn btn-primary">Ingresar</button>
+                    <button className="btn btn-primary" disabled={loading}>Ingresar</button>
                     {user.error && <p className="error">{user.error}</p>}
                 </form>
             </div>

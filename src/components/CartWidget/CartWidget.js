@@ -5,9 +5,9 @@ import { useCartContext } from '../../context/CartContext'
 
 export const CartWidget = () => {
 
-    const { totalCantidad } = useCartContext()
+    const { totalCantidad, cart} = useCartContext()
     return (
-        <Link to="/cart" className="cartWidgetBtn">
+        <Link to="/cart" className={`cartWidgetBtn ${cart.length > 0 ? 'cartWidget-active' : ''}`}>
             <FaShoppingCart className="cartWidget"/>
             <span>{totalCantidad()}</span>
         </Link>

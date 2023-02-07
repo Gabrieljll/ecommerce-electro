@@ -10,6 +10,14 @@
     align-items: center;
     width: min-content;
     margin-right: 10px;
+    visibility: hidden;
+    opacity: 0;
+    transition: .3s ease-in-out all;
+}
+
+.cartWidget-active {
+    visibility: visible;
+    opacity: 1;
 }
 
 .cartCounter {

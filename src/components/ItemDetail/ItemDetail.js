@@ -27,7 +27,7 @@ const ItemDetail = ( {id, name, description, image, price, stock, category}) => 
             <small>Categoría: {category}</small>
             <p>{description}</p>
             <p>Precio: ${price}</p>
-
+            { stock <= 15 && <strong>{stock === 1 ? 'Última unidad disponible!' : 'Ultimas '+stock+' unidades disponibles!'}</strong>}
 
             {
                 !isInCart(id)
