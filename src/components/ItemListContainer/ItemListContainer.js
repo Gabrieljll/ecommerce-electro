@@ -31,10 +31,8 @@ export const ItemListContainer = ({ greeting }) => {
 
   return (
         <div>
-            {
-                loading
-                ? <h2>Cargando...</h2>
-                : <ItemList productos={productos}/>
+            {   
+                 <ItemList productos={productos} loading={loading}/>
             }
         </div>    
     )

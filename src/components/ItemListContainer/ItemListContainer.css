@@ -13,3 +13,15 @@
 .itemList_greeting {
     margin: auto;
 }
+
+.loader-div {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loader {
+    pointer-events: none;
+    width: 6rem;
+}
