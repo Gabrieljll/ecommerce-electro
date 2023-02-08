@@ -2,7 +2,7 @@ import { useState } from "react"
 import { Navigate, Link} from "react-router-dom"
 import { useCartContext } from "../../context/CartContext"
 import { db } from "../../firebase/config"
-import { collection, writeBatch, documentId, query, getDocs, addDoc, doc, updateDoc, getDoc, where} from "firebase/firestore"
+import { collection, writeBatch, documentId, query, getDocs, addDoc, where} from "firebase/firestore"
 
 export const Checkout = () => {
 
@@ -64,18 +64,6 @@ export const Checkout = () => {
         } else {
             alert("Hay Items sin stock")
         }
-
-        /* cart.forEach(prod =>{
-            const docRef = doc(productosRef, prod.id)
-            getDoc(docRef)
-                .then(doc =>{
-                    if (doc.data().stock - prod.cantidad > 0) {
-                        updateDoc(docRef, {stock: doc.data().stock - prod.cantidad})
-                    } else {
-                        alert ("No hay stock disponible")
-                    }
-                })
-        }) */
     }
 
     if (orderId){
