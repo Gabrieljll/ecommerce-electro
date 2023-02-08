@@ -2,7 +2,7 @@ import Item from '../Item/Item'
 import { Loader } from '../Loader/Loader'
 
 
-const ItemList = ( {productos, loading}) => {
+const ItemList = ( {productos, loading} ) => {
   return (
     <div className="container my-5">
       <h2>Nuestros productos</h2>

@@ -3,26 +3,21 @@ import { Navigate, Link} from "react-router-dom"
 import { useCartContext } from "../../context/CartContext"
 import { db } from "../../firebase/config"
 import { collection, writeBatch, documentId, query, getDocs, addDoc, where} from "firebase/firestore"
+import { Formik } from "formik"
+import * as Yup from 'yup'
+
+const schema = Yup.object().shape({
+    nombre: Yup.string().min(4, 'Mínimo 4 caracteres').max(30, 'Máximo 30 caracteres').required('Este campo es requerido'),
+    direccion: Yup.string().min(8, 'Mínimo 8 caracteres').max(40, 'Máximo 40 caracteres').required('Este campo es requerido'),
+    email: Yup.string().email('El email no es válido').required('Este campo es obligatorio')
+})
 
 export const Checkout = () => {
 
     const { cart, totalCart, emptyCart} = useCartContext()
-    const [values, setValues] = useState ( { 
-        nombre: "",
-        direccion:"" ,
-        email:""
-    })
-
     const [orderId, setOrderId] = useState(null)
 
-    const handleInputChange = (e) => {
-        setValues({
-            ...values,
-            [e.target.name]: e.target.value
-        })
-    }
-    const handleSubmit = async(e) => {
-        e.preventDefault()
+    const createOrder = async(values) => {
 
         const orden = {
             cliente: values,
@@ -84,13 +79,55 @@ export const Checkout = () => {
             <h2>Terminar Compra</h2>
             <hr />
 
-        <form onSubmit={handleSubmit}>
-            <input className="form-control my-2" type="text" name="nombre" onChange={handleInputChange} value={values.nombre} placeholder="Nombre" />
-            <input className="form-control my-2" type="text" name="direccion" onChange={handleInputChange} value={values.direccion} placeholder="Dirección"/>
-            <input className="form-control my-2" type="text" name="email" onChange={handleInputChange} value={values.email} placeholder="Email" />
+            <Formik
+                initialValues={{
+                    nombre: '',
+                    direccion: '',
+                    email: ''
+                }}
+                onSubmit={(values) => {
+                    createOrder(values)
+                }}
+                validationSchema={schema}
+            >
+                {({
+                    values, handleChange, handleSubmit, errors
+                }) => (
+                    <form onSubmit={handleSubmit}>
+                        <input
+                            className="form-control my-2"
+                            onChange={handleChange}
+                            type="text"
+                            name="nombre"
+                            value={values.nombre}
+                            placeholder="Tu nombre"
+                        />
+                        {errors.nombre && <p>{errors.nombre}</p>}
 
-            <button className="btn btn-primary">Enviar</button>
-        </form>
+                        <input
+                            className="form-control my-2"
+                            onChange={handleChange}
+                            type="text"
+                            name="direccion"
+                            value={values.direccion}
+                            placeholder="Tu dirección"
+                        />
+                        {errors.direccion && <p>{errors.direccion}</p>}
+
+                        <input
+                            className="form-control my-2"
+                            onChange={handleChange}
+                            type="email"
+                            name="email"
+                            value={values.email}
+                            placeholder="Tu email"
+                        />
+                        {errors.email && <p>{errors.email}</p>}
+
+                        <button className="btn btn-primary" type="submit">Enviar</button>
+                    </form>
+                )}
+            </Formik>
 
 
         </div>
