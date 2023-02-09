@@ -2,6 +2,7 @@ import './ItemListContainer.css'
 import  ItemList  from '../ItemList/ItemList'
 import { useProductos } from './hooks/useProductos'
 import { ErrorScreen } from '../ErrorScreen/ErrorScreen'
+import { Loader } from '../Loader/Loader'
 
 export const ItemListContainer = () => {
 
@@ -9,9 +10,11 @@ export const ItemListContainer = () => {
     return (
             <div>
                 {
-                    productos.length === 0
-                        ? <ErrorScreen error="La categoría solicitada no existe" />
-                        :<ItemList productos={productos} loading={loading}/>
+                    loading
+                        ? <Loader />
+                        : productos.length === 0
+                            ?   <ErrorScreen error="La categoría solicitada no existe" />
+                            :   <ItemList productos={productos} />
                 }
             </div>    
         )

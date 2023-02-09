@@ -5,18 +5,20 @@ import {ItemListContainer} from '../components/ItemListContainer/ItemListContain
 import ItemDetailContainer from '../components/ItemDetailContainer/ItemDetailContainer';
 import { Routes, Route } from "react-router-dom";
 import { Checkout } from '../components/Checkout/Checkout';
+import { HomeScreen } from '../components/HomeScreen/HomeScreen';
 export const PrivateRoutes = () => {
     return (
         <div className="App">
             <Navbar />
             <Routes>
-                <Route path="/" element={ <ItemListContainer /> }/>
+                <Route path="/home" element={ <HomeScreen /> }/>
+                <Route path="/productos" element={ <ItemListContainer /> }/>
                 <Route path="/contacto" element={ <Contacto/> }/>
                 <Route path="/productos/:categoryId" element={ <ItemListContainer /> }/>
                 <Route path="/detail/:itemId" element={ <ItemDetailContainer /> }/>
                 <Route path="/cart" element={ <Cart /> }/>
                 <Route path="/checkout" element={ <Checkout /> }/>
-                <Route path="/*" element={ <ItemListContainer /> }/>
+                <Route path="/*" element={ <HomeScreen /> }/>
             </Routes>
         </div>
     )

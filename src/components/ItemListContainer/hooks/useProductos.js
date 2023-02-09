@@ -9,26 +9,28 @@ export const useProductos = () => {
     const { categoryId } = useParams()
   
     useEffect( () => {
-      setLoading(true)
+        setProductos([])
+        setLoading(true)
       
-      const productosRef = collection(db, "productos")
-      const q = categoryId
-                  ? query(productosRef, where("category", "==", categoryId) ) 
-                  : productosRef
+        
+        const productosRef = collection(db, "productos")
+        const q = categoryId
+            ? query(productosRef, where("category", "==", categoryId) ) 
+            : productosRef
   
-      getDocs(q)
-          .then( (resp) => {
-              setProductos(resp.docs.map( (doc) => {
-                  return {
-                      ...doc.data(),
-                      id: doc.id
-                  }
-              }))
-          })
-          .finally ( () => {
-              setLoading(false)
-          })
-    }, [categoryId])
+        getDocs(q)
+            .then( (resp) => {
+                setProductos(resp.docs.map( (doc) => {
+                    return {
+                        ...doc.data(),
+                        id: doc.id
+                    }
+                }))
+            })
+            .finally ( () => {
+                setLoading(false)
+            })
+        }, [categoryId])
 
     return {
         productos,
