@@ -19,7 +19,7 @@ export const Navbar = () =>{
       </nav>
       <div className='header-container'>
         <p className="m-2">Bienvenido {user.email}</p>
-        <button className="btn btn-danger m-2" onClick={logout}>Logout</button>
+        <Link to="login" className="btn btn-danger m-2" onClick={logout}>Logout</Link>
       </div>
     </header>
   )

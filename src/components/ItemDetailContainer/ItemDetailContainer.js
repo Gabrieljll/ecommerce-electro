@@ -7,7 +7,6 @@ import { db } from "../../firebase/config"
 import { ErrorScreen } from "../ErrorScreen/ErrorScreen"
 
 const ItemDetailContainer = () => {
-
     const [item, setItem] = useState(null)
     const [loading, setLoading] = useState(true)
     const { itemId } = useParams()
@@ -15,29 +14,23 @@ const ItemDetailContainer = () => {
     useEffect( () => {
         setLoading(true)
         const docRef = doc(db, "productos", itemId)
-        if (docRef){
-            getDoc(docRef)
-            .then( (doc) => {
-                setItem(( {...doc.data(), id: doc.id}))
-            })
-            .finally( () =>{
-                setLoading(false)
-            })
-        } else {
-            return (
-                <ErrorScreen></ErrorScreen>
-            )
-        }
+        getDoc(docRef)
+        .then( (doc) => {
+            setItem(( {...doc.data(), id: doc.id}))
+        })
+        .finally( () =>{
+            setLoading(false)
+        })
     }, [itemId])
-    
+
     return (
         <div className="container my-5">
             {
                 loading
                     ? <Loader />
-                    : item.name 
+                    : item.name
                         ? <ItemDetail {...item} />
-                        : <ErrorScreen error="No se encuentra el producto solicitado"/>
+                        : <ErrorScreen error="No se encuentra el producto solicitado" />
             }
         </div>
     )

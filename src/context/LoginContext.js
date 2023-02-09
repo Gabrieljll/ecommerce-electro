@@ -74,7 +74,6 @@ export const LoginProvider = ({children}) => {
             } else {
                 logout()
             }
-            
         })
     }, [])
     return (

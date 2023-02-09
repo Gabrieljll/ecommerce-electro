@@ -5,7 +5,6 @@ import {ItemListContainer} from '../components/ItemListContainer/ItemListContain
 import ItemDetailContainer from '../components/ItemDetailContainer/ItemDetailContainer';
 import { Routes, Route } from "react-router-dom";
 import { Checkout } from '../components/Checkout/Checkout';
-import { ErrorScreen } from '../components/ErrorScreen/ErrorScreen';
 export const PrivateRoutes = () => {
     return (
         <div className="App">
@@ -17,7 +16,7 @@ export const PrivateRoutes = () => {
                 <Route path="/detail/:itemId" element={ <ItemDetailContainer /> }/>
                 <Route path="/cart" element={ <Cart /> }/>
                 <Route path="/checkout" element={ <Checkout /> }/>
-                <Route path="*" element={<ErrorScreen /> }/>
+                <Route path="/*" element={ <ItemListContainer /> }/>
             </Routes>
         </div>
     )

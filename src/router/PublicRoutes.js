@@ -1,4 +1,5 @@
 import { Routes, Route } from "react-router-dom";
+import { ErrorScreen } from "../components/ErrorScreen/ErrorScreen";
 import LoginScreen from '../components/LoginScreen/LoginScreen';
 import { RegisterScreen } from "../components/RegisterScreen/RegisterScreen"
 export const PublicRoutes = () => {
@@ -6,6 +7,7 @@ export const PublicRoutes = () => {
         <Routes>
             <Route path="/login" element={ <LoginScreen /> }/>
             <Route path="/register" element={ <RegisterScreen /> }/>
+            <Route path="/*" element={ <ErrorScreen error="No tiene permisos para ingresar, debe loguearse primero" logged={false}/> }/>
         </Routes>
     )
 }
