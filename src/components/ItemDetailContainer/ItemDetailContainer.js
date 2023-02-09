@@ -5,13 +5,11 @@ import { Loader } from "../Loader/Loader"
 import { doc, getDoc } from "firebase/firestore"
 import { db } from "../../firebase/config"
 import { ErrorScreen } from "../ErrorScreen/ErrorScreen"
-import { useLoginContext } from "../../context/LoginContext"
 
 const ItemDetailContainer = () => {
     const [item, setItem] = useState(null)
     const [loading, setLoading] = useState(true)
     const { itemId } = useParams()
-    const { user } = useLoginContext()
 
     useEffect( () => {
         setItem(null)
@@ -32,7 +30,7 @@ const ItemDetailContainer = () => {
                 loading
                     ? <Loader />
                     : !item.name
-                        ? <ErrorScreen error="No se encuentra el producto solicitado" logged={user.logged}/>
+                        ? <ErrorScreen error="No se encuentra el producto solicitado" logged={true}/>
                         : <ItemDetail {...item} />
             }
         </div>

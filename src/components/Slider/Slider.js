@@ -2,6 +2,7 @@
 import HeroSlider, {Slide} from "hero-slider"
 const image1 = "../../../public/images/slider/1.jpg"
 const image2 = "../../../public/images/slider/2.jpg"
+const image3 = "https://i.imgur.com/Gu5Cznz.jpg"
 
 export const Slider = () => {
     return (
@@ -42,7 +43,7 @@ export const Slider = () => {
 
             <Slide
                 background={{
-                    backgroundImage: image1,
+                    backgroundImage: image3,
                     backgroundAttachment: "fixed"
                 }}
             >

@@ -6,6 +6,7 @@ import ItemDetailContainer from '../components/ItemDetailContainer/ItemDetailCon
 import { Routes, Route } from "react-router-dom";
 import { Checkout } from '../components/Checkout/Checkout';
 import { HomeScreen } from '../components/HomeScreen/HomeScreen';
+import { ErrorScreen } from '../components/ErrorScreen/ErrorScreen';
 export const PrivateRoutes = () => {
     return (
         <div className="App">
@@ -18,7 +19,7 @@ export const PrivateRoutes = () => {
                 <Route path="/detail/:itemId" element={ <ItemDetailContainer /> }/>
                 <Route path="/cart" element={ <Cart /> }/>
                 <Route path="/checkout" element={ <Checkout /> }/>
-                <Route path="/*" element={ <HomeScreen /> }/>
+                <Route path="/*" element={ <ErrorScreen error="No se encuentra la url solicitada" logged={true} /> }/>
             </Routes>
         </div>
     )

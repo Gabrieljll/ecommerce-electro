@@ -64,6 +64,7 @@ export const LoginProvider = ({children}) => {
     }
 
     useEffect ( () => {
+        setLoading(true)
         onAuthStateChanged(auth, (user) =>{
             if (user){
                 setUser({
@@ -75,10 +76,11 @@ export const LoginProvider = ({children}) => {
                 logout()
             }
         })
+        setLoading(false)
     }, [])
     return (
         <LoginContext.Provider value={{user, login, logout, loading, register, googleLogin}}>
             {children}
-        </LoginContext.Provider>
+        </LoginContext.Provider>               
     )
 }
