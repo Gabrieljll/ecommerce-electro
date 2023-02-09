@@ -1,11 +1,11 @@
 import "./LoginScreen.css"
 import { useLoginContext } from "../../context/LoginContext"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import { useForm } from "../../hooks/useForm"
 
 const LoginScreen = () => {
     const {login, user, loading, googleLogin} = useLoginContext()
-
+    const navigate = useNavigate()
     const {values, handleInputChange} = useForm({
         email: "",
         password: ""
@@ -14,6 +14,10 @@ const LoginScreen = () => {
     const handleSubmit = (e) => {
         e.preventDefault()
         login(values)
+        if(user){
+            console.log("llega")
+            navigate("/home")
+        }
     }
     return (
         <div className="login-screen">
