@@ -25,7 +25,7 @@ export const Slider = () => {
           shouldAutoplay: true,
           shouldDisplayButtons: true,
           autoplayDuration: 5000,
-          width: "50%"
+          width: "100%"
         }}
             >
             <Slide
@@ -40,7 +40,6 @@ export const Slider = () => {
                 background={{
                     backgroundImageSrc: image2,
                     backgroundAttachment: "fixed",
-                    width:"100%",
                 }}
             >
             </Slide>
