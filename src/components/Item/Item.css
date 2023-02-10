@@ -21,10 +21,18 @@
     width: max-content;
     font-family: "TTChocolate";
     margin: auto;
+    background-color: #a95ab0;
+    border: none;
+    color: white;
 }
 
 .cardItemName {
     font-family: "TTChocolate";
     width: max-content;
     margin: auto;
+}
+
+.btnVerMas:hover {
+    background-color: #8b1496;
+    border: none;
 }
