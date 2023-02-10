@@ -20,7 +20,6 @@ export const ErrorScreen = ({error, logged}) => {
         if(contador===0){
             navigate("/home")
         } else {
-            console.log(contador)
             setTimeout(() => {
                 setContador(contador-1)
             }, 1000)
