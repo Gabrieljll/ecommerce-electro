@@ -1,0 +1,12 @@
+@font-face {
+    font-family: "TTChocolate";
+    src: url("../../public/fonts/TT_Chocolates_Medium.otf");
+}
+
+body {
+    background-color: #f0f0f0
+}
+
+hr {
+    color: rgb(140 103 186);
+}

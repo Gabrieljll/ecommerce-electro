@@ -15,6 +15,20 @@
     font-size: 2.5rem;
     color: white;
     margin: 0 10px;
+    font-family: "TTChocolate";
+}
+
+.user-welcome {
+    font-family: "TTChocolate";
+}
+
+.header_link {
+    font-family: "TTChocolate";
+    font-size: 1.2rem;
+}
+
+.header_link:hover {
+    color: #680571;
 }
 
 header {

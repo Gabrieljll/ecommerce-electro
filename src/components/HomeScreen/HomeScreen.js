@@ -6,9 +6,9 @@ export const HomeScreen = () => {
             <div className="divSlider">
                 <Slider />
             </div>
-            <div className="home-information">
-                <h1>informacion de natpotencia</h1>
-            </div>
+{/*             <div className="home-information">
+                
+            </div> */}
         </div>
     )
 }

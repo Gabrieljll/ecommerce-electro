@@ -1,5 +1,6 @@
 .cartWidget {
-    font-size: 1.5rem;
+    font-size: 2rem;
+    font-family: "TTChocolate";
 }
 
 .cartWidgetBtn {
@@ -21,11 +22,9 @@
 }
 
 .cartCounter {
-    font-size: 1.3rem;
+    font-size: 1.5rem;
     color: white;
-    background-color: red;
-    border-radius: 50%;
-    width: 25px;
     margin: auto;
     text-align: center;
+    font-family: "TTChocolate";
 }

@@ -18,4 +18,10 @@
 .btnVerMas {
     display: flex;
     justify-content: center;
+    width: max-content;
+    font-family: "TTChocolate";
+}
+
+.cardItemText {
+    font-family: "TTChocolate";
 }

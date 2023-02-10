@@ -3,6 +3,7 @@ import  ItemCount  from "../ItemCount/ItemCount"
 import { useState } from "react"
 import { useCartContext } from "../../context/CartContext"
 import { Link } from 'react-router-dom'
+import "./ItemDetail.css"
 
 const ItemDetail = ( {id, name, description, image, price, stock, category}) => {
 
@@ -20,23 +21,31 @@ const ItemDetail = ( {id, name, description, image, price, stock, category}) => 
         agregarAlCarrito(item)
     }
     return ( 
-        <div>
-            <h2>{name}</h2>
-            <img src={image} alt={image} />
-            <br/>
-            <small>Categoría: {category}</small>
-            <p>{description}</p>
-            <p>Precio: ${price}</p>
-            { stock <= 15 && <strong>{stock === 1 ? 'Última unidad disponible!' : 'Ultimas '+stock+' unidades disponibles!'}</strong>}
+        <>
+        <div className="divItem">
+            <div className="divItemImage">
+                <h2 className="cardItemText itemTitle">{name}</h2>
+                <img src={image} alt={image} />
+                <br/>
+                <small className="cardItemText itemCategory">Categoría: {category}</small>
+            </div>
+            <div className="divItemDetails">
+                <p className="cardItemText itemDescription">{description}</p>
+                <hr />
+                <div className="divPriceAndAdd">
+                    <p className="cardItemText itemPrice">Precio: ${price}</p>
+                    { stock <= 15 && <div><strong className="cardItemText lastest-unities">{stock === 1 ? 'Última unidad disponible!' : 'Ultimas '+stock+' unidades disponibles!'}</strong></div>}
 
-            {
-                !isInCart(id)
-                    ? <ItemCount cantidad={cantidad} setCantidad={setCantidad} max={stock}  handleAgregar={handleAgregar}/>
-                    : <Link to="/cart" className="btn btn-success">Terminar mi compra</Link>
-            }
-            <hr/>
-            <button className="btn btn-primary" onClick={handleVolver}>Volver</button>
+                    {
+                        !isInCart(id)
+                            ? <ItemCount cantidad={cantidad} setCantidad={setCantidad} max={stock}  handleAgregar={handleAgregar}/>
+                            : <Link to="/cart" className="cardItemText btn btn-success">Terminar mi compra</Link>
+                    }
+                </div>
+            </div>
         </div>
+        <button className="btn-back cardItemText btn btn-primary" onClick={handleVolver}>Seguir viendo productos</button>
+        </>
     )
 }
 

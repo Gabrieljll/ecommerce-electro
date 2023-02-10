@@ -1,0 +1,15 @@
+.btnVerMas {
+    display: flex;
+    justify-content: center;
+    width: max-content;
+    font-family: "TTChocolate";
+}
+
+.cardItemText {
+    font-family: "TTChocolate";
+}
+
+.btn-success {
+    background-color: #3d986f;
+    font-size: 1.4rem;
+}

@@ -20,7 +20,7 @@ export const Navbar = () =>{
                 <CartWidget/>
             </nav>
             <div className='header-container'>
-                <p className="m-2">Bienvenido {user.email}</p>
+                <p className="m-2 user-welcome">Bienvenido {user.email}</p>
                 <Link to="login" className="btn btn-danger m-2" onClick={logout}>Logout</Link>
             </div>
             </header>

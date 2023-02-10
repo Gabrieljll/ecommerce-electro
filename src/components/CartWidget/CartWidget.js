@@ -9,7 +9,7 @@ export const CartWidget = () => {
     return (
         <Link to="/cart" className={`cartWidgetBtn ${cart.length > 0 ? 'cartWidget-active' : ''}`}>
             <FaShoppingCart className="cartWidget"/>
-            <span>{totalCantidad()}</span>
+            <span className="cartCounter">{totalCantidad()}</span>
         </Link>
     )
 }
