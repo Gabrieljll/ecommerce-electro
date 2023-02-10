@@ -20,8 +20,11 @@
     justify-content: center;
     width: max-content;
     font-family: "TTChocolate";
+    margin: auto;
 }
 
-.cardItemText {
+.cardItemName {
     font-family: "TTChocolate";
+    width: max-content;
+    margin: auto;
 }

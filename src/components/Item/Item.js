@@ -8,9 +8,9 @@ const Item = ( {name, image, description, price, category, id}) => {
             <img className="product-image" src={image} alt={name} />
             <hr />
             <div className="card-container">
-                    <h4 className="cardItemText">{name}</h4>
-                    <p className="cardItemText">Precio: <b className="cardItemText">${price}</b></p>
-                    <small className="cardItemText">Categoría: {category}</small>
+                    <h4 className="cardItemName">{name}</h4>
+                    {/* <p className="cardItemText">Precio: <b className="cardItemText">${price}</b></p>
+                    <small className="cardItemText">Categoría: {category}</small> */}
                 <Link to={`/detail/${id}`} className="btn btn-outline-primary my-2 btnVerMas">Ver más</Link>
             </div>
         </div>
