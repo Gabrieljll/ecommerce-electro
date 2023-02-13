@@ -40,7 +40,7 @@ export const ErrorScreen = ({error, logged}) => {
                 loading
                     ? <></>
                     : logged
-                        ?   <Link className="btn btn-primary" to={"/productos"}>Volver</Link>
+                        ?   <Link className="btn btn-primary" to={"/home"}>Ir al inicio!</Link>
                         :   <Link className="btn btn-primary" to={"/login"}>Login</Link>
             }
         </div>
