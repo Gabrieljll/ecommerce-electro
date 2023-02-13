@@ -7,7 +7,7 @@ import { Loader } from '../Loader/Loader'
 export const ItemListContainer = () => {
     const {productos, loading} = useProductos()
     return (
-            <div className="container my-5">
+            <div className="container my-5 itemListContainer-body">
                 {
                     loading
                         ? <Loader />

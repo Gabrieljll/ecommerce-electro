@@ -25,3 +25,7 @@
     pointer-events: none;
     width: 6rem;
 }
+
+.itemListContainer-body {
+    height: max-content !important;
+}

@@ -1,3 +1,4 @@
+import "./Checkout.css"
 import { useState } from "react"
 import { Navigate, Link} from "react-router-dom"
 import { useCartContext } from "../../context/CartContext"
@@ -63,7 +64,7 @@ export const Checkout = () => {
 
     if (orderId){
         return (
-            <div className="container my-5">
+            <div className="container my-5 checkout-body">
                 <h2>Tu compra ha sido exitosa</h2>
                 <hr/>
                 <p>Tu código de orden es: {orderId}</p>
@@ -75,7 +76,7 @@ export const Checkout = () => {
         return <Navigate to="/" />
     }
     return (
-        <div className="container m-5">
+        <div className="container my-5 checkout-body">
             <h2>Terminar Compra</h2>
             <hr />
 

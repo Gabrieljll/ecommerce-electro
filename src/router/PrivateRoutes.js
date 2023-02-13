@@ -7,6 +7,7 @@ import { Routes, Route } from "react-router-dom";
 import { Checkout } from '../components/Checkout/Checkout';
 import { HomeScreen } from '../components/HomeScreen/HomeScreen';
 import { ErrorScreen } from '../components/ErrorScreen/ErrorScreen';
+import { Footer } from '../components/Footer/Footer';
 export const PrivateRoutes = () => {
     return (
         <div className="App">
@@ -21,6 +22,7 @@ export const PrivateRoutes = () => {
                 <Route path="/checkout" element={ <Checkout /> }/>
                 <Route path="/*" element={ <ErrorScreen error="No se encuentra la url solicitada" logged={true} /> }/>
             </Routes>
+            <Footer />
         </div>
     )
 }
