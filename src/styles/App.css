@@ -3,6 +3,10 @@
     src: url("../../public/fonts/TT_Chocolates_Medium.otf");
 }
 
+* {
+    font-family: "TTChocolate"
+}
+
 body {
     background-color: #f0f0f0;
 }

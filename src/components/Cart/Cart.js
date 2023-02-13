@@ -19,16 +19,22 @@ const Cart = () => {
 
     return (
             <div className="container my-5 cart-body">
+                <div>
+                    
+                </div>
                 <h2>Tu compra</h2>
                 <hr />
                 {
                     cart.map(item => (
-                        <div key={item.id}>
-                            <h4>{item.name}</h4>
-                            <p>Cantidad: {item.cantidad}</p>
-                            <p>Precio: ${item.price * item.cantidad}</p>
-                            <button onClick={() => removeItem(item.id)} className="btn btn-outline-danger"><FaTrashAlt /></button>
-                            <hr/>
+                        <div className="divItem" key={item.id}>
+                            <div className="divCartDetails">
+                                <h2>{item.name}</h2>
+                                <h5>Cantidad: {item.cantidad}</h5>
+                                <h5>Precio: ${item.price * item.cantidad}</h5>
+                            </div>
+                            <div className="divCartDeleteItem">
+                                <button onClick={() => removeItem(item.id)} className="btn btn-outline-danger"><FaTrashAlt /></button>
+                            </div>
                         </div>
                     ))
                 }

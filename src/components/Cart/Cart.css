@@ -1,7 +1,14 @@
 .cart-body {
     height: 70vh !important;
+    width: 100vh;
 }
 
 .emptyCart {
     font-size: 1.4rem;
 }
+
+.divCartDetails {
+    width: 70%;
+}
+
+.divCartDeleteItem {}
