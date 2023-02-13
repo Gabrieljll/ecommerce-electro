@@ -1,6 +1,6 @@
 import Item from '../Item/Item'
 
-const ItemList = ( {productos } ) => {
+const ItemList = ( { productos } ) => {
   return (
     <div className="container my-5">
       <section className="row my-4">

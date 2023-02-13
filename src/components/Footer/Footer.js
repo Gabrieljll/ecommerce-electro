@@ -12,8 +12,8 @@ export const Footer = () => {
                 <p className="p-footer social">¡Siguenos en redes!</p>
             </div>
             <div className="divFooterText divFooterSocialImgs">
-                <BsFacebook className='socialImg' />  
-                <BsInstagram className='socialImg' />  
+                <a href="https://www.facebook.com/NatPotencia"><BsFacebook className='socialImg' /> </a>
+                <a href="https://www.instagram.com/natpotencia/?igshid=ZDdkNTZiNTM%3D"><BsInstagram className='socialImg' />   </a>
             </div>    
             <div className="divFooterText">
                 <p className="p-footer">Los productos pertenecen a Omnilife y Seytú</p>

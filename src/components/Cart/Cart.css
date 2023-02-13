@@ -1,3 +1,7 @@
 .cart-body {
     height: 70vh !important;
 }
+
+.emptyCart {
+    font-size: 1.4rem;
+}

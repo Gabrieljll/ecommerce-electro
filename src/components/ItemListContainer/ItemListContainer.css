@@ -29,3 +29,7 @@
 .itemListContainer-body {
     height: max-content !important;
 }
+
+.heigh70vh {
+    height: 70vh !important;
+}
