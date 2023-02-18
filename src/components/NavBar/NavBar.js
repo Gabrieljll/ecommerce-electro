@@ -8,7 +8,7 @@ export const Navbar = () =>{
     return (
             <>
             <header className="header">
-            <h1 className="header_logo my-4">NATPotencia</h1>
+            <h1 className="header_logo my-4">NatPotencia</h1>
 
             <nav className="my-4">
                 <Link className="header_link" to="/home">Inicio</Link>
