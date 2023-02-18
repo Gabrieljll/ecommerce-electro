@@ -7,8 +7,11 @@ import { collection, writeBatch, documentId, query, getDocs, addDoc, where} from
 import { Formik } from "formik"
 import * as Yup from 'yup'
 
+const telefonoRegExp = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/
 const schema = Yup.object().shape({
     nombre: Yup.string().min(4, 'Mínimo 4 caracteres').max(30, 'Máximo 30 caracteres').required('Este campo es requerido'),
+    apellido: Yup.string().min(4, 'Mínimo 4 caracteres').max(30, 'Máximo 30 caracteres').required('Este campo es requerido'),
+    telefono: Yup.string().matches(telefonoRegExp, 'El número de telefono no es válido').required('Este campo es requerido'),
     direccion: Yup.string().min(8, 'Mínimo 8 caracteres').max(40, 'Máximo 40 caracteres').required('Este campo es requerido'),
     email: Yup.string().email('El email no es válido').required('Este campo es obligatorio')
 })
@@ -83,6 +86,8 @@ export const Checkout = () => {
             <Formik
                 initialValues={{
                     nombre: '',
+                    apellido: '',
+                    telefono: '',
                     direccion: '',
                     email: ''
                 }}
@@ -94,39 +99,108 @@ export const Checkout = () => {
                 {({
                     values, handleChange, handleSubmit, errors
                 }) => (
-                    <form onSubmit={handleSubmit}>
-                        <input
-                            className="form-control my-2"
-                            onChange={handleChange}
-                            type="text"
-                            name="nombre"
-                            value={values.nombre}
-                            placeholder="Tu nombre"
-                        />
-                        {errors.nombre && <p>{errors.nombre}</p>}
-
-                        <input
-                            className="form-control my-2"
-                            onChange={handleChange}
-                            type="text"
-                            name="direccion"
-                            value={values.direccion}
-                            placeholder="Tu dirección"
-                        />
-                        {errors.direccion && <p>{errors.direccion}</p>}
-
-                        <input
-                            className="form-control my-2"
-                            onChange={handleChange}
-                            type="email"
-                            name="email"
-                            value={values.email}
-                            placeholder="Tu email"
-                        />
-                        {errors.email && <p>{errors.email}</p>}
-
-                        <button className="btn btn-primary" type="submit">Enviar</button>
-                    </form>
+                    <div className="checkout-form-items">
+                        <form className="form-body" onSubmit={handleSubmit}>
+                            <div className="divInput">
+                                <label className="labelInput" htmlFor="nombre">Nombre:</label>
+                                <input
+                                    className="form-control my-2"
+                                    onChange={handleChange}
+                                    id="nombre"
+                                    type="text"
+                                    name="nombre"
+                                    value={values.nombre}
+                                    placeholder="Tu nombre"
+                                />
+                                <div className="divInputError">
+                                    {errors.nombre && <p>{errors.nombre}</p>}
+                                </div>
+                            </div>
+                            <div className="divInput">
+                                <label className="labelInput" htmlFor="apellido">Apellido:</label>
+                                <input
+                                    className="form-control my-2"
+                                    onChange={handleChange}
+                                    type="text"
+                                    id="apellido"
+                                    name="apellido"
+                                    value={values.apellido}
+                                    placeholder="Tu apellido"
+                                />
+                                <div className="divInputError">
+                                    {errors.apellido && <p>{errors.apellido}</p>}
+                                </div>
+                            </div>
+                            <div className="divInput">
+                                <label className="labelInput" htmlFor="telefono">Telefono:</label>
+                                <input
+                                    className="form-control my-2"
+                                    onChange={handleChange}
+                                    type="number"
+                                    id="telefono"
+                                    name="telefono"
+                                    value={values.telefono}
+                                    placeholder="Ej: 1111111111"
+                                />
+                                <div className="divInputError">
+                                    {errors.telefono && <p>{errors.telefono}</p>}
+                                </div>
+                            </div>
+                            <div className="divInput">
+                                <label className="labelInput" htmlFor="direccion">Direccion:</label>
+                                <input
+                                    className="form-control my-2"
+                                    onChange={handleChange}
+                                    type="text"
+                                    id="direccion"
+                                    name="direccion"
+                                    value={values.direccion}
+                                    placeholder="Ej: Avenida Ejemplo 123"
+                                />
+                                <div className="divInputError">
+                                    {errors.direccion && <p>{errors.direccion}</p>}
+                                </div>
+                            </div>
+                            <div className="divInput">
+                                <label className="labelInput" htmlFor="email">Email:</label>
+                                <input
+                                    className="form-control my-2"
+                                    onChange={handleChange}
+                                    type="email"
+                                    id="email"
+                                    name="email"
+                                    value={values.email}
+                                    placeholder="Ej: jhon@ejemplo.com"
+                                />
+                                <div className="divInputError">
+                                    {errors.email && <p>{errors.email}</p>}
+                                </div>
+                            </div>
+                            <div className="divFormButtons">
+                                <button className="btn btn-primary" type="submit">Enviar</button>
+                                <button className="btn btn-danger">Cancelar</button>
+                            </div>
+                        </form>
+                        <div className="items">
+                        {
+                            cart.map(item => (
+                                <div className="divItem divItem-checkout" key={item.id}>
+                                    
+                                        <div>
+                                            <h3>{item.name}</h3>
+                                        </div>
+                                        <div>
+                                            <h4 className="quantity">Cantidad: {item.cantidad}</h4>
+                                        </div>
+                                        <div>
+                                            <h4>Precio: ${item.price * item.cantidad}</h4>
+                                        </div>
+                                    </div>
+                            ))
+                        }
+                        <h4>Total: ${totalCart()}</h4>
+                        </div>
+                    </div>
                 )}
             </Formik>
 
