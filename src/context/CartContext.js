@@ -20,6 +20,28 @@ export const CartProvider = ({children}) => {
         setCart(newCart)
         localStorage.setItem('cart', JSON.stringify(cart))
     }
+    const modificarCantidadItem = (itemParam, cantidad) =>{
+        let posicion = cart.indexOf(itemParam)
+        if ( posicion !== -1 ){
+            const newCart = []
+            const newItem = {
+                id: itemParam.id,
+                name: itemParam.name,
+                description: itemParam.description,
+                image: itemParam.image,
+                price: itemParam.price,
+                stock: itemParam.stock,
+                category: itemParam.category,
+                cantidad: cantidad
+            }
+            for(let i = 0; i < cart.length; i++){
+                (i !== posicion) ? newCart.push(cart[i]) : newCart.push(newItem)
+            }
+            setCart(newCart)
+            localStorage.setItem('cart', JSON.stringify(cart))
+        }
+        return true && cart[posicion]
+    }
 
     const removeItem = (id) => {
         setCart(cart.filter(item => item.id !== id) )
@@ -46,7 +68,7 @@ export const CartProvider = ({children}) => {
     },[cart])
 
     return (
-        <CartContext.Provider value={  { cart, agregarAlCarrito, isInCart, emptyCart, totalCart, removeItem, totalCantidad}}>
+        <CartContext.Provider value={  { cart, agregarAlCarrito, isInCart, emptyCart, totalCart, removeItem, totalCantidad, modificarCantidadItem}}>
             {children}
         </CartContext.Provider>
     )

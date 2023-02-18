@@ -34,12 +34,15 @@ const ItemDetail = ( {id, name, description, image, price, stock, category}) => 
                 <hr />
                 <div className="divPriceAndAdd">
                     <p className="cardItemText itemPrice">Precio: ${price}</p>
-                    { stock <= 15 && <div><strong className="cardItemText lastest-unities">{stock === 1 ? 'Última unidad disponible!' : 'Ultimas '+stock+' unidades disponibles!'}</strong></div>}
-
+                    { stock <= 15 && 
+                        <div>
+                            <strong className="cardItemText lastest-unities">{stock === 1 ? 'Última unidad disponible!' : 'Ultimas '+stock+' unidades disponibles!'}</strong>
+                        </div>
+                    }
                     {
                         !isInCart(id)
                             ? <ItemCount cantidad={cantidad} setCantidad={setCantidad} max={stock}  handleAgregar={handleAgregar}/>
-                            : <Link to="/cart" className="cardItemText btn btn-success">Terminar mi compra</Link>
+                            : <Link to="/cart" className={`cardItemText btn btn-success ${!isInCart(id) ? "disabled" : ""}`}>Terminar mi compra</Link>
                     }
                 </div>
             </div>

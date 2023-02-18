@@ -11,4 +11,27 @@
     width: 70%;
 }
 
-.divCartDeleteItem {}
+.divOptionsButtons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.btn-outline-info:hover {
+    --bs-btn-hover-bg: #8dcbd8;
+}
+
+.btn-outline-danger:hover {
+    --bs-btn-hover-bg: #da505d;
+}
+
+.optionsButtons {
+    margin: 0 10px;
+}
+
+.quantity {
+    margin-bottom: 0;
+    margin-top: 0;
+    margin-left: 10px;
+    margin-right: 10px;
+}
