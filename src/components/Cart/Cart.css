@@ -1,5 +1,6 @@
 .cart-body {
-    height: 70vh !important;
+    min-height: 70vh !important;
+    height: max-content;
     width: 100vh;
 }
 

@@ -1,5 +1,10 @@
+* {
+    font-family: "TTChocolate";
+}
+
 .checkout-body {
-    height: 70vh !important;
+    height: max-content !important;
+    min-height: 70vh;
 }
 
 .form-body {
@@ -11,6 +16,7 @@
 
 .form-body input {
     width: 20rem;
+    margin-bottom: 0px !important;
 }
 
 .divFormButtons {
@@ -18,9 +24,10 @@
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+    margin-top: 1rem;
 }
 
-.divFormButtons button {
+.divFormButtons * {
     width: 12rem;
 }
 
@@ -35,23 +42,25 @@
     width: max-content;
     display: flex;
     justify-content: space-evenly;
-    align-items: center;
+    align-items: baseline;
 }
 
 .divInputError p {
     margin: auto auto auto 1rem;
     width: 100%;
+    color: red;
 }
 
 .checkout-form-items {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .divItem-checkout {
     display: flex;
-    flex-direction: column;
+    /* flex-direction: column; */
     align-items: center;
 }
 
@@ -67,5 +76,25 @@
 }
 
 .items {
-    width: 20rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    flex-direction: column;
+    height: min-content;
+}
+
+.divInput-inputError {
+    height: 4rem;
+}
+
+.divTotal {
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.divTotal h4 {
+    border-bottom: 2px solid;
 }

@@ -34,10 +34,11 @@ const ItemDetail = ( {id, name, description, image, price, stock, category}) => 
                 <hr />
                 <div className="divPriceAndAdd">
                     <p className="cardItemText itemPrice">Precio: ${price}</p>
-                    { stock <= 15 && 
-                        <div>
-                            <strong className="cardItemText lastest-unities">{stock === 1 ? 'Última unidad disponible!' : 'Ultimas '+stock+' unidades disponibles!'}</strong>
+                    { stock < 15 && stock > 0 
+                        ?<div>
+                            <strong className="cardItemText lastest-unities">{(stock === 1) ? 'Última unidad disponible!' : 'Ultimas '+stock+' unidades disponibles!'}</strong>
                         </div>
+                        :<></>
                     }
                     {
                         !isInCart(id)

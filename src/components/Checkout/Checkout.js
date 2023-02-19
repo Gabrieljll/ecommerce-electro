@@ -71,13 +71,19 @@ export const Checkout = () => {
                 <h2>Tu compra ha sido exitosa</h2>
                 <hr/>
                 <p>Tu código de orden es: {orderId}</p>
-                <Link className="btn btn-primary" to="/">Volver</Link>
+                <Link className="btn btn-primary" to="/home">Volver</Link>
             </div>
         )
     }
-    if ( cart.length === 0 ) {
-        return <Navigate to="/" />
+    const volverAlInicio = () => {
+        return <Navigate to="/home" />
     }
+
+    if ( cart.length === 0 ) {
+        volverAlInicio()
+    }
+
+
     return (
         <div className="container my-5 checkout-body">
             <h2>Terminar Compra</h2>
@@ -100,88 +106,7 @@ export const Checkout = () => {
                     values, handleChange, handleSubmit, errors
                 }) => (
                     <div className="checkout-form-items">
-                        <form className="form-body" onSubmit={handleSubmit}>
-                            <div className="divInput">
-                                <label className="labelInput" htmlFor="nombre">Nombre:</label>
-                                <input
-                                    className="form-control my-2"
-                                    onChange={handleChange}
-                                    id="nombre"
-                                    type="text"
-                                    name="nombre"
-                                    value={values.nombre}
-                                    placeholder="Tu nombre"
-                                />
-                                <div className="divInputError">
-                                    {errors.nombre && <p>{errors.nombre}</p>}
-                                </div>
-                            </div>
-                            <div className="divInput">
-                                <label className="labelInput" htmlFor="apellido">Apellido:</label>
-                                <input
-                                    className="form-control my-2"
-                                    onChange={handleChange}
-                                    type="text"
-                                    id="apellido"
-                                    name="apellido"
-                                    value={values.apellido}
-                                    placeholder="Tu apellido"
-                                />
-                                <div className="divInputError">
-                                    {errors.apellido && <p>{errors.apellido}</p>}
-                                </div>
-                            </div>
-                            <div className="divInput">
-                                <label className="labelInput" htmlFor="telefono">Telefono:</label>
-                                <input
-                                    className="form-control my-2"
-                                    onChange={handleChange}
-                                    type="number"
-                                    id="telefono"
-                                    name="telefono"
-                                    value={values.telefono}
-                                    placeholder="Ej: 1111111111"
-                                />
-                                <div className="divInputError">
-                                    {errors.telefono && <p>{errors.telefono}</p>}
-                                </div>
-                            </div>
-                            <div className="divInput">
-                                <label className="labelInput" htmlFor="direccion">Direccion:</label>
-                                <input
-                                    className="form-control my-2"
-                                    onChange={handleChange}
-                                    type="text"
-                                    id="direccion"
-                                    name="direccion"
-                                    value={values.direccion}
-                                    placeholder="Ej: Avenida Ejemplo 123"
-                                />
-                                <div className="divInputError">
-                                    {errors.direccion && <p>{errors.direccion}</p>}
-                                </div>
-                            </div>
-                            <div className="divInput">
-                                <label className="labelInput" htmlFor="email">Email:</label>
-                                <input
-                                    className="form-control my-2"
-                                    onChange={handleChange}
-                                    type="email"
-                                    id="email"
-                                    name="email"
-                                    value={values.email}
-                                    placeholder="Ej: jhon@ejemplo.com"
-                                />
-                                <div className="divInputError">
-                                    {errors.email && <p>{errors.email}</p>}
-                                </div>
-                            </div>
-                            <div className="divFormButtons">
-                                <button className="btn btn-primary" type="submit">Enviar</button>
-                                <button className="btn btn-danger">Cancelar</button>
-                            </div>
-                        </form>
-                        <div className="items">
+                                                <div className="items">
                         {
                             cart.map(item => (
                                 <div className="divItem divItem-checkout" key={item.id}>
@@ -198,8 +123,102 @@ export const Checkout = () => {
                                     </div>
                             ))
                         }
-                        <h4>Total: ${totalCart()}</h4>
+                        <div className="divTotal">
+                            <h4>Total: ${totalCart()}</h4>
                         </div>
+                        </div>
+                        <form className="form-body" onSubmit={handleSubmit}>
+                            <div className="divInput">
+                                <label className="labelInput" htmlFor="nombre">Nombre:</label>
+                                <div className="divInput-inputError">
+                                    <input
+                                        className="form-control my-2"
+                                        onChange={handleChange}
+                                        id="nombre"
+                                        type="text"
+                                        name="nombre"
+                                        value={values.nombre}
+                                        placeholder="Tu nombre"
+                                    />
+                                    <div className="divInputError">
+                                        {errors.nombre && <p>{errors.nombre}</p>}
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="divInput">
+                                <label className="labelInput" htmlFor="apellido">Apellido:</label>
+                                <div className="divInput-inputError">
+                                    <input
+                                        className="form-control my-2"
+                                        onChange={handleChange}
+                                        type="text"
+                                        id="apellido"
+                                        name="apellido"
+                                        value={values.apellido}
+                                        placeholder="Tu apellido"
+                                    />
+                                    <div className="divInputError">
+                                        {errors.apellido && <p>{errors.apellido}</p>}
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="divInput">
+                                <label className="labelInput" htmlFor="telefono">Telefono:</label>
+                                <div className="divInput-inputError">
+                                    <input
+                                        className="form-control my-2"
+                                        onChange={handleChange}
+                                        type="number"
+                                        id="telefono"
+                                        name="telefono"
+                                        value={values.telefono}
+                                        placeholder="Ej: 1111111111"
+                                    />
+                                    <div className="divInputError">
+                                        {errors.telefono && <p>{errors.telefono}</p>}
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="divInput">
+                                <label className="labelInput" htmlFor="direccion">Direccion:</label>
+                                <div className="divInput-inputError">
+                                    <input
+                                        className="form-control my-2"
+                                        onChange={handleChange}
+                                        type="text"
+                                        id="direccion"
+                                        name="direccion"
+                                        value={values.direccion}
+                                        placeholder="Ej: Avenida Ejemplo 123"
+                                    />
+                                    <div className="divInputError">
+                                        {errors.direccion && <p>{errors.direccion}</p>}
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="divInput">
+                                <label className="labelInput" htmlFor="email">Email:</label>
+                                <div className="divInput-inputError">
+                                    <input
+                                        className="form-control my-2"
+                                        onChange={handleChange}
+                                        type="email"
+                                        id="email"
+                                        name="email"
+                                        value={values.email}
+                                        placeholder="Ej: jhon@ejemplo.com"
+                                    />
+                                    <div className="divInputError">
+                                        {errors.email && <p>{errors.email}</p>}
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="divFormButtons">
+                                <button className="btn btn-primary" type="submit">Comprar</button>
+                                <Link className="btn btn-danger" to="/home">Cancelar</Link>
+                            </div>
+                        </form>
+
                     </div>
                 )}
             </Formik>
