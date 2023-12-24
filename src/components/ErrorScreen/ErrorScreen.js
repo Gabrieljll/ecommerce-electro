@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom"
 import { Loader } from "../Loader/Loader";
-import "./ErrorScreen.css"
+
 
 export const ErrorScreen = ({error, logged}) => {
     const [loading, setLoading] = useState(true)
@@ -27,7 +27,7 @@ export const ErrorScreen = ({error, logged}) => {
         }
     }
     return (
-        <div className="container my-5 errorScreen-body">
+        <div className="errorScreen-body">
             {
                 loading
                     ? <Loader />

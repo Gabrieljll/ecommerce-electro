@@ -8,6 +8,7 @@ import { Checkout } from '../components/Checkout/Checkout';
 import { HomeScreen } from '../components/HomeScreen/HomeScreen';
 import { ErrorScreen } from '../components/ErrorScreen/ErrorScreen';
 import { Footer } from '../components/Footer/Footer';
+import { FormularioMail } from '../components/FormularioMail/FormularioMail';
 export const PrivateRoutes = () => {
     return (
         <div className="App">
@@ -15,7 +16,7 @@ export const PrivateRoutes = () => {
             <Routes>
                 <Route path="/home" element={ <HomeScreen /> }/>
                 <Route path="/productos" element={ <ItemListContainer /> }/>
-                <Route path="/contacto" element={ <Contacto/> }/>
+                <Route path="/contactenos" element={ <FormularioMail/> }/>
                 <Route path="/productos/:categoryId" element={ <ItemListContainer /> }/>
                 <Route path="/detail/:itemId" element={ <ItemDetailContainer /> }/>
                 <Route path="/cart" element={ <Cart /> }/>

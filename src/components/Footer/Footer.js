@@ -1,32 +1,47 @@
-import { BsFacebook } from 'react-icons/bs'
-import { BsInstagram } from 'react-icons/bs'
-import { FaGithub } from 'react-icons/fa'
-import { FaLinkedin } from 'react-icons/fa'
-
-
+import { Link as LinkScroll   } from 'react-scroll'
+import { Link } from 'react-router-dom'
 import "./Footer.css"
 export const Footer = () => {
+    const scrollToTop = () => {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth', // Hace que el desplazamiento sea suave
+        });
+      };
     return (
-        <div className="footer">
-            <div className="divFooterText">
-                <p className="p-footer social">¡Siguenos en redes!</p>
-            </div>
-            <div className="divFooterText divFooterSocialImgs">
-                <a href="https://www.facebook.com/NatPotencia"><BsFacebook className='socialImg' /> </a>
-                <a href="https://www.instagram.com/natpotencia/?igshid=ZDdkNTZiNTM%3D"><BsInstagram className='socialImg' />   </a>
-            </div>    
-            <div className="divFooterText">
-                <p className="p-footer">Los productos pertenecen a Omnilife y Seytú</p>
-            </div>
+    <footer className="bg-very-dark-blue py-24">
+    <section className="wrapper grid gap-12 justify-center footer-area md:footer-area-md md:grid-cols-3 md:justify-items-center">
 
-            <div className="divFooterText">
-                <p className="p-footer">© 2023 Nat Potencia, todos los derechos reservados</p>
-            </div>
-            <div className="divFooterText divDev divFooterSocialImgs">
-                <a href="https://github.com/Gabrieljll"><FaGithub className='socialImg' /> </a>
-                <a href="https://www.linkedin.com/in/gabriel-leguizam%C3%B3n-910bb0182/"><FaLinkedin className='socialImg' /> </a>
-            </div>
-            
+        <nav className="grid gap-y-4 justify-center text-white w-full md:w-full md:grid-cols-2 lg:grid-cols-3">
+        <Link to="home"  onClick={scrollToTop}>Inicio</Link>
+        <LinkScroll to="/productos">Tienda</LinkScroll>
+        <LinkScroll to="nosotros" smooth={true} duration={500}>Sobre Nosotros</LinkScroll>
+        <Link to="/contacto">Contacto</Link>
+        <LinkScroll to="atencionCliente" smooth={true} duration={500}>Atención al Cliente</LinkScroll>
+        </nav>
+
+        <div className="flex flex-wrap gap-4 justify-center w-full md:justify-center">
+        <a href="#">
+            <img src="./images/footer/icon-facebook.svg" className="w-8" />
+        </a>
+        <a href="#">
+            <img src="./images/footer/icon-twitter.svg" className="w-8" />
+        </a>
+        <a href="#">
+            <img src="./images/footer/icon-instagram.svg" className="w-8" />
+        </a>
         </div>
+
+        <Link to="home"  onClick={scrollToTop} className="flex justify-center md:justify-end">
+            <p className="font-extrabold text-white text-6xl">LOGO</p>
+        </Link>
+
+        <p className="text-dark-grayish-blue text-center md:text-right md:col-span-2 lg:col-span-3">
+        Copyright 2023. All Rights Reserved
+        </p>
+    </section>
+    </footer>
+
+
     )
 }

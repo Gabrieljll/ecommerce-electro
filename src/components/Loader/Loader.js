@@ -1,8 +1,8 @@
 import "./Loader.css"
 export const Loader = () => {
     return (
-        <div className="loader-div">
-            <img src="/images/gif/loader.gif" className='loader' alt="" />
-        </div>
+<div className="flex justify-center items-center h-screen">
+  <img src="/images/gif/118605_spin_icon.svg" className='animate-spin size-20' alt="" />
+</div>
     )
 }

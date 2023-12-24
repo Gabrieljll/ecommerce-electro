@@ -1,0 +1,103 @@
+.section {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 16px 0;
+}
+
+.sectionTextoImagen {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.sectionTextoImagen div {
+    display: flex;
+    justify-content: center;
+    width: 50%;
+}
+
+.sectionImagen {
+    justify-content: flex-end !important;
+}
+
+.section3 {
+    width: 100%;
+}
+
+.firstSection {
+    background: rgb(16, 14, 17);
+    background: linear-gradient(158deg, rgba(16, 14, 17, 1) 58%, rgba(108, 102, 111, 0.6755077030812324) 78%, rgba(113, 109, 115, 0.11528361344537819) 100%, rgba(249, 239, 250, 1) 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 550px;
+}
+
+.firstSection img {
+    opacity: 0.7;
+}
+
+.firstSection h3,
+h1 {
+    color: white;
+}
+
+.secondSection {
+    background: rgb(249, 239, 250);
+    background: linear-gradient(158deg, rgba(249, 239, 250, 1) 58%, rgba(113, 109, 115, 0.11528361344537819) 78%, rgba(108, 102, 111, 0.6755077030812324) 100%, rgba(16, 14, 17, 1) 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 550px;
+}
+
+.secondSection h3,
+h1 {
+    color: black;
+}
+
+.sectionMarcas {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.divContainerMarcas {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.sectionCardMarcas {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.sectionCardMarcas div {
+    display: flex;
+    justify-content: center;
+}
+
+.slick-slide>div {
+    margin: 0 10px !important;
+}
+
+.slick-dots li.slick-active button:before {
+    color: orange !important;
+}
+
+.slick-next:before {
+    content: ">" !important;
+    font-size: 4rem;
+    color: black;
+}
+
+.slick-prev:before {
+    content: "<" !important;
+    font-size: 4rem;
+    color: black;
+}

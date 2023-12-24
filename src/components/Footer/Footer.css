@@ -8,6 +8,10 @@
     align-items: center;
 }
 
+a {
+    cursor: pointer;
+}
+
 .divDev {
     border-top: 0.5px solid rgba(255, 255, 255, 0.259);
     margin-top: 0px !important;

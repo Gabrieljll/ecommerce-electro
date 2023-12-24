@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@layer components {
+    .wrapper {
+        @apply w-[90%] mx-auto overflow-hidden max-w-screen-xl;
+    }
+    .button {
+        @apply bg-bright-red text-vary-light-gray block w-max py-4 px-12 rounded-full;
+    }
+    .sliderInformation {
+        @apply text-vary-light-gray block py-4 px-12 w-full h-full bg-gradient-to-r from-black to-transparent;
+    }
+    .sectionInformation {
+        @apply text-vary-light-gray block py-4 px-12 w-full h-full bg-gradient-to-r to-black from-transparent;
+    }
+    .footer-area {
+        grid-template-areas: "form" "navigation" "social-media" "logo" "copy";
+    }
+    .footer-area-md {
+        grid-template-areas: "logo           navigation  form" "social-media   navigation  copy";
+    }
+    .buttonAction {
+        @apply bg-bright-red text-vary-light-gray block w-max py-4 px-12 rounded-full;
+    }
+    .card {
+        @apply rounded-xl shadow-lg
+    }
+}

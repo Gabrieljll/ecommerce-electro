@@ -25,7 +25,7 @@ const ItemDetailContainer = () => {
     }, [itemId])
 
     return (
-        <div className="container my-5">
+        <>
             {
                 loading
                     ? <Loader />
@@ -33,7 +33,7 @@ const ItemDetailContainer = () => {
                         ? <ErrorScreen error="No se encuentra el producto solicitado" logged={true}/>
                         : <ItemDetail {...item} />
             }
-        </div>
+        </>
     )
 }
 

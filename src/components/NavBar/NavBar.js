@@ -1,29 +1,59 @@
 import { CartWidget } from '../CartWidget/CartWidget'
-import './NavBar.css'
+
 import { Link } from 'react-router-dom'
-import { useLoginContext } from '../../context/LoginContext'
+import { Link as LinkScroll   } from 'react-scroll'
+
 
 export const Navbar = () =>{
-    const { user, logout} = useLoginContext()
     return (
-            <>
-            <header className="header">
-            <h1 className="header_logo my-4">NatPotencia</h1>
+            
+        <div className="font-principal">
+            <header className="shadow-lg z-100 w-full bg-very-dark-blue">
 
-            <nav className="my-4">
-                <Link className="header_link" to="/home">Inicio</Link>
-                <Link className="header_link" to="/productos">Productos</Link>
-                <Link className="header_link" to="/productos/corporal">Corporal</Link>
-                <Link className="header_link" to="/productos/maquillaje">Maquillaje</Link>
-                <Link className="header_link" to="/productos/capilar">Capilar</Link>
-                <Link className="header_link" to="/productos/suplementos">Suplementos</Link>
-                <CartWidget/>
-            </nav>
-            <div className='header-container'>
-                <p className="m-2 user-welcome">Bienvenido {user.email}</p>
-                <Link to="login" className="btn btn-danger m-2" onClick={logout}>Logout</Link>
-            </div>
+                <nav className="wrapper h-20 w-screen flex items-center justify-between">
+
+                    <Link to="/home" className="">
+                        {/* <img src="./images/logo.svg" className="w-full" /> */}
+                        <p className="font-extrabold text-white text-6xl">LOGO</p>
+                    </Link>
+
+                    <input type="checkbox" id="menu" className="peer hidden" />
+
+                    <label htmlFor="menu" className="ml-auto bg-open-menu text-white w-6 h-5 bg-cover bg-center cursor-pointer peer-checked:bg-close-menu transition-all z-50 lg:hidden"></label>
+
+                    <div className="fixed inset-0 bg-gradient-to-b from-white/70 to-black/70 translate-x-full peer-checked:translate-x-0 transition-transform z-40 lg:static lg:bg-none lg:translate-x-0">
+
+                        <ul className="absolute inset-x-0 top-24 p-12 bg-white w-[90%] mx-auto rounded-md h-max text-center grid gap-6 font-bold text-dark-blue lg:text-white shadow-2xl lg:w-max lg:bg-transparent lg:p-0 lg:grid-flow-col lg:static text-xl">
+
+                            <li>
+                                <Link className="" to="/home">Inicio</Link>
+                            </li>
+
+                            <li>
+                                <Link to="/productos">Tienda</Link>
+                            </li>
+
+                            <li>
+                                <LinkScroll to="nosotros" smooth={true} duration={500}>Sobre Nosotros</LinkScroll>
+                            </li>
+
+                            <li>
+                                <LinkScroll to="atencionCliente" smooth={true} duration={500}>Atención al Cliente</LinkScroll>
+                            </li>
+
+                            <li>
+                                <Link to="/contactenos">Contáctenos</Link>
+                            </li>
+
+
+                        </ul>
+
+                    </div>
+
+                    <CartWidget/>
+                </nav>
+
             </header>
-            </>  
+        </div>
   )
 }

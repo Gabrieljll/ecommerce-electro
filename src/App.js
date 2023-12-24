@@ -1,7 +1,7 @@
 
-import 'bootstrap/dist/css/bootstrap.min.css';
-import './styles/animate.min.css';
+
 import './styles/App.css';
+import './styles/estilos.css';
 import { LoginProvider } from './context/LoginContext'
 import { CartProvider } from './context/CartContext'
 import { AppRouter } from './router/AppRouter'
