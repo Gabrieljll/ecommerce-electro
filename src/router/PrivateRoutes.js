@@ -21,7 +21,7 @@ export const PrivateRoutes = () => {
                 <Route path="/detail/:itemId" element={ <ItemDetailContainer /> }/>
                 <Route path="/cart" element={ <Cart /> }/>
                 <Route path="/checkout" element={ <Checkout /> }/>
-                <Route path="/*" element={ <ErrorScreen error="No se encuentra la url solicitada" logged={true} /> }/>
+                <Route path="/*" element={ <HomeScreen/> }/>
             </Routes>
             <Footer />
         </div>
