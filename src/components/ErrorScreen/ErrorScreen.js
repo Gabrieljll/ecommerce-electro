@@ -6,7 +6,7 @@ import { Loader } from "../Loader/Loader";
 
 export const ErrorScreen = ({error, logged}) => {
     const [loading, setLoading] = useState(true)
-    const [contador, setContador] = useState(5)
+    const [contador, setContador] = useState(1)
 
     const navigate = useNavigate()
     setTimeout(() => {
