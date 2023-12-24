@@ -14,10 +14,7 @@ const LoginScreen = () => {
     const handleSubmit = (e) => {
         e.preventDefault()
         login(values)
-        if(user){
-            console.log("llega")
-            navigate("/home")
-        }
+        navigate("/home")
     }
     return (
         <div className="login-screen">

@@ -9,7 +9,7 @@ export const AppRouter = () => {
     return (
         <BrowserRouter>
             {   
-                user.logged
+                true
                     ?   <PrivateRoutes />
                     :   <PublicRoutes />
             }                
