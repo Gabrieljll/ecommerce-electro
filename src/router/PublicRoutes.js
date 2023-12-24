@@ -7,7 +7,7 @@ export const PublicRoutes = () => {
         <Routes>
             <Route path="/login" element={ <LoginScreen /> }/>
             <Route path="/register" element={ <RegisterScreen /> }/>
-            <Route path="/*" element={ <ErrorScreen error="Debe loguearse primero" logged={false}/> }/>
+            <Route path="/*" element={ <ErrorScreen error="Debe loguearse primero" logged={true}/> }/>
         </Routes>
     )
 }
