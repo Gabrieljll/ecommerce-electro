@@ -21,16 +21,16 @@ export const ItemListContainer = () => {
             </span>
             <p className="text-gray-600 font-medium">Tienda</p>
         </div>
-        <div className="container flex lg:grid grid-cols-4 gap-6 pt-4 pb-16 items-start m-auto">
-            <button className="text-center shadow-lg text-dark-blue lg:hidden relative bg-primary p-2 rounded border" onClick={() => setSidebarOpen   (!isSidebarOpen)}
+        <div className="container flex xl:grid xl:grid-cols-4 gap-6 pt-4 pb-16 items-start m-auto">
+            <button className="text-center shadow-xl text-dark-blue xl:hidden relative bg-primary p-2 rounded border" onClick={() => setSidebarOpen   (!isSidebarOpen)}
             >
                 {isSidebarOpen ? 'Filtros':'' }
             </button>
-            <div className={`lg:flex ${isSidebarOpen ? 'hidden' : 'flex'} flex-col bg-white p-4 shadow transition-transform duration-300 lg:transform-none`} >
+            <div className={`xl:flex ${isSidebarOpen ? 'hidden' : 'flex'} flex-col bg-white p-4 shadow transition-transform duration-300 xl:transform-none`} >
                 <div className="bg-overlay"></div>
                 {/* sidebar */}
-                <div className="absolute inset-x-0 top-24 p-12 bg-white w-[90%] mx-auto rounded-md h-max text-center grid gap-6 font-bold text-dark-blue lg:text-white shadow-2xl lg:w-max lg:bg-transparent lg:p-0 lg:grid-flow-col lg:static text-xl z-10">
-                    <button className="lg:hidden relative bg-primary text-black p-2 rounded border shadow-lg" onClick={() => setSidebarOpen   (!isSidebarOpen)}>
+                <div className="xl:flex xl:justify-center xl:items-center xl:w-[100%] w-max xl:col-span-1 xl:static inset-x-0 top-24 p-12 bg-white mx-auto rounded-md h-max text-center gap-6 font-bold text-dark-blue xl:text-white shadow-2xl bg-transparent grid-flow-col absolute text-xl z-10">
+                    <button className="xl:hidden relative bg-primary text-black p-2 mb-4 rounded border shadow-lg" onClick={() => setSidebarOpen   (!isSidebarOpen)}>
                     Cerrar Filtros
                     </button>
                     <div className="divide-y divide-gray-200 space-y-5">
