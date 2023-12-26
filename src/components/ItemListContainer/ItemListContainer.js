@@ -3,10 +3,11 @@ import  ItemList  from '../ItemList/ItemList'
 import { useProductos } from './hooks/useProductos'
 import { ErrorScreen } from '../ErrorScreen/ErrorScreen'
 import { Loader } from '../Loader/Loader'
-import React from 'react'
+import React, { useState } from 'react'
 
 
 export const ItemListContainer = () => {
+    const [isSidebarOpen, setSidebarOpen] = useState(true);
     const {productos, loading} = useProductos()
     return (
         
@@ -20,78 +21,88 @@ export const ItemListContainer = () => {
             </span>
             <p className="text-gray-600 font-medium">Tienda</p>
         </div>
-        <div className="container grid grid-cols-4 gap-6 pt-4 pb-16 items-start m-auto">
-            {/* sidebar */}
-            <div className="col-span-1 bg-white px-4 pb-6 shadow rounded overflow-hidden">
-                <div className="divide-y divide-gray-200 space-y-5">
+        <div className="container flex lg:grid grid-cols-4 gap-6 pt-4 pb-16 items-start m-auto">
+            <button className="text-center shadow-lg text-dark-blue lg:hidden relative bg-primary p-2 rounded border" onClick={() => setSidebarOpen   (!isSidebarOpen)}
+            >
+                {isSidebarOpen ? 'Filtros':'' }
+            </button>
+            <div className={`lg:flex ${isSidebarOpen ? 'hidden' : 'flex'} flex-col bg-white p-4 shadow transition-transform duration-300 lg:transform-none`} >
+                <div className="bg-overlay"></div>
+                {/* sidebar */}
+                <div className="absolute inset-x-0 top-24 p-12 bg-white w-[90%] mx-auto rounded-md h-max text-center grid gap-6 font-bold text-dark-blue lg:text-white shadow-2xl lg:w-max lg:bg-transparent lg:p-0 lg:grid-flow-col lg:static text-xl z-10">
+                    <button className="lg:hidden relative bg-primary text-black p-2 rounded border shadow-lg" onClick={() => setSidebarOpen   (!isSidebarOpen)}>
+                    Cerrar Filtros
+                    </button>
+                    <div className="divide-y divide-gray-200 space-y-5">
                         {/* category filter */}
-                    <div>
-                        <h3 className="text-xl text-gray-800 mb-3 uppercase font-medium">categorías</h3>
-                        <div className="space-y-2">
-                            {/* single category */}
-                            <div className="flex items-center">
-                                <input type="checkbox" id="cat-1" className="text-primary focus:ring-0 rounded-sm cursor-pointer" />
-                                <label htmlFor="cat-1" className="text-gray-600 ml-3 cursor-pointer">Bedroom</label>
-                                <div className="ml-auto text-gray-600 text-sm">(15)</div>
-                            </div>
-                            <div className="flex items-center">
-                                <input type="checkbox" id="cat-1" className="text-primary focus:ring-0 rounded-sm cursor-pointer" />
-                                <label htmlFor="cat-1" className="text-gray-600 ml-3 cursor-pointer">Bedroom</label>
-                                <div className="ml-auto text-gray-600 text-sm">(15)</div>
+                        <div>
+                            <h3 className="text-xl text-gray-800 mb-3 uppercase font-medium">categorías</h3>
+                            <div className="space-y-2">
+                                {/* single category */}
+                                <div className="flex items-center">
+                                    <input type="checkbox" id="cat-1" className="text-primary focus:ring-0 rounded-sm cursor-pointer" />
+                                    <label htmlFor="cat-1" className="text-gray-600 ml-3 cursor-pointer">Bedroom</label>
+                                    <div className="ml-auto text-gray-600 text-sm">(15)</div>
+                                </div>
+                                <div className="flex items-center">
+                                    <input type="checkbox" id="cat-1" className="text-primary focus:ring-0 rounded-sm cursor-pointer" />
+                                    <label htmlFor="cat-1" className="text-gray-600 ml-3 cursor-pointer">Bedroom</label>
+                                    <div className="ml-auto text-gray-600 text-sm">(15)</div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                        {/* category filter end */}
+                            {/* category filter end */}
 
-                    {/* MARCAS */}
-                    <div>
-                        <h3 className="text-xl text-gray-800 mb-3 uppercase font-medium">marcas</h3>
-                        <div className="space-y-2">
-                            {/* single category */}
-                            <div className="flex items-center">
-                                <input type="checkbox" id="cat-1" className="text-primary focus:ring-0 rounded-sm cursor-pointer" />
-                                <label htmlFor="cat-1" className="text-gray-600 ml-3 cursor-pointer">Bedroom</label>
-                                <div className="ml-auto text-gray-600 text-sm">(15)</div>
-                            </div>
-                            <div className="flex items-center">
-                                <input type="checkbox" id="cat-1" className="text-primary focus:ring-0 rounded-sm cursor-pointer" />
-                                <label htmlFor="cat-1" className="text-gray-600 ml-3 cursor-pointer">Bedroom</label>
-                                <div className="ml-auto text-gray-600 text-sm">(15)</div>
+                        {/* MARCAS */}
+                        <div>
+                            <h3 className="text-xl text-gray-800 mb-3 uppercase font-medium">marcas</h3>
+                            <div className="space-y-2">
+                                {/* single category */}
+                                <div className="flex items-center">
+                                    <input type="checkbox" id="cat-1" className="text-primary focus:ring-0 rounded-sm cursor-pointer" />
+                                    <label htmlFor="cat-1" className="text-gray-600 ml-3 cursor-pointer">Bedroom</label>
+                                    <div className="ml-auto text-gray-600 text-sm">(15)</div>
+                                </div>
+                                <div className="flex items-center">
+                                    <input type="checkbox" id="cat-1" className="text-primary focus:ring-0 rounded-sm cursor-pointer" />
+                                    <label htmlFor="cat-1" className="text-gray-600 ml-3 cursor-pointer">Bedroom</label>
+                                    <div className="ml-auto text-gray-600 text-sm">(15)</div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    {/* MARCAS FINAL */}
-                    {/* FILTRO PRECIOS */}
-                    <div className="pt-4">
-                        <h3 className="text-xl text-gray-800 mb-3 uppercase font-medium">precio</h3>
-                        <div className="mt-4 flex items-center">
-                            <input type="text" className="w-full border-gray-300 focus:border-primary focus:ring-0 px-3 py-1 text-gray-600 text-sm shadow-sm rounded" placeholder="Minimo" />
-                            <span className="mx-3 text-gray-500">-</span>
-                            <input type="text" className="w-full border-gray-300 focus:border-primary focus:ring-0 px-3 py-1 text-gray-600 text-sm shadow-sm rounded" placeholder="Maximo" />
+                        {/* MARCAS FINAL */}
+                        {/* FILTRO PRECIOS */}
+                        <div className="pt-4">
+                            <h3 className="text-xl text-gray-800 mb-3 uppercase font-medium">precio</h3>
+                            <div className="mt-4 flex items-center">
+                                <input type="text" className="w-full border-gray-300 focus:border-primary focus:ring-0 px-3 py-1 text-gray-600 text-sm shadow-sm rounded" placeholder="Minimo" />
+                                <span className="mx-3 text-gray-500">-</span>
+                                <input type="text" className="w-full border-gray-300 focus:border-primary focus:ring-0 px-3 py-1 text-gray-600 text-sm shadow-sm rounded" placeholder="Maximo" />
+                            </div>
                         </div>
-                    </div>
-                    {/* FILTRO PRECIOS FINAL */}
+                        {/* FILTRO PRECIOS FINAL */}
 
 
-                    {/* COLOR PRECIOS */}
-                    <div className="pt-4">
-                        <h3 className="text-xl text-gray-800 mb-3 uppercase font-medium">color</h3>
-                        <div className="flex items-center gap-2">
-                            <div className="color-selector">
-                                <input type="radio" name="color" className="hidden" id="color-red" />
-                                <label htmlFor="color-red" className="border border-gray-200 rounded-sm h-5 w-5 cursor-pointer shadow-sm block" style={{backgroundColor: "#fc3d57"}}></label>
-                            </div>
-                            <div className="color-selector">
-                                <input type="radio" name="color" className="hidden" id="color-white" />
-                                <label htmlFor="color-white" className="border border-gray-200 rounded-sm h-5 w-5 cursor-pointer shadow-sm block" style={{backgroundColor: "#fff"}}></label>
-                            </div>
-                            <div className="color-selector">
-                                <input type="radio" name="color" className="hidden" id="color-black" />
-                                <label htmlFor="color-black" className="border border-gray-200 rounded-sm h-5 w-5 cursor-pointer shadow-sm block" style={{backgroundColor: "#000"}}></label>
+                        {/* COLOR PRECIOS */}
+                        <div className="pt-4">
+                            <h3 className="text-xl text-gray-800 mb-3 uppercase font-medium">color</h3>
+                            <div className="flex items-center gap-2">
+                                <div className="color-selector">
+                                    <input type="radio" name="color" className="hidden" id="color-red" />
+                                    <label htmlFor="color-red" className="border border-gray-200 rounded-sm h-5 w-5 cursor-pointer shadow-sm block" style={{backgroundColor: "#fc3d57"}}></label>
+                                </div>
+                                <div className="color-selector">
+                                    <input type="radio" name="color" className="hidden" id="color-white" />
+                                    <label htmlFor="color-white" className="border border-gray-200 rounded-sm h-5 w-5 cursor-pointer shadow-sm block" style={{backgroundColor: "#fff"}}></label>
+                                </div>
+                                <div className="color-selector">
+                                    <input type="radio" name="color" className="hidden" id="color-black" />
+                                    <label htmlFor="color-black" className="border border-gray-200 rounded-sm h-5 w-5 cursor-pointer shadow-sm block" style={{backgroundColor: "#000"}}></label>
+                                </div>
                             </div>
                         </div>
+                        {/* COLOR PRECIOS FINAL */}
                     </div>
-                    {/* COLOR PRECIOS FINAL */}
                 </div>
             </div>
             {/* products */}
@@ -107,7 +118,7 @@ export const ItemListContainer = () => {
                 {/* ordenamiento Final*/}
                 </div>
                 {/* products grid */}
-                <div className="grid grid-cols-3 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                     {/* CARD PRODUCTO */}
                     <div className="bg-white shadow rounded overflow-hidden group">
                         <div className="relative">

@@ -14,4 +14,17 @@
     .footer-area-md {
         grid-template-areas: "logo           navigation  form" "social-media   navigation  copy";
     }
+    /* styles.css */
+    .bg-overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.7);
+        z-index: 9;
+        /* Ajusta el valor según sea necesario, debe ser menor que el Z-index del filtro */
+        display: none;
+    }
+    /* Muestra el fondo oscuro cuando el filtro está abierto */
+    .filter-open .bg-overlay {
+        display: block;
+    }
 }
