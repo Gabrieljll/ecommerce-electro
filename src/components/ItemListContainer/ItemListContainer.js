@@ -29,8 +29,8 @@ export const ItemListContainer = () => {
             <div className={`xl:flex ${isSidebarOpen ? 'hidden' : 'flex'} flex-col bg-white p-4 shadow transition-transform duration-300 xl:transform-none`} >
                 <div className="bg-overlay"></div>
                 {/* sidebar */}
-                <div className="xl:flex xl:justify-center xl:items-center xl:w-[100%] w-max xl:col-span-1 xl:static inset-x-0 top-24 p-12 bg-white mx-auto rounded-md h-max text-center gap-6 font-bold text-dark-blue xl:text-white shadow-2xl bg-transparent grid-flow-col absolute text-xl z-10">
-                    <button className="xl:hidden relative bg-primary text-black p-2 mb-4 rounded border shadow-lg" onClick={() => setSidebarOpen   (!isSidebarOpen)}>
+                <div className="xl:flex xl:justify-center xl:items-center xl:w-[100%] w-max xl:col-span-1 xl:static inset-x-0 top-24 p-12 bg-white mx-auto rounded-md h-max text-center gap-6 font-bold text-dark-blue xl:text-white xl:shadow-none shadow-2xl bg-transparent grid-flow-col absolute text-xl z-10">
+                    <button className="xl:hidden relative bg-primary text-black p-2 mb-4 rounded shadow-lg xl:shadow-none" onClick={() => setSidebarOpen   (!isSidebarOpen)}>
                     Cerrar Filtros
                     </button>
                     <div className="divide-y divide-gray-200 space-y-5">
