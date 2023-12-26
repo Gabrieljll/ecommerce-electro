@@ -24,6 +24,9 @@
         @apply bg-bright-red text-vary-light-gray block w-max py-4 px-12 rounded-full;
     }
     .card {
-        @apply rounded-xl shadow-lg
+        @apply rounded-xl shadow-lg;
+    }
+    .color-selector input:checked+label {
+        @apply ring-2;
     }
 }
