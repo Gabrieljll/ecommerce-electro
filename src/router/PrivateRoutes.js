@@ -9,6 +9,7 @@ import { ErrorScreen } from '../components/ErrorScreen/ErrorScreen';
 import { Footer } from '../components/Footer/Footer';
 import { FormularioMail } from '../components/FormularioMail/FormularioMail';
 import { Routes, Route, Navigate } from 'react-router-dom';
+import Sidebar from '../components/Sidebar/Sidebar';
 
 export const PrivateRoutes = () => {
     return (
@@ -24,6 +25,7 @@ export const PrivateRoutes = () => {
                 <Route path="/checkout" element={ <Checkout /> }/>
                 <Route path="*" element={<Navigate to="/home" replace />}/>
             </Routes>
+            <Sidebar />
             <Footer />
         </div>
     )

@@ -3,12 +3,25 @@ import  ItemList  from '../ItemList/ItemList'
 import { useProductos } from './hooks/useProductos'
 import { ErrorScreen } from '../ErrorScreen/ErrorScreen'
 import { Loader } from '../Loader/Loader'
-import React, { useState } from 'react'
-
+import React, { useState, useContext} from 'react'
+import  {ProductContext}  from '../../context/ProductContext'
+import {Item} from '../Item/Item'
 
 export const ItemListContainer = () => {
     const [isSidebarOpen, setSidebarOpen] = useState(true);
-    const {productos, loading} = useProductos()
+//    const {productos, loading} = useProductos()
+
+    //get products form product context
+    const { products } = useContext(ProductContext);
+    console.log(products)
+
+    //get only mens clothes or electronics
+    const filteredProducts = products.filter (item => {
+        return item.category === "electronics" || item.category === "men's clothing" || item.category === "women's clothing" || item.category === "jewelery"
+    })
+
+    console.log(filteredProducts)
+
     return (
         
         <>
@@ -29,7 +42,7 @@ export const ItemListContainer = () => {
             <div className={`xl:flex ${isSidebarOpen ? 'hidden' : 'flex'} flex-col bg-white p-4 shadow transition-transform duration-300 xl:transform-none`} >
                 <div className="bg-overlay"></div>
                 {/* sidebar */}
-                <div className="xl:flex xl:justify-center xl:items-center xl:w-[100%] w-max xl:col-span-1 xl:static inset-x-0 top-24 p-12 bg-white mx-auto rounded-md h-max text-center gap-6 font-bold text-dark-blue xl:text-white xl:shadow-none shadow-2xl bg-transparent grid-flow-col absolute text-xl z-10">
+                <div className="xl:flex xl:justify-center xl:items-center xl:w-[100%] w-auto xl:col-span-1 xl:static inset-x-0 top-24 p-12 bg-white mx-auto rounded-md h-max text-center gap-6 font-bold text-dark-blue xl:text-white xl:shadow-none shadow-2xl bg-transparent grid-flow-col absolute text-xl z-10">
                     <button className="xl:hidden relative bg-primary text-black p-2 mb-4 rounded shadow-lg xl:shadow-none" onClick={() => setSidebarOpen   (!isSidebarOpen)}>
                     Cerrar Filtros
                     </button>
@@ -120,183 +133,14 @@ export const ItemListContainer = () => {
                 {/* products grid */}
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                     {/* CARD PRODUCTO */}
-                    <div className="bg-white shadow rounded overflow-hidden group">
-                        <div className="relative">
-                            <img src="../images/products/producto1.jpeg" alt="" className="w-full" />
-                            <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center gap-2 opacity-0 group-hover:opacity-100 transition">
-                                <a href="#" className="text-white text-lg w-9 h-8 rounded-full bg-primary flex items-center justify-center hover:bg-gray-800 transition">
-                                    <i>Ver más</i>
-                                </a>
-                                <a href="#" className="text-white text-lg w-9 h-8 rounded-full bg-primary flex items-center justify-center hover:bg-gray-800 transition">
-                                    <i>Me gusta</i>
-                                </a>
 
-                            </div>
-                        </div>
-                        {/* imagen producto final */}
-                        {/* contenido producto texto */}
-                            <div className="pt-4 pb-3 px-3">
-                                <a href="#">
-                                    <h4 className="uppercase font-medium text-xl mb-2 text-gray-800 hover:text-primary transition">
-                                        Lavarropas Samsung
-                                    </h4>
-                                </a>
-                                <div className="flex items-baseline mb-1 space-x-2 font-roboto">
-                                    <p className="text-xl text-primary font-semibold">$45.00</p>
-                                    <p className="text-sm text-gray-400 line-through">$55.00</p>
-                                </div>
-                                <div className="flex items-center">
-                                    <div className="flex gap-1 text-sm text-yelow-400">
-                                        <span><i>Stock</i></span>
-                                    </div>
-                                    <div className="text-xs text-gray-500 ml-3">
-                                        (150)
-                                    </div>
-                                </div>
-                            </div>
-                            <a href="#" className="block w-full py-1 text-center text-white-bg-primary border-primary rounded-b hover:bg-transparent hover:text-primary transition">
-                                Agregar al carrito
-                            </a>
-                        {/* contenido producto texto  final*/}
+                    {filteredProducts.map((product) => {
+                        return <Item product={product} key={product.id} />;
+                    })}
 
-                    </div>
-
-
-
-
-                    <div className="bg-white shadow rounded overflow-hidden group">
-                        <div className="relative">
-                            <img src="../images/products/producto1.jpeg" alt="" className="w-full" />
-                            <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center gap-2 opacity-0 group-hover:opacity-100 transition">
-                                <a href="#" className="text-white text-lg w-9 h-8 rounded-full bg-primary flex items-center justify-center hover:bg-gray-800 transition">
-                                    <i>Ver más</i>
-                                </a>
-                                <a href="#" className="text-white text-lg w-9 h-8 rounded-full bg-primary flex items-center justify-center hover:bg-gray-800 transition">
-                                    <i>Me gusta</i>
-                                </a>
-
-                            </div>
-                        </div>
-                        {/* imagen producto final */}
-                        {/* contenido producto texto */}
-                            <div className="pt-4 pb-3 px-3">
-                                <a href="#">
-                                    <h4 className="uppercase font-medium text-xl mb-2 text-gray-800 hover:text-primary transition">
-                                        Lavarropas Samsung
-                                    </h4>
-                                </a>
-                                <div className="flex items-baseline mb-1 space-x-2 font-roboto">
-                                    <p className="text-xl text-primary font-semibold">$45.00</p>
-                                    <p className="text-sm text-gray-400 line-through">$55.00</p>
-                                </div>
-                                <div className="flex items-center">
-                                    <div className="flex gap-1 text-sm text-yelow-400">
-                                        <span><i>Stock</i></span>
-                                    </div>
-                                    <div className="text-xs text-gray-500 ml-3">
-                                        (150)
-                                    </div>
-                                </div>
-                            </div>
-                            <a href="#" className="block w-full py-1 text-center text-white-bg-primary border-primary rounded-b hover:bg-transparent hover:text-primary transition">
-                                Agregar al carrito
-                            </a>
-                        {/* contenido producto texto  final*/}
-
-                    </div>
-
-
-
-
-
-                    <div className="bg-white shadow rounded overflow-hidden group">
-                        <div className="relative">
-                            <img src="../images/products/producto1.jpeg" alt="" className="w-full" />
-                            <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center gap-2 opacity-0 group-hover:opacity-100 transition">
-                                <a href="#" className="text-white text-lg w-9 h-8 rounded-full bg-primary flex items-center justify-center hover:bg-gray-800 transition">
-                                    <i>Ver más</i>
-                                </a>
-                                <a href="#" className="text-white text-lg w-9 h-8 rounded-full bg-primary flex items-center justify-center hover:bg-gray-800 transition">
-                                    <i>Me gusta</i>
-                                </a>
-
-                            </div>
-                        </div>
-                        {/* imagen producto final */}
-                        {/* contenido producto texto */}
-                            <div className="pt-4 pb-3 px-3">
-                                <a href="#">
-                                    <h4 className="uppercase font-medium text-xl mb-2 text-gray-800 hover:text-primary transition">
-                                        Lavarropas Samsung
-                                    </h4>
-                                </a>
-                                <div className="flex items-baseline mb-1 space-x-2 font-roboto">
-                                    <p className="text-xl text-primary font-semibold">$45.00</p>
-                                    <p className="text-sm text-gray-400 line-through">$55.00</p>
-                                </div>
-                                <div className="flex items-center">
-                                    <div className="flex gap-1 text-sm text-yelow-400">
-                                        <span><i>Stock</i></span>
-                                    </div>
-                                    <div className="text-xs text-gray-500 ml-3">
-                                        (150)
-                                    </div>
-                                </div>
-                            </div>
-                            <a href="#" className="block w-full py-1 text-center text-white-bg-primary border-primary rounded-b hover:bg-transparent hover:text-primary transition">
-                                Agregar al carrito
-                            </a>
-                        {/* contenido producto texto  final*/}
-
-                    </div>
-
-
-
-
-
-                    <div className="bg-white shadow rounded overflow-hidden group">
-                        <div className="relative">
-                            <img src="../images/products/producto1.jpeg" alt="" className="w-full" />
-                            <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center gap-2 opacity-0 group-hover:opacity-100 transition">
-                                <a href="#" className="text-white text-lg w-9 h-8 rounded-full bg-primary flex items-center justify-center hover:bg-gray-800 transition">
-                                    <i>Ver más</i>
-                                </a>
-                                <a href="#" className="text-white text-lg w-9 h-8 rounded-full bg-primary flex items-center justify-center hover:bg-gray-800 transition">
-                                    <i>Me gusta</i>
-                                </a>
-
-                            </div>
-                        </div>
-                        {/* imagen producto final */}
-                        {/* contenido producto texto */}
-                            <div className="pt-4 pb-3 px-3">
-                                <a href="#">
-                                    <h4 className="uppercase font-medium text-xl mb-2 text-gray-800 hover:text-primary transition">
-                                        Lavarropas Samsung
-                                    </h4>
-                                </a>
-                                <div className="flex items-baseline mb-1 space-x-2 font-roboto">
-                                    <p className="text-xl text-primary font-semibold">$45.00</p>
-                                    <p className="text-sm text-gray-400 line-through">$55.00</p>
-                                </div>
-                                <div className="flex items-center">
-                                    <div className="flex gap-1 text-sm text-yelow-400">
-                                        <span><i>Stock</i></span>
-                                    </div>
-                                    <div className="text-xs text-gray-500 ml-3">
-                                        (150)
-                                    </div>
-                                </div>
-                            </div>
-                            <a href="#" className="block w-full py-1 text-center text-white-bg-primary border-primary rounded-b hover:bg-transparent hover:text-primary transition">
-                                Agregar al carrito
-                            </a>
-                        {/* contenido producto texto  final*/}
-
-                    </div>
                     {/* CARD PRODUCTO FINAL*/}
                 </div>
-            {/* products grid final*/}
+                {/* products grid final*/}
             </div>
             {/* products */}
 

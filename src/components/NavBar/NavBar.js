@@ -1,10 +1,14 @@
 import { CartWidget } from '../CartWidget/CartWidget'
-
+import React, {useContext} from 'react'
 import { Link } from 'react-router-dom'
 import { Link as LinkScroll   } from 'react-scroll'
+import { SidebarContext } from '../../context/SidebarContext'
 
+import {BsBag} from 'react-icons/bs'
 
 export const Navbar = () =>{
+    const {isOpen, setIsOpen} = useContext(SidebarContext)
+
     return (
             
         <div className="font-principal">
@@ -50,7 +54,11 @@ export const Navbar = () =>{
 
                     </div>
 
-                    <CartWidget/>
+                    
+                    <div onClick={() => setIsOpen(!isOpen)} className="cursor-pointer flex relative">
+                        <BsBag className="text-2xl text-white" />
+                    </div>
+                   
                 </nav>
 
             </header>

@@ -82,7 +82,7 @@ export const SectionList = () =>{
                         <div className="flex flex-col items-center justify-center gap-4 p-4">
                             <p className="text-xl font-semibold text-center">{d.name}</p>
                             <p className="text-center hidden lg:block">{d.review}</p>
-                            <button className='shadow-slate-300 text-base bg-bright-red text-vary-light-gray block w-20 h-min lg:w-max py-4 lg:px-12 rounded-full shadow-md py-3'>Ver más</button>
+                            <button className='shadow-slate-300 text-base bg-bright-red text-vary-light-gray block w-16 h-min lg:w-max py-4 lg:px-12 rounded-full shadow-md'>Ver más</button>
                         </div>
                     </div>
                     ))}

@@ -1,25 +1,47 @@
 import { Link } from "react-router-dom"
 import "./Item.css"
+import {BsPlus, BsEyeFill} from 'react-icons/bs'
 
-const Item = ( {name, image, description, price, category, id}) => {
-    
+import React, {useContext} from 'react'
+
+export const Item = ( {product} ) => {
+
+    const {id, image, category, title, price} = product;
+
     return (
-        <div className="card mx-10 animate__animated animate__fadeInUp">
-            <div className="p-5 flex flex-col">
-                <div className="rounded-xl overflow-hidden">
-                    <img src={image} alt={name} />
+
+        <div>
+            <div className="border border-[#e4e4e4] h-[300px] mb-4 relative overflow-hidden group transition">
+                <div className="w-full h-full flex justify-center items-center">
+                    {/* image */}
+                    <div className="w-[200px] mx-auto flex justify-center items-center">
+                        <img className="max-h-[160px] group-hover:scale-110 transition duration-300" src={image} alt="" />
+                    </div>
                 </div>
-                <h5 className="text-2xl md:text-3xl font-medium mt-3">{name}</h5>
-                <p className="text-slate-500 text-lg mt-3">Precio: ${price}</p>
-                <p className="text-slate-500 text-lg mt-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                        {/* <p className="cardItemText">Precio: <b className="cardItemText">${price}</b></p>
-                        <small className="cardItemText">Categoría: {category}</small> */}
-                {/* <div className="shadow-slate-300 text-base button shadow-md py-3 m-auto flex justify-center"> */}
-                    <Link className="text-center bg-blue-400 text-blue-800 py-2 rounded-lg font-semibold mt-4 hover:bg-blue-300 focus:scale-95 transition-all duration-200 ease-out" to={`/detail/${id}`}>Ver Más</Link>
-                {/* </div> */}
-                    {/* <Link to={`/detail/${id}`} className="btn btn-outline-primary my-2 btnVerMas">Ver más</Link> */}
+                {/* buttons */}
+                <div className="absolute top-6 -right-11 group-hover:right-5 p-2 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-all">
+                    <button>
+                        <div className="flex justify-center items-center text-white w-12 h-12 bg-orange-600">
+                            <BsPlus className="text-3xl" /> 
+                        </div>
+                    </button>
+                    <Link to={`/product/${id}`} className="w-12 h-12 bg-white flex justify-center items-center text-primary drop-shadow-xl">
+                        <BsEyeFill />
+                    </Link>
+                </div>
             </div>
+            {/* category, title and price */}
+            <div>
+                <div className="text-sm capitalize text-gray-500 mb-1">{category}</div>
+                <Link to={`/product/${id}`}>
+                    <h2 className="font-semibold mb-1">{title}</h2>
+                </Link>
+                <div className="font-semibold">$ {price}</div>
+            </div>
+            <div></div>
         </div>
+
+        
     )
 }
 
