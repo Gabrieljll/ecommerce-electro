@@ -1,4 +1,4 @@
-import "./Checkout.css"
+/* import "./Checkout.css"
 import { useState } from "react"
 import { Navigate, Link} from "react-router-dom"
 import { useCartContext } from "../../context/CartContext"
@@ -226,4 +226,4 @@ export const Checkout = () => {
 
         </div>
     )
-}
+} */

@@ -1,4 +1,4 @@
-import { FaShoppingCart } from 'react-icons/fa'
+/* import { FaShoppingCart } from 'react-icons/fa'
 import './CartWidget.css'
 import { Link } from 'react-router-dom'
 import { useCartContext } from '../../context/CartContext'
@@ -12,4 +12,4 @@ export const CartWidget = () => {
             <span className="cartCounter">{totalCantidad()}</span>
         </Link>
     )
-}
+} */

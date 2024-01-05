@@ -6,6 +6,8 @@ import {FiTrash2} from 'react-icons/fi'
 
 import {SidebarContext} from '../../context/SidebarContext'
 
+import { CartContext } from '../../context/CartContext'
+
 const Sidebar = () =>{
 
     const {isOpen, handleClose} = useContext(SidebarContext)
@@ -14,7 +16,7 @@ const Sidebar = () =>{
         
         <div className="flex items-center justify-between py-6 border-b">
             <div className="uppercase text-sm font-semibold">
-                Shopping Bag (0)
+                Carrito (0)
             </div>
             {/* icon */}
             <div onClick={handleClose} className="cursor-pointer w-8 -h-8 flex justify-center items-center">

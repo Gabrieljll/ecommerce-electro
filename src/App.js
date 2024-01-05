@@ -12,11 +12,11 @@ function App() {
     return (
         <LoginProvider>
             <SidebarProvider>
-                <ProductProvider>
-                    <CartProvider>
+                <CartProvider>
+                    <ProductProvider>
                         <AppRouter />
-                    </CartProvider>
-                </ProductProvider>
+                    </ProductProvider>
+                </CartProvider>
             </SidebarProvider>
         </LoginProvider>
 	);

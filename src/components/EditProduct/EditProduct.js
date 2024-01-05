@@ -1,4 +1,4 @@
-
+/* 
 import "./EditProduct.css"
 import { useCartContext } from "../../context/CartContext"
 import { useEffect } from "react"
@@ -55,3 +55,4 @@ export const EditProduct = ({itemEdit, setItemEdit, cantidad, setCantidad, max, 
 
 }
 
+ */

@@ -13,14 +13,12 @@ export const ItemListContainer = () => {
 
     //get products form product context
     const { products } = useContext(ProductContext);
-    console.log(products)
 
     //get only mens clothes or electronics
     const filteredProducts = products.filter (item => {
         return item.category === "electronics" || item.category === "men's clothing" || item.category === "women's clothing" || item.category === "jewelery"
     })
 
-    console.log(filteredProducts)
 
     return (
         

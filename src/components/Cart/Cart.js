@@ -1,4 +1,4 @@
-import {  useCartContext } from "../../context/CartContext"
+/* import {  useCartContext } from "../../context/CartContext"
 import { FaTrashAlt } from "react-icons/fa"
 import { FaEdit } from "react-icons/fa"
 
@@ -71,3 +71,4 @@ const Cart = () => {
 }
 
 export default Cart
+ */
