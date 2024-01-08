@@ -3,18 +3,22 @@ import React, {useContext} from 'react'
 import { Link } from 'react-router-dom'
 import { Link as LinkScroll   } from 'react-scroll'
 import { SidebarContext } from '../../context/SidebarContext'
+import { CartContext } from '../../context/CartContext'
 
 import {BsBag} from 'react-icons/bs'
 
 export const Navbar = () =>{
-    const {isOpen, setIsOpen} = useContext(SidebarContext)
 
+    
+    const {isOpen, setIsOpen} = useContext(SidebarContext)
+    const {itemAmount} = useContext(CartContext)
+    
     return (
             
         <div className="font-principal">
             <header className="shadow-lg z-100 w-full bg-very-dark-blue">
 
-                <nav className="wrapper h-20 w-screen flex items-center justify-between">
+                <nav className="wrapper h-20 w-screen flex items-center justify-between overflow-visible">
 
                     <Link to="/home" className="">
                         {/* <img src="./images/logo.svg" className="w-full" /> */}
@@ -55,8 +59,11 @@ export const Navbar = () =>{
                     </div>
 
                     
-                    <div onClick={() => setIsOpen(!isOpen)} className="cursor-pointer flex relative">
+                    <div onClick={() => setIsOpen(!isOpen)} className="cursor-pointer flex relative max-w-[50px]">
                         <BsBag className="text-2xl text-white" />
+                        <div className="bg-red-500 absolute -right-2 -bottom-2 text-[12px] w-[18px] h-[18px] text-white rounded-full flex justify-center items-center">
+                            {itemAmount}
+                        </div>
                     </div>
                    
                 </nav>
