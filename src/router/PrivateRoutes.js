@@ -10,6 +10,7 @@ import { Footer } from '../components/Footer/Footer';
 import { FormularioMail } from '../components/FormularioMail/FormularioMail';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import Sidebar from '../components/Sidebar/Sidebar';
+import ItemDetail from '../components/ItemDetail/ItemDetail';
 
 export const PrivateRoutes = () => {
     return (
@@ -20,7 +21,7 @@ export const PrivateRoutes = () => {
                 <Route path="/productos" element={ <ItemListContainer /> }/>
                 <Route path="/contactenos" element={ <FormularioMail/> }/>
                 <Route path="/productos/:categoryId" element={ <ItemListContainer /> }/>
-                <Route path="/detail/:itemId" element={ <ItemDetailContainer /> }/>
+                <Route path="/product/:id" element={ <ItemDetail /> }/>
                 {/* <Route path="/cart" element={ <Cart /> }/> */}
                 {/* <Route path="/checkout" element={ <Checkout /> }/> */}
                 <Route path="*" element={<Navigate to="/home" replace />}/>
