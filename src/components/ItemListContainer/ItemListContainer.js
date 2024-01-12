@@ -6,8 +6,12 @@ import { Loader } from '../Loader/Loader'
 import React, { useState, useContext} from 'react'
 import  {ProductContext}  from '../../context/ProductContext'
 import {Item} from '../Item/Item'
+import {Link} from "react-router-dom"
+
+/* import image hero */
 
 export const ItemListContainer = () => {
+    const manHero = "/images/hero/man.jpg";
     const [isSidebarOpen, setSidebarOpen] = useState(true);
 //    const {productos, loading} = useProductos()
 
@@ -23,6 +27,35 @@ export const ItemListContainer = () => {
     return (
         
         <>
+
+        <section className="bg-white h-[600px] bg-no-repeat bg-cover bg-center">
+            <div className="container mx-auto flex justify-around xl:justify-end h-full">
+                {/* text */}
+                <div className="flex flex-col justify-center">
+                    {/* pretitle */}
+                    <div className="font-semibold flex items-center uppercase">
+                        <div className="w-10 h-[2px] bg-red-500 mr-3"></div>Lorem Ipsum
+                    </div>
+                        {/* title */}
+                        <h1 className="text-[70px] leading-[1.1] font-light mb-4">
+                              LOREM IPSUM LOREM <br />
+                        <span className="font-semibold">IPSUM</span>
+                        </h1>
+                        <Link
+                         to={'/'}
+                         className="self-start uppercase font-semibold border-b-2 border-gray-800">
+                            Descubre mas
+                        </Link>
+                </div>
+                    {/* image */}
+                    <div className="hidden xl:block">
+                        <img className="h-[80%]" src={manHero} alt="https://www.freepik.es/foto-gratis/mecanico-automoviles-sonriente-llave-pie-manos-dobladas-sobre-fondo-blanco_29302679.htm#query=mecanico%20fondo%20blanco&position=0&from_view=keyword&track=ais&uuid=5e24a94c-b587-4843-a6a0-524be5aa58f5" />
+                    </div>
+            </div>
+        </section>
+
+
+
         <div className="container py-4 flex items-center gap-3 m-auto">
             <a href="#home" className="text-primary text-base">
                 <p className="text-gray-600 font-medium">Home</p>

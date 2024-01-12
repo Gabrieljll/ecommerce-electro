@@ -16,7 +16,7 @@ export const Navbar = () =>{
     return (
             
         <div className="font-principal">
-            <header className="shadow-lg z-100 w-full bg-very-dark-blue">
+            <header className="shadow-lg z-100 w-full bg-gray-800">
 
                 <nav className="wrapper h-20 w-screen flex items-center justify-between overflow-visible">
 

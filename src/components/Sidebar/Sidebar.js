@@ -41,7 +41,7 @@ const Sidebar = () =>{
                 </div>
             </div>
             <Link to="/" className="bg-gray-200 flex p-4 justify-center items-center text-primary w-full font-medium">Ver Carrito</Link>
-            <Link to="/" className="bg-black flex p-4 justify-center items-center text-white w-full font-medium">Finalizar Compra</Link>
+            <Link to="/" className="bg-gray-800 flex p-4 justify-center items-center text-white w-full font-medium">Finalizar Compra</Link>
         </div>
     </div>
 }
