@@ -24,6 +24,13 @@ export const ItemListContainer = () => {
     })
 
 
+    const categorias = [...new Set(products.map(item => item.category))];
+
+    const categoriesCount = products.map (item => {
+        return item.category
+    })
+
+    console.log(products)
     return (
         
         <>
@@ -83,16 +90,15 @@ export const ItemListContainer = () => {
                             <h3 className="text-xl text-gray-800 mb-3 uppercase font-medium">categorías</h3>
                             <div className="space-y-2">
                                 {/* single category */}
-                                <div className="flex items-center">
-                                    <input type="checkbox" id="cat-1" className="text-primary focus:ring-0 rounded-sm cursor-pointer" />
-                                    <label htmlFor="cat-1" className="text-gray-600 ml-3 cursor-pointer">Bedroom</label>
-                                    <div className="ml-auto text-gray-600 text-sm">(15)</div>
-                                </div>
-                                <div className="flex items-center">
-                                    <input type="checkbox" id="cat-1" className="text-primary focus:ring-0 rounded-sm cursor-pointer" />
-                                    <label htmlFor="cat-1" className="text-gray-600 ml-3 cursor-pointer">Bedroom</label>
-                                    <div className="ml-auto text-gray-600 text-sm">(15)</div>
-                                </div>
+                                { 
+                                categorias.map((categoria) => { 
+                                return  <div key={categoria} className="flex items-center">
+                                            <input type="checkbox" id="cat-1" className="text-primary focus:ring-0 rounded-sm cursor-pointer" />
+                                            <label htmlFor="cat-1" className="text-gray-600 ml-3 cursor-pointer">{categoria}</label>
+                                            <div className="ml-auto text-gray-600 text-sm">(15)</div>
+                                        </div>
+                                    })
+                                }
                             </div>
                         </div>
                             {/* category filter end */}
@@ -175,26 +181,7 @@ export const ItemListContainer = () => {
             </div>
             {/* products */}
 
-
         </div>
-
-
-
-
-
-
-
-
-        {/* 
-            <div className={` flex items-center justify-center min-h-screen container mx-auto ${productos.length >= 3 ? "itemListContainer-body" : "heigh70vh"}`}>
-                {
-                    loading
-                        ? <Loader />
-                        : productos.length === 0
-                            ?   <ErrorScreen error="La categoría solicitada no existe" logged={true}/>
-                            :   <ItemList productos={productos} />
-                }
-            </div>     */}
 
     </>
 
