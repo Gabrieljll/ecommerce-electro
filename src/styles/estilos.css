@@ -1211,6 +1211,10 @@ select {
   width: 100vw;
 }
 
+.w-7 {
+  width: 1.75rem;
+}
+
 .max-w-\[1920px\] {
   max-width: 1920px;
 }
@@ -2266,6 +2270,10 @@ select {
 
   .xl\:w-\[100\%\] {
     width: 100%;
+  }
+
+  .xl\:w-screen {
+    width: 100vw;
   }
 
   .xl\:max-w-\[30vw\] {

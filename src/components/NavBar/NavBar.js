@@ -18,7 +18,7 @@ export const Navbar = () =>{
         <div className="font-principal">
             <header className="shadow-lg z-100 w-full bg-gray-800">
 
-                <nav className="wrapper h-20 w-screen flex items-center justify-between overflow-visible">
+                <nav className="wrapper h-20 xl:w-screen flex items-center justify-between overflow-visible">
 
                     <Link to="/home" className="">
                         {/* <img src="./images/logo.svg" className="w-full" /> */}
@@ -27,7 +27,7 @@ export const Navbar = () =>{
 
                     <input type="checkbox" id="menu" className="peer hidden" />
 
-                    <label htmlFor="menu" className="ml-auto bg-open-menu text-white w-6 h-5 bg-cover bg-center cursor-pointer peer-checked:bg-close-menu transition-all z-50 lg:hidden"></label>
+                    <label htmlFor="menu" className="ml-auto bg-open-menu text-white w-7 h-5 bg-cover bg-center cursor-pointer peer-checked:bg-close-menu transition-all z-50 lg:hidden"></label>
 
                     <div className="fixed inset-0 bg-gradient-to-b from-white/70 to-black/70 translate-x-full peer-checked:translate-x-0 transition-transform z-40 lg:static lg:bg-none lg:translate-x-0">
 
