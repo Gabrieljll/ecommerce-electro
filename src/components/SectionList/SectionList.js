@@ -139,8 +139,10 @@ export const SectionList = () =>{
                 <article>
                     <h2 className="text-3xl font-bold text-very-dark-blue mb-6 md:text-4xl">What’s different about Manage?</h2>
                     <p className="text-dark-grayish-blue">Manage provides all the functionality your team needs, without the complexity. Our software is tailor-made for modern digital product teams.</p>
-                    <div className="shadow-slate-300 text-base button shadow-md hidden py-3 lg:block mt-16">
-                        <h6>WhatApp</h6>
+                    <div className="flex justify-center">
+                        <div className="shadow-slate-300 text-base text-vary-light-gray block w-max py-4 px-12 rounded-full shadow-md mt-16 bg-[#25D366]">
+                            <h6>WhatApp</h6>
+                        </div>
                     </div>
                 </article>
 

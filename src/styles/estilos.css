@@ -1216,6 +1216,11 @@ select {
   width: 100vw;
 }
 
+.w-max {
+  width: -webkit-max-content;
+  width: max-content;
+}
+
 .max-w-\[1920px\] {
   max-width: 1920px;
 }
@@ -1571,6 +1576,11 @@ select {
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
+.bg-\[\#25D366\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(37 211 102 / var(--tw-bg-opacity));
+}
+
 .bg-gradient-to-b {
   background-image: linear-gradient(to bottom, var(--tw-gradient-stops));
 }
@@ -1681,6 +1691,11 @@ select {
 .py-6 {
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
+}
+
+.px-12 {
+  padding-left: 3rem;
+  padding-right: 3rem;
 }
 
 .pb-12 {
