@@ -74,7 +74,7 @@ export const SectionList = () =>{
                 <div className="mt-20">
                 <Slider {...settings}>
                     {data.map((d) => (
-                    <div key={d.name} className="bg-white lg:h-[450px] h-[300px] text-black rounded-xl md:w-full lg:w-1/3">
+                    <div key={d.name} className="bg-white lg:h-[450px] h-[350px] text-black rounded-xl md:w-full lg:w-1/3">
                         <div className='h-40 xl:h-56 bg-transparent flex justify-center items-center rounded-t-xl'>
                         <img src={d.img} alt="" className="h-44 w-36"/>
                         </div>
