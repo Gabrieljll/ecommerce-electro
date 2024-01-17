@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React, { useEffect } from "react"
 import  Slider from "react-slick";
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
@@ -70,11 +70,11 @@ export const SectionList = () =>{
     return (
         <>
         <section id="nosotros">
-            <div className='w-2/4 m-auto'>
+            <div className='lg:w-3/5 w-4/5 m-auto'>
                 <div className="mt-20">
                 <Slider {...settings}>
                     {data.map((d) => (
-                    <div key={d.name} className="bg-white h-[450px] text-black rounded-xl">
+                    <div key={d.name} className="bg-white lg:h-[450px] h-[300px] text-black rounded-xl md:w-full lg:w-1/3">
                         <div className='h-40 xl:h-56 bg-transparent flex justify-center items-center rounded-t-xl'>
                         <img src={d.img} alt="" className="h-44 w-36"/>
                         </div>
@@ -82,7 +82,7 @@ export const SectionList = () =>{
                         <div className="flex flex-col items-center justify-center gap-4 p-4">
                             <p className="text-xl font-semibold text-center">{d.name}</p>
                             <p className="text-center hidden lg:block">{d.review}</p>
-                            <Link to={"/productos"} className='shadow-slate-300 text-base bg-bright-red text-vary-light-gray block w-16 h-min lg:w-max py-4 lg:px-12 rounded-full shadow-md'>Ver más</Link>
+                            <Link to={"/productos"} className='shadow-slate-300 lg:text-base text-lg bg-bright-red text-vary-light-gray block w-20 text-center h-min lg:w-max py-4 lg:px-12 rounded-full shadow-md'>Ver más</Link>
                         </div>
                     </div>
                     ))}
