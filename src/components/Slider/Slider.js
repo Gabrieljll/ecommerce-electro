@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { BsChevronCompactLeft, BsChevronCompactRight } from 'react-icons/bs';
 import { RxDotFilled } from 'react-icons/rx';
 const image1 = "/images/slider/reparacion-trabajador-mantenimiento-servicio_2.jpeg"
-const image2 = "/images/slider/pexels-adrienne-andersen-2254065_2.jpg"
+const image2 = "/images/slider/pexels-adrienne-andersen-2254065_3.jpg"
 const image3 = "/images/slider/batidora-batidora-electrica_2.jpg"
 const image4 = "/images/slider/pexels-photomix-company-213162_2.jpg"
 
