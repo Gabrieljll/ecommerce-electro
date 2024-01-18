@@ -7,9 +7,14 @@ const image2 = "/images/slider/pexels-adrienne-andersen-2254065_3.jpg"
 const image3 = "/images/slider/batidora-batidora-electrica_2.jpg"
 const image4 = "/images/slider/pexels-photomix-company-213162_2.jpg"
 
-export const Slider = () => {
+const image1_movil = "/images/slider/reparacion-trabajador-mantenimiento-servicio_movil.jpg"
+const image2_movil = "/images/slider/pexels-adrienne-andersen-2254065_movil.jpg"
+const image3_movil = "/images/slider/batidora-batidora-electrica_movil.jpg"
+const image4_movil = "/images/slider/pexels-photomix-company-213162_movil.jpg"
 
-    const slides = [
+export const Slider = () => {
+    const isMobile = window.innerWidth < 1000;
+    const slidesPC = [
         {
           url: image1,
         },
@@ -23,6 +28,23 @@ export const Slider = () => {
           url: image4,
         }
       ];
+
+      const slidesMovil = [
+        {
+          url: image1_movil,
+        },
+        {
+          url: image2_movil,
+        },
+        {
+          url: image3_movil,
+        },
+        {
+          url: image4_movil,
+        }
+      ];
+    
+      const slides = isMobile ? slidesMovil : slidesPC;
     
       const [currentIndex, setCurrentIndex] = useState(0);
     
@@ -41,23 +63,20 @@ export const Slider = () => {
       const goToSlide = (slideIndex) => {
         setCurrentIndex(slideIndex);
       };
-
+    
       useEffect(() => {
-        // Cambia automáticamente la imagen cada 0.3 segundos
         const intervalId = setInterval(() => {
           nextSlide();
-        }, 6000);
+        }, 8000);
     
-        // Limpia el intervalo cuando el componente se desmonta
         return () => clearInterval(intervalId);
-      }, [currentIndex]); // El efecto se activa cuando currentIndex cambia
-    
+      }, [currentIndex]);
 
       return (
-        <div className='max-w-[1920px] h-[600px] w-full m-auto py-5 relative group'>
+        <div className='max-w-[1920px] h-[600px] w-full m-auto pb-5 relative group'>
           <div
             style={{ backgroundImage: `url(${slides[currentIndex].url}) ` }}
-            className='w-full h-full bg-center bg-cover duration-500'
+            className='w-full h-full bg-center bg-cover duration-5000'
           >
             <div className="font-principal sliderInformation shadow-sm shadow-bright-red/30 py-3 block mb-4 text-4xl font-extrabold leading-none tracking-tight  sm:text-5xl lg:text-6xl dark:text-white">
                 <h1 className="text-white">Lorem ipsum dolor sit amet, </h1>
