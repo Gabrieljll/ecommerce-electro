@@ -3,14 +3,14 @@ import React, { useEffect, useState } from 'react';
 import { BsChevronCompactLeft, BsChevronCompactRight } from 'react-icons/bs';
 import { RxDotFilled } from 'react-icons/rx';
 const image1 = "/images/slider/reparacion-trabajador-mantenimiento-servicio_2.jpeg"
-const image2 = "/images/slider/pexels-adrienne-andersen-2254065_3.jpg"
-const image3 = "/images/slider/batidora-batidora-electrica_2.jpg"
-const image4 = "/images/slider/pexels-photomix-company-213162_2.jpg"
+//const image2 = "/images/slider/pexels-adrienne-andersen-2254065_3.jpg"
+const image2 = "/images/slider/batidora-batidora-electrica_2.jpg"
+const image3 = "/images/slider/pexels-photomix-company-213162_2.jpg"
 
 const image1_movil = "/images/slider/reparacion-trabajador-mantenimiento-servicio_movil.jpg"
-const image2_movil = "/images/slider/pexels-adrienne-andersen-2254065_movil.jpg"
-const image3_movil = "/images/slider/batidora-batidora-electrica_movil.jpg"
-const image4_movil = "/images/slider/pexels-photomix-company-213162_movil.jpg"
+//const image2_movil = "/images/slider/pexels-adrienne-andersen-2254065_movil.jpg"
+const image2_movil = "/images/slider/batidora-batidora-electrica_movil.jpg"
+const image3_movil = "/images/slider/pexels-photomix-company-213162_movil.jpg"
 
 export const Slider = () => {
     const isMobile = window.innerWidth < 1000;
@@ -23,9 +23,6 @@ export const Slider = () => {
         },
         {
           url: image3,
-        },
-        {
-          url: image4,
         }
       ];
 
@@ -38,9 +35,6 @@ export const Slider = () => {
         },
         {
           url: image3_movil,
-        },
-        {
-          url: image4_movil,
         }
       ];
     
@@ -67,16 +61,17 @@ export const Slider = () => {
       useEffect(() => {
         const intervalId = setInterval(() => {
           nextSlide();
-        }, 8000);
+        }, 2000);
     
         return () => clearInterval(intervalId);
       }, [currentIndex]);
+
 
       return (
         <div className='max-w-[1920px] h-[600px] w-full m-auto pb-5 relative group'>
           <div
             style={{ backgroundImage: `url(${slides[currentIndex].url}) ` }}
-            className='w-full h-full bg-center bg-cover duration-5000'
+            className="w-full h-full bg-center bg-cover duration-500"
           >
             <div className="font-principal sliderInformation shadow-sm shadow-bright-red/30 py-3 block mb-4 text-4xl font-extrabold leading-none tracking-tight  sm:text-5xl lg:text-6xl dark:text-white">
                 <h1 className="text-white">Lorem ipsum dolor sit amet, </h1>
