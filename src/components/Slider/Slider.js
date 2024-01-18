@@ -1,5 +1,5 @@
 import "./Slider.css"
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { BsChevronCompactLeft, BsChevronCompactRight } from 'react-icons/bs';
 import { RxDotFilled } from 'react-icons/rx';
 const image1 = "/images/slider/reparacion-trabajador-mantenimiento-servicio_2.jpeg"
@@ -67,8 +67,32 @@ export const Slider = () => {
       }, [currentIndex]);
 
 
+      const chevronRightRef = useRef();
+
+      useEffect(() => {
+        // Obtén la referencia al elemento BsChevronCompactRight
+        const chevronRightElement = chevronRightRef.current;
+    
+        // Realiza tres clics en el elemento al principio de la carga de la página
+        for (let i = 0; i < 3; i++) {
+          if (chevronRightElement) {
+            nextSlide();
+          }
+        }
+      }, []); // El segundo parámetro es un array de dependencias vacío para que se ejecute solo una vez al montar el componente
+    
+      const [isActive, setIsActive] = useState(false);
+
+      useEffect(() => {
+        // Agrega la clase active después de un pequeño retraso para que la transición sea visible al inicio
+        setTimeout(() => {
+          setIsActive(true);
+        }, 100);
+      }, []);
+
+
       return (
-        <div className='max-w-[1920px] h-[600px] w-full m-auto pb-5 relative group'>
+         <div className={`max-w-[1920px] h-[600px] w-full m-auto pb-5 relative group transition-fade-up ${isActive ? 'active' : ''}`}>
           <div
             style={{ backgroundImage: `url(${slides[currentIndex].url}) ` }}
             className="w-full h-full bg-center bg-cover duration-500"
@@ -90,7 +114,9 @@ export const Slider = () => {
             <BsChevronCompactLeft onClick={prevSlide} size={30} />
           </div>
           {/* Right Arrow */}
-          <div className='hidden group-hover:block absolute top-[50%] -translate-x-0 translate-y-[-50%] right-5 text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer'>
+          <div 
+          ref={chevronRightRef}
+          className='hidden group-hover:block absolute top-[50%] -translate-x-0 translate-y-[-50%] right-5 text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer'>
             <BsChevronCompactRight onClick={nextSlide} size={30} />
           </div>
           <div className='flex top-4 justify-center py-2'>
