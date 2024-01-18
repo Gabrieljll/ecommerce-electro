@@ -101,3 +101,9 @@ h1 {
     font-size: 4rem;
     color: black;
 }
+
+@media (max-width: 1025px) {
+    .slick-prev {
+        left: -45px;
+    }
+}
