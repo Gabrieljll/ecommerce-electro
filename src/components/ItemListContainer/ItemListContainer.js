@@ -75,17 +75,17 @@ export const ItemListContainer = () => {
                 {/* text */}
                 <div className="flex flex-col justify-center">
                     {/* pretitle */}
-                    <div className="font-semibold flex items-center uppercase">
+                    <div className="font-semibold flex items-center uppercase justify-center lg:justify-normal">
                         <div className="w-10 h-[2px] bg-red-500 mr-3"></div>Lorem Ipsum
                     </div>
                         {/* title */}
-                        <h1 className="text-[70px] leading-[1.1] font-light mb-4">
+                        <h1 className="text-[70px] leading-[1.1] font-light mb-4 text-center lg:text-left">
                               LOREM IPSUM LOREM <br />
                         <span className="font-semibold">IPSUM</span>
                         </h1>
                         <Link
                          to={'/'}
-                         className="self-start uppercase font-semibold border-b-2 border-gray-800">
+                         className="self-center lg:self-start uppercase font-semibold border-b-2 border-gray-800">
                             Descubre mas
                         </Link>
                 </div>
@@ -98,7 +98,7 @@ export const ItemListContainer = () => {
 
 
 
-        <div className="container py-4 flex items-center gap-3 m-auto">
+        <div className="container py-4 flex items-center gap-3 lg:m-auto ml-5">
             <a href="#home" className="text-primary text-base">
                 <p className="text-gray-600 font-medium">Home</p>
             </a>
@@ -165,7 +165,7 @@ export const ItemListContainer = () => {
             {/* products */}
             <div className="col-span-3 relative z-1">
                 {/* ordenamiento */}
-                <div className="flex items-center mb-4">
+                <div className="flex items-center mb-4 ml-5 lg:ml-0">
                     <select className="w-24 xl:w-44 text-sm text-gray-600 px-4 py-3 border-gray-300 shadow-sm rounded focus:ring-primary focus:border-primary" name="" id="">
                         <option value="">Default</option>
                         <option value="">Precio menor-mayor</option>
@@ -184,7 +184,7 @@ export const ItemListContainer = () => {
                 </div>
                 <div className="bg-overlay z-0"></div>
                 {/* products grid */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mr-5 ml-5 lg:ml-0 lg:mr-0">
                     {/* CARD PRODUCTO */}
 
                     {filteredProductsByCategoryAndPrice.map((product) => (
