@@ -20,7 +20,7 @@ export const ItemListContainer = () => {
 
     //get products form product context
     const { products } = useContext(ProductContext);
-
+    console.log(products)
     const categorias = [...new Set(products.map(item => item.category))];
 
     const categoriesCount = {}

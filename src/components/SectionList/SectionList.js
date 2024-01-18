@@ -6,6 +6,7 @@ import {Link} from "react-router-dom"
 import { useInView } from "react-intersection-observer";
 import "../../styles/animate.min.css"
 import "./Section.css"
+import { AiOutlineShoppingCart } from "react-icons/ai";
 
 const imagenSection1 = "/images/section/electro2.jpg"
 
@@ -101,12 +102,9 @@ export const SectionList = () =>{
 
             <img src="./images/section/389852.png" className="w-44 max-w-lg mb-4 md:mb-0 md:mr-4 hidden lg:block" />
             <div>
-            <h1 className="text-center text-4xl font-bold text-very-dark-blue md:text-5xl mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            <h1 className="text-center text-4xl font-bold text-very-dark-blue md:text-5xl mb-4">Una vida dedicada al servicio</h1>
 
-            </h1>
-
-            <p className="text-center text-dark-grayish-blue">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-
+            <p className="text-center text-dark-grayish-blue">(Nombre de proyecto) nace con la idea de ofrecer al minorista y al consumidor final el mejor servicio, en el momento preciso, y al mejor precio. Con más de treinta y cinco años en la industria, nuestra trayectoria y nuestros clientes avalan el camino que nos ha traído hasta este lugar, apuntando siempre a ser el socio de confianza del técnico y el minorista, y colaborando a mantener en las mejores condiciones el hogar de todos los argentinos
             </p>
             </div>
             <img src="./images/section/389852.png" className="transform scale-x-[-1] w-44 max-w-lg mt-4 md:mt-0 md:ml-4 hidden lg:block" />
@@ -118,14 +116,14 @@ export const SectionList = () =>{
                 <div className="flex max-w-[1920px] h-min w-full m-auto py-5 px-4 relative group">
                     <div style={{ backgroundImage: `url(${imagenSection1})` }} className='w-full h-full rounded-2xl bg-center bg-cover duration-500'>
                         <div className="text-right font-principal sectionInformation shadow-sm shadow-bright-red/30 py-3 block text-4xl font-extrabold leading-none tracking-tight  sm:text-5xl lg:text-6xl dark:text-white">
-                            <h1 className="text-white">Lorem ipsum dolor sit amet, </h1>
-                            <h1 className="text-white">consectetur adipiscing elit.</h1>
-                            <h6 className="text-white text-2xl mt-16">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h6>
-                            <h6 className="text-white text-2xl">Lorem ipsum dolor sit amet</h6>
+                            <h1 className="text-white">¿Buscas renovar tu casa?</h1>
+                            <h6 className="text-white text-2xl mt-7">Consulte por nuestro servicio de venta de outlet, con productos totalmente</h6>
+                            <h6 className="text-white text-2xl mb-10">nuevos de primera línea al precio más bajo del mercado, según disponibilidad.</h6>
                             <div className="flex justify-center items-end">
-                                <div className="shadow-slate-300 text-base button shadow-md hidden py-3 lg:block">
-                                    <h6>Boton accion</h6>
-                                </div>
+                                <Link to={"/productos"} className="shadow-slate-300 text-base button shadow-md py-3 flex justify-center items-center tracking-tight">
+                                    <h6>Consultar Outlet </h6>
+                                    <AiOutlineShoppingCart className="text-4xl" />
+                                </Link>
                             </div>
                         </div>
                     </div>
@@ -137,8 +135,9 @@ export const SectionList = () =>{
 
             <section id="atencionCliente" className="wrapper text-center py-24 grid gap-12 md:grid-cols-2 md:text-left">
                 <article>
-                    <h2 className="text-3xl font-bold text-very-dark-blue mb-6 md:text-4xl">What’s different about Manage?</h2>
-                    <p className="text-dark-grayish-blue">Manage provides all the functionality your team needs, without the complexity. Our software is tailor-made for modern digital product teams.</p>
+                    <h2 className="text-3xl font-bold text-very-dark-blue mb-6 md:text-4xl">Consulta gratis para tus electrodomésticos.</h2>
+                    <p className="text-dark-grayish-blue">Envianos un mensaje y obtené un diagnóstico sin cargo de parte de nuestro staff técnico.
+                    </p>
                     <div className="flex justify-center">
                         <div className="shadow-slate-300 text-base text-vary-light-gray block w-max py-4 px-12 rounded-full shadow-md mt-16 bg-[#25D366]">
                             <h6>WhatApp</h6>
@@ -153,11 +152,12 @@ export const SectionList = () =>{
                                 01
                             </span>
                             <span className="flex-1 p-2">
-                                Track company-wide progress
+                                Logística a todo el país.
                             </span>
                         </p>
 
-                        <p className="text-dark-grayish-blue text-left">See how your day-to-day tasks fit into the wider vision. Go from tracking progress at the milestone level all the way done to the smallest of details. Never lose sight of the bigger picture again.</p>
+                        <p className="text-dark-grayish-blue text-left">Trabajamos con proveedores logísticos de primera línea.
+                        Consulte envíos a su región, costos y descuentos especiales por cantidad.</p>
 
                     </article>
 
@@ -167,11 +167,12 @@ export const SectionList = () =>{
                             02
                             </span>
                             <span className="flex-1 p-2">
-                                Advanced built-in reports
+                                Venta mayorista y minorista
                             </span>
                         </p>
 
-                        <p className="text-dark-grayish-blue text-left">Set internal delivery estimates and track progress toward company goals. Our customisable dashboard helps you build out the reports you need to keep key stakeholders informed.
+                        <p className="text-dark-grayish-blue text-left">Atención especializada al técnico/service que busca 
+                            abastecer su stock. Consulte por promociones y descuentos según cantidad.
                         </p>
 
                     </article>
@@ -182,11 +183,12 @@ export const SectionList = () =>{
                                 03
                             </span>
                             <span className="flex-1 p-2">
-                                Everything you need in one place
+                                Servicio de ventas al público
                             </span>
                         </p>
 
-                        <p className="text-dark-grayish-blue text-left">Stop jumping from one service to another to communicate, store files, track tasks and share documents. Manage offers an all-in-one team productivity solution.
+                        <p className="text-dark-grayish-blue text-left">Consulte por electrodomésticos nuevos, reacondicionados 
+                            y usados al mejor precio
                         </p>
                     </article>
                 </div>

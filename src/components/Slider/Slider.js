@@ -2,6 +2,7 @@ import "./Slider.css"
 import React, { useEffect, useState, useRef } from 'react';
 import { BsChevronCompactLeft, BsChevronCompactRight } from 'react-icons/bs';
 import { RxDotFilled } from 'react-icons/rx';
+import { Link } from "react-router-dom";
 const image1 = "/images/slider/reparacion-trabajador-mantenimiento-servicio_2.jpeg"
 //const image2 = "/images/slider/pexels-adrienne-andersen-2254065_3.jpg"
 const image2 = "/images/slider/batidora-batidora-electrica_2.jpg"
@@ -103,9 +104,9 @@ export const Slider = () => {
                 <h6 className="text-white text-2xl mt-16">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h6>
                 <h6 className="text-white text-2xl">Lorem ipsum dolor sit amet</h6>
                 <div className="flex mt-8 ml-auto justify-start items-end">
-                    <div className="shadow-slate-300 text-base buttonAction shadow-md py-3 block">
+                    <Link to={"/productos"} className="shadow-slate-300 text-base buttonAction shadow-md py-3 block tracking-tight">
                         <h6>Boton accion</h6>
-                    </div>
+                    </Link>
                 </div>
             </div>
           </div>
