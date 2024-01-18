@@ -112,7 +112,7 @@ export const ItemListContainer = () => {
 
             <div className={`xl:flex ${isSidebarOpen ? 'hidden translate-x-0' : 'flex -translate-x-full z-10'} absolute xl:static transition-all duration-300 flex-col bg-white xl:p-4 shadow xl:transform-none`} >
                 
-                <div className="xl:flex xl:justify-center xl:items-center xl:w-[100%] w-max xl:col-span-1 xl:static xl:inset-x-0 2xl:p-12 xl:top-24 bg-white mx-auto rounded-md h-max text-center gap-6 font-bold text-dark-blue xl:text-white xl:shadow-none shadow-2xl bg-transparent grid-flow-col absolute text-xl z-20 transition-all duration-300 left-16 xl:left-auto">
+                <div className="xl:flex xl:justify-center xl:items-center xl:w-[100%] left-0 w-[250px] xl:col-span-1 xl:static xl:inset-x-0 2xl:p-12 xl:top-24 bg-white mx-auto rounded-md h-max text-center gap-6 font-bold text-dark-blue xl:text-white xl:shadow-none shadow-2xl bg-transparent grid-flow-col absolute text-xl z-20 transition-all duration-300 xl:left-auto ">
                     <button className="xl:hidden relative bg-primary text-black p-2 mb-4 rounded shadow-lg xl:shadow-none" onClick={() => {
                     setSidebarOpen(!isSidebarOpen); }}
                     >
@@ -131,7 +131,7 @@ export const ItemListContainer = () => {
                                     checked={selectedCategories.includes(categoria)}
                                     onChange={() => toggleCategory(categoria)}
                                     />
-                                    <label htmlFor={`cat-${categoria}`} className="text-gray-600 ml-3 cursor-pointer">{categoria}</label>
+                                    <label htmlFor={`cat-${categoria}`} className="text-gray-600 ml-3 cursor-pointer text-base">{categoria}</label>
                                     <div className="ml-auto text-gray-600 text-sm">({count})</div>
                                 </div>
                                 ))}   
@@ -166,14 +166,14 @@ export const ItemListContainer = () => {
             <div className="col-span-3 relative z-1">
                 {/* ordenamiento */}
                 <div className="flex items-center mb-4">
-                    <select className="w-44 text-sm text-gray-600 px-4 py-3 border-gray-300 shadow-sm rounded focus:ring-primary focus:border-primary" name="" id="">
+                    <select className="w-24 xl:w-44 text-sm text-gray-600 px-4 py-3 border-gray-300 shadow-sm rounded focus:ring-primary focus:border-primary" name="" id="">
                         <option value="">Default</option>
                         <option value="">Precio menor-mayor</option>
                         <option value="">Precio mayor-menor</option>
                         <option value="">Ultimos</option>
                     </select>
                 {/* ordenamiento Final*/}
-                    <button id="botonCerrarFiltros" className="text-sm items-center w-44 px-4 py-3 border-gray-300  shadow-sm rounded focus:ring-primary focus:border-primary text-center  text-dark-blue xl:hidden relative bg-primary p-2 border z-10" onClick={(event) => {
+                    <button id="botonCerrarFiltros" className="text-sm items-center w-24 xl:w-44 px-4 py-3 border-gray-300  shadow-sm rounded focus:ring-primary focus:border-primary text-center  text-dark-blue xl:hidden relative bg-primary p-2 border z-10" onClick={(event) => {
                         setSidebarOpen(!isSidebarOpen)
                         quitarBordes(event);    }
                 }
