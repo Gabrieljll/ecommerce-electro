@@ -1108,6 +1108,10 @@ select {
   height: 100vh;
 }
 
+.h-\[450px\] {
+  height: 450px;
+}
+
 .max-h-\[160px\] {
   max-height: 160px;
 }
@@ -1704,6 +1708,14 @@ select {
   padding-top: 1.5rem;
 }
 
+.pl-5 {
+  padding-left: 1.25rem;
+}
+
+.pr-5 {
+  padding-right: 1.25rem;
+}
+
 .text-left {
   text-align: left;
 }
@@ -2251,6 +2263,14 @@ select {
   .lg\:py-32 {
     padding-top: 8rem;
     padding-bottom: 8rem;
+  }
+
+  .lg\:pl-0 {
+    padding-left: 0px;
+  }
+
+  .lg\:pr-0 {
+    padding-right: 0px;
   }
 
   .lg\:text-left {

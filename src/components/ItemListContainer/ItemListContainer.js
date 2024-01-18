@@ -98,7 +98,7 @@ export const ItemListContainer = () => {
 
 
 
-        <div className="container py-4 flex items-center gap-3 lg:m-auto ml-5">
+        <div className="container py-4 flex items-center gap-3 lg:m-auto pl-5">
             <a href="#home" className="text-primary text-base">
                 <p className="text-gray-600 font-medium">Home</p>
             </a>
@@ -165,7 +165,7 @@ export const ItemListContainer = () => {
             {/* products */}
             <div className="col-span-3 relative z-1">
                 {/* ordenamiento */}
-                <div className="flex items-center mb-4 ml-5 lg:ml-0">
+                <div className="flex items-center mb-4 pl-5 lg:pl-0">
                     <select className="w-24 xl:w-44 text-sm text-gray-600 px-4 py-3 border-gray-300 shadow-sm rounded focus:ring-primary focus:border-primary" name="" id="">
                         <option value="">Default</option>
                         <option value="">Precio menor-mayor</option>
@@ -184,7 +184,7 @@ export const ItemListContainer = () => {
                 </div>
                 <div className="bg-overlay z-0"></div>
                 {/* products grid */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mr-5 ml-5 lg:ml-0 lg:mr-0">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pr-5 pl-5 lg:pl-0 lg:pr-0">
                     {/* CARD PRODUCTO */}
 
                     {filteredProductsByCategoryAndPrice.map((product) => (
