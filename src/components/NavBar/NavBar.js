@@ -1,6 +1,6 @@
 import { CartWidget } from '../CartWidget/CartWidget'
-import React, {useContext} from 'react'
-import { Link } from 'react-router-dom'
+import React, {useContext, useEffect} from 'react'
+import { Link, useNavigate   } from 'react-router-dom'
 import { Link as LinkScroll   } from 'react-scroll'
 import { SidebarContext } from '../../context/SidebarContext'
 import { CartContext } from '../../context/CartContext'
@@ -12,7 +12,35 @@ export const Navbar = () =>{
     
     const {isOpen, setIsOpen} = useContext(SidebarContext)
     const {itemAmount} = useContext(CartContext)
-    
+    const navigate  = useNavigate();
+
+    const closeMenu = () => {
+        const checkbox = document.getElementById("menu");
+        if (checkbox) {
+            checkbox.checked = false;
+        }
+    };
+
+    const scrollToSection = (sectionId) => {
+        const section = document.getElementById(sectionId);
+        if (section) {
+            window.scrollTo({
+                top: section.offsetTop,
+                behavior: "smooth",
+            });
+            closeMenu();
+        }
+    };
+
+    const redirectToHomeAndScroll = (sectionId) => {
+        // Redirige a la vista "/home"
+        navigate('/home');
+
+        // Espera a que React Router termine de redirigir antes de hacer scroll
+        setTimeout(() => {
+            scrollToSection(sectionId);
+        }, 0);
+    };
     return (
             
         <div className="font-principal">
@@ -30,32 +58,33 @@ export const Navbar = () =>{
                     <label htmlFor="menu" className="ml-auto bg-open-menu text-white w-7 h-5 bg-cover bg-center cursor-pointer peer-checked:bg-close-menu transition-all z-50 lg:hidden"></label>
 
                     <div className="fixed inset-0 bg-gradient-to-b from-white/70 to-black/70 translate-x-full peer-checked:translate-x-0 transition-transform z-40 lg:static lg:bg-none lg:translate-x-0">
-
-                        <ul className="absolute inset-x-0 top-24 p-12 bg-white w-[90%] mx-auto rounded-md h-max text-center grid gap-6 font-bold text-dark-blue lg:text-white shadow-2xl lg:w-max lg:bg-transparent lg:p-0 lg:grid-flow-col lg:static text-xl">
-
-                            <li>
-                                <Link className="" to="/home">Inicio</Link>
-                            </li>
-
-                            <li>
-                                <Link to="/productos">Tienda</Link>
-                            </li>
-
-                            <li>
-                                <LinkScroll to="nosotros" smooth={true} duration={500}>Sobre Nosotros</LinkScroll>
-                            </li>
-
-                            <li>
-                                <LinkScroll to="atencionCliente" smooth={true} duration={500}>Atención al Cliente</LinkScroll>
-                            </li>
-
-                            <li>
-                                <Link to="/contactenos">Contáctenos</Link>
-                            </li>
-
-
-                        </ul>
-
+                    <ul className="absolute inset-x-0 top-24 p-12 bg-white w-[90%] mx-auto rounded-md h-max text-center grid gap-6 font-bold text-dark-blue lg:text-white shadow-2xl lg:w-max lg:bg-transparent lg:p-0 lg:grid-flow-col lg:static text-xl">
+                    <li>
+                        <Link to="/home" onClick={closeMenu}>
+                            Inicio
+                        </Link>
+                    </li>
+                    <li>
+                        <Link to="/productos" onClick={closeMenu}>
+                            Tienda
+                        </Link>
+                    </li>
+                    <li>
+                        <span onClick={() => redirectToHomeAndScroll("nosotros")}>
+                            Sobre Nosotros
+                        </span>
+                    </li>
+                    <li>
+                        <span onClick={() => redirectToHomeAndScroll("atencionCliente")}>
+                            Atención al Cliente
+                        </span>
+                    </li>
+                    <li>
+                        <Link to="/contactenos" onClick={closeMenu}>
+                            Contáctenos
+                        </Link>
+                    </li>
+                </ul>
                     </div>
 
                     
