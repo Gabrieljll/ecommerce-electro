@@ -3,8 +3,13 @@ import { FaTrashAlt } from "react-icons/fa"
 import { FaEdit } from "react-icons/fa"
 
 import { Link } from "react-router-dom"
-import { useEffect, useState, useContext } from "react"
+import React, { useEffect, useState, useContext } from "react"
 import { IoMdAdd, IoMdClose, IoMdRemove} from 'react-icons/io'
+import { GoVerified } from "react-icons/go";
+import { BsCartCheck } from "react-icons/bs";
+import { AiOutlineShoppingCart } from "react-icons/ai"
+
+
 const CartView = () => {
     const {cart, total, clearCart, removeFromCart} = useContext(CartContext)
     const [cantidad, setCantidad] = useState(1)
@@ -33,11 +38,14 @@ const CartView = () => {
 
     return (
         
-            <div className={`${cart.length>1 ? '' : ''} w-full lg:flex lg:justify-center mt-16 lg:items-start mb-16`}>
+            <div className={`${cart.length>1 ? '' : ''} w-full lg:flex lg:justify-evenly mt-16 lg:items-start mb-16`}>
 
                 
-                <div>
-                <h1 className="text-center text-3xl font-bold text-very-dark-blue md:text-3xl mb-10">Productos en tu carrito</h1>
+                <div className="flex flex-col gap-y-2 h-[450px] lg:h-[640px] overflow-y-auto overflow-x-hidden border-b">
+                <h1 className="flex justify-center items-center text-center text-3xl font-bold text-very-dark-blue md:text-3xl mb-10">
+                    <span>Productos en tu carrito</span>
+                    <BsCartCheck className="self-center text-5xl" />
+                </h1>
                 <hr />
                 {
                     cart.map(item => (
@@ -72,10 +80,20 @@ const CartView = () => {
                 }
                 </div>
                 <div className="text-center flex flex-col items-center self-center">
-                    <h4 className="text-center text-2xl text-very-dark-blue md:text-2xl mb-2 underline">Total: <span className="font-bold">${total}</span></h4>
+                    <h4 className="text-center text-2xl text-very-dark-blue md:text-4xl mb-2">
+                        <span className="md:text-3xl">
+                        Total:
+                        </span>
+                        <span className="md:text-2xl font-bold px-2">
+                            ${total}
+                        </span>
+                    </h4>
                     {/* <button className="" onClick={clearCart}>Vaciar Carrito</button> */}
-                    <Link className="bg-gray-200 flex p-4 justify-center items-center text-primary w-full font-medium mb-2" to="/productos">Volver a la tienda</Link>
-                    <Link className="bg-gray-800 flex p-4 justify-center items-center text-white w-full font-mediummb-6" to="/checkout">Terminar compra</Link>
+                    <Link className="md:w-full w-[250px] h-[70px] bg-gray-200 flex p-4 justify-between items-center text-primary font-medium mb-2" to="/productos "><span className="text-xl">Volver a la tienda </span> <AiOutlineShoppingCart className="self-center text-4xl" /></Link>
+                    <Link className="md:w-full w-[250px] h-[70px] bg-gray-800 flex p-4 justify-between items-center text-white font-mediummb-6" to="/checkout">
+                        <span className="text-xl">Terminar compra</span>
+                        <GoVerified className="self-center text-3xl" /> 
+                     </Link>
                 </div>
             </div>
     )
