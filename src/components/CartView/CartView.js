@@ -4,12 +4,9 @@ import { FaEdit } from "react-icons/fa"
 
 import { Link } from "react-router-dom"
 import { useEffect, useState, useContext } from "react"
-
-import { EditProduct } from "../EditProduct/EditProduct"
-
+import { IoMdAdd, IoMdClose, IoMdRemove} from 'react-icons/io'
 const CartView = () => {
     const {cart, total, clearCart, removeFromCart} = useContext(CartContext)
-    const [itemEdit, setItemEdit] = useState(null)
     const [cantidad, setCantidad] = useState(1)
     const [max, setMax] = useState(0)
 
@@ -36,31 +33,49 @@ const CartView = () => {
 
     return (
         
-            <div className="">
-                {
-                    itemEdit && <EditProduct itemEdit={itemEdit} setItemEdit={setItemEdit} cantidad={cantidad} setCantidad={setCantidad} max={max} setMax={setMax}/>
-                }
-                <h2>Tu compra</h2>
+            <div className={`${cart.length>1 ? '' : 'h-screen'} w-full mt-16 lg:flex lg:justify-center lg:items-center`}>
+
+                
+                <div>
+                <h1 className="text-center text-3xl font-bold text-very-dark-blue md:text-3xl mb-10">Productos en tu carrito</h1>
                 <hr />
                 {
                     cart.map(item => (
-                        <div className="" key={item.id}>
-                            <div className="">
-                                <h3>{item.title}</h3>
-                                <h5>Precio: ${item.price * item.amount}</h5>
+                        <div className="flex justify-center items-center gap-y-2 lg:h-[150px] h-[200px] px-5" key={item.id}>
+                            <div className="flex items-center gap-x-16 py-12 lg:px-6 border-b border-gray-200 w-full font-light text-gray-500">
+                                <div className="w-full max-h-[100px] flex justify-center items-center gap-x-4">
+                                    <div className="max-w-[80px] max-h-[150px] h-[100px]">
+                                        <img className="self-start" src={item.image} alt="" />
+                                    </div>
+                                    <div className="text-xs md:text-lg w-64 max-w-[350px] font-bold gap-x-4">
+                                        <h3>{item.title}</h3>                                
+                                    </div>
+                                    <div>
+                                        <h5 className="text-xs lg:text-2xl">Precio/u: <span className="lg:text-xl font-bold">${item.price * item.amount}</span></h5>
+                                    </div>
+                                    <div className="">
+                                        <h5 className="text-xs lg:text-2xl">Cantidad: <span className="lg:text-xl font-bold">{item.amount}</span></h5>
+                                    </div>
+                                    <div className="">
+                                        <h5 className="text-xs lg:text-2xl">Total de producto: <span className="lg:text-xl font-bold">${`${parseFloat(item.price*item.amount).toFixed(2)}`}</span> </h5>
+                                    </div>
+                                     {/* remove icon */}
+                                    <div onClick={() => removeFromCart(item.id)} className="lg:text-xl cursor-pointer">
+                                        <IoMdClose className="text-gray-500 hover:text-red-500 transition" />
+                                    </div>
+                                </div>
+                                
                             </div>
-                            <div className="">
-                                <h5 className="">Cantidad: {item.amount}</h5>
-                                <button type="checkbox" onClick={() => setItemEdit(item)} className=""><FaEdit /></button>
-                                <button onClick={() => removeFromCart(item.id)} className=""><FaTrashAlt /></button>
-                            </div>
+
                         </div>
                     ))
                 }
-                
-                <h4>Total: ${total}</h4>
-                <button className="" onClick={clearCart}>Vaciar Carrito</button>
-                <Link className="" to="/checkout">Terminar compra</Link>
+                </div>
+                <div>
+                    <h4 className="text-center text-2xl font-bold text-very-dark-blue md:text-2xl mb-10">Total: ${total}</h4>
+                    <button className="" onClick={clearCart}>Vaciar Carrito</button>
+                    <Link className="" to="/checkout">Terminar compra</Link>
+                </div>
             </div>
     )
 }
