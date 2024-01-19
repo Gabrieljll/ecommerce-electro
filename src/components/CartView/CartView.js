@@ -42,9 +42,9 @@ const CartView = () => {
 
                 
                 <div className="flex flex-col gap-y-2 h-[450px] lg:h-[640px] overflow-y-auto overflow-x-hidden border-b">
-                    <h1 className="sticky top-0 z-10 bg-white flex justify-center items-center text-center text-3xl font-bold text-very-dark-blue md:text-3xl mb-10">
+                    <h1 className="sticky top-0 z-10 bg-white flex justify-center items-center text-center text-2xl font-bold text-very-dark-blue md:text-3xl mb-10">
                         <span>Productos en tu carrito</span>
-                        <BsCartCheck className="self-center text-5xl" />
+                        <BsCartCheck className="self-center text-4xl md:text-5xl" />
                     </h1>
                 <hr />
                 {
