@@ -1111,6 +1111,10 @@ select {
   height: 600px;
 }
 
+.h-\[70px\] {
+  height: 70px;
+}
+
 .h-\[80\%\] {
   height: 80%;
 }
@@ -1131,18 +1135,6 @@ select {
 
 .h-screen {
   height: 100vh;
-}
-
-.h-\[150px\] {
-  height: 150px;
-}
-
-.h-\[80px\] {
-  height: 80px;
-}
-
-.h-\[70px\] {
-  height: 70px;
 }
 
 .max-h-\[100px\] {
@@ -1187,10 +1179,6 @@ select {
 
 .w-44 {
   width: 11rem;
-}
-
-.w-64 {
-  width: 16rem;
 }
 
 .w-7 {
@@ -1256,6 +1244,10 @@ select {
 
 .max-w-lg {
   max-width: 32rem;
+}
+
+.max-w-\[400px\] {
+  max-width: 400px;
 }
 
 .flex-1 {
@@ -1369,10 +1361,6 @@ select {
 
 .justify-around {
   justify-content: space-around;
-}
-
-.justify-evenly {
-  justify-content: space-evenly;
 }
 
 .gap-12 {
@@ -1654,8 +1642,8 @@ select {
   padding: 2rem;
 }
 
-.p-5 {
-  padding: 1.25rem;
+.p-6 {
+  padding: 1.5rem;
 }
 
 .px-12 {
@@ -1790,6 +1778,10 @@ select {
   padding-top: 1.5rem;
 }
 
+.pb-10 {
+  padding-bottom: 2.5rem;
+}
+
 .text-left {
   text-align: left;
 }
@@ -1856,16 +1848,6 @@ select {
 .text-xl {
   font-size: 1.25rem;
   line-height: 1.75rem;
-}
-
-.text-xs {
-  font-size: 0.75rem;
-  line-height: 1rem;
-}
-
-.text-5xl {
-  font-size: 3rem;
-  line-height: 1;
 }
 
 .font-bold {
@@ -2161,10 +2143,6 @@ select {
     margin-top: 0px;
   }
 
-  .md\:flex {
-    display: flex;
-  }
-
   .md\:w-2\/3 {
     width: 66.666667%;
   }
@@ -2248,11 +2226,6 @@ select {
     font-size: 1.125rem;
     line-height: 1.75rem;
   }
-
-  .md\:text-xl {
-    font-size: 1.25rem;
-    line-height: 1.75rem;
-  }
 }
 
 @media (min-width: 1024px) {
@@ -2318,6 +2291,19 @@ select {
     width: max-content;
   }
 
+  .lg\:w-\[500px\] {
+    width: 500px;
+  }
+
+  .lg\:min-w-max {
+    min-width: -webkit-max-content;
+    min-width: max-content;
+  }
+
+  .lg\:min-w-\[100\%\] {
+    min-width: 100%;
+  }
+
   .lg\:max-w-sm {
     max-width: 24rem;
   }
@@ -2345,10 +2331,6 @@ select {
 
   .lg\:justify-normal {
     justify-content: normal;
-  }
-
-  .lg\:justify-center {
-    justify-content: center;
   }
 
   .lg\:justify-evenly {
@@ -2451,6 +2433,10 @@ select {
     grid-column: span 1 / span 1;
   }
 
+  .xl\:m-0 {
+    margin: 0px;
+  }
+
   .xl\:block {
     display: block;
   }
@@ -2483,6 +2469,10 @@ select {
     width: 100vw;
   }
 
+  .xl\:w-full {
+    width: 100%;
+  }
+
   .xl\:max-w-\[30vw\] {
     max-width: 30vw;
   }
@@ -2509,6 +2499,16 @@ select {
 
   .xl\:p-4 {
     padding: 1rem;
+  }
+
+  .xl\:text-2xl {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+
+  .xl\:text-4xl {
+    font-size: 2.25rem;
+    line-height: 2.5rem;
   }
 
   .xl\:text-white {

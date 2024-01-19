@@ -38,11 +38,11 @@ const CartView = () => {
 
     return (
         
-            <div className={`${cart.length>1 ? '' : ''} w-full lg:flex lg:justify-evenly mt-16 lg:items-start mb-16`}>
+            <div className={`${cart.length>1 ? '' : ''} w-full lg:flex lg:justify-evenly mt-16 lg:items-start mb-16 p-6`}>
 
                 
-                <div className="flex flex-col gap-y-2 h-[450px] lg:h-[640px] overflow-y-auto overflow-x-hidden border-b">
-                    <h1 className="sticky top-0 z-10 bg-white flex justify-center items-center text-center text-2xl font-bold text-very-dark-blue md:text-3xl mb-10">
+                <div className="flex flex-col gap-y-2 h-[450px] lg:h-[640px] lg:w-max overflow-y-auto overflow-x-hidden border-b">
+                    <h1 className="sticky top-0 z-10 bg-white flex justify-center items-center text-center text-2xl font-bold text-very-dark-blue md:text-3xl pb-10">
                         <span>Productos en tu carrito</span>
                         <BsCartCheck className="self-center text-4xl md:text-5xl" />
                     </h1>
@@ -55,10 +55,10 @@ const CartView = () => {
                                     <div className="max-w-[80px] max-h-[150px] h-[100px]">
                                         <img className="self-start" src={item.image} alt="" />
                                     </div>
-                                    <div className="text-sm md:text-lg w-36 max-w-[350px] font-bold gap-x-4">
+                                    <div className="text-sm md:text-lg w-36 max-w-[400px] lg:w-[500px] font-bold gap-x-4">
                                         <h3>{item.title}</h3>                                
                                     </div>
-                                    <div>
+                                    <div className="lg:w-[500px]">
                                         <div>
                                             <h5 className="text-sm lg:text-2xl">Precio/u: <span className="lg:text-xl font-bold">${item.price * item.amount}</span></h5>
                                         </div>
@@ -81,18 +81,18 @@ const CartView = () => {
                     ))
                 }
                 </div>
-                <div className="mt-8 md:m-0 text-center flex flex-col items-center self-center">
-                    <h4 className="text-center text-2xl text-very-dark-blue md:text-4xl mb-2">
+                <div className="mt-8 xl:m-0 text-center flex flex-col items-center self-center">
+                    <h4 className="text-center text-2xl text-very-dark-blue xl:text-4xl mb-2">
                         <span className="md:text-3xl">
                         Total:
                         </span>
-                        <span className="md:text-2xl font-bold px-2">
+                        <span className="xl:text-2xl font-bold px-2">
                             ${total}
                         </span>
                     </h4>
                     {/* <button className="" onClick={clearCart}>Vaciar Carrito</button> */}
-                    <Link className="md:w-full w-[250px] h-[70px] bg-gray-200 flex p-4 justify-between items-center text-primary font-medium mb-2" to="/productos "><span className="text-xl">Volver a la tienda </span> <AiOutlineShoppingCart className="self-center text-4xl" /></Link>
-                    <Link className="md:w-full w-[250px] h-[70px] bg-gray-800 flex p-4 justify-between items-center text-white font-mediummb-6" to="/checkout">
+                    <Link className="xl:w-full w-[250px] h-[70px] bg-gray-200 flex p-4 justify-between items-center text-primary font-medium mb-2" to="/productos "><span className="text-xl">Volver a la tienda </span> <AiOutlineShoppingCart className="self-center text-4xl" /></Link>
+                    <Link className="xl:w-full w-[250px] h-[70px] bg-gray-800 flex p-4 justify-between items-center text-white font-mediummb-6" to="/checkout">
                         <span className="text-xl">Terminar compra</span>
                         <GoVerified className="self-center text-3xl" /> 
                      </Link>
