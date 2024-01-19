@@ -33,7 +33,7 @@ const CartView = () => {
 
     return (
         
-            <div className={`${cart.length>1 ? '' : 'h-screen'} w-full mt-16 lg:flex lg:justify-center lg:items-center`}>
+            <div className={`${cart.length>1 ? '' : ''} w-full lg:flex lg:justify-center mt-16 lg:items-start mb-16`}>
 
                 
                 <div>
@@ -71,10 +71,11 @@ const CartView = () => {
                     ))
                 }
                 </div>
-                <div>
-                    <h4 className="text-center text-2xl font-bold text-very-dark-blue md:text-2xl mb-10">Total: ${total}</h4>
-                    <button className="" onClick={clearCart}>Vaciar Carrito</button>
-                    <Link className="" to="/checkout">Terminar compra</Link>
+                <div className="text-center flex flex-col items-center self-center">
+                    <h4 className="text-center text-2xl text-very-dark-blue md:text-2xl mb-2 underline">Total: <span className="font-bold">${total}</span></h4>
+                    {/* <button className="" onClick={clearCart}>Vaciar Carrito</button> */}
+                    <Link className="bg-gray-200 flex p-4 justify-center items-center text-primary w-full font-medium mb-2" to="/productos">Volver a la tienda</Link>
+                    <Link className="bg-gray-800 flex p-4 justify-center items-center text-white w-full font-mediummb-6" to="/checkout">Terminar compra</Link>
                 </div>
             </div>
     )

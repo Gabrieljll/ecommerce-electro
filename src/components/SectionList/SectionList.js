@@ -21,7 +21,6 @@ export const SectionList = () =>{
       useEffect(() => {
         if (inView) {
           // La sección es visible, puedes agregar lógica adicional si es necesario
-          console.log("lala")
         }
       }, [inView]);
 
@@ -77,7 +76,7 @@ export const SectionList = () =>{
                     {data.map((d) => (
                     <div key={d.name} className="bg-white lg:h-[450px] h-[350px] text-black rounded-xl md:w-full lg:w-1/3">
                         <div className='h-40 xl:h-56 bg-transparent flex justify-center items-center rounded-t-xl'>
-                        <img src={d.img} alt="" className="h-44 w-36"/>
+                            <img src={d.img} alt="" className="h-44 w-36"/>
                         </div>
 
                         <div className="flex flex-col items-center justify-center gap-4 p-4">
