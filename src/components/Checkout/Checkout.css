@@ -1,0 +1,100 @@
+* {
+    font-family: "TTChocolate";
+}
+
+.checkout-body {
+    height: max-content !important;
+    min-height: 70vh;
+}
+
+.form-body {
+    width: max-content;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.form-body input {
+    width: 20rem;
+    margin-bottom: 0px !important;
+}
+
+.divFormButtons {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+.divFormButtons * {
+    width: 12rem;
+}
+
+.labelInput {
+    width: 5rem;
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 0.5rem;
+}
+
+.divInput {
+    width: max-content;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: baseline;
+}
+
+.divInputError p {
+    margin: auto auto auto 1rem;
+    width: 100%;
+    color: red;
+}
+
+.checkout-form-items {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.divItem-checkout {
+    display: flex;
+    /* flex-direction: column; */
+    align-items: center;
+}
+
+.divItem-checkout div {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    align-items: center;
+}
+
+.divItem-checkout div * {
+    margin: 0;
+}
+
+.items {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    flex-direction: column;
+    height: min-content;
+}
+
+.divInput-inputError {
+    height: 4rem;
+}
+
+.divTotal {
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.divTotal h4 {
+    border-bottom: 2px solid;
+}

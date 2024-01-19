@@ -38,7 +38,7 @@ const CartView = () => {
 
     return (
         
-            <div className={`${cart.length>1 ? '' : ''} w-full lg:flex lg:justify-evenly mt-16 lg:items-start mb-16 p-6`}>
+            <div className="w-full lg:flex lg:justify-evenly mt-16 lg:items-start mb-16 p-6">
 
                 
                 <div className="flex flex-col gap-y-2 h-[450px] lg:h-[640px] lg:w-max overflow-y-auto overflow-x-hidden border-b">

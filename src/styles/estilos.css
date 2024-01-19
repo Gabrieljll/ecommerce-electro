@@ -954,6 +954,11 @@ select {
   margin-bottom: 0.5rem;
 }
 
+.my-5 {
+  margin-top: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
 .mb-1 {
   margin-bottom: 0.25rem;
 }
@@ -1214,6 +1219,18 @@ select {
   width: max-content;
 }
 
+.w-\[300px\] {
+  width: 300px;
+}
+
+.w-\[400px\] {
+  width: 400px;
+}
+
+.w-\[500px\] {
+  width: 500px;
+}
+
 .max-w-\[1920px\] {
   max-width: 1920px;
 }
@@ -1458,6 +1475,10 @@ select {
 
 .overflow-x-hidden {
   overflow-x: hidden;
+}
+
+.text-pretty {
+  text-wrap: pretty;
 }
 
 .rounded {
