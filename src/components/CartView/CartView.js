@@ -42,10 +42,10 @@ const CartView = () => {
 
                 
                 <div className="flex flex-col gap-y-2 h-[450px] lg:h-[640px] overflow-y-auto overflow-x-hidden border-b">
-                <h1 className="flex justify-center items-center text-center text-3xl font-bold text-very-dark-blue md:text-3xl mb-10">
-                    <span>Productos en tu carrito</span>
-                    <BsCartCheck className="self-center text-5xl" />
-                </h1>
+                    <h1 className="sticky top-0 z-10 bg-white flex justify-center items-center text-center text-3xl font-bold text-very-dark-blue md:text-3xl mb-10">
+                        <span>Productos en tu carrito</span>
+                        <BsCartCheck className="self-center text-5xl" />
+                    </h1>
                 <hr />
                 {
                     cart.map(item => (
@@ -55,17 +55,17 @@ const CartView = () => {
                                     <div className="max-w-[80px] max-h-[150px] h-[100px]">
                                         <img className="self-start" src={item.image} alt="" />
                                     </div>
-                                    <div className="text-xs md:text-lg w-64 max-w-[350px] font-bold gap-x-4">
+                                    <div className="text-sm md:text-lg w-64 max-w-[350px] font-bold gap-x-4">
                                         <h3>{item.title}</h3>                                
                                     </div>
                                     <div>
-                                        <h5 className="text-xs lg:text-2xl">Precio/u: <span className="lg:text-xl font-bold">${item.price * item.amount}</span></h5>
+                                        <h5 className="text-sm lg:text-2xl">Precio/u: <span className="lg:text-xl font-bold">${item.price * item.amount}</span></h5>
                                     </div>
                                     <div className="">
-                                        <h5 className="text-xs lg:text-2xl">Cantidad: <span className="lg:text-xl font-bold">{item.amount}</span></h5>
+                                        <h5 className="text-sm lg:text-2xl">Cantidad: <span className="lg:text-xl font-bold">{item.amount}</span></h5>
                                     </div>
                                     <div className="">
-                                        <h5 className="text-xs lg:text-2xl">Total de producto: <span className="lg:text-xl font-bold">${`${parseFloat(item.price*item.amount).toFixed(2)}`}</span> </h5>
+                                        <h5 className="text-sm lg:text-2xl">Total de producto: <span className="lg:text-xl font-bold">${`${parseFloat(item.price*item.amount).toFixed(2)}`}</span> </h5>
                                     </div>
                                      {/* remove icon */}
                                     <div onClick={() => removeFromCart(item.id)} className="lg:text-xl cursor-pointer">
@@ -79,7 +79,7 @@ const CartView = () => {
                     ))
                 }
                 </div>
-                <div className="text-center flex flex-col items-center self-center">
+                <div className="mt-8 md:m-0 text-center flex flex-col items-center self-center">
                     <h4 className="text-center text-2xl text-very-dark-blue md:text-4xl mb-2">
                         <span className="md:text-3xl">
                         Total:

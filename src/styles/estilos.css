@@ -845,6 +845,11 @@ select {
   position: relative;
 }
 
+.sticky {
+  position: -webkit-sticky;
+  position: sticky;
+}
+
 .inset-0 {
   inset: 0px;
 }
@@ -2134,6 +2139,10 @@ select {
 @media (min-width: 768px) {
   .md\:col-span-2 {
     grid-column: span 2 / span 2;
+  }
+
+  .md\:m-0 {
+    margin: 0px;
   }
 
   .md\:mb-0 {
