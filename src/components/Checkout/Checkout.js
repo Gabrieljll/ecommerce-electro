@@ -1,5 +1,5 @@
 
-import { useState, useContext } from "react"
+import React, { useState, useContext } from "react"
 import { Navigate, Link} from "react-router-dom"
 import { db } from "../../firebase/config"
 import { collection, writeBatch, documentId, query, getDocs, addDoc, where} from "firebase/firestore"
@@ -14,8 +14,9 @@ const telefonoRegExp = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9
 const schema = Yup.object().shape({
     nombre: Yup.string().min(4, 'Mínimo 4 caracteres').max(30, 'Máximo 30 caracteres').required('Este campo es requerido'),
     apellido: Yup.string().min(4, 'Mínimo 4 caracteres').max(30, 'Máximo 30 caracteres').required('Este campo es requerido'),
-    telefono: Yup.string().matches(telefonoRegExp, 'El número de telefono no es válido').required('Este campo es requerido'),
     direccion: Yup.string().min(8, 'Mínimo 8 caracteres').max(40, 'Máximo 40 caracteres').required('Este campo es requerido'),
+    localidad: Yup.string().min(8, 'Mínimo 8 caracteres').max(40, 'Máximo 40 caracteres').required('Este campo es requerido'),
+    telefono: Yup.string().matches(telefonoRegExp, 'El número de telefono no es válido').required('Este campo es requerido'),
     email: Yup.string().email('El email no es válido').required('Este campo es obligatorio')
 })
 
@@ -89,13 +90,15 @@ export const Checkout = () => {
 
 
     return (
-        <div >
+            <div className="self-center w-full xl:w-auto flex justify-center items-center">
             <Formik
+                className="mt-8 xl:m-0 text-center flex flex-col items-center justify-center self-center w-[350px] xl:w-max p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-900 dark:border-gray-200"
                 initialValues={{
                     nombre: '',
                     apellido: '',
-                    telefono: '',
                     direccion: '',
+                    localidad: '',
+                    telefono: '',
                     email: ''
                 }}
                 onSubmit={(values) => {
@@ -109,14 +112,14 @@ export const Checkout = () => {
                     
                     <div className="">
                         <form className="form-body w-full lg:flex lg:justify-evenly mt-16 lg:items-start mb-16 p-6" onSubmit={handleSubmit}>
-                            <div className="font-principal flex flex-col gap-y-2 h-[450px] lg:h-[640px] lg:w-max overflow-y-auto overflow-x-hidden border-b">
-                                <div className="font-bold">
-                                    <h2>¡Estás a un paso de terminar!</h2>
-                                    <h2> Por favor completa con tus datos para notificarte luego de la compra </h2>
+                            <div className="font-principal flex flex-col gap-y-2 h-[500px] lg:h-[640px] lg:w-max border-b p-4 items-start">
+                                <div className="sticky font-bold font-principal text-xl">
+                                    <h1>¡Estás a un paso de terminar!</h1>
+                                    <h1> Por favor completa con tus datos de contacto para notificarte luego de la compra </h1>
                                 </div>
-                                <div>
-                                    <div className="divInput">
-                                        <label className="labelInput" htmlFor="nombre">Nombre:</label>
+                                <div className="flex justify-around items-center">
+                                    <div className="mx-1 divInput">
+                                        <label className="labelInput font-bold" htmlFor="nombre">Nombre</label>
                                         <div className="divInput-inputError">
                                             <input
                                                 className="form-control my-2"
@@ -127,13 +130,13 @@ export const Checkout = () => {
                                                 value={values.nombre}
                                                 placeholder="Tu nombre"
                                             />
-                                            <div className="divInputError">
+                                            <div className="divInputError text-red-500">
                                                 {errors.nombre && <p>{errors.nombre}</p>}
                                             </div>
                                         </div>
                                     </div>
-                                    <div className="divInput">
-                                        <label className="labelInput" htmlFor="apellido">Apellido:</label>
+                                    <div className="mx-1 divInput">
+                                        <label className="labelInput font-bold" htmlFor="apellido">Apellido</label>
                                         <div className="divInput-inputError">
                                             <input
                                                 className="form-control my-2"
@@ -144,30 +147,32 @@ export const Checkout = () => {
                                                 value={values.apellido}
                                                 placeholder="Tu apellido"
                                             />
-                                            <div className="divInputError">
+                                            <div className="divInputError text-red-500">
                                                 {errors.apellido && <p>{errors.apellido}</p>}
                                             </div>
                                         </div>
                                     </div>
-                                    <div className="divInput">
-                                        <label className="labelInput" htmlFor="telefono">Telefono:</label>
+                                </div>
+                                <div className="flex justify-around items-center">
+                                    <div className="mx-1 divInput">
+                                        <label className="labelInput font-bold" htmlFor="localidad">Localidad</label>
                                         <div className="divInput-inputError">
                                             <input
                                                 className="form-control my-2"
                                                 onChange={handleChange}
-                                                type="number"
-                                                id="telefono"
-                                                name="telefono"
-                                                value={values.telefono}
-                                                placeholder="Ej: 1111111111"
+                                                type="text"
+                                                id="localidad"
+                                                name="localidad"
+                                                value={values.localidad}
+                                                placeholder="Ej: San Miguel"
                                             />
-                                            <div className="divInputError">
-                                                {errors.telefono && <p>{errors.telefono}</p>}
+                                            <div className="divInputError text-red-500">
+                                                {errors.direccion && <p>{errors.direccion}</p>}
                                             </div>
                                         </div>
                                     </div>
-                                    <div className="divInput">
-                                        <label className="labelInput" htmlFor="direccion">Direccion:</label>
+                                    <div className="mx-1 divInput">
+                                        <label className="labelInput font-bold" htmlFor="direccion">Direccion</label>
                                         <div className="divInput-inputError">
                                             <input
                                                 className="form-control my-2"
@@ -178,13 +183,32 @@ export const Checkout = () => {
                                                 value={values.direccion}
                                                 placeholder="Ej: Avenida Ejemplo 123"
                                             />
-                                            <div className="divInputError">
+                                            <div className="divInputError text-red-500">
                                                 {errors.direccion && <p>{errors.direccion}</p>}
                                             </div>
                                         </div>
                                     </div>
-                                    <div className="divInput">
-                                        <label className="labelInput" htmlFor="email">Email:</label>
+                                </div>
+                                <div className="flex justify-around items-center">
+                                    <div className="mx-1 divInput">
+                                        <label className="labelInput font-bold" htmlFor="telefono">Telefono</label>
+                                        <div className="divInput-inputError">
+                                            <input
+                                                className="form-control my-2"
+                                                onChange={handleChange}
+                                                type="number"
+                                                id="telefono"
+                                                name="telefono"
+                                                value={values.telefono}
+                                                placeholder="Ej: 1111111111"
+                                            />
+                                            <div className="divInputError text-red-500">
+                                                {errors.telefono && <p>{errors.telefono}</p>}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="mx-1 divInput">
+                                        <label className="labelInput font-bold" htmlFor="email">Email</label>
                                         <div className="divInput-inputError">
                                             <input
                                                 className="form-control my-2"
@@ -195,7 +219,7 @@ export const Checkout = () => {
                                                 value={values.email}
                                                 placeholder="Ej: jhon@ejemplo.com"
                                             />
-                                            <div className="divInputError">
+                                            <div className="divInputError text-red-500">
                                                 {errors.email && <p>{errors.email}</p>}
                                             </div>
                                         </div>
@@ -203,7 +227,7 @@ export const Checkout = () => {
                                 </div>
                             </div>
                             
-                            <div className="mt-8 xl:m-0 text-center  justify-center flex flex-col items-center self-center">
+                            <div className="mt-8 xl:m-0 text-center justify-center flex flex-col p-4">
                                 {/* Texto sobre mercado pago */}
                                 <div className="font-principal flex flex-col justify-center items-center text-center">
                                     <h1 className="text-xl">Queremos garantizar seguridad por lo que ofrecemos</h1>
@@ -213,7 +237,7 @@ export const Checkout = () => {
                                 </div>
                                 <div>
                                     {/* <button className="btn btn-primary" type="submit">Realizar pago</button> */}
-                                    <p className="" >Realizar pago</p>
+                                    <p className="" >Realizar pago <SiMercadopago/></p>
                                     <p>Cancelar</p>
                                     {/* <Link className="btn btn-danger" to="/home">Cancelar</Link> */}
                                 </div>
