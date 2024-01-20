@@ -29,7 +29,7 @@ const CartView = () => {
                 </div>
                 <hr />
                 <div>
-                    <Link to="/productos" className="text-lg button shadow-xl py-4 flex justify-center items-center tracking-tight">Explorar productos</Link>
+                    <Link className="xl:w-full w-[250px] h-[70px] bg-gray-200 flex p-4 justify-between items-center text-primary font-medium mb-2" to="/productos "><span className="text-xl">Explorar productos </span> <AiOutlineShoppingCart className="self-center text-4xl" /></Link>
                 </div>
             </div>
             
@@ -81,21 +81,36 @@ const CartView = () => {
                     ))
                 }
                 </div>
-                <div className="mt-8 xl:m-0 text-center flex flex-col items-center self-center">
-                    <h4 className="text-center text-2xl text-very-dark-blue xl:text-4xl mb-2">
-                        <span className="md:text-3xl">
-                        Total:
-                        </span>
-                        <span className="xl:text-2xl font-bold px-2">
-                            ${total}
-                        </span>
-                    </h4>
-                    {/* <button className="" onClick={clearCart}>Vaciar Carrito</button> */}
-                    <Link className="xl:w-full w-[250px] h-[70px] bg-gray-200 flex p-4 justify-between items-center text-primary font-medium mb-2" to="/productos "><span className="text-xl">Volver a la tienda </span> <AiOutlineShoppingCart className="self-center text-4xl" /></Link>
-                    <Link className="xl:w-full w-[250px] h-[70px] bg-gray-800 flex p-4 justify-between items-center text-white font-mediummb-6" to="/checkout">
-                        <span className="text-xl">Terminar compra</span>
-                        <GoVerified className="self-center text-3xl" /> 
-                     </Link>
+
+                <div className="self-center w-full xl:w-auto flex justify-center items-center">
+                    <div className="mt-8 xl:m-0 text-center flex flex-col items-center justify-center self-center w-[350px] xl:w-max p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-900 dark:border-gray-200">
+                        <h1 className="text-xl font-principal"><span className="">Resumen de la compra</span></h1>
+                        <br />
+                        <div className="flex justify-between items-center w-[100%] border-t">
+                            <span className="text-center text-lg text-very-dark-blue xl:text-lg mb-2">
+                            Sub total:
+                            </span>
+                            <span className="text-center text-lg text-very-dark-blue xl:text-lg mb-2">
+                                ${total}
+                            </span>
+                        </div>
+                        <div className="flex justify-between items-center w-[100%] border-t">
+                            <span className="text-center text-lg text-very-dark-blue mb-2">
+                            Total:
+                            </span>
+                            <span className="text-center text-lg text-very-dark-blue mb-2">
+                                ${total}
+                            </span>
+                        </div>
+                        
+                        {/* <button className="" onClick={clearCart}>Vaciar Carrito</button> */}
+                        <Link className="xl:w-full w-[250px] h-[70px] bg-gray-800 flex p-4 justify-between items-center text-white font-medium mb-6 mt-6" to="/checkout">
+                            <span className="text-xl">Terminar compra</span>
+                            <GoVerified className="self-center text-3xl" /> 
+                        </Link>
+                        <Link className="xl:w-full w-[250px] h-[70px] bg-gray-200 flex p-4 justify-between items-center text-primary font-medium" to="/productos "><span className="text-xl">Volver a la tienda </span> <AiOutlineShoppingCart className="self-center text-4xl" /></Link>
+                        
+                    </div>                    
                 </div>
             </div>
     )
