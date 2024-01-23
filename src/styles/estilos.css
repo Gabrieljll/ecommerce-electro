@@ -1167,10 +1167,6 @@ select {
   height: 36px;
 }
 
-.h-\[440px\] {
-  height: 440px;
-}
-
 .h-\[450px\] {
   height: 450px;
 }
@@ -1185,6 +1181,10 @@ select {
 
 .h-\[80\%\] {
   height: 80%;
+}
+
+.h-auto {
+  height: auto;
 }
 
 .h-full {
@@ -1203,10 +1203,6 @@ select {
 
 .h-screen {
   height: 100vh;
-}
-
-.h-auto {
-  height: auto;
 }
 
 .max-h-\[100px\] {
@@ -1296,14 +1292,6 @@ select {
 .w-max {
   width: -webkit-max-content;
   width: max-content;
-}
-
-.w-auto {
-  width: auto;
-}
-
-.w-\[450px\] {
-  width: 450px;
 }
 
 .max-w-\[1920px\] {
