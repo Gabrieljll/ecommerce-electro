@@ -112,8 +112,8 @@ export const SectionList = () =>{
         </section>
 
             <section className="section animate__animated animate__fadeInUp">
-                <div className="flex max-w-[1920px] h-min w-full m-auto py-5 px-4 relative group">
-                    <div style={{ backgroundImage: `url(${imagenSection1})` }} className='w-full h-full rounded-2xl bg-center bg-cover duration-500'>
+                <div className="flex max-w-[1920px] h-min w-full m-auto py-5 relative group">
+                    <div style={{ backgroundImage: `url(${imagenSection1})` }} className='w-full h-full bg-center bg-cover duration-500'>
                         <div className="text-right font-principal sectionInformation shadow-sm shadow-bright-red/30 py-3 block text-4xl font-extrabold leading-none tracking-tight  sm:text-5xl lg:text-6xl dark:text-white">
                             <h1 className="text-white">¿Buscas renovar tu casa?</h1>
                             <h6 className="text-white text-2xl mt-7">Consulte por nuestro servicio de venta de outlet, con productos totalmente</h6>
