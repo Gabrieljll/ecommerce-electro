@@ -31,6 +31,7 @@ export const Checkout = () => {
     const [orderId, setOrderId] = useState(null)
     const [preferenceId, setPreferenceId] = useState(null);
     const [mostrarWallet, setMostrarWallet] = useState(false);
+    const [formCompleted, setFormCompleted] = useState(false);
     const publicKey = process.env.REACT_APP_MP_PUBLIC_KEY;
     const urlBack = process.env.REACT_APP_URL_BACK;
     initMercadoPago(publicKey, {locale: "es-AR"});
@@ -100,16 +101,14 @@ export const Checkout = () => {
 
     const createPreference = async () => {
         try {
-          const response = await axios.post(urlBack+"/create_preference", {
-            description: "Bananita contenta",
-            price: 100,
-            quantity: 1,
-          });
+            const cartJsonArray = JSON.parse(localStorage.getItem('cart'))
+            
+            const response = await axios.post(urlBack+"/create_preference", cartJsonArray);
     
-          const { id } = response.data;
-          return id;
+            const { id } = response.data;
+            return id;
         } catch (error) {
-          console.log(error);
+            console.log(error);
         }
       };
     
@@ -141,9 +140,13 @@ export const Checkout = () => {
                 validationSchema={schema}
             >
                 {({
-                    values, handleChange, handleSubmit, errors
-                }) => (
-                    
+                    values, handleChange, handleSubmit, errors , isValid
+                }) => {
+                    const requiredFields = ["nombre", "apellido", "direccion", "localidad", "telefono", "email"];
+                    const requiredFieldsFilled = requiredFields.every((field) => values[field] !== "");
+
+          
+                    return (
                     <div className="">
                         <form className="form-body w-full lg:flex lg:justify-evenly mt-16 lg:items-start mb-16 p-6" onSubmit={handleSubmit}>
                             <div className="font-principal lg:flex lg:flex-col gap-y-2 h-auto lg:h-[640px] lg:w-max border-b p-4 items-start">
@@ -201,7 +204,7 @@ export const Checkout = () => {
                                                 placeholder="Ej: San Miguel"
                                             />
                                             <div className="divInputError text-red-500">
-                                                {errors.direccion && <p>{errors.direccion}</p>}
+                                                {errors.localidad && <p>{errors.localidad}</p>}
                                             </div>
                                         </div>
                                     </div>
@@ -273,7 +276,11 @@ export const Checkout = () => {
                                     {/* <button className="btn btn-primary" type="submit">Realizar pago</button> */}
                                     <div className="">
                                         {!mostrarWallet ? (
-                                            <div className="py-4 flex flex-col justify-center items-center mb-6 w-[250px] bg-green-500 cursor-pointer text-white rounded-xl" onClick={handleBuy}>
+                                            <div className={`py-4 flex flex-col justify-center items-center mb-6 w-[250px] ${
+                                                isValid && requiredFieldsFilled
+                                                  ? "bg-green-500 cursor-pointer"
+                                                  : "bg-gray-400"
+                                              } text-white rounded-xl`}  onClick={isValid && requiredFieldsFilled ? handleBuy : null}>
                                             <p className="text-xl">Realizar pago</p>
                                             </div>
                                         ) : (
@@ -289,7 +296,8 @@ export const Checkout = () => {
                         </form>
 
                     </div>
-                )}
+                    )
+                }}
             </Formik>
             </div>
 
