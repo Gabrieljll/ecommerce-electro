@@ -5,9 +5,10 @@ import { createContext } from "react"
 
 export const CartContext = createContext()
 
+const init = JSON.parse(localStorage.getItem('cart')) || []
 
 export const CartProvider = ({children}) => {
-    const [cart, setCart] = useState([]);
+    const [cart, setCart] = useState(init);
 
     // item amount state
     const [itemAmount, setItemAmount] = useState(0);
@@ -30,6 +31,7 @@ export const CartProvider = ({children}) => {
                 return accumulator + currentItem.amount
             }, 0)
             setItemAmount(amount)
+            localStorage.setItem('cart', JSON.stringify(cart))
         }
     }, [cart])
 
@@ -49,8 +51,10 @@ export const CartProvider = ({children}) => {
                 }
             })
             setCart(newCart);
+            localStorage.setItem('cart', JSON.stringify(cart))
         } else {
             setCart([...cart, newItem]);
+            localStorage.setItem('cart', JSON.stringify(cart))
         }
     }
 
@@ -93,6 +97,9 @@ export const CartProvider = ({children}) => {
         }
         
     }
+    useEffect( () => {
+        localStorage.setItem('cart', JSON.stringify(cart))
+    },[cart])
     return (
         <CartContext.Provider value={ { cart, addToCart, removeFromCart, clearCart, increaseAmount, decreaseAmount, itemAmount, total} }>
             {children}
