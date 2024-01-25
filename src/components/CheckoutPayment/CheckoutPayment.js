@@ -88,8 +88,6 @@ export const CheckoutPayment = () => {
     const checkAndCreatePreference = async () => {
         // Verificar que haya datos de usuario y elementos en el carrito en el localStorage
         const user = JSON.parse(localStorage.getItem('checkoutData'));
-        console.log(user)
-        console.log(cart)
         if (user && cart.length > 0) {
             const id = await createPreference();
             if (id) {
