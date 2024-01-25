@@ -13,16 +13,30 @@ const imagenSection1 = "/images/section/electro2.jpg"
 
 export const SectionList = () =>{
 
-    const [ref, inView] = useInView({
-        triggerOnce: true, // La animación solo se activa una vez
-        threshold: 0.1, // Cambia según la parte visible que deseas
+    const [ref1, inView1] = useInView({
+        triggerOnce: true,
+        threshold: 0.1,
       });
-    
-      useEffect(() => {
-        if (inView) {
-          // La sección es visible, puedes agregar lógica adicional si es necesario
-        }
-      }, [inView]);
+      
+      const [ref2, inView2] = useInView({
+        triggerOnce: true,
+        threshold: 0.1,
+      });
+
+      const [ref3, inView3] = useInView({
+        triggerOnce: true,
+        threshold: 0.1,
+      });
+
+      const [ref4, inView4] = useInView({
+        triggerOnce: true,
+        threshold: 0.1,
+      });
+
+      const [ref5, inView5] = useInView({
+        triggerOnce: true,
+        threshold: 0.1,
+      });
 
       const settings = {
         dots: true,
@@ -70,7 +84,7 @@ export const SectionList = () =>{
     return (
         <>
         <section id="nosotros">
-            <div className='lg:w-3/5 w-4/5 m-auto'>
+            <div ref={ref1} className={`lg:w-3/5 w-4/5 m-auto transition-fade-up ${inView1 ? "active" : ""}`}>
                 <div className="mt-20">
                 <Slider {...settings}>
                     {data.map((d) => (
@@ -91,27 +105,25 @@ export const SectionList = () =>{
             </div>
         </section>
 
-         <section className={`wrapper mt-4 flex gap-8 justify-center items-center pb-12 md:grid-cols-2 md:py-24 ${
-          inView ? "animate__animated animate__fadeInUp" : ""
+         <section ref={ref2} className={`wrapper mt-4 flex gap-8 justify-center items-center pb-12 md:grid-cols-2 md:py-24 transition-fade-up ${
+          inView2 ? "active" : ""
         }`}>
+            <article ref={ref3} className={`flex flex-col items-center text-center mb-8 md:flex-row md:items-start md:text-left transition-fade-up ${
+                inView3 ? "active" : ""
+            }`}>
 
-        <article className={`flex flex-col items-center text-center mb-8 md:flex-row md:items-start md:text-left ${
-            inView ? "animate__animated animate__fadeInUp" : ""
-          }`}>
+                <img src="./images/section/389852.png" className="w-44 max-w-lg mb-4 md:mb-0 md:mr-4 hidden lg:block" />
+                <div>
+                <h1 className="text-center text-4xl font-bold text-very-dark-blue md:text-5xl mb-4">Una vida dedicada al servicio</h1>
 
-            <img src="./images/section/389852.png" className="w-44 max-w-lg mb-4 md:mb-0 md:mr-4 hidden lg:block" />
-            <div>
-            <h1 className="text-center text-4xl font-bold text-very-dark-blue md:text-5xl mb-4">Una vida dedicada al servicio</h1>
-
-            <p className="text-center text-dark-grayish-blue">(Nombre de proyecto) nace con la idea de ofrecer al minorista y al consumidor final el mejor servicio, en el momento preciso, y al mejor precio. Con más de treinta y cinco años en la industria, nuestra trayectoria y nuestros clientes avalan el camino que nos ha traído hasta este lugar, apuntando siempre a ser el socio de confianza del técnico y el minorista, y colaborando a mantener en las mejores condiciones el hogar de todos los argentinos
-            </p>
-            </div>
-            <img src="./images/section/389852.png" className="transform scale-x-[-1] w-44 max-w-lg mt-4 md:mt-0 md:ml-4 hidden lg:block" />
-        </article>
-
+                <p className="text-center text-dark-grayish-blue">(Nombre de proyecto) nace con la idea de ofrecer al minorista y al consumidor final el mejor servicio, en el momento preciso, y al mejor precio. Con más de treinta y cinco años en la industria, nuestra trayectoria y nuestros clientes avalan el camino que nos ha traído hasta este lugar, apuntando siempre a ser el socio de confianza del técnico y el minorista, y colaborando a mantener en las mejores condiciones el hogar de todos los argentinos
+                </p>
+                </div>
+                <img src="./images/section/389852.png" className="transform scale-x-[-1] w-44 max-w-lg mt-4 md:mt-0 md:ml-4 hidden lg:block" />
+            </article>
         </section>
 
-            <section className="section animate__animated animate__fadeInUp">
+        <section ref={ref4} className={`section transition-fade-up ${inView4 ? "active" : ""}`}>
                 <div className="flex max-w-[1920px] h-min w-full m-auto py-5 relative group">
                     <div style={{ backgroundImage: `url(${imagenSection1})` }} className='w-full h-full bg-center bg-cover duration-500'>
                         <div className="text-right font-principal sectionInformation shadow-sm shadow-bright-red/30 py-3 block text-4xl font-extrabold leading-none tracking-tight  sm:text-5xl lg:text-6xl dark:text-white">
@@ -132,7 +144,7 @@ export const SectionList = () =>{
 
 
 
-            <section id="atencionCliente" className="wrapper text-center py-24 grid gap-12 md:grid-cols-2 md:text-left">
+            <section ref={ref5} id="atencionCliente" className={`wrapper text-center py-24 grid gap-12 md:grid-cols-2 md:text-left transition-fade-up ${inView5 ? "active" : ""}`}>
                 <article>
                     <h2 className="text-3xl font-bold text-very-dark-blue mb-6 md:text-4xl">Consulta gratis para tus electrodomésticos.</h2>
                     <p className="text-dark-grayish-blue">Envianos un mensaje y obtené un diagnóstico sin cargo de parte de nuestro staff técnico.

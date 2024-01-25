@@ -1,8 +1,4 @@
 
-import  ItemList  from '../ItemList/ItemList'
-import { useProductos } from './hooks/useProductos'
-import { ErrorScreen } from '../ErrorScreen/ErrorScreen'
-import { Loader } from '../Loader/Loader'
 import React, { useState, useContext} from 'react'
 import  {ProductContext}  from '../../context/ProductContext'
 import {Item} from '../Item/Item'
@@ -10,7 +6,7 @@ import {Link} from "react-router-dom"
 
 /* import image hero */
 
-export const ItemListContainer = () => {
+export const ShopView = () => {
     const manHero = "/images/hero/hombre-apuntando-a-la-izquiera.jpg";
     const [isSidebarOpen, setSidebarOpen] = useState(true);
     const [selectedCategories, setSelectedCategories] = useState([]);
@@ -204,4 +200,4 @@ export const ItemListContainer = () => {
         )
 }
 
-export default ItemListContainer
+export default ShopView

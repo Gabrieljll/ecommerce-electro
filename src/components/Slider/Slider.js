@@ -93,7 +93,7 @@ export const Slider = () => {
 
 
       return (
-         <div className={`max-w-[1920px] h-[600px] w-full m-auto pb-5 relative group transition-fade-up ${isActive ? 'active' : ''}`}>
+         <div className={`max-w-[1920px] h-[800px] w-full m-auto pb-5 relative group transition-fade-up ${isActive ? 'active' : ''}`}>
           <div
             style={{ backgroundImage: `url(${slides[currentIndex].url}) ` }}
             className="w-full h-full bg-center bg-cover duration-500"

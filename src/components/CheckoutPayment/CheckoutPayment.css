@@ -9,14 +9,3 @@
     visibility: hidden;
     transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
 }
-
-.transition-fade-up {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 4s ease-in-out, transform 4s ease-in-out;
-}
-
-.transition-fade-up.active {
-    opacity: 1;
-    transform: translateY(0);
-}

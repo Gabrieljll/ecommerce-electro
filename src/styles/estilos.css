@@ -1183,6 +1183,10 @@ select {
   height: 80%;
 }
 
+.h-\[800px\] {
+  height: 800px;
+}
+
 .h-auto {
   height: auto;
 }
@@ -1538,10 +1542,6 @@ select {
 
 .rounded {
   border-radius: 0.25rem;
-}
-
-.rounded-2xl {
-  border-radius: 1rem;
 }
 
 .rounded-full {
@@ -2397,6 +2397,10 @@ select {
 
   .lg\:justify-normal {
     justify-content: normal;
+  }
+
+  .lg\:justify-center {
+    justify-content: center;
   }
 
   .lg\:justify-evenly {

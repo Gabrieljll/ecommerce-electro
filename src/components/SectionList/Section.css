@@ -107,3 +107,14 @@ h1 {
         left: -40px;
     }
 }
+
+.transition-fade-up {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1.8s ease-in-out, transform 1.8s ease-in-out;
+}
+
+.transition-fade-up.active {
+    opacity: 1;
+    transform: translateY(0);
+}
