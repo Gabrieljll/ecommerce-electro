@@ -94,8 +94,26 @@ export const Checkout = () => {
     }
 
 
-    const continueToPay = async () => {
-    navigate("/checkoutPayment");
+    const continueToPay = async (values) => {
+
+        // Guardar datos en localStorage
+        try {
+            // Filtrar solo los campos que deseas almacenar en localStorage
+            const valuesToStore = {
+                nombre: values.nombre,
+                apellido: values.apellido,
+                direccion: values.direccion,
+                localidad: values.localidad,
+                telefono: values.telefono,
+                email: values.email,
+            };
+
+            localStorage.setItem("checkoutData", JSON.stringify(valuesToStore));
+        } catch (error) {
+            console.error("Error al guardar en localStorage:", error);
+        }
+        // Continuar con la lógica que necesitas, por ejemplo, enviar a la siguiente página
+        navigate("/checkoutPayment");
     };
     
 
@@ -113,7 +131,7 @@ export const Checkout = () => {
                     email: ''
                 }}
                 onSubmit={(values) => {
-                    createOrder(values)
+                    continueToPay(values)
                 }}
                 validationSchema={schema}
             >
@@ -242,9 +260,9 @@ export const Checkout = () => {
                                     </div>
                                     <div className={`py-4 flex flex-col justify-center items-center mb-6 w-[250px] ${
                                                     isValid && requiredFieldsFilled
-                                                    ? "bg-green-500 cursor-pointer"
-                                                    : "bg-gray-400"
-                                                } text-white rounded-xl`}  onClick={isValid && requiredFieldsFilled ? continueToPay : null}>
+                                                    ? "bg-green-500 cursor-pointer enabled"
+                                                    : "bg-gray-400 disabled"
+                                                } text-white rounded-xl`} type="submit" onClick={handleSubmit}>
                                                 <p className="text-xl">Continuar a pagar</p>
                                     </div>
                             </div>

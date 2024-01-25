@@ -1014,6 +1014,11 @@ select {
   margin-bottom: 1.25rem;
 }
 
+.my-16 {
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+}
+
 .mb-1 {
   margin-bottom: 0.25rem;
 }
@@ -1300,6 +1305,14 @@ select {
 
 .w-auto {
   width: auto;
+}
+
+.w-\[260px\] {
+  width: 260px;
+}
+
+.w-\[280px\] {
+  width: 280px;
 }
 
 .max-w-\[1920px\] {
@@ -1738,6 +1751,10 @@ select {
 
 .p-8 {
   padding: 2rem;
+}
+
+.p-3 {
+  padding: 0.75rem;
 }
 
 .px-12 {

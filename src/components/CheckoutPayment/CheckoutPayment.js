@@ -1,5 +1,5 @@
 
-import React, { useState, useContext } from "react"
+import React, { useState, useContext, useEffect } from "react"
 import { Link, useNavigate} from "react-router-dom"
 /* import { db } from "../../firebase/config" */
 /* import { collection, writeBatch, documentId, query, getDocs, addDoc, where} from "firebase/firestore" */
@@ -29,11 +29,18 @@ export const CheckoutPayment = () => {
     const { cart, total, clearCart} = useContext(CartContext)
     const [orderId, setOrderId] = useState(null)
     const [preferenceId, setPreferenceId] = useState(null);
+    const [isBuyButtonVisible, setBuyButtonVisibility] = useState(true);
+
     const publicKey = process.env.REACT_APP_MP_PUBLIC_KEY;
     const urlBack = process.env.REACT_APP_URL_BACK;
     const navigate = useNavigate();
     initMercadoPago(publicKey, {locale: "es-AR"});
 
+    useEffect(() => {
+        // Ejecutar la función al cargar el componente
+        checkAndCreatePreference();
+      }, []); // El segundo argumento vacío indica que este efecto se ejecuta solo una vez al montar el componente
+    
 /*     const createOrder = async(values) => {
 
         const orden = {
@@ -78,6 +85,22 @@ export const CheckoutPayment = () => {
         }
     } */
 
+    const checkAndCreatePreference = async () => {
+        // Verificar que haya datos de usuario y elementos en el carrito en el localStorage
+        const user = JSON.parse(localStorage.getItem('checkoutData'));
+        console.log(user)
+        console.log(cart)
+        if (user && cart.length > 0) {
+            const id = await createPreference();
+            if (id) {
+                setPreferenceId(id);
+            }
+        } else {
+            // Redirigir o realizar otra acción en caso de que no haya datos de usuario o carrito vacío
+            volverAlInicio();
+        }
+    };
+
     if (orderId){
         return (
             <div className="container my-5 checkout-body">
@@ -120,7 +143,7 @@ export const CheckoutPayment = () => {
 
 
     return (
-            <div className="self-center w-auto xl:w-auto flex justify-center items-center">
+            <div className="self-center w-auto xl:w-auto my-16 p-6 flex justify-center items-center">
                 <div className="xl:m-0 text-center w-auto justify-center flex flex-col p-4 animate__animated animate__fadeIn">
 
                     {/* Texto sobre mercado pago */}
@@ -131,13 +154,12 @@ export const CheckoutPayment = () => {
                         <img className="w-[300px] xl:w-[500px]" src={mercadoPagoImg} alt="" />
                     </div>
                     <div className="flex flex-col justify-center items-center">
-                         <button className="button" onClick={handleBuy}>Realizar Compra</button>
                         <div className="">
                             
                         {preferenceId &&   <Wallet initialization={{ preferenceId }} customization={{ texts: { valueProp: 'smart_option' } }} /> }
                             
                         </div>
-                        <div className="cursor-pointer py-4 bg-red-500 rounded-xl w-[250px] text-white flex justify-center items-center text-xl">
+                        <div className="sticky cursor-pointer p-3 bg-red-500 w-[280px] text-white flex justify-center items-center font-medium">
                             <p>Cancelar</p>
                         </div>
                         {/* <Link className="btn btn-danger" to="/home">Cancelar</Link> */}
