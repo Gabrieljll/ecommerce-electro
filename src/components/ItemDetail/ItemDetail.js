@@ -3,12 +3,18 @@ import React, { useState, useContext  } from "react"
 import { CartContext } from "../../context/CartContext"
 import { ProductContext } from "../../context/ProductContext"
 import { Link } from 'react-router-dom'
-
+import { useInView } from "react-intersection-observer";
+import "./ItemDetail.css"
 
 const ItemDetail = ( {idItem, name, descriptionItem, imageItem, priceItem, stock, category}) => {
     const { id } = useParams()
     const { products } = useContext(ProductContext)
     const { addToCart } = useContext(CartContext)
+
+    const [ref1, inView1] = useInView({
+        triggerOnce: true,
+        threshold: 0.1,
+      });
 
     const product = products.find((item) => {
         return item.id === parseInt(id);
@@ -25,7 +31,7 @@ const ItemDetail = ( {idItem, name, descriptionItem, imageItem, priceItem, stock
     const {title, price, description, image} = product;
     
     return ( 
-        <section className="pt-32 pb-12 lg:py-32 h-screen flex items-center">
+        <section ref={ref1} className={`pt-32 pb-12 lg:py-32 h-screen flex items-center item-transition-fade-up ${inView1 ? "active" : ""}`}>
             <div className="container mx-auto">
                     {/* image and text wrapper */}
                 <div className="flex flex-col lg:flex-row items-center">

@@ -120,8 +120,8 @@ export const CheckoutPayment = () => {
 
 
     return (
-            <div className="self-center w-full xl:w-auto flex justify-center items-center">
-                <div className={`xl:m-0 text-center justify-center flex flex-col p-4 'fade-in'}`}>
+            <div className="self-center w-auto xl:w-auto flex justify-center items-center">
+                <div className="xl:m-0 text-center w-auto justify-center flex flex-col p-4 animate__animated animate__fadeIn">
 
                     {/* Texto sobre mercado pago */}
                     <div className="font-principal flex flex-col justify-center items-center text-center">

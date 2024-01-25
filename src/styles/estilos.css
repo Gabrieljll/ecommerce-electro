@@ -1298,6 +1298,10 @@ select {
   width: max-content;
 }
 
+.w-auto {
+  width: auto;
+}
+
 .max-w-\[1920px\] {
   max-width: 1920px;
 }

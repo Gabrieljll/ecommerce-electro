@@ -1,14 +1,13 @@
 import {  CartContext } from "../../context/CartContext"
-import { FaTrashAlt } from "react-icons/fa"
-import { FaEdit } from "react-icons/fa"
 
+import "./CartView.css"
 import { Link } from "react-router-dom"
-import React, { useEffect, useState, useContext } from "react"
-import { IoMdAdd, IoMdClose, IoMdRemove} from 'react-icons/io'
+import React, {  useState, useContext } from "react"
+import { IoMdClose} from 'react-icons/io'
 import { GoVerified } from "react-icons/go";
 import { BsCartCheck } from "react-icons/bs";
 import { AiOutlineShoppingCart } from "react-icons/ai"
-
+import { useInView } from "react-intersection-observer";
 
 const CartView = () => {
     const {cart, total, clearCart, removeFromCart} = useContext(CartContext)
@@ -17,10 +16,22 @@ const CartView = () => {
 
     const emptyCartImage = "/images/hero/taxi-shopping-cart.png"
 
+    const [cartViewRef1, inView1] = useInView({
+        triggerOnce: true,
+        threshold: 0.1,
+      });
+      
+      const [cartViewRef2, inView2] = useInView({
+        triggerOnce: true,
+        threshold: 0.1,
+      });
+
+
+
     if (cart.length === 0){
         return (
             
-            <div className="w-full h-screen flex flex-col items-center mt-40">
+            <div ref={cartViewRef1} className={`w-full h-screen flex flex-col items-center mt-40 cart-transition-fade-up ${inView1 ? "active" : ""}`}>
                 <div className="text-center text-4xl font-bold text-very-dark-blue md:text-5xl mb-10">
                     <h1>¡Tu carrito está vacío!</h1>
                 </div>
@@ -38,7 +49,7 @@ const CartView = () => {
 
     return (
         
-            <div className="w-full lg:flex lg:justify-evenly mt-16 lg:items-start mb-16 p-6">
+            <div ref={cartViewRef2} className={`w-full lg:flex lg:justify-evenly mt-16 lg:items-start mb-16 p-6 cart-transition-fade-up ${inView2 ? "active" : ""}`}>
 
                 
                 <div className="flex flex-col gap-y-2 h-[450px] lg:h-[640px] lg:w-max overflow-y-auto overflow-x-hidden border-b">

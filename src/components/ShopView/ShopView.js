@@ -3,7 +3,8 @@ import React, { useState, useContext} from 'react'
 import  {ProductContext}  from '../../context/ProductContext'
 import {Item} from '../Item/Item'
 import {Link} from "react-router-dom"
-
+import { useInView } from "react-intersection-observer";
+import "./ShopView.css"
 /* import image hero */
 
 export const ShopView = () => {
@@ -12,11 +13,24 @@ export const ShopView = () => {
     const [selectedCategories, setSelectedCategories] = useState([]);
     const [minPrice, setMinPrice] = useState('');
     const [maxPrice, setMaxPrice] = useState('');
+    
 //    const {productos, loading} = useProductos()
 
     //get products form product context
     const { products } = useContext(ProductContext);
-    console.log(products)
+
+    const [ref1, inView1] = useInView({
+        triggerOnce: true,
+        threshold: 0.1,
+    });
+    const [ref2, inView2] = useInView({
+        triggerOnce: true,
+        threshold: 0.1,
+    });
+    const [ref3, inView3] = useInView({
+        triggerOnce: true,
+        threshold: 0.1,
+    });
     const categorias = [...new Set(products.map(item => item.category))];
 
     const categoriesCount = {}
@@ -66,7 +80,7 @@ export const ShopView = () => {
         
         <>
 
-        <section className="bg-white h-[600px] bg-no-repeat bg-cover bg-center">
+        <section ref={ref1} className={`bg-white h-[600px] bg-no-repeat bg-cover bg-center shop-transition-fade-up ${inView1 ? "active" : ""}`}>
             <div className="container mx-auto flex justify-around xl:justify-center h-full">
                 {/* text */}
                 <div className="flex flex-col justify-center">
@@ -94,7 +108,7 @@ export const ShopView = () => {
 
 
 
-        <div className="container py-4 flex items-center gap-3 lg:m-auto pl-5">
+        <div ref={ref2} className={`container py-4 flex items-center gap-3 lg:m-auto pl-5 shop-transition-fade-up ${inView2 ? "active" : ""}`}>
             <a href="#home" className="text-primary text-base">
                 <p className="text-gray-600 font-medium">Home</p>
             </a>
@@ -103,7 +117,7 @@ export const ShopView = () => {
             </span>
             <p className="text-gray-600 font-medium">Tienda</p>
         </div>
-        <div className="container flex xl:grid xl:grid-cols-4 gap-6 pt-4 pb-16 items-start m-auto">
+        <div ref={ref3} className={`container flex xl:grid xl:grid-cols-4 gap-6 pt-4 pb-16 items-start m-auto shop-transition-fade-up ${inView3 ? "active" : ""}`}>
             
 
             <div className={`xl:flex ${isSidebarOpen ? 'hidden translate-x-0' : 'flex -translate-x-full z-10'} absolute xl:static transition-all duration-300 flex-col bg-white xl:p-4 shadow xl:transform-none`} >

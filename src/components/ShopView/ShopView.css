@@ -1,4 +1,4 @@
-.itemListMain {
+/* .itemListMain {
     width: 100%;
     display: flex;
     justify-content: center;
@@ -24,7 +24,7 @@
 .loader {
     pointer-events: none;
     width: 6rem;
-}
+} */
 
 
 /* .itemListContainer-body {
@@ -34,3 +34,14 @@
 .heigh70vh {
     height: 70vh !important;
 } */
+
+.shop-transition-fade-up {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+
+.shop-transition-fade-up.active {
+    opacity: 1;
+    transform: translateY(0);
+}
