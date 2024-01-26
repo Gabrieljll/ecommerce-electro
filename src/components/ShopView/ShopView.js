@@ -1,11 +1,12 @@
 
-import React, { useState, useContext, useEffect } from 'react';
+import React, { useState, useContext, useEffect, useRef  } from 'react';
 import  {ProductContext}  from '../../context/ProductContext'
 import {Item} from '../Item/Item'
 import {Link} from "react-router-dom"
 import { useInView } from "react-intersection-observer";
 import "./ShopView.css"
 import "../../styles/animate.min.css"
+
 /* import image hero */
 
 export const ShopView = () => {
@@ -14,15 +15,15 @@ export const ShopView = () => {
     const [selectedCategories, setSelectedCategories] = useState([]);
     const [minPrice, setMinPrice] = useState('');
     const [maxPrice, setMaxPrice] = useState('');
-    
+    const scrollRef = useRef();
+
+
 //    const {productos, loading} = useProductos()
-
-  // Agrega un efecto de efecto secundario para realizar el scroll al montar el componente
-  useEffect(() => {
-    // Hace scroll al comienzo de la página
-    window.scrollTo(0, 0);
-  }, []); // El array vacío asegura que este efecto se ejecute solo una vez, equivalente a componentDidMount
-
+    useEffect(() => {
+        if (scrollRef.current) {
+        scrollRef.current.scrollIntoView({ behavior: 'smooth' });
+        }
+    }, []); // Esto asegura que el scroll ocurre solo una vez al cargar la página
 
     //get products form product context
     const { products } = useContext(ProductContext);
@@ -85,7 +86,7 @@ export const ShopView = () => {
         <>
 
         <section ref={ref1} className={`bg-white h-[600px] bg-no-repeat bg-cover bg-center shop-transition-fade-up ${inView1 ? "active" : ""}`}>
-            <div className="container mx-auto flex justify-around xl:justify-center h-full">
+            <div ref={scrollRef} className="container mx-auto flex justify-around xl:justify-center h-full">
                 {/* text */}
                 <div className="flex flex-col justify-center">
                     {/* pretitle */}
