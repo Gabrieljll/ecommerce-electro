@@ -94,7 +94,7 @@ const CartView = () => {
                 </div>
 
                 <div className="self-center w-full xl:w-auto flex justify-center items-center">
-                    <div className="mt-8 xl:m-0 text-center flex flex-col items-center justify-center self-center w-[350px] xl:w-max p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-900 dark:border-gray-200">
+                    <div className="mt-8 xl:m-0 text-center flex flex-col items-center justify-center self-center w-[350px] xl:w-max p-6 bg-white border border-gray-200 rounded-lg shadow-xl">
                         <h1 className="text-xl font-principal"><span className="">Resumen de la compra</span></h1>
                         <br />
                         <div className="flex justify-between items-center w-[100%] border-t">
