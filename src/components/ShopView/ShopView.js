@@ -5,6 +5,7 @@ import {Item} from '../Item/Item'
 import {Link} from "react-router-dom"
 import { useInView } from "react-intersection-observer";
 import "./ShopView.css"
+import "../../styles/animate.min.css"
 /* import image hero */
 
 export const ShopView = () => {
@@ -24,10 +25,6 @@ export const ShopView = () => {
         threshold: 0.1,
     });
     const [ref2, inView2] = useInView({
-        triggerOnce: true,
-        threshold: 0.1,
-    });
-    const [ref3, inView3] = useInView({
         triggerOnce: true,
         threshold: 0.1,
     });
@@ -173,7 +170,7 @@ export const ShopView = () => {
 
             </div>
             {/* products */}
-            <div ref={ref3} className={`col-span-3 relative z-1 shop-transition-fade-up ${inView3 ? "active" : ""}`}>
+            <div className="col-span-3 relative z-1">
                 {/* ordenamiento */}
                 <div className="flex items-center mb-4 pl-5 lg:pl-0">
                     <select className="w-24 xl:w-44 text-sm text-gray-600 px-4 py-3 border-gray-300 shadow-sm rounded focus:ring-primary focus:border-primary" name="" id="">
@@ -194,7 +191,7 @@ export const ShopView = () => {
                 </div>
                 <div className="bg-overlay z-0"></div>
                 {/* products grid */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pr-5 pl-5 lg:pl-0 lg:pr-0">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pr-5 pl-5 lg:pl-0 lg:pr-0 animate__animated animate__fadeIn">
                     {/* CARD PRODUCTO */}
 
                     {filteredProductsByCategoryAndPrice.map((product) => (
