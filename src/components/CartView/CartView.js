@@ -2,7 +2,7 @@ import {  CartContext } from "../../context/CartContext"
 
 import "./CartView.css"
 import { Link } from "react-router-dom"
-import React, {  useState, useContext } from "react"
+import React, {  useState, useContext, useEffect } from "react"
 import { IoMdClose} from 'react-icons/io'
 import { GoVerified } from "react-icons/go";
 import { BsCartCheck } from "react-icons/bs";
@@ -15,6 +15,11 @@ const CartView = () => {
     const [max, setMax] = useState(0)
 
     const emptyCartImage = "/images/hero/taxi-shopping-cart.png"
+
+    
+    useEffect(() => {
+        window.scrollTo(0, 0);
+      }, []); 
 
     const [cartViewRef1, inView1] = useInView({
         triggerOnce: true,
