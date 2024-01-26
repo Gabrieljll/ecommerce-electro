@@ -39,6 +39,7 @@ export const CheckoutPayment = () => {
     useEffect(() => {
         // Ejecutar la función al cargar el componente
         checkAndCreatePreference();
+        window.scrollTo(0, 0);
       }, []); // El segundo argumento vacío indica que este efecto se ejecuta solo una vez al montar el componente
     
 /*     const createOrder = async(values) => {

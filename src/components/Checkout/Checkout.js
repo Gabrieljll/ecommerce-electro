@@ -1,5 +1,5 @@
 
-import React, { useState, useContext } from "react"
+import React, { useState, useContext, useEffect } from 'react';
 import { Navigate, Link, useNavigate } from "react-router-dom"
 import { db } from "../../firebase/config"
 import { collection, writeBatch, documentId, query, getDocs, addDoc, where} from "firebase/firestore"
@@ -30,6 +30,10 @@ export const Checkout = () => {
     const navigate = useNavigate();
 
 
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+      }, []);
 
     const createOrder = async(values) => {
 

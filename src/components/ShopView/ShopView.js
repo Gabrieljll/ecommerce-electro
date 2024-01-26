@@ -1,5 +1,5 @@
 
-import React, { useState, useContext} from 'react'
+import React, { useState, useContext, useEffect } from 'react';
 import  {ProductContext}  from '../../context/ProductContext'
 import {Item} from '../Item/Item'
 import {Link} from "react-router-dom"
@@ -16,6 +16,13 @@ export const ShopView = () => {
     const [maxPrice, setMaxPrice] = useState('');
     
 //    const {productos, loading} = useProductos()
+
+  // Agrega un efecto de efecto secundario para realizar el scroll al montar el componente
+  useEffect(() => {
+    // Hace scroll al comienzo de la página
+    window.scrollTo(0, 0);
+  }, []); // El array vacío asegura que este efecto se ejecute solo una vez, equivalente a componentDidMount
+
 
     //get products form product context
     const { products } = useContext(ProductContext);
