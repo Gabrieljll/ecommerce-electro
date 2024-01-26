@@ -36,7 +36,6 @@ export const ShopView = () => {
         triggerOnce: true,
         threshold: 0.1,
     });
-    const categorias = [...new Set(products.map(item => item.category))];
 
     const categoriesCount = {}
 

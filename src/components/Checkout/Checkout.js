@@ -1,8 +1,8 @@
 
 import React, { useState, useContext, useEffect } from 'react';
 import { Navigate, Link, useNavigate } from "react-router-dom"
-import { db } from "../../firebase/config"
-import { collection, writeBatch, documentId, query, getDocs, addDoc, where} from "firebase/firestore"
+/* import { db } from "../../firebase/config"
+import { collection, writeBatch, documentId, query, getDocs, addDoc, where} from "firebase/firestore" */
 import { Formik } from "formik"
 import * as Yup from 'yup'
 import "./Checkout.css"
@@ -25,8 +25,8 @@ const schema = Yup.object().shape({
 
 
 export const Checkout = () => {
-    const { cart, total, clearCart} = useContext(CartContext)
-    const [orderId, setOrderId] = useState(null)
+    const { cart } = useContext(CartContext)
+/*     const [orderId, setOrderId] = useState(null) */
     const navigate = useNavigate();
 
 
@@ -35,7 +35,7 @@ export const Checkout = () => {
         window.scrollTo(0, 0);
       }, []);
 
-    const createOrder = async(values) => {
+/*     const createOrder = async(values) => {
 
         const orden = {
             cliente: values,
@@ -77,9 +77,9 @@ export const Checkout = () => {
         } else {
             alert("Hay Items sin stock")
         }
-    }
+    } */
 
-    if (orderId){
+/*     if (orderId){
         return (
             <div className="container my-5 checkout-body">
                 <h2>Tu compra ha sido exitosa</h2>
@@ -88,7 +88,7 @@ export const Checkout = () => {
                 <Link className="btn btn-primary" to="/home">Volver</Link>
             </div>
         )
-    }
+    } */
     const volverAlInicio = () => {
         return <Navigate to="/home" />
     }

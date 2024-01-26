@@ -1,8 +1,7 @@
-import { useNavigate, useParams } from "react-router-dom"
-import React, { useState, useContext, useRef, useEffect } from "react"
+import { useParams } from "react-router-dom"
+import React, { useContext, useRef, useEffect } from "react"
 import { CartContext } from "../../context/CartContext"
 import { ProductContext } from "../../context/ProductContext"
-import { Link } from 'react-router-dom'
 import { useInView } from "react-intersection-observer";
 import "./ItemDetail.css"
 
