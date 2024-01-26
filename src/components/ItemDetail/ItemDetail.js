@@ -1,5 +1,5 @@
 import { useNavigate, useParams } from "react-router-dom"
-import React, { useState, useContext  } from "react"
+import React, { useState, useContext, useRef, useEffect } from "react"
 import { CartContext } from "../../context/CartContext"
 import { ProductContext } from "../../context/ProductContext"
 import { Link } from 'react-router-dom'
@@ -10,6 +10,14 @@ const ItemDetail = ( {idItem, name, descriptionItem, imageItem, priceItem, stock
     const { id } = useParams()
     const { products } = useContext(ProductContext)
     const { addToCart } = useContext(CartContext)
+    const itemRef = useRef();
+
+    // const {productos, loading} = useProductos()
+    useEffect(() => {
+        if (itemRef.current) {
+            itemRef.current.scrollIntoView({ behavior: 'smooth' });
+        }
+    }, []); // Esto asegura que el scroll ocurre solo una vez al cargar la página
 
     const [ref1, inView1] = useInView({
         triggerOnce: true,
@@ -31,8 +39,8 @@ const ItemDetail = ( {idItem, name, descriptionItem, imageItem, priceItem, stock
     const {title, price, description, image} = product;
     
     return ( 
-        <section ref={ref1} className={`pt-32 pb-12 lg:py-32 h-screen flex items-center item-transition-fade-up ${inView1 ? "active" : ""}`}>
-            <div className="container mx-auto">
+        <section ref={itemRef} className="pt-32 pb-12 lg:py-32 h-screen flex items-center">
+            <div ref={ref1} className={`container mx-auto item-transition-fade-up ${inView1 ? "active" : ""}`}>
                     {/* image and text wrapper */}
                 <div className="flex flex-col lg:flex-row items-center">
                     {/* image */}
