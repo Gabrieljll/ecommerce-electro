@@ -57,7 +57,7 @@ const CartView = () => {
             <div ref={cartViewRef2} className={`w-full lg:flex lg:justify-evenly mt-16 lg:items-start mb-16 p-6 cart-transition-fade-up ${inView2 ? "active" : ""}`}>
 
                 
-                <div className="flex flex-col gap-y-2 h-[450px] lg:h-[640px] lg:w-max overflow-y-auto overflow-x-hidden border-b">
+                <div className="flex flex-col gap-y-2 h-[450px] lg:h-[640px] lg:w-max overflow-y-auto overflow-x-hidden border-b bg-white border border-gray-200 rounded-lg shadow-xl">
                     <h1 className="sticky top-0 z-10 bg-white flex justify-center items-center text-center text-2xl font-bold text-very-dark-blue md:text-3xl pb-10">
                         <span>Productos en tu carrito</span>
                         <BsCartCheck className="self-center text-4xl md:text-5xl" />
