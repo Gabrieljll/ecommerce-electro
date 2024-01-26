@@ -117,7 +117,7 @@ export const ShopView = () => {
             </span>
             <p className="text-gray-600 font-medium">Tienda</p>
         </div>
-        <div ref={ref3} className={`container flex xl:grid xl:grid-cols-4 gap-6 pt-4 pb-16 items-start m-auto shop-transition-fade-up ${inView3 ? "active" : ""}`}>
+        <div className="container flex xl:grid xl:grid-cols-4 gap-6 pt-4 pb-16 items-start m-auto">
             
 
             <div className={`xl:flex ${isSidebarOpen ? 'hidden translate-x-0' : 'flex -translate-x-full z-10'} absolute xl:static transition-all duration-300 flex-col bg-white xl:p-4 shadow xl:transform-none`} >
@@ -173,7 +173,7 @@ export const ShopView = () => {
 
             </div>
             {/* products */}
-            <div className="col-span-3 relative z-1">
+            <div ref={ref3} className={`col-span-3 relative z-1 shop-transition-fade-up ${inView3 ? "active" : ""}`}>
                 {/* ordenamiento */}
                 <div className="flex items-center mb-4 pl-5 lg:pl-0">
                     <select className="w-24 xl:w-44 text-sm text-gray-600 px-4 py-3 border-gray-300 shadow-sm rounded focus:ring-primary focus:border-primary" name="" id="">

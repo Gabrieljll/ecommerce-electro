@@ -1,38 +1,10 @@
-.product-image {
-    width: 100%;
+.item-transition-fade-up {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s ease-in-out, transform 1s ease-in-out;
 }
 
-.card {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    transition: 0.3s;
-}
-
-.card:hover {
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-}
-
-.card-container {
-    padding: 2px 16px;
-}
-
-.btnVerMas {
-    display: flex;
-    justify-content: center;
-    width: max-content;
-    font-family: "TTChocolate";
-    margin: auto;
-    background-color: #a95ab0;
-    border: none;
-    color: white;
-}
-
-.cardItemName {
-    font-family: "TTChocolate";
-    width: max-content;
-    margin: auto;
-}
-
-.btnVerMas:hover {
-    background-color: #8b1496;
-    border: none;
+.item-transition-fade-up.active {
+    opacity: 1;
+    transform: translateY(0);
 }
