@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import { createContext } from "react";
-import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signOut, signInWithPopup} from "firebase/auth";
-import { auth, provider} from "../firebase/config"
+/* import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signOut} from "firebase/auth"; */
+/* import { auth} from "../firebase/config" */
 import { useEffect } from "react";
 
 export const LoginContext = createContext()
@@ -12,22 +12,19 @@ export const useLoginContext = () => {
 export const LoginProvider = ({children}) => {
 
     const [user, setUser] = useState({
-        email: null,
+        nombre: null,
         logged: false,
         error: null
     })
 
     const [loading, setLoading] = useState(false)
 
-    const googleLogin = () => {
-        signInWithPopup(auth, provider)
-    }
-    const login = (values) => {
+/*     const login = (values) => {
         setLoading(true)
-        signInWithEmailAndPassword(auth, values.email, values.password)
+        signInWithEmailAndPassword(auth, values.nombre, values.password)
         .catch( (error) =>{
             setUser({
-                email: null,
+                nombre: null,
                 logged: false,
                 error: error.message
             })
@@ -35,25 +32,25 @@ export const LoginProvider = ({children}) => {
         .finally( () => {
             setLoading(false)
         })
-    }
+    } */
 
-    const logout = () => {
+/*     const logout = () => {
         signOut(auth)
         .then ( () => {
             setUser({
-                email: null,
+                nombre: null,
                 logged: false,
                 error: null
             })
         })
-    }
+    } */
 
-    const register = (values) => {
+    /* const register = (values) => {
         setLoading(true)
-        createUserWithEmailAndPassword(auth, values.email, values.password)
+        createUserWithEmailAndPassword(auth, values.nombre, values.password)
         .catch( (error) =>{
             setUser({
-                email: null,
+                nombre: null,
                 logged: false,
                 error: error.message
             })
@@ -61,14 +58,14 @@ export const LoginProvider = ({children}) => {
         .finally( () => {
             setLoading(false)
         })
-    }
+    } */
 
-    useEffect ( () => {
+/*     useEffect ( () => {
         setLoading(true)
         onAuthStateChanged(auth, (user) =>{
             if (user){
                 setUser({
-                    email: user.email,
+                    nombre: user.nombre,
                     logged: true,
                     error: null
                 })
@@ -77,9 +74,9 @@ export const LoginProvider = ({children}) => {
             }
         })
         setLoading(false)
-    }, [])
+    }, []) */
     return (
-        <LoginContext.Provider value={{user, login, logout, loading, register, googleLogin}}>
+        <LoginContext.Provider value={{user, loading}}>
             {children}
         </LoginContext.Provider>               
     )

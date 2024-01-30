@@ -2530,6 +2530,11 @@ select {
     margin: 0px;
   }
 
+  .xl\:mx-0 {
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+
   .xl\:block {
     display: block;
   }
@@ -2589,6 +2594,10 @@ select {
 
   .xl\:grid-cols-4 {
     grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .xl\:flex-col {
+    flex-direction: column;
   }
 
   .xl\:items-center {

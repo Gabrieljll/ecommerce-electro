@@ -262,7 +262,7 @@ export const Checkout = () => {
                                             </div>
                                         </div>
                                     </div>
-                                    <div className={`py-4 flex flex-col justify-center items-center mb-6 w-[250px] ${
+                                    <div className={`py-4 flex flex-col justify-center xl:mx-0 mx-auto items-center mb-6 w-[250px] ${
                                                     isValid && requiredFieldsFilled
                                                     ? "bg-green-500 cursor-pointer enabled"
                                                     : "bg-gray-400 disabled"

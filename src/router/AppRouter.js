@@ -4,15 +4,14 @@ import { PrivateRoutes } from "./PrivateRoutes";
 import { PublicRoutes } from "./PublicRoutes";
 
 export const AppRouter = () => {
-    const { user } = useLoginContext()
+    const { userAdmin } = useLoginContext()
 
     return (
         <BrowserRouter>
-            {   
-                true
-                    ?   <PrivateRoutes />
-                    :   <PublicRoutes />
-            }                
+            
+            <PublicRoutes />
+            {userAdmin &&  <PrivateRoutes />}
+                            
         </BrowserRouter>
     )
 }

@@ -1,19 +1,27 @@
 import "./LoginScreen.css"
 import { useLoginContext } from "../../context/LoginContext"
-import { Link, useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 import { useForm } from "../../hooks/useForm"
+import {useState} from "react"
+
+import axios from "axios";
 
 const LoginScreen = () => {
-    const {login, user, loading, googleLogin} = useLoginContext()
+    const {user, loading} = useLoginContext()
     const navigate = useNavigate()
+    const [nombre, setNombre] = useState("")
+    const [password, setPassword] = useState("")
+    const urlBack = process.env.REACT_APP_URL_BACK;
     const {values, handleInputChange} = useForm({
-        email: "",
+        nombre: "",
         password: ""
     })
     
     const handleSubmit = (e) => {
         e.preventDefault()
-        login(values)
+        axios.post(urlBack+"/login", {nombre, password})
+        .then(res => console.log(res))
+        .catch(err => console.log(err))
         navigate("/home")
     }
     return (
@@ -22,14 +30,12 @@ const LoginScreen = () => {
                 <h2>Login</h2>
                 <hr />
                 <form onSubmit={handleSubmit}>
-                    <input type="email" className="form-control my-2" value={values.email} onChange={handleInputChange}
-                    name="email" />
+                    <input type="text" className="form-control my-2" value={values.nombre} onChange={handleInputChange}
+                    name="nombre" />
                     <input type="password" className="form-control my-2" value={values.password} onChange={handleInputChange} name="password" />
                     <button className="btn btn-primary" disabled={loading}>Ingresar</button>
                     {user.error && <p className="error">{user.error}</p>}
                 </form>
-                <button className="btn btn-primary" onClick={googleLogin}>Ingresar con Google</button>
-                <Link to="/register">Registrarme</Link>
             </div>
         </div>
     )
