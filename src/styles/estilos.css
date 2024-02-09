@@ -2596,10 +2596,6 @@ select {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 
-  .xl\:flex-col {
-    flex-direction: column;
-  }
-
   .xl\:items-center {
     align-items: center;
   }

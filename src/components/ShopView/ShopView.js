@@ -6,6 +6,7 @@ import {Link} from "react-router-dom"
 import { useInView } from "react-intersection-observer";
 import "./ShopView.css"
 import "../../styles/animate.min.css"
+import { ToastContainer } from 'react-toastify';
 
 /* import image hero */
 
@@ -203,7 +204,7 @@ export const ShopView = () => {
 
                     {filteredProductsByCategoryAndPrice.map((product) => (
                         <Item product={product} key={product.id} />
-                    ))}
+                        ))}
 
                     {/* CARD PRODUCTO FINAL*/}
                 </div>
@@ -212,7 +213,7 @@ export const ShopView = () => {
             {/* products */}
 
         </div>
-
+        <ToastContainer/>
     </>
 
         )

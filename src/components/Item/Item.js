@@ -2,12 +2,22 @@ import React, {useContext} from 'react'
 import { Link } from "react-router-dom"
 import "./Item.css"
 import {BsPlus, BsEyeFill} from 'react-icons/bs'
-
 import { CartContext } from "../../context/CartContext"
+import { ToastContainer, toast, Zoom, Bounce } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export const Item = ( {product} ) => {
     const { addToCart } = useContext(CartContext)
     const {id, image, category, title, price} = product;
+    const notify = () => toast.success("Producto agregado al carrito!",
+    {
+        transition: Bounce,
+        autoClose: 1500,
+        draggablePercent: 60,
+        hideProgressBar: true
+    }
+    
+);
 
     return (
 
@@ -21,7 +31,10 @@ export const Item = ( {product} ) => {
                 </div>
                 {/* buttons */}
                 <div className="absolute top-6 -right-11 group-hover:right-5 p-2 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-all">
-                    <button onClick={() => addToCart(product, id)}>
+                    <button onClick={() => {
+                        addToCart(product, id);
+                        notify();
+                        }}>
                         <div className="flex justify-center items-center text-white w-12 h-12 bg-orange-600">
                             <BsPlus className="text-3xl" /> 
                         </div>
