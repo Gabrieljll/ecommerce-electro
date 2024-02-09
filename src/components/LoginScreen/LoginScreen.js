@@ -7,7 +7,7 @@ import {useState} from "react"
 import axios from "axios";
 
 const LoginScreen = () => {
-    const {user, loading} = useLoginContext()
+    const {userAdmin, login, loading, setUser} = useLoginContext()
     const navigate = useNavigate()
     const [nombre, setNombre] = useState("")
     const [password, setPassword] = useState("")
@@ -17,13 +17,18 @@ const LoginScreen = () => {
         password: ""
     })
     
-    const handleSubmit = (e) => {
-        e.preventDefault()
-        axios.post(urlBack+"/login", {nombre, password})
-        .then(res => console.log(res))
-        .catch(err => console.log(err))
-        navigate("/home")
-    }
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        try {
+          // axios.post(urlBack+"/login", {nombre, password})
+          //   .then(res => console.log(res))
+          //   .catch(err => console.log(err))
+          await login(values);
+          navigate("/admin");
+        } catch (error) {
+          console.error("Error en la autenticación:", error);
+        }
+      };
     return (
         <div className="login-screen">
             <div className="login">
@@ -34,7 +39,7 @@ const LoginScreen = () => {
                     name="nombre" />
                     <input type="password" className="form-control my-2" value={values.password} onChange={handleInputChange} name="password" />
                     <button className="btn btn-primary" disabled={loading}>Ingresar</button>
-                    {user.error && <p className="error">{user.error}</p>}
+                    {userAdmin.error && <p className="error">{userAdmin.error}</p>}
                 </form>
             </div>
         </div>

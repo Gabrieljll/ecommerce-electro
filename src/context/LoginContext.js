@@ -11,7 +11,7 @@ export const useLoginContext = () => {
 }
 export const LoginProvider = ({children}) => {
 
-    const [user, setUser] = useState({
+    const [userAdmin, setUserAdmin] = useState({
         nombre: null,
         logged: false,
         error: null
@@ -19,20 +19,13 @@ export const LoginProvider = ({children}) => {
 
     const [loading, setLoading] = useState(false)
 
-/*     const login = (values) => {
-        setLoading(true)
-        signInWithEmailAndPassword(auth, values.nombre, values.password)
-        .catch( (error) =>{
-            setUser({
-                nombre: null,
-                logged: false,
-                error: error.message
-            })
-        })
-        .finally( () => {
-            setLoading(false)
-        })
-    } */
+     const login = (values) => {
+        setUserAdmin({
+        nombre: values.nombre,
+        logged: true,
+        error:null
+       })
+    } 
 
 /*     const logout = () => {
         signOut(auth)
@@ -76,7 +69,7 @@ export const LoginProvider = ({children}) => {
         setLoading(false)
     }, []) */
     return (
-        <LoginContext.Provider value={{user, loading}}>
+        <LoginContext.Provider value={{userAdmin, login, loading, setUserAdmin}}>
             {children}
         </LoginContext.Provider>               
     )

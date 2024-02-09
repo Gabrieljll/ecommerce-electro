@@ -11,8 +11,12 @@ import CartView from '../components/CartView/CartView';
 import { CheckoutPayment } from '../components/CheckoutPayment/CheckoutPayment';
 import LoginScreen from '../components/LoginScreen/LoginScreen';
 import { RegisterScreen } from "../components/RegisterScreen/RegisterScreen"
+import { useLoginContext } from '../context/LoginContext';
+import { AdminStockView } from '../components/AdminStockView/AdminStockView';
+import { ProtectedRoutes } from '../components/ProtectedRoutes/ProtectedRoutes';
 
 export const PublicRoutes = () => {
+    const { userAdmin } = useLoginContext()
     return (
         <div className="App">
             <Navbar />
@@ -25,7 +29,12 @@ export const PublicRoutes = () => {
                     <Route path="/cart" element={ <CartView /> }/>
                     <Route path="/checkout" element={ <Checkout /> }/>
                     <Route path="/checkoutPayment" element={ <CheckoutPayment /> }/>
-                    <Route path="/login" element={ <LoginScreen /> }/>
+                    <Route path="/login" element={ <LoginScreen /> }/>                    
+                    <Route path="/admin" element={ 
+                        <ProtectedRoutes userAdmin={userAdmin}>
+                            <AdminStockView />        
+                        </ProtectedRoutes>
+                    }/>
                     <Route path="/register" element={ <RegisterScreen /> }/>
                     <Route path="*" element={<Navigate to="/home" replace />}/>
             </Routes>

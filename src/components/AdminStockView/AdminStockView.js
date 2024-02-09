@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-const AdminStockView = () => {
+export const AdminStockView = () => {
 
     const [values, setValues] = useState(
         {
@@ -32,4 +32,3 @@ const AdminStockView = () => {
     )
 }
 
-export default Contacto
