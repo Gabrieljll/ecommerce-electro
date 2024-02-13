@@ -147,7 +147,7 @@ export const CheckoutPayment = () => {
 
                     {/* Texto sobre mercado pago */}
                     <div className="font-principal flex flex-col justify-center items-center text-center">
-                        <h1 className="text-xl">Queremos garantizar seguridad por lo que ofrecemos</h1>
+                        <h1 className="text-xl">Queremos garantizar seguridad, por eso ofrecemos</h1>
                         <h1 className="text-xl"><strong>Mercado Pago</strong> como intermediario para realizar la compra</h1>
                         <h1 className="text-xl">De esta forma elegis cualquiera de sus medios de pago</h1>
                         <img className="w-[300px] xl:w-[500px]" src={mercadoPagoImg} alt="" />
@@ -155,7 +155,7 @@ export const CheckoutPayment = () => {
                     <div className="flex flex-col justify-center items-center">
                         <div className="">
                             
-                        {preferenceId &&   <Wallet initialization={{ preferenceId }} customization={{ texts: { valueProp: 'smart_option' } }} /> }
+                        {preferenceId &&   <Wallet initialization={{ preferenceId, redirectMode: "modal" }} customization={{ texts: { valueProp: 'smart_option' } }} /> }
                             
                         </div>
                         <div className="sticky cursor-pointer p-3 bg-red-500 w-[280px] text-white flex justify-center items-center font-medium">
