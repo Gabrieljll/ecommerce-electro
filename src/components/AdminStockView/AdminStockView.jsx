@@ -9,9 +9,9 @@ export const AdminStockView = () => {
 
     return (
         <div className="min-h-max">
-        <div className="flex justify-end items-center m-10">
-            <Link>
-                Agregar Nuevo Producto
+        <div className="flex justify-center xl:justify-end items-center m-10">
+            <Link to={"/adminAddProduct"} className="bg-green-500 cursor-pointer enabled text-white rounded-xl py-4 flex flex-col justify-center mx-2 items-center mb-6 w-[200px]">
+                <p className="text-xl">Agregar Producto</p>
             </Link>
         </div>
         <div className="flex justify-center items-center w-full py-10">

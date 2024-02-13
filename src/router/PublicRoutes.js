@@ -14,6 +14,7 @@ import { RegisterScreen } from "../components/RegisterScreen/RegisterScreen"
 import { useLoginContext } from '../context/LoginContext';
 import { AdminStockView } from '../components/AdminStockView/AdminStockView';
 import { AdminEditProduct } from '../components/AdminEditProduct/AdminEditProduct';
+import { AdminAddProduct } from '../components/AdminAddProduct/AdminAddProduct';
 import { ProtectedRoutes } from '../components/ProtectedRoutes/ProtectedRoutes';
 
 export const PublicRoutes = () => {
@@ -34,6 +35,7 @@ export const PublicRoutes = () => {
                     <Route element={<ProtectedRoutes userAdmin={userAdmin}/> }>
                             <Route path="/admin" element={ <AdminStockView /> } />                            
                             <Route path="/adminEditProduct/:id" element={ <AdminEditProduct /> }/>
+                            <Route path="/adminAddProduct" element={ <AdminAddProduct /> }/>
                     </Route>
                     <Route path="/register" element={ <RegisterScreen /> }/>
                     <Route path="*" element={<Navigate to="/home" replace />}/>
