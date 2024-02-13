@@ -115,7 +115,7 @@ export const ShopView = () => {
 
         <div ref={ref2} className={`container py-4 flex items-center gap-3 lg:m-auto pl-5 shop-transition-fade-up ${inView2 ? "active" : ""}`}>
             <a href="#home" className="text-primary text-base">
-                <p className="text-gray-600 font-medium">Home</p>
+                <p className="text-gray-600 font-medium">Inicio</p>
             </a>
             <span className="text-sm text-gray-400">
                 <i> &gt;</i>
