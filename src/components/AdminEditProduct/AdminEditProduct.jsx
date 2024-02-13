@@ -2,19 +2,21 @@ import { useState } from 'react'
 import { Formik } from "formik"
 import * as Yup from 'yup'
 import { ProductContext } from "../../context/ProductContext"
-import { useParams } from "react-router-dom"
-import React, { useContext, useRef, useEffect } from "react"
+import { useParams, Navigate, useNavigate } from "react-router-dom"
+import React, { useContext } from "react"
 
-export const AdminStockView = () => {
-/*     const { products } = useContext(ProductContext)
+export const AdminEditProduct = () => {
+    const { products } = useContext(ProductContext)
     const { id } = useParams()
+    const navigate = useNavigate()
 
     const product = products.find((item) => {
         return item.id === parseInt(id);
     })
+    
 
-    const {title, price, description, image} = product;
- */
+    
+
     const schema = Yup.object().shape({
         nombre: Yup.string().min(4, 'Mínimo 4 caracteres').max(24, 'Máximo 30 caracteres').required('Este campo es requerido'),
         descripcion: Yup.string().min(8, 'Mínimo 4 caracteres').max(124, 'Máximo 30 caracteres').required('Este campo es requerido'),
@@ -46,24 +48,36 @@ export const AdminStockView = () => {
     }
     const handleSubmit = (e) => {
         e.preventDefault();
-    }
+    } 
 
-
+    const handleCancelarEdicion = (e) => {
+        e.preventDefault();
+        navigate("/admin");
+    } 
     
+
+    if (!product){
+        return(
+            <section className="h-screen flex justify-center items-center">
+                Loading...
+            </section>
+        )
+    }
+    const {title, price, description, image} = product;
 
     return (
 
 
-        <div className="self-center w-full xl:w-auto flex justify-center items-center animate__animated animate__fadeIn">
+        <div className="flex justify-center items-center min-h-max animate__animated animate__fadeIn">
+            <div className="mt-2 text-center w-full xl:w-[600px] px-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-900 dark:border-gray-200" >
         <Formik
-            className="mt-8 xl:m-0 text-center flex flex-col items-center justify-center self-center w-[350px] xl:w-max p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-900 dark:border-gray-200"
             initialValues={{
-                nombre: '',
-                apellido: '',
-                direccion: '',
-                localidad: '',
-                telefono: '',
-                email: ''
+                nombre: product.title,
+                descripcion: product.description,
+                imagen: product.image,
+                categoria: product.category,
+                precio: product.price,
+                stock: product.rating.count
             }}
             onSubmit={(values) => {
                 console(values)
@@ -73,28 +87,31 @@ export const AdminStockView = () => {
             {({
                 values, handleChange, handleSubmit, errors , isValid
             }) => {
-                const requiredFields = ["nombre", "apellido", "direccion", "localidad", "telefono", "email"];
+                const requiredFields = ["nombre", "descripcion", "imagen", "categoria", "precio", "stock"];
                 const requiredFieldsFilled = requiredFields.every((field) => values[field] !== "");
 
       
                 return (
                 <div className="">
-                    <form className="form-body w-full lg:flex lg:justify-center mt-16 lg:items-start mb-16 p-6 fade-in" onSubmit={handleSubmit}>
-                        <div className="font-principal lg:flex lg:flex-col gap-y-2 h-auto lg:h-[640px] lg:w-max border-b p-4 items-center fade-in">
-                                <div className="sticky font-bold font-principal text-xl">
-                                    <h1>Editar Producto: name </h1>
+                    <div className="sticky">
+                        <h1 className="font-bold  font-principal text-3xl text-[#850400]">Editar Producto</h1>
+                    </div>
+                    <form className="form-body w-full lg:flex lg:justify-center lg:items-start mb-16 py-6 fade-in" onSubmit={handleSubmit}>
+                        <div className="font-principal lg:flex lg:flex-col gap-y-2 h-auto lg:w-max border-b py-4 items-center fade-in">
+                                <div className="sticky">
+                                    <h1><strong className="font-bold font-principal text-xl" >{title}</strong> </h1>
                                 </div>
-                                <div className="flex flex-col lg:flex-row justify-around items-center">
+                                <div>
                                     <div className="mx-1 divInput">
                                         <label className="labelInput font-bold" htmlFor="nombre">Nombre de Producto</label>
                                         <div className="divInput-inputError">
                                             <input
-                                                className="form-control my-2"
+                                                className="form-control my-2 w-[400px] "
                                                 onChange={handleChange}
                                                 id="nombre"
                                                 type="text"
                                                 name="nombre"
-                                                value={values.nombre}
+                                                value={title}
                                                 placeholder="Tu nombre"
                                             />
                                             <div className="divInputError text-red-500">
@@ -103,15 +120,15 @@ export const AdminStockView = () => {
                                         </div>
                                     </div>
                                     <div className="mx-1 divInput">
-                                        <label className="labelInput font-bold" htmlFor="apellido">Precio</label>
+                                        <label className="labelInput font-bold" htmlFor="precio">Precio</label>
                                         <div className="divInput-inputError">
                                             <input
-                                                className="form-control my-2"
+                                                className="form-control my-2 w-[400px] "
                                                 onChange={handleChange}
                                                 type="text"
                                                 id="apellido"
                                                 name="apellido"
-                                                value={values.apellido}
+                                                value={product.price}
                                                 placeholder="Tu apellido"
                                             />
                                             <div className="divInputError text-red-500">
@@ -120,18 +137,19 @@ export const AdminStockView = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <div className="flex flex-col lg:flex-row justify-around items-center">
+                                <div>
                                     <div className="mx-1 divInput">
-                                        <label className="labelInput font-bold" htmlFor="localidad">Descripción</label>
+                                        <label className="labelInput font-bold" htmlFor="descripcion">Descripción</label>
                                         <div className="divInput-inputError">
-                                            <input
-                                                className="form-control my-2"
+                                            <textarea
+                                                className="form-control my-2 w-[400px] "
                                                 onChange={handleChange}
                                                 type="text"
-                                                id="localidad"
-                                                name="localidad"
-                                                value={values.localidad}
+                                                id="descripcion"
+                                                name="descripcion"
+                                                value={product.description}
                                                 placeholder="Ej: San Miguel"
+                                                rows={10}
                                             />
                                             <div className="divInputError text-red-500">
                                                 {errors.localidad && <p>{errors.localidad}</p>}
@@ -139,10 +157,15 @@ export const AdminStockView = () => {
                                         </div>
                                     </div>
                                     <div className="mx-1 divInput">
-                                        <label className="labelInput font-bold" htmlFor="direccion">Imagen (JPG o JPEG)</label>
+                                        <label className="labelInput font-bold" htmlFor="imagen">Imagen (JPG o JPEG)</label>
+                                        <div className="flex w-full justify-center items-center">
+                                            <div className="">
+                                                <img className="w-[100px]" src={image} alt="" />
+                                            </div>
+                                        </div>
                                         <div className="divInput-inputError">
                                             <input
-                                                className="form-control my-2"
+                                                className="form-control my-2 w-[400px] "
                                                 onChange={(event) => {
                                                     handleChange(event);
                                                     // Aquí, puedes hacer algo específico si necesitas manipular el archivo seleccionado.
@@ -151,55 +174,59 @@ export const AdminStockView = () => {
                                                 id="imagen"
                                                 name="imagen"
                                                 accept=".jpg, .jpeg"
+                                                
                                             />
                                             <div className="divInputError text-red-500">
-                                                {errors.imagen && <p>{errors.imagen }</p>}
+                                                {errors.imagen && <p>{errors.imagen}</p>}
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div className="flex flex-col lg:flex-row justify-around items-center">
+                                <div>
                                     <div className="mx-1 divInput">
-                                        <label className="labelInput font-bold" htmlFor="telefono">Categoría</label>
+                                        <label className="labelInput font-bold" htmlFor="categoria">Categoría</label>
                                         <div className="divInput-inputError">
                                             <input
-                                                className="form-control my-2"
+                                                className="form-control my-2 w-[400px] "
+                                                onChange={handleChange}
+                                                type="text"
+                                                id="categoria"
+                                                name="categoria"
+                                                value={product.category}
+                                            />
+                                            <div className="divInputError text-red-500">
+                                                {errors.categoria && <p>{errors.categoria}</p>}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="mx-1 divInput">
+                                        <label className="labelInput font-bold" htmlFor="stock">Stock</label>
+                                        <div className="divInput-inputError">
+                                            <input
+                                                className="form-control my-2 w-[400px] "
                                                 onChange={handleChange}
                                                 type="number"
-                                                id="telefono"
-                                                name="telefono"
-                                                value={values.telefono}
-                                                placeholder="Ej: 1111111111"
+                                                id="stock"
+                                                name="stock"
+                                                value={product.rating.count}
                                             />
                                             <div className="divInputError text-red-500">
-                                                {errors.telefono && <p>{errors.telefono}</p>}
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="mx-1 divInput">
-                                        <label className="labelInput font-bold" htmlFor="email">Stock</label>
-                                        <div className="divInput-inputError">
-                                            <input
-                                                className="form-control my-2"
-                                                onChange={handleChange}
-                                                type="email"
-                                                id="email"
-                                                name="email"
-                                                value={values.email}
-                                                placeholder="Ej: jhon@ejemplo.com"
-                                            />
-                                            <div className="divInputError text-red-500">
-                                                {errors.email && <p>{errors.email}</p>}
+                                                {errors.stock && <p>{errors.stock}</p>}
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div className={`py-4 flex flex-col justify-center xl:mx-0 mx-auto items-center mb-6 w-[250px] ${
-                                                isValid && requiredFieldsFilled
-                                                ? "bg-green-500 cursor-pointer enabled"
-                                                : "bg-gray-400 disabled"
-                                            } text-white rounded-xl`} type="submit" onClick={handleSubmit}>
-                                            <p className="text-xl">Continuar a pagar</p>
+                                <div className="flex justify-center items-center">
+                                    <div className={`py-4 flex flex-col justify-center xl:mx-2 mx-auto items-center mb-6 w-[200px] ${
+                                                    isValid && requiredFieldsFilled
+                                                    ? "bg-green-500 cursor-pointer enabled"
+                                                    : "bg-gray-400 disabled"
+                                                } text-white rounded-xl`} type="submit" onClick={handleSubmit}>
+                                                <p className="text-xl">Guardar</p>
+                                    </div>
+                                    <div className="py-4 flex flex-col justify-center xl:mx-2 mx-auto items-center mb-6 w-[200px] bg-red-500 cursor-pointer enabled text-white rounded-xl" type="submit" onClick={handleCancelarEdicion}>
+                                                <p className="text-xl">Cancelar</p>
+                                    </div>
                                 </div>
                         </div>
                     </form>
@@ -208,6 +235,7 @@ export const AdminStockView = () => {
                 )
             }}
         </Formik>
+        </div>
         </div>
 
 

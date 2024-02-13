@@ -1,35 +1,34 @@
-import { useState } from 'react'
-import * as Yup from 'yup'
 import { ProductContext } from "../../context/ProductContext"
-import React, { useContext, useEffect } from "react"
+import React, { useContext } from "react"
+import { Link } from "react-router-dom"
 
 export const AdminStockView = () => {
     const { products } = useContext(ProductContext)
-    console.log(products)
-    // Función para manejar la edición de un producto (puedes implementar según tus necesidades)
-    const handleEdit = (productId) => {
-        // Lógica de edición aquí
-        console.log(`Editar producto con ID: ${productId}`);
-    };
+
 
 
     return (
-        <>
+        <div className="min-h-max">
+        <div className="flex justify-end items-center m-10">
+            <Link>
+                Agregar Nuevo Producto
+            </Link>
+        </div>
         <div className="flex justify-center items-center w-full py-10">
             <h1 className="text-3xl font-extrabold">Listado de productos</h1>
         </div>
-        <div className="flex flex-col items-center h-[450px] lg:h-screen overflow-y-auto max-h-[80vh] w-max m-auto">
+        <div className="flex flex-col items-center min-h-max xl:w-max m-auto overflow-x-auto">
             <div className="container">
-                <table className="table w-full h-full border-separate lg:border-collapse table-fixed">
+                <table className="table xl:w-auto h-full border-collapse table-fixed">
                     <thead className='sticky top-0 bg-white h-full'>
-                        <tr>
-                            <th className="w-1/4">Nombre Producto</th>
-                            <th className="w-1/4">Categoría</th>
-                            <th className="w-1/4">Descripcion</th>
-                            <th className="w-1/4">Precio</th>
-                            <th className="w-1/4">Imagen</th>
-                            <th className="w-1/4">Stock</th>
-                            <th className="w-1/4">Acciones</th>
+                        <tr className="sticky top-0 bg-white h-full">
+                            <th className="w-[250px]">Nombre Producto</th>
+                            <th className="w-[250px]">Categoría</th>
+                            <th className="w-[250px]">Descripcion</th>
+                            <th className="w-[250px]">Precio</th>
+                            <th className="w-[250px]">Imagen</th>
+                            <th className="w-[250px]">Stock</th>
+                            <th className="w-[250px]">Acciones</th>
                         </tr>
                     </thead>
 
@@ -40,15 +39,21 @@ export const AdminStockView = () => {
                                     <td>{product.category}</td>
                                     <td>{product.description}</td>
                                     <td>{product.price}</td>
-                                    <td><img className="w-[50%]" src={product.image} alt="" /></td>
+                                    <td><img className="w-[250px]" src={product.image} alt="" /></td>
                                     <td>{product.rating.count}</td>
                                     <td>
-                                        <button onClick={() => handleEdit(product.id)} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                                            Editar
-                                        </button>
-                                        <button onClick={() => handleEdit(product.id)} className="bg-red-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                                            Eliminar
-                                        </button>
+                                        <div className="flex flex-col xl:flex-row justify-center items-center">
+                                            <div className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mb-2 xl:mb-0 xl:mr-2">
+                                                <Link to={`/AdminEditProduct/${product.id}`} >
+                                                    Editar
+                                                </Link>
+                                            </div>
+                                            <div className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
+                                                <button>
+                                                    Eliminar
+                                                </button>
+                                            </div>
+                                        </div>
                                     </td>
                                 </tr>
                             ))}
@@ -57,16 +62,8 @@ export const AdminStockView = () => {
             </div>
         </div>
 
-        </>
+        </div>
 
-/*         <div>
-            <form onSubmit={handleSubmit} className="container my5">
-                <input onChange={handleInputChange} value={values.nombre} name="nombre" type="text" className="form-control my-2" placeholder="Nombre" />
-                <input onChange={handleInputChange} value={values.cantidadAgregada} name="cantidadAgregada" type="number" className="form-control my-2" placeholder="Cantidad del producto por agregar" />
-
-                <button className="btn btn-primary">Enviar</button>
-            </form>
-        </div> */
     )
 }
 
