@@ -5,7 +5,7 @@ import {BsPlus, BsEyeFill} from 'react-icons/bs'
 import { CartContext } from "../../context/CartContext"
 import { ToastContainer, toast, Zoom, Bounce } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
+const itemImagesDir = "/images/products/"
 export const Item = ( {product} ) => {
     const { addToCart } = useContext(CartContext)
     const {id, image, category, title, price} = product;
@@ -26,7 +26,8 @@ export const Item = ( {product} ) => {
                 <div className="w-full h-full flex justify-center items-center">
                     {/* image */}
                     <div className="w-[200px] mx-auto flex justify-center items-center">
-                        <img className="imagenesPosition max-h-[160px] group-hover:scale-110 transition duration-300" src={image} alt="" />
+                        <img className="imagenesPosition max-h-[160px] group-hover:scale-110 transition duration-300"
+                            src={itemImagesDir + image} alt={image} />
                     </div>
                 </div>
                 {/* buttons */}
