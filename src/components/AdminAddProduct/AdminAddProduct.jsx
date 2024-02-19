@@ -77,7 +77,7 @@ export const AdminAddProduct = () => {
     
             // Ahora puedes enviar formData al backend
             const productResponse = await createProduct(formData);
-            console.log(productResponse);
+            navigate("/admin");
         } catch (error) {
             console.error(error);
         }

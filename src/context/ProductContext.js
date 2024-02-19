@@ -14,6 +14,7 @@ const ProductProvider = ({ children }) => {
   useEffect(() => {
     async function loadProducts() {
       const response = await getProductsRequest()
+      console.log(response.data)
       setProducts(response.data)
     }
     loadProducts()

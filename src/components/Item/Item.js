@@ -8,7 +8,7 @@ import 'react-toastify/dist/ReactToastify.css';
 const itemImagesDir = "/images/products/"
 export const Item = ( {product} ) => {
     const { addToCart } = useContext(CartContext)
-    const {id, image, category, title, price} = product;
+    const {id, imagen, categoria, nombre, precio} = product;
     const notify = () => toast.success("Producto agregado al carrito!",
     {
         transition: Bounce,
@@ -27,7 +27,7 @@ export const Item = ( {product} ) => {
                     {/* image */}
                     <div className="w-[200px] mx-auto flex justify-center items-center">
                         <img className="imagenesPosition max-h-[160px] group-hover:scale-110 transition duration-300"
-                            src={itemImagesDir + image} alt={image} />
+                            src={"data:image/jpeg;base64,"+imagen} alt={nombre} />
                     </div>
                 </div>
                 {/* buttons */}
@@ -47,11 +47,11 @@ export const Item = ( {product} ) => {
             </div>
             {/* category, title and price */}
             <div>
-                <div className="text-sm capitalize text-gray-500 mb-1">{category}</div>
+                <div className="text-sm capitalize text-gray-500 mb-1">{categoria}</div>
                 <Link to={`/product/${id}`}>
-                    <h2 className="font-semibold mb-1">{title}</h2>
+                    <h2 className="font-semibold mb-1">{nombre}</h2>
                 </Link>
-                <div className="font-semibold">$ {price}</div>
+                <div className="font-semibold">$ {precio}</div>
             </div>
             <div></div>
         </div>
