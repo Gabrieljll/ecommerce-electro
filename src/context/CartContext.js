@@ -18,7 +18,7 @@ export const CartProvider = ({children}) => {
     // update item total
     useEffect( () => {
         const total = cart.reduce((accumulator, currentItem) => {
-            return accumulator + currentItem.price * currentItem.amount
+            return accumulator + currentItem.precio * currentItem.amount
         }, 0)
         setTotal(total)
     },[cart])

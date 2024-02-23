@@ -146,11 +146,11 @@ export const ShopView = () => {
                                 Object.entries(categoriesCount).map(([categoria, count]) => {
                                     const linea = obtenerLineaDeProducto(categoria); // Implementa esta función para obtener la línea de producto
                                     return (
-                                        <>
+                                        <div key={linea}>
                                             <div className="flex flex-start">
                                                 <h1>{linea}</h1>
                                             </div>
-                                            <div key={categoria} className="flex items-center m-auto pl-12">
+                                            <div className="flex items-center mx-auto my-2 pl-12">
                                                 <input type="checkbox" id={`cat-${categoria}`} className="text-primary focus:ring-0 rounded-sm cursor-pointer border border-[#850400]" 
                                                 checked={selectedCategories.includes(categoria)}
                                                 onChange={() => toggleCategory(categoria)}
@@ -159,7 +159,7 @@ export const ShopView = () => {
                                                 <label htmlFor={`cat-${categoria}`} className="text-gray-600 ml-3 cursor-pointer text-base">{categoria}</label>
                                                 <div className="ml-auto text-gray-600 text-sm">({count})</div>
                                             </div>
-                                        </>
+                                        </div>
                                     )
                                 })}   
                             </div>

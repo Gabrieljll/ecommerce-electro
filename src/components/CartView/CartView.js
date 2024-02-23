@@ -69,20 +69,20 @@ const CartView = () => {
                             <div className="flex items-center gap-x-16 py-12 lg:px-6 border-b border-gray-200 w-full font-light text-gray-500">
                                 <div className="w-full max-h-[100px] flex justify-center items-center gap-x-4 ">
                                     <div className="max-w-[80px] max-h-[150px] h-[100px]">
-                                        <img className="self-start" src={item.image} alt="" />
+                                        <img className="self-start" src={"data:image/jpeg;base64,"+item.imagen} alt="" />
                                     </div>
                                     <div className="text-sm md:text-lg w-36 max-w-[400px] lg:w-[500px] font-bold gap-x-4">
-                                        <h3>{item.title}</h3>                                
+                                        <h3>{item.nombre}</h3>                                
                                     </div>
                                     <div className="lg:w-[500px]">
                                         <div>
-                                            <h5 className="text-sm lg:text-2xl">Precio/u: <span className="lg:text-xl font-bold">${item.price * item.amount}</span></h5>
+                                            <h5 className="text-sm lg:text-2xl">Precio/u: <span className="lg:text-xl font-bold">${item.precio * item.amount}</span></h5>
                                         </div>
                                         <div className="">
                                             <h5 className="text-sm lg:text-2xl">Cantidad: <span className="lg:text-xl font-bold">{item.amount}</span></h5>
                                         </div>
                                         <div className="">
-                                            <h5 className="text-sm lg:text-2xl">Total de producto: <span className="lg:text-xl font-bold">${`${parseFloat(item.price*item.amount).toFixed(2)}`}</span> </h5>
+                                            <h5 className="text-sm lg:text-2xl">Total de producto: <span className="lg:text-xl font-bold">${`${parseFloat(item.precio*item.amount).toFixed(2)}`}</span> </h5>
                                         </div>
                                     </div>
                                      {/* remove icon */}

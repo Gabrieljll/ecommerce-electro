@@ -1047,6 +1047,16 @@ select {
   margin-bottom: 1.25rem;
 }
 
+.my-3 {
+  margin-top: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.my-4 {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
 .mb-1 {
   margin-bottom: 0.25rem;
 }
@@ -1262,6 +1272,10 @@ select {
   height: 80%;
 }
 
+.h-\[150px\] {
+  height: 150px;
+}
+
 .max-h-\[100px\] {
   max-height: 100px;
 }
@@ -1391,6 +1405,14 @@ select {
 
 .w-10 {
   width: 2.5rem;
+}
+
+.w-96 {
+  width: 24rem;
+}
+
+.w-1 {
+  width: 0.25rem;
 }
 
 .max-w-\[1920px\] {
@@ -1550,6 +1572,10 @@ select {
   justify-content: space-around;
 }
 
+.justify-evenly {
+  justify-content: space-evenly;
+}
+
 .gap-12 {
   gap: 3rem;
 }
@@ -1568,6 +1594,10 @@ select {
 
 .gap-8 {
   gap: 2rem;
+}
+
+.gap-5 {
+  gap: 1.25rem;
 }
 
 .gap-x-16 {
@@ -1787,6 +1817,10 @@ select {
   border-color: rgb(31 41 55 / var(--tw-border-opacity));
 }
 
+.border-\[bg-\[\#850400\]\] {
+  border-color: bg-[#850400];
+}
+
 .bg-\[\#25D366\] {
   --tw-bg-opacity: 1;
   background-color: rgb(37 211 102 / var(--tw-bg-opacity));
@@ -1898,6 +1932,31 @@ select {
 .bg-\[\#bf3631\] {
   --tw-bg-opacity: 1;
   background-color: rgb(191 54 49 / var(--tw-bg-opacity));
+}
+
+.bg-\[\#860400\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(134 4 0 / var(--tw-bg-opacity));
+}
+
+.bg-\[\#840400\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(132 4 0 / var(--tw-bg-opacity));
+}
+
+.bg-\[\#85302d\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(133 48 45 / var(--tw-bg-opacity));
+}
+
+.bg-\[\#ae322e\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(174 50 46 / var(--tw-bg-opacity));
+}
+
+.bg-\[\#ffffff\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
 .bg-gradient-to-b {
@@ -2179,6 +2238,22 @@ select {
   font-size: 70px;
 }
 
+.text-\[36px\] {
+  font-size: 36px;
+}
+
+.text-\[20px\] {
+  font-size: 20px;
+}
+
+.text-\[24px\] {
+  font-size: 24px;
+}
+
+.text-\[23px\] {
+  font-size: 23px;
+}
+
 .font-bold {
   font-weight: 700;
 }
@@ -2199,6 +2274,14 @@ select {
   font-weight: 600;
 }
 
+.font-thin {
+  font-weight: 100;
+}
+
+.font-normal {
+  font-weight: 400;
+}
+
 .uppercase {
   text-transform: uppercase;
 }
@@ -2217,6 +2300,10 @@ select {
 
 .leading-\[1\.1\] {
   line-height: 1.1;
+}
+
+.leading-3 {
+  line-height: .75rem;
 }
 
 .tracking-tight {
@@ -2286,6 +2373,11 @@ select {
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+.text-\[\#ae322e\] {
+  --tw-text-opacity: 1;
+  color: rgb(174 50 46 / var(--tw-text-opacity));
 }
 
 .opacity-0 {

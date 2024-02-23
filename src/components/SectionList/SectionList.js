@@ -96,7 +96,7 @@ export const SectionList = () =>{
                         <div className="flex flex-col items-center justify-center gap-4 p-4">
                             <p className="text-xl font-semibold text-center">{d.name}</p>
                             <p className="text-center hidden lg:block">{d.review}</p>
-                            <Link to={"/productos"} className='shadow-slate-300 lg:text-base text-lg bg-bright-red text-vary-light-gray block w-20 text-center h-min lg:w-max py-4 lg:px-12 rounded-full shadow-md'>Ver más</Link>
+                            <Link to={"/productos"} className='shadow-slate-300 lg:text-base text-lg bg-[#ae322e] text-vary-light-gray block w-20 text-center h-min lg:w-max py-4 lg:px-12 rounded-full shadow-md uppercase font-bold'>Ver productos</Link>
                         </div>
                     </div>
                     ))}
@@ -114,10 +114,10 @@ export const SectionList = () =>{
 
                 <img src="./images/section/389852.png" className="w-44 max-w-lg mb-4 md:mb-0 md:mr-4 hidden lg:block" />
                 <div>
-                <h1 className="text-center text-4xl font-bold text-very-dark-blue md:text-5xl mb-4">Una vida dedicada al servicio</h1>
+                    <h1 className="text-center text-4xl font-bold text-[#ae322e] md:text-5xl mb-4 uppercase">Una vida dedicada al servicio</h1>
 
-                <p className="text-center text-dark-grayish-blue">(Nombre de proyecto) nace con la idea de ofrecer al minorista y al consumidor final el mejor servicio, en el momento preciso, y al mejor precio. Con más de treinta y cinco años en la industria, nuestra trayectoria y nuestros clientes avalan el camino que nos ha traído hasta este lugar, apuntando siempre a ser el socio de confianza del técnico y el minorista, y colaborando a mantener en las mejores condiciones el hogar de todos los argentinos
-                </p>
+                    <p className="text-center text-black font-medium text-[23px]">Cj Repuestos nace con la idea de ofrecer al minorista y al consumidor final el mejor servicio, en el momento preciso, y al mejor precio. Con más de treinta y cinco años en la industria, nuestra trayectoria y nuestros clientes avalan el camino que nos ha traído hasta este lugar, apuntando siempre a ser el socio de confianza del técnico y el minorista, y colaborando a mantener en las mejores condiciones el hogar de todos los argentinos
+                    </p>
                 </div>
                 <img src="./images/section/389852.png" className="transform scale-x-[-1] w-44 max-w-lg mt-4 md:mt-0 md:ml-4 hidden lg:block" />
             </article>
@@ -146,59 +146,71 @@ export const SectionList = () =>{
 
             <section ref={ref5} id="atencionCliente" className={`wrapper text-center py-24 grid gap-12 md:grid-cols-2 md:text-left transition-fade-up ${inView5 ? "active" : ""}`}>
                 <article>
-                    <h2 className="text-3xl font-bold text-very-dark-blue mb-6 md:text-4xl">Consulta gratis para tus electrodomésticos.</h2>
-                    <p className="text-dark-grayish-blue">Envianos un mensaje y obtené un diagnóstico sin cargo de parte de nuestro staff técnico.
-                    </p>
-                    <div className="flex justify-center">
-                        <div className="shadow-slate-300 text-base text-vary-light-gray block w-max py-4 px-12 rounded-full shadow-md mt-16 bg-[#25D366]">
-                            <h6>WhatApp</h6>
+                    
+                        <div className="flex items-center justify-center text-center">
+                            <h2 className="text-3xl font-bold text-[#ae322e] mb-6 md:text-3xl uppercase">Consulta gratis para tus electrodomésticos.</h2>
+
+                        </div>
+                        <div className="flex items-center justify-center text-center">
+                            <p className="text-black font-medium text-[23px]">Envianos un mensaje y obtené un diagnóstico sin cargo de parte de nuestro staff técnico.
+                            </p>
+
+                        </div>
+                    
+                    <div className="flex justify-evenly">
+                        <div className="flex justify-center">
+                            <div className="shadow-slate-300 text-base text-black block w-max py-4 px-12 rounded-full shadow-md mt-16 bg-[#ffffff]">
+                                <h6>Mail</h6>
+                            </div>
+                        </div>
+                        <div className="flex justify-center">
+                            <div className="shadow-slate-300 text-base text-vary-light-gray block w-max py-4 px-12 rounded-full shadow-md mt-16 bg-[#25D366]">
+                                <h6>WhatApp</h6>
+                            </div>
                         </div>
                     </div>
                 </article>
 
                 <div className="grid gap-12">
                     <article className="space-y-4 md:space-y-6">
-                        <p className="bg-very-pale-red rounded-l-full font-bold flex items-center">
-                            <span className="bg-bright-red text-white px-6 rounded-full py-2">
-                                01
-                            </span>
-                            <span className="flex-1 p-2">
-                                Logística a todo el país.
-                            </span>
-                        </p>
+                        <div className="font-medium flex items-center justify-center">
+                            <div className="bg-[#ae322e] rounded shadow-xl">
+                                <span className="flex-1 text-center">
+                                    <h1 className="text-white p-2 text-2xl">Logística a todo el país.</h1>
+                                </span>
+                            </div>
+                        </div>
 
-                        <p className="text-dark-grayish-blue text-left">Trabajamos con proveedores logísticos de primera línea.
+                        <p className="text-black font-medium text-[23px] text-center">Trabajamos con proveedores logísticos de primera línea.
                         Consulte envíos a su región, costos y descuentos especiales por cantidad.</p>
 
                     </article>
 
                     <article className="space-y-4 md:space-y-6">
-                        <p className="bg-very-pale-red rounded-l-full font-bold flex items-center">
-                            <span className="bg-bright-red text-white px-6 rounded-full py-2">
-                            02
-                            </span>
-                            <span className="flex-1 p-2">
-                                Venta mayorista y minorista
-                            </span>
-                        </p>
+                    <div className="font-medium flex items-center justify-center">
+                            <div className="bg-[#ae322e] rounded shadow-xl">
+                                <span className="flex-1 text-center">
+                                    <h1 className="text-white p-2 text-2xl">Venta mayorista y minorista</h1>
+                                </span>
+                            </div>
+                        </div>
 
-                        <p className="text-dark-grayish-blue text-left">Atención especializada al técnico/service que busca 
+                        <p className="text-black font-medium text-[23px] text-center">Atención especializada al técnico/service que busca 
                             abastecer su stock. Consulte por promociones y descuentos según cantidad.
                         </p>
 
                     </article>
 
                     <article className="space-y-4 md:space-y-6">
-                        <p className="bg-very-pale-red rounded-l-full font-bold flex items-center">
-                            <span className="bg-bright-red text-white px-6 rounded-full py-2">
-                                03
-                            </span>
-                            <span className="flex-1 p-2">
-                                Servicio de ventas al público
-                            </span>
-                        </p>
+                    <div className="font-medium flex items-center justify-center">
+                            <div className="bg-[#ae322e] rounded shadow-xl">
+                                <span className="flex-1 text-center">
+                                    <h1 className="text-white p-2 text-2xl">Servicio de ventas al público</h1>
+                                </span>
+                            </div>
+                        </div>
 
-                        <p className="text-dark-grayish-blue text-left">Consulte por electrodomésticos nuevos, reacondicionados 
+                        <p className="text-black font-medium text-[23px] text-center">Consulte por electrodomésticos nuevos, reacondicionados 
                             y usados al mejor precio
                         </p>
                     </article>
