@@ -12,6 +12,9 @@ import { ToastContainer } from 'react-toastify';
 
 export const ShopView = () => {
     const manHero = "/images/hero/hombre-apuntando-a-la-izquiera.jpg";
+    //const manHero = "/images/hero/banner_tienda.png";
+    //const manHero = "/images/hero/banner_tienda.png";
+    const flecha = "/images/shopView/flecha_50.png";
     const [isSidebarOpen, setSidebarOpen] = useState(true);
     const [selectedCategories, setSelectedCategories] = useState([]);
     const [minPrice, setMinPrice] = useState('');
@@ -39,13 +42,12 @@ export const ShopView = () => {
     });
 
     const categoriesCount = {}
-
     // Itera sobre los items y cuenta las categorías
     products.forEach(item => {
-        if (categoriesCount[item.category]) {
-            categoriesCount[item.category]++;
+        if (categoriesCount[item.categoria]) {
+            categoriesCount[item.categoria]++;
         } else {
-            categoriesCount[item.category] = 1;
+            categoriesCount[item.categoria] = 1;
         }
     });
 
@@ -58,7 +60,7 @@ export const ShopView = () => {
       };
 
       const filteredProductsByCategoryAndPrice = products.filter((product) => {
-        const isCategoryMatch = selectedCategories.length === 0 ? true : selectedCategories.includes(product.category);
+        const isCategoryMatch = selectedCategories.length === 0 ? true : selectedCategories.includes(product.categoria);
         const isPriceInRange =
           (minPrice === '' || parseInt(product.price) >= parseInt(minPrice)) &&
           (maxPrice === '' || parseInt(product.price) <= parseInt(maxPrice));
@@ -81,6 +83,13 @@ export const ShopView = () => {
             elem.style.border = "0.5px solid";
         }
       }
+
+      const obtenerLineaDeProducto = (categoria) => {
+        // Implementa la lógica para obtener la línea de producto
+        const product = products.find((p) => p.categoria === categoria);
+        return product ? product.linea : 'Sin línea'; // Ajusta según tu estructura de datos
+     };
+
     return (
         
         <>
@@ -114,20 +123,14 @@ export const ShopView = () => {
 
 
         <div ref={ref2} className={`container py-4 flex items-center gap-3 lg:m-auto pl-5 shop-transition-fade-up ${inView2 ? "active" : ""}`}>
-            <a href="#home" className="text-primary text-base">
-                <p className="text-gray-600 font-medium">Inicio</p>
-            </a>
-            <span className="text-sm text-gray-400">
-                <i> &gt;</i>
-            </span>
-            <p className="text-gray-600 font-medium">Tienda</p>
+            <Link to={"/home"} className="flex text-primary text-gray-600 font-medium text-2xl">Inicio <img src={flecha} alt="" /> Tienda</Link>
         </div>
         <div className="container flex xl:grid xl:grid-cols-4 gap-6 pt-4 pb-16 items-start m-auto">
             
 
-            <div className={`xl:flex ${isSidebarOpen ? 'hidden translate-x-0' : 'flex -translate-x-full z-10'} absolute xl:static transition-all duration-300 flex-col bg-white xl:p-4 shadow xl:transform-none`} >
+            <div className={`xl:flex border-2 ${isSidebarOpen ? 'hidden translate-x-0' : 'flex -translate-x-full z-10'} absolute xl:static transition-all duration-300 flex-col bg-white xl:p-4 shadow xl:transform-none`} >
                 
-                <div className="xl:flex xl:justify-center xl:items-center xl:w-[100%] left-0 w-[250px] xl:col-span-1 xl:static xl:inset-x-0 2xl:p-12 xl:top-24 bg-white mx-auto rounded-md h-max text-center gap-6 font-bold text-dark-blue xl:text-white xl:shadow-none shadow-2xl bg-transparent grid-flow-col absolute text-xl z-20 transition-all duration-300 xl:left-auto ">
+                <div className="xl:flex xl:justify-center xl:items-center xl:w-[100%] left-0 w-[250px] xl:col-span-1 xl:static xl:inset-x-0 2xl:p-12 xl:top-24 bg-white mx-auto rounded-md h-max text-center gap-6 font-bold text-dark-blue xl:text-white xl:shadow-none shadow-2xl bg-transparent grid-flow-col absolute text-xl z-20 transition-all duration-300 xl:left-auto">
                     <button className="xl:hidden relative bg-primary text-black p-2 mb-4 rounded shadow-lg xl:shadow-none" onClick={() => {
                     setSidebarOpen(!isSidebarOpen); }}
                     >
@@ -140,16 +143,25 @@ export const ShopView = () => {
                             <div className="space-y-2">
                                 {/* single category */}
                                {
-                                Object.entries(categoriesCount).map(([categoria, count]) => (
-                                <div key={categoria} className="flex items-center m-auto">
-                                    <input type="checkbox" id={`cat-${categoria}`} className="text-primary focus:ring-0 rounded-sm cursor-pointer" 
-                                    checked={selectedCategories.includes(categoria)}
-                                    onChange={() => toggleCategory(categoria)}
-                                    />
-                                    <label htmlFor={`cat-${categoria}`} className="text-gray-600 ml-3 cursor-pointer text-base">{categoria}</label>
-                                    <div className="ml-auto text-gray-600 text-sm">({count})</div>
-                                </div>
-                                ))}   
+                                Object.entries(categoriesCount).map(([categoria, count]) => {
+                                    const linea = obtenerLineaDeProducto(categoria); // Implementa esta función para obtener la línea de producto
+                                    return (
+                                        <>
+                                            <div className="flex flex-start">
+                                                <h1>{linea}</h1>
+                                            </div>
+                                            <div key={categoria} className="flex items-center m-auto pl-12">
+                                                <input type="checkbox" id={`cat-${categoria}`} className="text-primary focus:ring-0 rounded-sm cursor-pointer border border-[#850400]" 
+                                                checked={selectedCategories.includes(categoria)}
+                                                onChange={() => toggleCategory(categoria)}
+                                                />
+                                                
+                                                <label htmlFor={`cat-${categoria}`} className="text-gray-600 ml-3 cursor-pointer text-base">{categoria}</label>
+                                                <div className="ml-auto text-gray-600 text-sm">({count})</div>
+                                            </div>
+                                        </>
+                                    )
+                                })}   
                             </div>
                         </div>
                             {/* category filter end */}
@@ -180,13 +192,8 @@ export const ShopView = () => {
             {/* products */}
             <div className="col-span-3 relative z-1">
                 {/* ordenamiento */}
-                <div className="flex items-center mb-4 pl-5 lg:pl-0">
-                    <select className="w-24 xl:w-44 text-sm text-gray-600 px-4 py-3 border-gray-300 shadow-sm rounded focus:ring-primary focus:border-primary" name="" id="">
-                        <option value="">Default</option>
-                        <option value="">Precio menor-mayor</option>
-                        <option value="">Precio mayor-menor</option>
-                        <option value="">Ultimos</option>
-                    </select>
+                <div className="flex items-center pl-5 lg:pl-0">
+
                 {/* ordenamiento Final*/}
                     <button id="botonCerrarFiltros" className="text-sm items-center w-24 xl:w-44 px-4 py-3 border-gray-300  shadow-sm rounded focus:ring-primary focus:border-primary text-center  text-dark-blue xl:hidden relative bg-primary p-2 border z-10" onClick={(event) => {
                         setSidebarOpen(!isSidebarOpen)

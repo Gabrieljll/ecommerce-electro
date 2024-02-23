@@ -8,7 +8,7 @@ import 'react-toastify/dist/ReactToastify.css';
 const itemImagesDir = "/images/products/"
 export const Item = ( {product} ) => {
     const { addToCart } = useContext(CartContext)
-    const {id, imagen, categoria, nombre, precio} = product;
+    const {id, imagen, linea, categoria, nombre, precio} = product;
     const notify = () => toast.success("Producto agregado al carrito!",
     {
         transition: Bounce,
@@ -22,7 +22,7 @@ export const Item = ( {product} ) => {
     return (
 
         <div>
-            <div className="border border-[#e4e4e4] h-[300px] mb-4 relative overflow-hidden group transition z-1">
+            <div className="border border-[#f7dddd] h-[300px] relative overflow-hidden group transition z-1">
                 <div className="w-full h-full flex justify-center items-center">
                     {/* image */}
                     <div className="w-[200px] mx-auto flex justify-center items-center">
@@ -36,7 +36,7 @@ export const Item = ( {product} ) => {
                         addToCart(product, id);
                         notify();
                         }}>
-                        <div className="flex justify-center items-center text-white w-12 h-12 bg-orange-600">
+                        <div className="flex justify-center items-center text-white w-12 h-12 bg-[#e13a35]">
                             <BsPlus className="text-3xl" /> 
                         </div>
                     </button>
@@ -47,11 +47,13 @@ export const Item = ( {product} ) => {
             </div>
             {/* category, title and price */}
             <div>
-                <div className="text-sm capitalize text-gray-500 mb-1">{categoria}</div>
-                <Link to={`/product/${id}`}>
-                    <h2 className="font-semibold mb-1">{nombre}</h2>
+                <div className="text-base capitalize text-gray-800 mb-1 p-1">{linea} - {categoria}</div>
+                <Link className="flex justify-center" to={`/product/${id}`}>
+                    <div className="border w-[250px] flex justify-center bg-[#bf3631] rounded">
+                        <h2 className="font-semibold mb-1 text-white">{nombre}</h2>
+                    </div>
                 </Link>
-                <div className="font-semibold">$ {precio}</div>
+                <div className="flex justify-center font-semibold"><h2>$ {precio}</h2></div>
             </div>
             <div></div>
         </div>

@@ -8,7 +8,7 @@ import { CartContext } from '../../context/CartContext'
 import {BsBag} from 'react-icons/bs'
 
 export const Navbar = () =>{
-
+    const logoImg = "/images/Logo_CJ_final.png"
     
     const {isOpen, setIsOpen} = useContext(SidebarContext)
     const {itemAmount} = useContext(CartContext)
@@ -44,13 +44,13 @@ export const Navbar = () =>{
     return (
             
         <div className="font-principal">
-            <header className="shadow-lg z-100 w-full bg-gray-800">
+            <header className="shadow-lg z-100 w-full bg-white border-b">
 
                 <nav className="wrapper h-20 xl:w-screen flex items-center justify-between overflow-visible">
 
                     <Link to="/home" className="">
                         {/* <img src="./images/logo.svg" className="w-full" /> */}
-                        <p className="font-extrabold text-white text-6xl">LOGO</p>
+                        <img className="w-[50%]" src={logoImg} alt="" />
                     </Link>
 
                     <input type="checkbox" id="menu" className="peer hidden" />
@@ -58,7 +58,7 @@ export const Navbar = () =>{
                     <label htmlFor="menu" className="ml-auto bg-open-menu text-white w-7 h-5 bg-cover bg-center cursor-pointer peer-checked:bg-close-menu transition-all z-50 lg:hidden"></label>
 
                     <div className="fixed inset-0 bg-gradient-to-b from-white/70 to-black/70 translate-x-full peer-checked:translate-x-0 transition-transform z-40 lg:static lg:bg-none lg:translate-x-0">
-                    <ul className="absolute inset-x-0 top-24 p-12 bg-white w-[90%] mx-auto rounded-md h-max text-center grid gap-6 font-bold text-dark-blue lg:text-white shadow-2xl lg:w-max lg:bg-transparent lg:p-0 lg:grid-flow-col lg:static text-xl">
+                    <ul className="absolute inset-x-0 top-24 p-12 bg-white w-[90%] mx-auto rounded-md h-max text-center grid gap-6 font-bold text-dark-blue shadow-2xl lg:w-max lg:bg-transparent lg:p-0 lg:grid-flow-col lg:static text-xl">
                     <li>
                         <Link to="/home" onClick={closeMenu}>
                             Inicio
