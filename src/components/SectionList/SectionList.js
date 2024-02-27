@@ -105,7 +105,7 @@ export const SectionList = () =>{
             </div>
         </section>
 
-         <section ref={ref2} className={`w-[100%] overflow-hidden mt-4 flex gap-8 justify-center items-center pb-12 md:grid-cols-2 md:py-24 transition-fade-up ${
+         <section ref={ref2} className={`w-[100%] overflow-hidden mt-16 md:mt-4 flex gap-8 justify-center items-center pb-12 md:grid-cols-2 md:py-24 transition-fade-up ${
           inView2 ? "active" : ""
         }`}>
             <article ref={ref3} className={`flex flex-col items-center text-center mb-8 md:flex-row md:items-start md:text-left transition-fade-up ${
