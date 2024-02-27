@@ -7,6 +7,8 @@ import { CartContext } from '../../context/CartContext'
 
 import {BsBag} from 'react-icons/bs'
 
+import { IoCart } from "react-icons/io5";
+
 export const Navbar = () =>{
     const logoImg = "/images/Logo_CJ_final.png"
     
@@ -55,10 +57,10 @@ export const Navbar = () =>{
 
                     <input type="checkbox" id="menu" className="peer hidden" />
 
-                    <label htmlFor="menu" className="ml-auto bg-open-menu text-white w-7 h-5 bg-cover bg-center cursor-pointer peer-checked:bg-close-menu transition-all z-50 lg:hidden"></label>
+                    <label htmlFor="menu" className="bg-open-menu text-white w-7 h-5 bg-cover bg-center cursor-pointer peer-checked:bg-close-menu transition-all z-50 lg:hidden"></label>
 
                     <div className="fixed inset-0 bg-gradient-to-b from-white/70 to-black/70 translate-x-full peer-checked:translate-x-0 transition-transform z-40 lg:static lg:bg-none lg:translate-x-0">
-                    <ul className="absolute inset-x-0 top-24 p-12 bg-white w-[90%] mx-auto rounded-md h-max text-center grid gap-6 font-bold text-dark-blue shadow-2xl lg:w-max lg:bg-transparent lg:p-0 lg:grid-flow-col lg:static text-xl">
+                    <ul className="absolute inset-x-0 top-24 p-12 bg-white w-[90%] mx-auto rounded-md h-max text-center grid gap-6 font-bold text-black shadow-2xl lg:w-max lg:text-2xl lg:bg-transparent lg:p-0 lg:grid-flow-col lg:static text-xl font-[Arimo-Regular]">
                     <li>
                         <Link to="/home" onClick={closeMenu}>
                             Inicio
@@ -70,17 +72,17 @@ export const Navbar = () =>{
                         </Link>
                     </li>
                     <li>
-                        <span onClick={() => redirectToHomeAndScroll("nosotros")}>
+                        <span className="cursor-pointer" onClick={() => redirectToHomeAndScroll("nosotros")}>
                             Sobre Nosotros
                         </span>
                     </li>
                     <li>
-                        <span onClick={() => redirectToHomeAndScroll("atencionCliente")}>
+                        <span className="cursor-pointer" onClick={() => redirectToHomeAndScroll("atencionCliente")}>
                             Atención al Cliente
                         </span>
                     </li>
                     <li>
-                        <Link to="/contactenos" onClick={closeMenu}>
+                        <Link className="cursor-pointer" to="/contactenos" onClick={closeMenu}>
                             Contáctenos
                         </Link>
                     </li>
@@ -89,7 +91,7 @@ export const Navbar = () =>{
 
                     
                     <div onClick={() => setIsOpen(!isOpen)} className="cursor-pointer flex relative max-w-[50px]">
-                        <BsBag className="text-2xl text-white" />
+                        <BsBag className="text-2xl " />
                         <div className="bg-red-500 absolute -right-2 -bottom-2 text-[12px] w-[18px] h-[18px] text-white rounded-full flex justify-center items-center">
                             {itemAmount}
                         </div>

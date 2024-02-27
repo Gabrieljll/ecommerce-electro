@@ -2,6 +2,7 @@ import { Link as LinkScroll   } from 'react-scroll'
 import { Link } from 'react-router-dom'
 import "./Footer.css"
 export const Footer = () => {
+    const logoImg = "/images/Logo_CJ_final.png"
     const scrollToTop = () => {
         window.scrollTo({
           top: 0,
@@ -9,7 +10,7 @@ export const Footer = () => {
         });
       };
     return (
-    <footer className="bg-very-dark-blue py-24">
+    <footer className="bg-slate-800 py-24">
     <section className="wrapper grid gap-12 justify-center footer-area md:footer-area-md md:grid-cols-3 md:justify-items-center">
 
         <nav className="grid gap-y-4 justify-center text-white w-full md:w-full md:grid-cols-2 lg:grid-cols-3">
@@ -33,7 +34,8 @@ export const Footer = () => {
         </div>
 
         <Link to="home"  onClick={scrollToTop} className="flex justify-center md:justify-end">
-            <p className="font-extrabold text-white text-6xl">LOGO</p>
+            {/* <p className="font-extrabold text-white text-6xl">LOGO</p> */}
+            <img className="w-[100%]" src={logoImg} alt="" />
         </Link>
 
         <p className="text-dark-grayish-blue text-center md:text-right md:col-span-2 lg:col-span-3">

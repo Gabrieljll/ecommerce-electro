@@ -8,7 +8,7 @@ import "../../styles/animate.min.css"
 import "./Section.css"
 import { AiOutlineShoppingCart } from "react-icons/ai";
 
-const imagenSection1 = "/images/section/electro2.jpg"
+const imagenSection1 = "/images/section/electro2.png"
 
 
 export const SectionList = () =>{
@@ -51,32 +51,26 @@ export const SectionList = () =>{
         {
           name: `Lorem ipsum`,
           img: `/images/iconSlider/earphones-svgrepo-com.svg`,
-          review: `Lorem ipsum dolor sit amet, consectetur adipiscing elit.`
         },
         {
           name: `Lorem ipsum`,
           img: `/images/iconSlider/extract-svgrepo-com.svg`,
-          review: `Lorem ipsum dolor sit amet, consectetur adipiscing elit.`
         },
         {
           name: `Lorem ipsum`,
           img: `/images/iconSlider/fan-svgrepo-com.svg`,
-          review: `Lorem ipsum dolor sit amet, consectetur adipiscing elit.`
         },
         {
           name: `Lorem ipsum`,
           img: `/images/iconSlider/hair-dryer-svgrepo-com.svg`,
-          review: `Lorem ipsum dolor sit amet, consectetur adipiscing elit.`
         },
         {
           name: `Lorem ipsum`,
           img: `/images/iconSlider/kettle-svgrepo-com.svg`,
-          review: `Lorem ipsum dolor sit amet, consectetur adipiscing elit.`
         },
         {
             name: `Lorem ipsum`,
             img: `/images/iconSlider/vacuum-cleaner-svgrepo-com.svg`,
-            review: `Lorem ipsum dolor sit amet, consectetur adipiscing elit.`
         }
         
       ];
@@ -86,6 +80,9 @@ export const SectionList = () =>{
         <section id="nosotros">
             <div ref={ref1} className={`lg:w-3/5 w-4/5 m-auto transition-fade-up ${inView1 ? "active" : ""}`}>
                 <div className="mt-20">
+                    <div className="flex justify-center h-[45px]">
+                        <h1 className="text-4xl font-[Arimo-Bold]">Categorías</h1>
+                    </div>
                 <Slider {...settings}>
                     {data.map((d) => (
                     <div key={d.name} className="bg-white lg:h-[450px] h-[350px] text-black rounded-xl md:w-full lg:w-1/3">
@@ -94,9 +91,8 @@ export const SectionList = () =>{
                         </div>
 
                         <div className="flex flex-col items-center justify-center gap-4 p-4">
-                            <p className="text-xl font-semibold text-center">{d.name}</p>
-                            <p className="text-center hidden lg:block">{d.review}</p>
-                            <Link to={"/productos"} className='shadow-slate-300 lg:text-base text-[10px] bg-[#ae322e] text-vary-light-gray block w-24 text-center h-min lg:w-max py-4 lg:px-12 rounded-full shadow-md uppercase font-bold'>Ver productos</Link>
+                            <p className="text-xl text-center ">{d.name}</p>
+                            <Link to={"/productos"} className='shadow-slate-300 lg:text-base text-[10px] bg-[#ae322e] text-vary-light-gray block w-24 text-center h-min lg:w-max py-4 lg:px-12 rounded-full shadow-md uppercase font-bold font-[Arimo-Regular]'>Ver productos</Link>
                         </div>
                     </div>
                     ))}
@@ -116,7 +112,7 @@ export const SectionList = () =>{
                 <div>
                     <h1 className="text-center text-4xl font-bold text-[#ae322e] md:text-5xl mb-4 uppercase">Una vida dedicada al servicio</h1>
 
-                    <p className="text-center text-black font-medium text-[23px]">Cj Repuestos nace con la idea de ofrecer al minorista y al consumidor final el mejor servicio, en el momento preciso, y al mejor precio. Con más de treinta y cinco años en la industria, nuestra trayectoria y nuestros clientes avalan el camino que nos ha traído hasta este lugar, apuntando siempre a ser el socio de confianza del técnico y el minorista, y colaborando a mantener en las mejores condiciones el hogar de todos los argentinos
+                    <p className="text-center text-black font-medium text-[23px]">CJ Repuestos nace con la idea de ofrecer al minorista y al consumidor final el mejor servicio, en el momento preciso, y al mejor precio. Con más de treinta y cinco años en la industria, nuestra trayectoria y nuestros clientes avalan el camino que nos ha traído hasta este lugar, apuntando siempre a ser el socio de confianza del técnico y el minorista, y colaborando a mantener en las mejores condiciones el hogar de todos los argentinos
                     </p>
                 </div>
                 <img src="./images/section/hand.png" className="transform w-44 max-w-lg mt-4 md:mt-0 md:ml-4 hidden lg:block" />
@@ -124,19 +120,17 @@ export const SectionList = () =>{
         </section>
 
         <section ref={ref4} className={`section transition-fade-up ${inView4 ? "active" : ""}`}>
-                <div className="flex max-w-[1920px] h-min w-full m-auto py-5 relative group">
-                    <div style={{ backgroundImage: `url(${imagenSection1})` }} className='w-full h-full bg-center bg-cover duration-500'>
-                        <div className="text-right font-principal sectionInformation shadow-sm shadow-bright-red/30 py-3 block text-4xl font-extrabold leading-none tracking-tight  sm:text-5xl lg:text-6xl dark:text-white">
-                            <h1 className="text-white">¿Buscas renovar tu casa?</h1>
-                            <h6 className="text-white text-2xl mt-7">Consulte por nuestro servicio de venta de outlet, con productos totalmente</h6>
-                            <h6 className="text-white text-2xl mb-10">nuevos de primera línea al precio más bajo del mercado, según disponibilidad.</h6>
-                            <div className="flex justify-center items-end">
-                                <Link to={"/productos"} className="shadow-slate-300 text-base button shadow-md py-3 flex justify-center items-center tracking-tight">
+                <div className="flex h-[100%] w-full m-auto py-5 relative group">
+                    <div style={{ backgroundImage: `url(${imagenSection1})` }} className='flex justify-evenly w-[100%] h-[625px] bg-center bg-cover duration-500'>
+                            <div className="flex w-[60%] h-[625px] pb-10 justify-center items-end">
+                                <Link to={"/productos"} className="shadow-slate-300 text-base button shadow-md py-3 flex justify-start items-center tracking-tight">
                                     <h6>Consultar Outlet </h6>
                                     <AiOutlineShoppingCart className="text-4xl" />
                                 </Link>
                             </div>
-                        </div>
+                            <div className="w-[40%] h-[625px] bg-center bg-cover duration-500">
+
+                            </div>
                     </div>
                 </div>
             </section>  
@@ -148,7 +142,7 @@ export const SectionList = () =>{
                 <article>
                     
                         <div className="flex items-center justify-center text-center">
-                            <h2 className="text-3xl font-bold text-[#ae322e] mb-6 md:text-3xl uppercase">Consulta gratis para tus electrodomésticos.</h2>
+                            <h1 className="text-3xl font-bold text-[#ae322e] mb-6 md:text-4xl uppercase">Consulta gratis para tus electrodomésticos.</h1>
 
                         </div>
                         <div className="flex items-center justify-center text-center">
@@ -157,21 +151,21 @@ export const SectionList = () =>{
 
                         </div>
                     
-                    <div className="flex justify-evenly">
+                    <div className="flex justify-evenly mb-10 xl:mb-0">
                         <div className="flex flex-col  items-center justify-center">
-                            <div className="flex justify-center mt-20">
+                            <div className="flex justify-center mt-10 xl:mt-20">
                                 <img className="max-w-[50%]" src="./images/section/Mail_400.png" alt="" />
                             </div>
                             <div className="shadow-slate-300 text-base text-center text-black block w-max mt-2 bg-[#ae322e] rounded shadow-xl">
-                                <h1 className="text-white p-2 text-2xl uppercase">Mail</h1>
+                                <p className="text-white p-2 text-2xl uppercase font-[Arimo-Regular]">Mail</p>
                             </div>
                         </div>
                         <div className="flex flex-col  items-center justify-center">
-                            <div className="flex justify-center mt-20">
+                            <div className="flex justify-center mt-10 xl:mt-20">
                                 <img className="max-w-[50%]" src="./images/section/Wsp_400.png" alt="" />
                             </div>                        
                             <div className="shadow-slate-300 text-base text-vary-light-gray block w-max mt-2 bg-[#ae322e] rounded shadow-xl">
-                            <h1 className="text-white p-2 text-2xl uppercase">Whatsapp</h1>
+                            <h1 className="text-white p-2 text-2xl uppercase font-[Arimo-Regular]">Whatsapp</h1>
                             </div>
                         </div>
                     </div>
@@ -182,12 +176,12 @@ export const SectionList = () =>{
                         <div className="font-medium flex items-center justify-center">
                             <div className="bg-[#ae322e] rounded shadow-xl">
                                 <span className="flex-1 text-center">
-                                    <h1 className="text-white p-2 text-2xl">Logística a todo el país.</h1>
+                                    <h1 className="text-white p-2 text-3xl font-[Arimo-Regular]">Logística a todo el país.</h1>
                                 </span>
                             </div>
                         </div>
 
-                        <p className="text-black font-medium text-[23px] text-center">Trabajamos con proveedores logísticos de primera línea.
+                        <p className="text-[23px] text-center">Trabajamos con proveedores logísticos de primera línea.
                         Consulte envíos a su región, costos y descuentos especiales por cantidad.</p>
 
                     </article>
@@ -196,12 +190,12 @@ export const SectionList = () =>{
                     <div className="font-medium flex items-center justify-center">
                             <div className="bg-[#ae322e] rounded shadow-xl">
                                 <span className="flex-1 text-center">
-                                    <h1 className="text-white p-2 text-2xl">Venta mayorista y minorista</h1>
+                                    <h1 className="text-white p-2 text-3xl font-[Arimo-Regular]">Venta mayorista y minorista</h1>
                                 </span>
                             </div>
                         </div>
 
-                        <p className="text-black font-medium text-[23px] text-center">Atención especializada al técnico/service que busca 
+                        <p className="text-[23px] text-center">Atención especializada al técnico/service que busca 
                             abastecer su stock. Consulte por promociones y descuentos según cantidad.
                         </p>
 
@@ -211,12 +205,12 @@ export const SectionList = () =>{
                     <div className="font-medium flex items-center justify-center">
                             <div className="bg-[#ae322e] rounded shadow-xl">
                                 <span className="flex-1 text-center">
-                                    <h1 className="text-white p-2 text-2xl">Servicio de ventas al público</h1>
+                                    <h1 className="text-white p-2 text-3xl font-[Arimo-Regular]">Servicio de ventas al público</h1>
                                 </span>
                             </div>
                         </div>
 
-                        <p className="text-black font-medium text-[23px] text-center">Consulte por electrodomésticos nuevos, reacondicionados 
+                        <p className="text-[23px] text-center">Consulte por electrodomésticos nuevos, reacondicionados 
                             y usados al mejor precio
                         </p>
                     </article>

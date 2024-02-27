@@ -21,7 +21,7 @@ module.exports = {
 
       backgroundImage: {
         "close-menu": "url('../../public/images/icon-close.svg')",
-        "open-menu": "url('../../public/images/2190974_circle_hamburger_list_menu_navigation_icon.svg')"
+        "open-menu": "url('../../public/images/icons8-menu-50.png')"
       }
 
     },

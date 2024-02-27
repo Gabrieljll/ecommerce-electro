@@ -123,7 +123,8 @@ export const ShopView = () => {
 
 
         <div ref={ref2} className={`container py-4 flex items-center gap-3 lg:m-auto pl-5 shop-transition-fade-up ${inView2 ? "active" : ""}`}>
-            <Link to={"/home"} className="flex text-primary text-gray-600 font-medium text-2xl">Inicio <img src={flecha} alt="" /> Tienda</Link>
+            <Link to={"/home"} className="flex text-primary text-gray-600  text-2xl font-[Arimo-Regular]">Inicio  </Link>
+            <img src={flecha} alt="" /><p className="relative left-[-12px] disabled font-medium text-gray-600 text-2xl font-[Arimo-Regular]">Tienda</p>
         </div>
         <div className="container flex xl:grid xl:grid-cols-4 gap-6 pt-4 pb-16 items-start m-auto">
             
@@ -139,7 +140,7 @@ export const ShopView = () => {
                     <div className="divide-y divide-gray-200 space-y-5 p-8 xl:p-0">
                         {/* category filter */}
                         <div>
-                            <h3 className="text-xl text-gray-800 mb-3 uppercase font-medium">categorías</h3>
+                            <h3 className="text-xl text-gray-800 mb-3 uppercase font-[Arimo-Regular]">categorías</h3>
                             <div className="space-y-2">
                                 {/* single category */}
                                {
@@ -148,16 +149,16 @@ export const ShopView = () => {
                                     return (
                                         <div key={linea}>
                                             <div className="flex flex-start">
-                                                <h1>{linea}</h1>
+                                                <h1 className="font-[Arimo-Regular] text-gray-600">{linea}</h1>
                                             </div>
                                             <div className="flex items-center mx-auto my-2 pl-12">
-                                                <input type="checkbox" id={`cat-${categoria}`} className="text-primary focus:ring-0 rounded-sm cursor-pointer border border-[#850400]" 
+                                                <input type="checkbox" id={`cat-${categoria}`} className="text-primary focus:ring-0 rounded-sm cursor-pointer border border-[#850400] font-[Arimo-Regular]" 
                                                 checked={selectedCategories.includes(categoria)}
                                                 onChange={() => toggleCategory(categoria)}
                                                 />
                                                 
                                                 <label htmlFor={`cat-${categoria}`} className="text-gray-600 ml-3 cursor-pointer text-base">{categoria}</label>
-                                                <div className="ml-auto text-gray-600 text-sm">({count})</div>
+                                                <div className="ml-auto text-gray-600 text-sm font-[Arimo-Regular]">({count})</div>
                                             </div>
                                         </div>
                                     )
@@ -167,17 +168,17 @@ export const ShopView = () => {
                             {/* category filter end */}
                         {/* FILTRO PRECIOS */}
                         <div className="pt-4">
-                            <h3 className="text-xl text-gray-800 mb-3 uppercase font-medium">precio</h3>
+                            <h3 className="text-xl text-gray-800 mb-3 uppercase font-[Arimo-Regular]">precio</h3>
                             <div className="mt-4 flex items-center">
                                 <input 
                                 value={minPrice}
                                 onChange={handleMinPriceChange}
-                                type="text" className="w-full border-gray-300 focus:border-primary focus:ring-0 px-3 py-1 text-gray-600 text-sm shadow-sm rounded" placeholder="Minimo" />
+                                type="text" className="w-full border-gray-300 focus:border-primary focus:ring-0 px-3 py-1 text-gray-600 text-sm shadow-sm rounded font-[Arimo-Regular]" placeholder="Minimo" />
                                 <span className="mx-3 text-gray-500">-</span>
                                 <input 
                                 value={maxPrice}
                                 onChange={handleMaxPriceChange}
-                                type="text" className="w-full border-gray-300 focus:border-primary focus:ring-0 px-3 py-1 text-gray-600 text-sm shadow-sm rounded" placeholder="Maximo" />
+                                type="text" className="w-full border-gray-300 focus:border-primary focus:ring-0 px-3 py-1 text-gray-600 text-sm shadow-sm rounded font-[Arimo-Regular]" placeholder="Maximo" />
                             </div>
                         </div>
                         <br />

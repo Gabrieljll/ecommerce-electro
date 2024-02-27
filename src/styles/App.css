@@ -1,6 +1,30 @@
 /* vietnamese */
 
 @font-face {
+    font-family: 'Arimo-Bold';
+    /* Nombre descriptivo de la fuente */
+    src: url('/public/fonts/Arimo-Bold.ttf') format('truetype');
+    /* Ruta a tu archivo de fuente y formato */
+    /* Puedes añadir otras propiedades como font-weight, font-style, etc. según tus necesidades */
+}
+
+@font-face {
+    font-family: 'Arimo-Regular';
+    /* Nombre descriptivo de la fuente */
+    src: url('/public/fonts/Arimo-Regular.ttf') format('truetype');
+    /* Ruta a tu archivo de fuente y formato */
+    /* Puedes añadir otras propiedades como font-weight, font-style, etc. según tus necesidades */
+}
+
+@font-face {
+    font-family: 'ArchivoBlack-Regular';
+    /* Nombre descriptivo de la fuente */
+    src: url('/public/fonts/ArchivoBlack-Regular.ttf') format('truetype');
+    /* Ruta a tu archivo de fuente y formato */
+    /* Puedes añadir otras propiedades como font-weight, font-style, etc. según tus necesidades */
+}
+
+@font-face {
     font-family: 'Be Vietnam Pro';
     font-style: normal;
     font-weight: 400;
@@ -107,4 +131,12 @@
 
 body {
     background-color: white;
+}
+
+h1 {
+    font-family: "ArchivoBlack-Regular";
+}
+
+p {
+    font-family: "Arimo-bold";
 }

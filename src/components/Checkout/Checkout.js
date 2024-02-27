@@ -19,7 +19,7 @@ const schema = Yup.object().shape({
     apellido: Yup.string().min(4, 'Mínimo 4 caracteres').max(30, 'Máximo 30 caracteres').required('Este campo es requerido'),
     direccion: Yup.string().min(8, 'Mínimo 8 caracteres').max(40, 'Máximo 40 caracteres').required('Este campo es requerido'),
     localidad: Yup.string().min(8, 'Mínimo 8 caracteres').max(40, 'Máximo 40 caracteres').required('Este campo es requerido'),
-    telefono: Yup.string().matches(telefonoRegExp, 'El número de telefono no es válido').required('Este campo es requerido'),
+    telefono: Yup.string().matches(telefonoRegExp, 'Número no válido').required('Este campo es requerido'),
     email: Yup.string().email('El email no es válido').required('Este campo es obligatorio')
 })
 
@@ -151,8 +151,8 @@ export const Checkout = () => {
                         <form className="form-body w-full lg:flex lg:justify-center mt-16 lg:items-start mb-16 p-6 fade-in" onSubmit={handleSubmit}>
                             <div className="font-principal lg:flex lg:flex-col gap-y-2 h-auto lg:h-[640px] lg:w-max border-b p-4 items-center fade-in">
                                     <div className="sticky font-bold font-principal text-xl">
-                                        <h1>¡Estás a un paso de terminar!</h1>
-                                        <h1> Por favor completa con tus datos de contacto para notificarte luego de la compra </h1>
+                                        <p>¡Estás a un paso de terminar!</p>
+                                        <p> Por favor completa con tus datos de contacto para notificarte luego de la compra </p>
                                     </div>
                                     <div className="flex flex-col lg:flex-row justify-around items-center">
                                         <div className="mx-1 divInput">
@@ -264,10 +264,10 @@ export const Checkout = () => {
                                     </div>
                                     <div className={`py-4 flex flex-col justify-center xl:mx-0 mx-auto items-center mb-6 w-[250px] ${
                                                     isValid && requiredFieldsFilled
-                                                    ? "bg-green-500 cursor-pointer enabled"
+                                                    ? "bg-[#ae322e] cursor-pointer enabled"
                                                     : "bg-gray-400 disabled"
                                                 } text-white rounded-xl`} type="submit" onClick={handleSubmit}>
-                                                <p className="text-xl">Continuar a pagar</p>
+                                                <p className="text-xl font-[Arimo-Regular]">Continuar a pagar</p>
                                     </div>
                             </div>
                         </form>
