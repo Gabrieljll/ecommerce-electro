@@ -110,9 +110,9 @@ export const SectionList = () =>{
 
                 <img src="./images/section/hand.png" className="w-44 max-w-lg scale-x-[-1] mb-4 md:mb-0 md:mr-4 hidden lg:block" />
                 <div>
-                    <h1 className="text-center text-4xl font-bold text-[#ae322e] md:text-5xl mb-4 uppercase">Una vida dedicada al servicio</h1>
+                    <h1 className="text-center text-3xl font-bold text-[#ae322e] md:text-5xl mb-4 uppercase">Una vida dedicada al servicio</h1>
 
-                    <p className="text-center text-black font-medium text-[23px]">CJ Repuestos nace con la idea de ofrecer al minorista y al consumidor final el mejor servicio, en el momento preciso, y al mejor precio. Con más de treinta y cinco años en la industria, nuestra trayectoria y nuestros clientes avalan el camino que nos ha traído hasta este lugar, apuntando siempre a ser el socio de confianza del técnico y el minorista, y colaborando a mantener en las mejores condiciones el hogar de todos los argentinos
+                    <p className="text-center text-black text-lg md:text-[23px]">CJ Repuestos nace con la idea de ofrecer al minorista y al consumidor final el mejor servicio, en el momento preciso, y al mejor precio. Con más de treinta y cinco años en la industria, nuestra trayectoria y nuestros clientes avalan el camino que nos ha traído hasta este lugar, apuntando siempre a ser el socio de confianza del técnico y el minorista, y colaborando a mantener en las mejores condiciones el hogar de todos los argentinos
                     </p>
                 </div>
                 <img src="./images/section/hand.png" className="transform w-44 max-w-lg mt-4 md:mt-0 md:ml-4 hidden lg:block" />
@@ -142,11 +142,11 @@ export const SectionList = () =>{
                 <article>
                     
                         <div className="flex items-center justify-center text-center">
-                            <h1 className="text-3xl font-bold text-[#ae322e] mb-6 md:text-4xl uppercase">Consulta gratis para tus electrodomésticos.</h1>
+                            <h1 className="text-2xl font-bold text-[#ae322e] mb-6 md:text-4xl uppercase">Consulta gratis para tus electrodomésticos.</h1>
 
                         </div>
                         <div className="flex items-center justify-center text-center">
-                            <p className="text-black font-medium text-[23px]">Envianos un mensaje y obtené un diagnóstico sin cargo de parte de nuestro staff técnico.
+                            <p className="text-black font-medium text-lg md:text-[23px]">Envianos un mensaje y obtené un diagnóstico sin cargo de parte de nuestro staff técnico.
                             </p>
 
                         </div>
@@ -176,12 +176,12 @@ export const SectionList = () =>{
                         <div className="font-medium flex items-center justify-center">
                             <div className="bg-[#ae322e] rounded shadow-xl">
                                 <span className="flex-1 text-center">
-                                    <h1 className="text-white p-2 text-3xl font-[Arimo-Regular]">Logística a todo el país.</h1>
+                                    <h1 className="text-white p-2 text-2xl md:text-3xl font-[Arimo-Regular]">Logística a todo el país.</h1>
                                 </span>
                             </div>
                         </div>
 
-                        <p className="text-[23px] text-center">Trabajamos con proveedores logísticos de primera línea.
+                        <p className="text-lg md:text-[23px] text-center">Trabajamos con proveedores logísticos de primera línea.
                         Consulte envíos a su región, costos y descuentos especiales por cantidad.</p>
 
                     </article>
@@ -190,12 +190,12 @@ export const SectionList = () =>{
                     <div className="font-medium flex items-center justify-center">
                             <div className="bg-[#ae322e] rounded shadow-xl">
                                 <span className="flex-1 text-center">
-                                    <h1 className="text-white p-2 text-3xl font-[Arimo-Regular]">Venta mayorista y minorista</h1>
+                                    <h1 className="text-white p-2 text-2xl md:text-3xl font-[Arimo-Regular]">Venta mayorista y minorista</h1>
                                 </span>
                             </div>
                         </div>
 
-                        <p className="text-[23px] text-center">Atención especializada al técnico/service que busca 
+                        <p className="text-lg md:text-[23px] text-center">Atención especializada al técnico/service que busca 
                             abastecer su stock. Consulte por promociones y descuentos según cantidad.
                         </p>
 
@@ -205,12 +205,12 @@ export const SectionList = () =>{
                     <div className="font-medium flex items-center justify-center">
                             <div className="bg-[#ae322e] rounded shadow-xl">
                                 <span className="flex-1 text-center">
-                                    <h1 className="text-white p-2 text-3xl font-[Arimo-Regular]">Servicio de ventas al público</h1>
+                                    <h1 className="text-white p-2 text-2xl md:text-3xl font-[Arimo-Regular]">Servicio de ventas al público</h1>
                                 </span>
                             </div>
                         </div>
 
-                        <p className="text-[23px] text-center">Consulte por electrodomésticos nuevos, reacondicionados 
+                        <p className=" text-lg md:text-[23px] text-center">Consulte por electrodomésticos nuevos, reacondicionados 
                             y usados al mejor precio
                         </p>
                     </article>

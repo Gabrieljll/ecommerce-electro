@@ -2006,6 +2006,14 @@ select {
   text-align: center;
 }
 
+.text-end {
+  text-align: end;
+}
+
+.align-text-bottom {
+  vertical-align: text-bottom;
+}
+
 .font-\[Arimo-Bold\] {
   font-family: Arimo-Bold;
 }
@@ -2474,6 +2482,10 @@ select {
   .md\:text-lg {
     font-size: 1.125rem;
     line-height: 1.75rem;
+  }
+
+  .md\:text-\[23px\] {
+    font-size: 23px;
   }
 }
 
