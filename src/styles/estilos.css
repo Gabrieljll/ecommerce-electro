@@ -1051,6 +1051,10 @@ select {
   margin-bottom: 3rem;
 }
 
+.mb-14 {
+  margin-bottom: 3.5rem;
+}
+
 .mb-16 {
   margin-bottom: 4rem;
 }
@@ -1121,6 +1125,10 @@ select {
 
 .mt-8 {
   margin-top: 2rem;
+}
+
+.mb-5 {
+  margin-bottom: 1.25rem;
 }
 
 .block {
@@ -1565,6 +1573,14 @@ select {
   gap: 2rem;
 }
 
+.gap-48 {
+  gap: 12rem;
+}
+
+.gap-40 {
+  gap: 10rem;
+}
+
 .gap-x-16 {
   column-gap: 4rem;
 }
@@ -2006,14 +2022,6 @@ select {
   text-align: center;
 }
 
-.text-end {
-  text-align: end;
-}
-
-.align-text-bottom {
-  vertical-align: text-bottom;
-}
-
 .font-\[Arimo-Bold\] {
   font-family: Arimo-Bold;
 }
@@ -2052,10 +2060,6 @@ select {
 
 .text-\[12px\] {
   font-size: 12px;
-}
-
-.text-\[23px\] {
-  font-size: 23px;
 }
 
 .text-\[36px\] {
@@ -2479,13 +2483,13 @@ select {
     line-height: 1;
   }
 
+  .md\:text-\[23px\] {
+    font-size: 23px;
+  }
+
   .md\:text-lg {
     font-size: 1.125rem;
     line-height: 1.75rem;
-  }
-
-  .md\:text-\[23px\] {
-    font-size: 23px;
   }
 }
 
@@ -2833,10 +2837,6 @@ select {
 }
 
 @media (min-width: 1536px) {
-  .\32xl\:overflow-y-hidden {
-    overflow-y: hidden;
-  }
-
   .\32xl\:p-12 {
     padding: 3rem;
   }

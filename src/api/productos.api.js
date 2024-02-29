@@ -19,3 +19,8 @@ export const getProductsRequest = async() => {
 export const getProductRequest = async(id) => {
   return await axios.get(process.env.REACT_APP_URL_BACK + "/getProduct/" + id)
 }
+
+
+export const updateProductRequest = async(product) => {
+  return await axios.post(process.env.REACT_APP_URL_BACK + "/updateProduct/", product)
+}

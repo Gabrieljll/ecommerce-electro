@@ -132,12 +132,6 @@ export const CheckoutPayment = () => {
         }
       };
 
-      const handleBuy = async () => {
-        const id = await createPreference();
-        if (id) {
-            setPreferenceId(id);
-          }
-      };
     
 
 

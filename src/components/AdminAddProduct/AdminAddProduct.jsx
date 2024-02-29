@@ -13,7 +13,7 @@ export const AdminAddProduct = () => {
 
     const navigate = useNavigate()
     const scrollRef = useRef();
-
+    const { updateProducts } = useContext(ProductContext);
     const [lineas, setLineas] = useState([])
     const [categorias, setCategorias] = useState([])
     const [selectedImage, setSelectedImage] = useState(null);
@@ -77,6 +77,7 @@ export const AdminAddProduct = () => {
     
             // Ahora puedes enviar formData al backend
             const productResponse = await createProduct(formData);
+            updateProducts()
             navigate("/admin");
         } catch (error) {
             console.error(error);
@@ -176,8 +177,8 @@ export const AdminAddProduct = () => {
                                                 </div>
                                             </div>
                                         </div>
-                                        <div>
-                                            <div className="mx-1 my-2 divInput">
+                                        <div className="flex flex-col gap-40">
+                                            <div className="mx-1 my-2 mb-10 divInput">
                                                 <label className="labelInput font-bold" htmlFor="descripcion">Descripción</label>
                                                 <div className="divInput-inputError">
                                                     <textarea
@@ -194,7 +195,7 @@ export const AdminAddProduct = () => {
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div className="mx-1 my-2 divInput">
+                                            <div className="mx-1 my-5 mb-5 divInput">
                                                 <label className="labelInput font-bold" htmlFor="imagen">Imagen (JPG o JPEG)</label>
                                                 <div className="flex w-full justify-center items-center">
                                                     {/* Muestra la vista previa de la imagen si hay una */}

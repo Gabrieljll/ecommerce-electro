@@ -1,12 +1,10 @@
 import { ProductContext } from "../../context/ProductContext"
-import React, { useContext } from "react"
+import React, { useContext, useEffect } from "react"
 import { Link } from "react-router-dom"
 
 export const AdminStockView = () => {
     const { products } = useContext(ProductContext)
-
-
-
+    
     return (
         <div className="min-h-max">
         <div className="flex justify-center xl:justify-end items-center m-10">
@@ -23,6 +21,7 @@ export const AdminStockView = () => {
                     <thead className='sticky top-0 bg-white h-full'>
                         <tr className="sticky top-0 bg-white h-full">
                             <th className="w-[250px]">Nombre Producto</th>
+                            <th className="w-[250px]">Linea</th>
                             <th className="w-[250px]">Categoría</th>
                             <th className="w-[250px]">Descripcion</th>
                             <th className="w-[250px]">Precio</th>
@@ -35,12 +34,13 @@ export const AdminStockView = () => {
                     <tbody>
                             {products.map((product) => (
                                 <tr key={product.id}>
-                                    <td>{product.title}</td>
-                                    <td>{product.category}</td>
-                                    <td>{product.description}</td>
-                                    <td>{product.price}</td>
-                                    <td><img className="w-[250px]" src={product.image} alt="" /></td>
-                                    <td>{product.rating.count}</td>
+                                    <td>{product.nombre}</td>
+                                    <td>{product.linea}</td>
+                                    <td>{product.categoria}</td>
+                                    <td>{product.descripcion}</td>
+                                    <td>{product.precio}</td>
+                                    <td><img className="w-[250px]" src={"data:image/jpeg;base64,"+product.imagen} alt="" /></td>
+                                    <td>{product.stock}</td>
                                     <td>
                                         <div className="flex flex-col xl:flex-row justify-center items-center">
                                             <div className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mb-2 xl:mb-0 xl:mr-2">

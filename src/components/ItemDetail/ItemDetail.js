@@ -35,7 +35,7 @@ const ItemDetail = ( {idItem, name, descriptionItem, imageItem, priceItem, categ
         )
     }
 
-    const {nombre, precio, description, imagen, stock} = product;
+    const {nombre, precio, descripcion, imagen, stock} = product;
     
     return ( 
         <section ref={itemRef} className="pt-32 pb-12 lg:py-32 h-screen flex items-center">
@@ -60,7 +60,7 @@ const ItemDetail = ( {idItem, name, descriptionItem, imageItem, priceItem, categ
                         <div className="text-lg font-normal mb-6">
                             Cantidad: 1 Unidad ({stock} disponibles)
                         </div>
-                        <p className="mb-8">{description}</p>
+                        <p className="mb-8">{descripcion}</p>
                         <div className="flex flex-col w-96 justify-center">
                             <button onClick={()=> addToCart(product, product.id)} className="bg-[#850400] py-4 px-8 text-white my-4"><h2 className="font-[Arimo-Bold]">Comprar ahora</h2></button>
                             <button onClick={()=> addToCart(product, product.id)} className="bg-white border border-[#850400] py-4 px-8 text-white my-4"><h1 className="font-[Arimo-Bold] text-[#850400]">Agregar al carrito</h1></button>
