@@ -1071,6 +1071,10 @@ select {
   margin-bottom: 1rem;
 }
 
+.mb-5 {
+  margin-bottom: 1.25rem;
+}
+
 .mb-6 {
   margin-bottom: 1.5rem;
 }
@@ -1125,10 +1129,6 @@ select {
 
 .mt-8 {
   margin-top: 2rem;
-}
-
-.mb-5 {
-  margin-bottom: 1.25rem;
 }
 
 .block {
@@ -1192,6 +1192,10 @@ select {
   height: 100px;
 }
 
+.h-\[1080px\] {
+  height: 1080px;
+}
+
 .h-\[18px\] {
   height: 18px;
 }
@@ -1226,10 +1230,6 @@ select {
 
 .h-\[600px\] {
   height: 600px;
-}
-
-.h-\[625px\] {
-  height: 625px;
 }
 
 .h-\[70px\] {
@@ -1359,16 +1359,8 @@ select {
   width: 350px;
 }
 
-.w-\[40\%\] {
-  width: 40%;
-}
-
 .w-\[50\%\] {
   width: 50%;
-}
-
-.w-\[60\%\] {
-  width: 60%;
 }
 
 .w-\[90\%\] {
@@ -1418,6 +1410,10 @@ select {
 
 .max-w-\[80px\] {
   max-width: 80px;
+}
+
+.max-w-\[90\%\] {
+  max-width: 90%;
 }
 
 .max-w-lg {
@@ -1565,20 +1561,16 @@ select {
   gap: 1rem;
 }
 
+.gap-40 {
+  gap: 10rem;
+}
+
 .gap-6 {
   gap: 1.5rem;
 }
 
 .gap-8 {
   gap: 2rem;
-}
-
-.gap-48 {
-  gap: 12rem;
-}
-
-.gap-40 {
-  gap: 10rem;
 }
 
 .gap-x-16 {
@@ -1726,11 +1718,6 @@ select {
 .border-\[\#850400\] {
   --tw-border-opacity: 1;
   border-color: rgb(133 4 0 / var(--tw-border-opacity));
-}
-
-.border-\[\#f7dddd\] {
-  --tw-border-opacity: 1;
-  border-color: rgb(247 221 221 / var(--tw-border-opacity));
 }
 
 .border-gray-200 {
@@ -2032,6 +2019,10 @@ select {
 
 .font-principal {
   font-family: "Be Vietnam Pro", sans-serif;
+}
+
+.font-\[Arial-Regular\] {
+  font-family: Arial-Regular;
 }
 
 .text-2xl {

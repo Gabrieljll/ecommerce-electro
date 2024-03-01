@@ -22,7 +22,7 @@ export const Item = ( {product} ) => {
     return (
 
         <div>
-            <div className="border border-[#f7dddd] h-[300px] relative overflow-hidden group transition z-1">
+            <div className="border-2  h-[300px] relative overflow-hidden group transition z-1">
                 <div className="w-full h-full flex justify-center items-center">
                     {/* image */}
                     <div className="w-[200px] mx-auto flex justify-center items-center">

@@ -8,7 +8,7 @@ import "../../styles/animate.min.css"
 import "./Section.css"
 import { AiOutlineShoppingCart } from "react-icons/ai";
 
-const imagenSection1 = "/images/section/electro2.png"
+const imagenSection1 = "/images/section/Diseño.png"
 
 
 export const SectionList = () =>{
@@ -120,18 +120,19 @@ export const SectionList = () =>{
         </section>
 
         <section ref={ref4} className={`section transition-fade-up ${inView4 ? "active" : ""}`}>
-                <div className="flex h-[100%] w-full m-auto py-5 relative group">
-                    <div style={{ backgroundImage: `url(${imagenSection1})` }} className='flex justify-evenly w-[100%] h-[625px] bg-center bg-cover duration-500'>
-                            <div className="flex w-[60%] h-[625px] pb-10 justify-center items-end">
+                <div className="h-[100%] w-full m-auto py-5 relative group">
+                    <div className="flex justify-center items-center">
+                        <img className="max-w-[90%] bg-cover w-max" src={imagenSection1} alt="" />
+
+                    </div>
+{/*                     < style={{ backgroundImage: `url(${imagenSection1})` }} className='flex justify-evenly w-[100%] h-[1080px] bg-center bg-cover duration-500'> */}
+                            <div className="flex justify-center items-end">
                                 <Link to={"/productos"} className="shadow-slate-300 text-base button shadow-md py-3 flex justify-start items-center tracking-tight">
                                     <h6>Consultar Outlet </h6>
                                     <AiOutlineShoppingCart className="text-4xl" />
                                 </Link>
                             </div>
-                            <div className="w-[40%] h-[625px] bg-center bg-cover duration-500">
-
-                            </div>
-                    </div>
+                   {/*  </> */}
                 </div>
             </section>  
 

@@ -16,6 +16,7 @@ import { AdminStockView } from '../components/AdminStockView/AdminStockView';
 import { AdminEditProduct } from '../components/AdminEditProduct/AdminEditProduct';
 import { AdminAddProduct } from '../components/AdminAddProduct/AdminAddProduct';
 import { ProtectedRoutes } from '../components/ProtectedRoutes/ProtectedRoutes';
+import Finish from '../components/Finish/Finish';
 
 export const PublicRoutes = () => {
     const { userAdmin } = useLoginContext()
@@ -31,13 +32,15 @@ export const PublicRoutes = () => {
                     <Route path="/cart" element={ <CartView /> }/>
                     <Route path="/checkout" element={ <Checkout /> }/>
                     <Route path="/checkoutPayment" element={ <CheckoutPayment /> }/>
-                    <Route path="/login" element={ <LoginScreen /> }/>                    
+                    <Route path="/login" element={ <LoginScreen /> }/>
+                    <Route path="/finish" element={ <Finish /> }/>
                     <Route element={<ProtectedRoutes userAdmin={userAdmin}/> }>
                             <Route path="/admin" element={ <AdminStockView /> } />                            
                             <Route path="/adminEditProduct/:id" element={ <AdminEditProduct /> }/>
                             <Route path="/adminAddProduct" element={ <AdminAddProduct /> }/>
                     </Route>
                     <Route path="/register" element={ <RegisterScreen /> }/>
+                    
                     <Route path="*" element={<Navigate to="/home" replace />}/>
             </Routes>
             <Sidebar />

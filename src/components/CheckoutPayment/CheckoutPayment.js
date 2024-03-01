@@ -10,6 +10,8 @@ import {CartContext} from '../../context/CartContext'
 import axios from "axios";
 import { initMercadoPago, Wallet } from '@mercadopago/sdk-react'
 
+import {checkoutFinishRequest} from "../../api/productos.api"
+
 
 
 
@@ -36,10 +38,40 @@ export const CheckoutPayment = () => {
     const navigate = useNavigate();
     initMercadoPago(publicKey, {locale: "es-AR"});
 
+    // Obtener la cadena de consulta de la URL
+    const queryString = window.location.search;
+
+    // Parsear la cadena de consulta para obtener un objeto con los parámetros
+    const urlParams = new URLSearchParams(queryString);
+
+    // Obtener valores específicos de los parámetros (por ejemplo, "collection_id")
+    const collectionId = urlParams.get("collection_id");
+    const collectionStatus = urlParams.get("collection_status");
+    const merchant_order_id = urlParams.get("merchant_order_id");
+    // Puedes hacer lo mismo para otros parámetros que necesites
+
+
     useEffect(() => {
+        async function verificarCompra(){
+            if(collectionId && collectionStatus && merchant_order_id){
+                const userDataJsonArray = JSON.parse(localStorage.getItem('checkoutData'))
+                const cartJsonArray = JSON.parse(localStorage.getItem('cart'))
+              
+                // Combina cart y userData en un solo objeto
+                const combinedData = {
+                    products: cartJsonArray,
+                    userData: userDataJsonArray,
+                };
+    
+                await checkoutFinishRequest(combinedData);
+                navigate("/finish")
+            }
+        }
+        verificarCompra()
         // Ejecutar la función al cargar el componente
         checkAndCreatePreference();
         window.scrollTo(0, 0);
+
       }, []); // El segundo argumento vacío indica que este efecto se ejecuta solo una vez al montar el componente
     
 /*     const createOrder = async(values) => {
@@ -88,8 +120,8 @@ export const CheckoutPayment = () => {
 
     const checkAndCreatePreference = async () => {
         // Verificar que haya datos de usuario y elementos en el carrito en el localStorage
-        const user = JSON.parse(localStorage.getItem('checkoutData'));
-        if (user && cart.length > 0) {
+        const userData = JSON.parse(localStorage.getItem('checkoutData'));
+        if (userData && cart.length > 0) {
             const id = await createPreference();
             if (id) {
                 setPreferenceId(id);
@@ -111,7 +143,7 @@ export const CheckoutPayment = () => {
         )
     }
     const volverAlInicio = () => {
-        navigate("/cart");
+        navigate("/productos");
     }
 
     if ( cart.length === 0 ) {
@@ -122,8 +154,8 @@ export const CheckoutPayment = () => {
     const createPreference = async () => {
         try {
             const cartJsonArray = JSON.parse(localStorage.getItem('cart'))
-            
-            const response = await axios.post(urlBack+"/create_preference", cartJsonArray);
+
+            const response = await axios.post(urlBack+"/create_preference", {cart :cartJsonArray});
     
             const { id } = response.data;
             return id;
@@ -149,7 +181,7 @@ export const CheckoutPayment = () => {
                     <div className="flex flex-col justify-center items-center">
                         <div className="">
                             
-                        {preferenceId &&   <Wallet initialization={{ preferenceId, redirectMode: "modal" }} customization={{ texts: { valueProp: 'smart_option' } }} /> }
+                        {preferenceId &&   <Wallet initialization={{ preferenceId }} customization={{ texts: { valueProp: 'smart_option' } }} /> }
                             
                         </div>
                         <div className="sticky cursor-pointer p-3 bg-red-500 w-[280px] text-white flex justify-center items-center font-medium">

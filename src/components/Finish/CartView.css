@@ -1,0 +1,10 @@
+.cart-transition-fade-up {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+}
+
+.cart-transition-fade-up.active {
+    opacity: 1;
+    transform: translateY(0);
+}

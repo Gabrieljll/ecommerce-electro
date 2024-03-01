@@ -83,13 +83,22 @@ export const ShopView = () => {
             elem.style.border = "0.5px solid";
         }
       }
-
-      const obtenerLineaDeProducto = (categoria) => {
+    const obtenerLineaDeProducto = (categoria) => {
         // Implementa la lógica para obtener la línea de producto
         const product = products.find((p) => p.categoria === categoria);
         return product ? product.linea : 'Sin línea'; // Ajusta según tu estructura de datos
-     };
-
+    };
+    
+    const categoriasPorLinea = {};
+    // Agrupa las categorías por línea de producto
+    products.forEach(item => {
+        const linea = obtenerLineaDeProducto(item.categoria);
+        if (!categoriasPorLinea[linea]) {
+            categoriasPorLinea[linea] = new Set();
+        }
+        categoriasPorLinea[linea].add(item.categoria);
+    });
+    
     return (
         
         <>
@@ -143,26 +152,26 @@ export const ShopView = () => {
                             <h3 className="text-xl text-gray-800 mb-3 uppercase font-[Arimo-Regular]">categorías</h3>
                             <div className="space-y-2">
                                 {/* single category */}
-                               {
-                                Object.entries(categoriesCount).map(([categoria, count]) => {
-                                    const linea = obtenerLineaDeProducto(categoria); // Implementa esta función para obtener la línea de producto
-                                    return (
-                                        <div key={linea}>
-                                            <div className="flex flex-start">
-                                                <h1 className="font-[Arimo-Regular] text-gray-600">{linea}</h1>
-                                            </div>
-                                            <div className="flex items-center mx-auto my-2 pl-12">
-                                                <input type="checkbox" id={`cat-${categoria}`} className="text-primary focus:ring-0 rounded-sm cursor-pointer border border-[#850400] font-[Arimo-Regular]" 
-                                                checked={selectedCategories.includes(categoria)}
-                                                onChange={() => toggleCategory(categoria)}
-                                                />
-                                                
-                                                <label htmlFor={`cat-${categoria}`} className="text-gray-600 ml-3 cursor-pointer text-base">{categoria}</label>
-                                                <div className="ml-auto text-gray-600 text-sm font-[Arimo-Regular]">({count})</div>
-                                            </div>
+                                {Object.entries(categoriasPorLinea).map(([linea, categoriasSet]) => (
+                                    <div key={linea}>
+                                        <div className="flex flex-start">
+                                            <h1 className="font-[Arimo-Regular] text-gray-600">{linea}</h1>
                                         </div>
-                                    )
-                                })}   
+                                        {[...categoriasSet].map((categoria) => (
+                                            <div key={categoria} className="flex items-center mx-auto my-2 pl-12">
+                                                <input
+                                                    type="checkbox"
+                                                    id={`cat-${categoria}`}
+                                                    className="text-primary focus:ring-0 rounded-sm cursor-pointer border border-[#850400] font-[Arimo-Regular]"
+                                                    checked={selectedCategories.includes(categoria)}
+                                                    onChange={() => toggleCategory(categoria)}
+                                                />
+                                                <label htmlFor={`cat-${categoria}`} className="text-gray-600 ml-3 cursor-pointer text-base">{categoria}</label>
+                                                <div className="ml-auto text-gray-600 text-sm font-[Arimo-Regular]">({categoriesCount[categoria] || 0})</div>
+                                            </div>
+                                        ))}
+                                    </div>
+                                ))}
                             </div>
                         </div>
                             {/* category filter end */}

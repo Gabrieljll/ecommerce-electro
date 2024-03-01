@@ -3,15 +3,16 @@ import React, { useEffect, useState, useRef } from 'react';
 import { BsChevronCompactLeft, BsChevronCompactRight } from 'react-icons/bs';
 import { RxDotFilled } from 'react-icons/rx';
 import { Link } from "react-router-dom";
-const image1 = "/images/slider/reparacion-trabajador-mantenimiento-servicio_2.jpeg"
+const image1 = "/images/nuevas_imgs/electro_repuestos.png"
 //const image2 = "/images/slider/pexels-adrienne-andersen-2254065_3.jpg"
-const image2 = "/images/slider/batidora-batidora-electrica_2.jpg"
+const image2 = "/images/nuevas/batidora-batidora-electrica_2.jpg"
 const image3 = "/images/slider/pexels-photomix-company-213162_2.jpg"
+const image4 = "/images/slider/pexels-photomix-company-213162_2.jpg"
 
-const image1_movil = "/images/slider/reparacion-trabajador-mantenimiento-servicio_movil.jpg"
+const image1_movil = "/images/nuevas_imgs/electro_repuestos_cuadrado.png"
 //const image2_movil = "/images/slider/pexels-adrienne-andersen-2254065_movil.jpg"
 const image2_movil = "/images/slider/batidora-batidora-electrica_movil.jpg"
-const image3_movil = "/images/slider/pexels-photomix-company-213162_movil.jpg"
+const image3_movil = "/images/slider/ServicioTecnico.jpg"
 
 export const Slider = () => {
     const isMobile = window.innerWidth < 1000;
@@ -98,7 +99,7 @@ export const Slider = () => {
             style={{ backgroundImage: `url(${slides[currentIndex].url}) ` }}
             className="w-full h-full bg-center bg-cover duration-500"
           >
-            <div className="font-principal sliderInformation shadow-sm shadow-bright-red/30 py-3 block mb-4 text-4xl font-extrabold leading-none tracking-tight  sm:text-5xl lg:text-6xl dark:text-white">
+{/*             <div className="font-principal sliderInformation shadow-sm shadow-bright-red/30 py-3 block mb-4 text-4xl font-extrabold leading-none tracking-tight  sm:text-5xl lg:text-6xl dark:text-white">
                 <h1 className="text-white">Lorem ipsum dolor sit amet, </h1>
                 <h1 className="text-white">consectetur adipiscing elit.</h1>
                 <h6 className="text-white text-2xl mt-16">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h6>
@@ -108,7 +109,7 @@ export const Slider = () => {
                         <h6>Boton accion</h6>
                     </Link>
                 </div>
-            </div>
+            </div> */}
           </div>
           {/* Left Arrow */}
           <div className='hidden group-hover:block absolute top-[50%] -translate-x-0 translate-y-[-50%] left-5 text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer'>
