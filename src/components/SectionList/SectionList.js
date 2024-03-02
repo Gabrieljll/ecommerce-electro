@@ -101,7 +101,7 @@ export const SectionList = () =>{
                     {data.map((d) => (
                     <div key={d.name} className="bg-white lg:h-[450px] h-[350px] text-black rounded-xl md:w-full lg:w-1/3">
                         <div className='h-40 xl:h-56 bg-transparent flex justify-center items-center rounded-t-xl'>
-                            <img src={d.img} alt="" className="h-20 w-20 xl:h-40 xl:w-36"/>
+                            <img src={d.img} alt="" className="h-28 w-32 xl:h-48 xl:w-48"/>
                         </div>
 
                         <div className="flex flex-col items-center justify-center gap-4 p-4">
