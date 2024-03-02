@@ -1,12 +1,16 @@
 
-
-
+import {useEffect} from 'react'
+import "../../styles/animate.min.css"
 
 export const FormularioMail = () => {
 
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [])
+    
 
     return (
-        <main>
+        <main className="animate__animated animate__fadeIn">
 
             <div className="container mx-auto flex flex-wrap items-start mt-8">
                 <div className="w-full pl-2 pr-2 mb-4 mt-4">
