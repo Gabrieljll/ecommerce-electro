@@ -52,27 +52,27 @@ export const SectionList = () =>{
       const data = [
         {
           name: `Cocinas`,
-          img: `/images/iconSlider/earphones-svgrepo-com.svg`,
+          img: `/images/nuevas_imgs/categorias/Cocinas.png`,
         },
         {
           name: `Termotanques`,
-          img: `/images/iconSlider/extract-svgrepo-com.svg`,
+          img: `/images/nuevas_imgs/categorias/Termotanques.png`,
         },
         {
           name: `Calefones`,
-          img: `/images/iconSlider/fan-svgrepo-com.svg`,
+          img: `/images/nuevas_imgs/categorias/Calefones.png`,
         },
         {
           name: `Estufas`,
-          img: `/images/iconSlider/hair-dryer-svgrepo-com.svg`,
+          img: `/images/nuevas_imgs/categorias/Estufas.png`,
         },
         {
           name: `Anafes`,
-          img: `/images/iconSlider/kettle-svgrepo-com.svg`,
+          img: `/images/nuevas_imgs/categorias/Anafes.png`,
         },
         {
             name: `Lavarropas`,
-            img: `/images/iconSlider/vacuum-cleaner-svgrepo-com.svg`,
+            img: `/images/nuevas_imgs/categorias/Lavarropas.png`,
         }
         
       ];
@@ -101,7 +101,7 @@ export const SectionList = () =>{
                     {data.map((d) => (
                     <div key={d.name} className="bg-white lg:h-[450px] h-[350px] text-black rounded-xl md:w-full lg:w-1/3">
                         <div className='h-40 xl:h-56 bg-transparent flex justify-center items-center rounded-t-xl'>
-                            <img src={d.img} alt="" className="h-44 w-36"/>
+                            <img src={d.img} alt="" className="h-20 w-20 xl:h-40 xl:w-36"/>
                         </div>
 
                         <div className="flex flex-col items-center justify-center gap-4 p-4">
