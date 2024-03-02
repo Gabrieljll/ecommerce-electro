@@ -7,11 +7,13 @@ const image1 = "/images/nuevas_imgs/electro_repuestos.png"
 const image2 = "/images/nuevas_imgs/electrodomesticos_de_hogar.png"
 const image3 = "/images/nuevas_imgs/las_mejores_marcas.png"
 const image4 = "/images/nuevas_imgs/servicio_tecnico.png"
+const image5 = "/images/nuevas_imgs/atencion_personalizada.png"
 
 const image1_movil = "/images/nuevas_imgs/electro_repuestos_cuadrado.png"
 const image2_movil = "/images/nuevas_imgs/electrodomesticos_de_hogar_cuadrado.png"
-const image4_movil = "/images/nuevas_imgs/las_mejores_marcas_cuadrado.png"
-const image3_movil = "/images/nuevas_imgs/sevicio_tecnico_cuadrado.png"
+const image3_movil = "/images/nuevas_imgs/las_mejores_marcas_cuadrado.png"
+const image4_movil = "/images/nuevas_imgs/sevicio_tecnico_cuadrado.png"
+const image5_movil = "/images/nuevas_imgs/atencion_personalizada_cuadrado.png"
 
 export const Slider = () => {
   const isMobile = window.innerWidth < 1000;
@@ -19,7 +21,8 @@ export const Slider = () => {
     { url: image1 },
     { url: image2 },
     { url: image3 },
-    { url: image4 }
+    { url: image4 },
+    { url: image5 }
     
   ];
 
@@ -27,7 +30,8 @@ export const Slider = () => {
     { url: image1_movil },
     { url: image2_movil },
     { url: image3_movil },
-    { url: image4_movil }
+    { url: image4_movil },
+    { url: image5_movil }
   ];
 
   const slides = isMobile ? slidesMovil : slidesPC;
@@ -78,14 +82,14 @@ export const Slider = () => {
   }, []);
 
   return (
-    <div className={`max-w-[1920px] ${isMobile ? 'h-[100vw]' : 'h-[800px]'} w-full m-auto pb-5 relative group transition-fade-up ${isActive ? 'active' : ''}`}>
+    <div className={`max-w-[1920px] ${isMobile ? 'h-[100vw]' : 'h-[950px]'} w-full m-auto pb-5 relative group transition-fade-up ${isActive ? 'active' : ''}`}>
       <div
         style={{
           backgroundImage: `url(${slides[currentIndex].url})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
-          height: isMobile ? '100vw' : '800px', // Altura específica para las imágenes de fondo
+          height: isMobile ? '100vw' : '950px', // Altura específica para las imágenes de fondo
           transition: 'background-image 1s ease', // Solo transición de la imagen de fondo
         }}
         className="w-full h-full object-cover duration-500"
