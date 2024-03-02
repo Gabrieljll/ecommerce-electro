@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom"
+import { useParams, Navigate, useNavigate } from "react-router-dom"
 import React, { useContext, useRef, useEffect } from "react"
 import { CartContext } from "../../context/CartContext"
 import { ProductContext } from "../../context/ProductContext"
@@ -10,6 +10,7 @@ const ItemDetail = ( {idItem, name, descriptionItem, imageItem, priceItem, categ
     const { products } = useContext(ProductContext)
     const { addToCart } = useContext(CartContext)
     const itemRef = useRef();
+    const navigate = useNavigate()
 
     // const {productos, loading} = useProductos()
     useEffect(() => {
@@ -62,7 +63,7 @@ const ItemDetail = ( {idItem, name, descriptionItem, imageItem, priceItem, categ
                         </div>
                         <p className="mb-8">{descripcion}</p>
                         <div className="flex flex-col w-96 justify-center">
-                            <button onClick={()=> addToCart(product, product.id)} className="bg-[#850400] py-4 px-8 text-white my-4"><h2 className="font-[Arimo-Bold]">Comprar ahora</h2></button>
+                            <button onClick={()=> {addToCart(product, product.id); navigate("/checkout") }} className="bg-[#850400] py-4 px-8 text-white my-4"><h2 className="font-[Arimo-Bold]">Comprar ahora</h2></button>
                             <button onClick={()=> addToCart(product, product.id)} className="bg-white border border-[#850400] py-4 px-8 text-white my-4"><h1 className="font-[Arimo-Bold] text-[#850400]">Agregar al carrito</h1></button>
                         </div>
                     </div>
