@@ -27,3 +27,8 @@ export const updateProductRequest = async(product) => {
 export const checkoutFinishRequest = async(product) => {
   return await axios.post(process.env.REACT_APP_URL_BACK + "/checkoutFinish/", product)
 }
+
+
+export const enviarConsultaMailRequest = async(product) => {
+  return await axios.post(process.env.REACT_APP_URL_BACK + "/sendAskMail/", product)
+}
