@@ -64,8 +64,8 @@ export const ShopView = () => {
       const filteredProductsByCategoryAndPrice = products.filter((product) => {
         const isCategoryMatch = selectedCategories.length === 0 ? true : selectedCategories.includes(product.categoria);
         const isPriceInRange =
-          (minPrice === '' || parseInt(product.price) >= parseInt(minPrice)) &&
-          (maxPrice === '' || parseInt(product.price) <= parseInt(maxPrice));
+          (minPrice === '' || parseInt(product.precio) >= parseInt(minPrice)) &&
+          (maxPrice === '' || parseInt(product.precio) <= parseInt(maxPrice));
         return isCategoryMatch && isPriceInRange;
       });
 

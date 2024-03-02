@@ -1590,6 +1590,10 @@ select {
   overflow-x: hidden;
 }
 
+.overflow-y-visible {
+  overflow-y: visible;
+}
+
 .rounded {
   border-radius: 0.25rem;
 }
@@ -2358,6 +2362,14 @@ select {
     margin-bottom: calc(1.5rem * var(--tw-space-y-reverse));
   }
 
+  .md\:overflow-y-auto {
+    overflow-y: auto;
+  }
+
+  .md\:overflow-y-visible {
+    overflow-y: visible;
+  }
+
   .md\:py-24 {
     padding-top: 6rem;
     padding-bottom: 6rem;
@@ -2732,6 +2744,10 @@ select {
 }
 
 @media (min-width: 1536px) {
+  .\32xl\:overflow-y-hidden {
+    overflow-y: hidden;
+  }
+
   .\32xl\:p-12 {
     padding: 3rem;
   }
