@@ -11,15 +11,16 @@ import CartView from '../components/CartView/CartView';
 import { CheckoutPayment } from '../components/CheckoutPayment/CheckoutPayment';
 import LoginScreen from '../components/LoginScreen/LoginScreen';
 import { RegisterScreen } from "../components/RegisterScreen/RegisterScreen"
-import { useLoginContext } from '../context/LoginContext';
 import { AdminStockView } from '../components/AdminStockView/AdminStockView';
 import { AdminEditProduct } from '../components/AdminEditProduct/AdminEditProduct';
 import { AdminAddProduct } from '../components/AdminAddProduct/AdminAddProduct';
 import { ProtectedRoutes } from '../components/ProtectedRoutes/ProtectedRoutes';
 import Finish from '../components/Finish/Finish';
+import { useAuth } from '../hooks/useAuth'; // Importa el hook
 
 export const PublicRoutes = () => {
-    const { userAdmin } = useLoginContext()
+    const { user } = useAuth(); // Usa el hook para obtener el estado de autenticación
+
     return (
         <div className="App">
             <Navbar />
@@ -34,7 +35,7 @@ export const PublicRoutes = () => {
                     <Route path="/checkoutPayment" element={ <CheckoutPayment /> }/>
                     <Route path="/login" element={ <LoginScreen /> }/>
                     <Route path="/finish" element={ <Finish /> }/>
-                    <Route element={<ProtectedRoutes userAdmin={userAdmin}/> }>
+                    <Route element={<ProtectedRoutes user={user}/> }>
                             <Route path="/admin" element={ <AdminStockView /> } />                            
                             <Route path="/adminEditProduct/:id" element={ <AdminEditProduct /> }/>
                             <Route path="/adminAddProduct" element={ <AdminAddProduct /> }/>

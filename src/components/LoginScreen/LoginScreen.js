@@ -1,49 +1,87 @@
-import "./LoginScreen.css"
-import { useLoginContext } from "../../context/LoginContext"
-import { useNavigate } from "react-router-dom"
-import { useForm } from "../../hooks/useForm"
-import {useState} from "react"
-
-import axios from "axios";
+import "./LoginScreen.css";
+import { useLoginContext } from "../../context/LoginContext";
+import { useNavigate } from "react-router-dom";
+import { useFormik } from "formik";
+import * as Yup from "yup";
+import {loginRequest} from "../../api/productos.api"
 
 const LoginScreen = () => {
-    const {userAdmin, login, loading, setUser} = useLoginContext()
-    const navigate = useNavigate()
-    const [nombre, setNombre] = useState("")
-    const [password, setPassword] = useState("")
-    const urlBack = process.env.REACT_APP_URL_BACK;
-    const {values, handleInputChange} = useForm({
-        nombre: "",
-        password: ""
-    })
-    
-    const handleSubmit = async (e) => {
-        e.preventDefault();
+  const navigate = useNavigate();
+
+  const formik = useFormik({
+    initialValues: {
+      nombre: "",
+      password: "",
+    },
+    validationSchema: Yup.object({
+      nombre: Yup.string().required("El nombre es requerido"),
+      password: Yup.string().required("La contraseña es requerida"),
+    }),
+    onSubmit: async (values) => {
         try {
-          // axios.post(urlBack+"/login", {nombre, password})
-          //   .then(res => console.log(res))
-          //   .catch(err => console.log(err))
-          await login(values);
-          navigate("/admin");
+          const response = await loginRequest(values);
+          if (response.data.token) {
+            // Guarda el token en localStorage o en tu estado de aplicación
+            // Aquí asumo que el token está en response.data.token
+            localStorage.setItem("token", response.data.token);
+      
+            // Navega a la vista del admin
+            navigate("/admin");
+          } else {
+            // Maneja el caso en el que el servidor no devuelva un token
+            console.error("El servidor no devolvió un token");
+          }
         } catch (error) {
           console.error("Error en la autenticación:", error);
         }
-      };
-    return (
-        <div className="login-screen">
-            <div className="login">
-                <h2>Login</h2>
-                <hr />
-                <form onSubmit={handleSubmit}>
-                    <input type="text" className="form-control my-2" value={values.nombre} onChange={handleInputChange}
-                    name="nombre" />
-                    <input type="password" className="form-control my-2" value={values.password} onChange={handleInputChange} name="password" />
-                    <button className="btn btn-primary" disabled={loading}>Ingresar</button>
-                    {userAdmin.error && <p className="error">{userAdmin.error}</p>}
-                </form>
-            </div>
-        </div>
-    )
-}
+      },
+  });
 
-export default LoginScreen
+  return (
+    <div className="login-screen">
+      <div className="login">
+        <h2>Login</h2>
+        <hr />
+        <form onSubmit={formik.handleSubmit}>
+          <input
+            type="text"
+            className={`form-control my-2 ${
+              formik.touched.nombre && formik.errors.nombre
+                ? "is-invalid"
+                : ""
+            }`}
+            value={formik.values.nombre}
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            name="nombre"
+          />
+          {formik.touched.nombre && formik.errors.nombre && (
+            <div className="invalid-feedback">{formik.errors.nombre}</div>
+          )}
+
+          <input
+            type="password"
+            className={`form-control my-2 ${
+              formik.touched.password && formik.errors.password
+                ? "is-invalid"
+                : ""
+            }`}
+            value={formik.values.password}
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            name="password"
+          />
+          {formik.touched.password && formik.errors.password && (
+            <div className="invalid-feedback">{formik.errors.password}</div>
+          )}
+
+          <button className="btn btn-primary" type="submit">
+            Ingresar
+          </button>
+        </form>
+      </div>
+    </div>
+  );
+};
+
+export default LoginScreen;
