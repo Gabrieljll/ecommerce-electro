@@ -51,27 +51,27 @@ export const SectionList = () =>{
 
       const data = [
         {
-          name: `Lorem ipsum`,
+          name: `Cocinas`,
           img: `/images/iconSlider/earphones-svgrepo-com.svg`,
         },
         {
-          name: `Lorem ipsum`,
+          name: `Termotanques`,
           img: `/images/iconSlider/extract-svgrepo-com.svg`,
         },
         {
-          name: `Lorem ipsum`,
+          name: `Calefones`,
           img: `/images/iconSlider/fan-svgrepo-com.svg`,
         },
         {
-          name: `Lorem ipsum`,
+          name: `Estufas`,
           img: `/images/iconSlider/hair-dryer-svgrepo-com.svg`,
         },
         {
-          name: `Lorem ipsum`,
+          name: `Anafes`,
           img: `/images/iconSlider/kettle-svgrepo-com.svg`,
         },
         {
-            name: `Lorem ipsum`,
+            name: `Lavarropas`,
             img: `/images/iconSlider/vacuum-cleaner-svgrepo-com.svg`,
         }
         
@@ -105,8 +105,8 @@ export const SectionList = () =>{
                         </div>
 
                         <div className="flex flex-col items-center justify-center gap-4 p-4">
-                            <p className="text-xl text-center ">{d.name}</p>
-                            <Link to={"/productos"} className='shadow-slate-300 lg:text-base text-[10px] bg-[#ae322e] text-vary-light-gray block w-24 text-center h-min lg:w-max py-4 lg:px-12 rounded-full shadow-md uppercase font-bold font-[Arimo-Regular]'>Ver productos</Link>
+                            <p className="text-md xl:text-xl text-center ">{d.name}</p>
+                            <Link to={"/productos"} className='shadow-slate-300 lg:text-base text-[10px] bg-[#ae322e] text-vary-light-gray block w-24 text-center h-min lg:w-max py-3 lg:px-12 rounded-full shadow-md uppercase font-bold font-[Arimo-Regular]'>Ver productos</Link>
                         </div>
                     </div>
                     ))}
