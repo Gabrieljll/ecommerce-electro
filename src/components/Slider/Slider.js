@@ -1,137 +1,122 @@
-import "./Slider.css"
+import "./Slider.css";
 import React, { useEffect, useState, useRef } from 'react';
 import { BsChevronCompactLeft, BsChevronCompactRight } from 'react-icons/bs';
 import { RxDotFilled } from 'react-icons/rx';
 import { Link } from "react-router-dom";
 const image1 = "/images/nuevas_imgs/electro_repuestos.png"
-//const image2 = "/images/slider/pexels-adrienne-andersen-2254065_3.jpg"
-const image2 = "/images/nuevas/batidora-batidora-electrica_2.jpg"
-const image3 = "/images/slider/pexels-photomix-company-213162_2.jpg"
+const image2 = "/images/nuevas_imgs/electrodomesticos_de_hogar.png"
+const image3 = "/images/nuevas_imgs/las_mejores_marcas.png"
 const image4 = "/images/slider/pexels-photomix-company-213162_2.jpg"
 
 const image1_movil = "/images/nuevas_imgs/electro_repuestos_cuadrado.png"
-//const image2_movil = "/images/slider/pexels-adrienne-andersen-2254065_movil.jpg"
-const image2_movil = "/images/slider/batidora-batidora-electrica_movil.jpg"
-const image3_movil = "/images/slider/ServicioTecnico.jpg"
+const image2_movil = "/images/nuevas_imgs/electrodomesticos_de_hogar_cuadrado.png"
+const image3_movil = "/images/nuevas_imgs/sevicio_tecnico_cuadrado.png"
 
 export const Slider = () => {
-    const isMobile = window.innerWidth < 1000;
-    const slidesPC = [
-        {
-          url: image1,
-        },
-        {
-          url: image2,
-        },
-        {
-          url: image3,
-        }
-      ];
+  const isMobile = window.innerWidth < 1000;
+  const slidesPC = [
+    { url: image1 },
+    { url: image2 },
+    { url: image3 }
+  ];
 
-      const slidesMovil = [
-        {
-          url: image1_movil,
-        },
-        {
-          url: image2_movil,
-        },
-        {
-          url: image3_movil,
-        }
-      ];
-    
-      const slides = isMobile ? slidesMovil : slidesPC;
-    
-      const [currentIndex, setCurrentIndex] = useState(0);
-    
-      const prevSlide = () => {
-        const isFirstSlide = currentIndex === 0;
-        const newIndex = isFirstSlide ? slides.length - 1 : currentIndex - 1;
-        setCurrentIndex(newIndex);
-      };
-    
-      const nextSlide = () => {
-        const isLastSlide = currentIndex === slides.length - 1;
-        const newIndex = isLastSlide ? 0 : currentIndex + 1;
-        setCurrentIndex(newIndex);
-      };
-    
-      const goToSlide = (slideIndex) => {
-        setCurrentIndex(slideIndex);
-      };
-    
-      useEffect(() => {
-        const intervalId = setInterval(() => {
-          nextSlide();
-        }, 2000);
-    
-        return () => clearInterval(intervalId);
-      }, [currentIndex]);
+  const slidesMovil = [
+    { url: image1_movil },
+    { url: image2_movil },
+    { url: image3_movil }
+  ];
 
+  const slides = isMobile ? slidesMovil : slidesPC;
+  const [currentIndex, setCurrentIndex] = useState(0);
 
-      const chevronRightRef = useRef();
+  const prevSlide = () => {
+    const isFirstSlide = currentIndex === 0;
+    const newIndex = isFirstSlide ? slides.length - 1 : currentIndex - 1;
+    setCurrentIndex(newIndex);
+  };
 
-      useEffect(() => {
-        // Obtén la referencia al elemento BsChevronCompactRight
-        const chevronRightElement = chevronRightRef.current;
-    
-        // Realiza tres clics en el elemento al principio de la carga de la página
-        for (let i = 0; i < 3; i++) {
-          if (chevronRightElement) {
-            nextSlide();
-          }
-        }
-      }, []); // El segundo parámetro es un array de dependencias vacío para que se ejecute solo una vez al montar el componente
-    
-      const [isActive, setIsActive] = useState(false);
+  const nextSlide = () => {
+    const isLastSlide = currentIndex === slides.length - 1;
+    const newIndex = isLastSlide ? 0 : currentIndex + 1;
+    setCurrentIndex(newIndex);
+  };
 
-      useEffect(() => {
-        // Agrega la clase active después de un pequeño retraso para que la transición sea visible al inicio
-        setTimeout(() => {
-          setIsActive(true);
-        }, 100);
-      }, []);
+  const goToSlide = (slideIndex) => {
+    setCurrentIndex(slideIndex);
+  };
 
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      nextSlide();
+    }, 7000);
 
-      return (
-         <div className={`max-w-[1920px] h-[800px] w-full m-auto pb-5 relative group transition-fade-up ${isActive ? 'active' : ''}`}>
+    return () => clearInterval(intervalId);
+  }, [currentIndex]);
+
+  const chevronRightRef = useRef();
+
+  useEffect(() => {
+    const chevronRightElement = chevronRightRef.current;
+
+    for (let i = 0; i < 3; i++) {
+      if (chevronRightElement) {
+        nextSlide();
+      }
+    }
+  }, []);
+
+  const [isActive, setIsActive] = useState(false);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setIsActive(true);
+    }, 100);
+  }, []);
+
+  return (
+    <div className={`max-w-[1920px] ${isMobile ? 'h-[100vw]' : 'h-[800px]'} w-full m-auto pb-5 relative group transition-fade-up ${isActive ? 'active' : ''}`}>
+      <div
+        style={{
+          backgroundImage: `url(${slides[currentIndex].url})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+          height: isMobile ? '100vw' : '800px', // Altura específica para las imágenes de fondo
+          transition: 'background-image 1s ease', // Solo transición de la imagen de fondo
+        }}
+        className="w-full h-full object-cover duration-500"
+      >
+        {isMobile && (
+          <img
+            src={slides[currentIndex].url}
+            alt={`Slide ${currentIndex + 1}`}
+            className="w-full h-full object-fit"
+            style={{
+              width: '100%', // Ajuste para dispositivos móviles
+              height: '100%', // Esto asegura que la imagen tenga la altura completa en dispositivos móviles
+            }}
+          />
+        )}
+      </div>
+      <div className='hidden group-hover:block absolute top-[50%] -translate-x-0 translate-y-[-50%] left-5 text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer'>
+        <BsChevronCompactLeft onClick={prevSlide} size={30} />
+      </div>
+      <div
+        ref={chevronRightRef}
+        className='hidden group-hover:block absolute top-[50%] -translate-x-0 translate-y-[-50%] right-5 text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer'>
+        <BsChevronCompactRight onClick={nextSlide} size={30} />
+      </div>
+      <div className='flex top-4 justify-center py-2'>
+        {slides.map((slide, slideIndex) => (
           <div
-            style={{ backgroundImage: `url(${slides[currentIndex].url}) ` }}
-            className="w-full h-full bg-center bg-cover duration-500"
+            key={slideIndex}
+            onClick={() => goToSlide(slideIndex)}
+            className='text-2xl cursor-pointer'
           >
-{/*             <div className="font-principal sliderInformation shadow-sm shadow-bright-red/30 py-3 block mb-4 text-4xl font-extrabold leading-none tracking-tight  sm:text-5xl lg:text-6xl dark:text-white">
-                <h1 className="text-white">Lorem ipsum dolor sit amet, </h1>
-                <h1 className="text-white">consectetur adipiscing elit.</h1>
-                <h6 className="text-white text-2xl mt-16">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h6>
-                <h6 className="text-white text-2xl">Lorem ipsum dolor sit amet</h6>
-                <div className="flex mt-8 ml-auto justify-start items-end">
-                    <Link to={"/productos"} className="shadow-slate-300 text-base buttonAction shadow-md py-3 block tracking-tight">
-                        <h6>Boton accion</h6>
-                    </Link>
-                </div>
-            </div> */}
+            <RxDotFilled />
           </div>
-          {/* Left Arrow */}
-          <div className='hidden group-hover:block absolute top-[50%] -translate-x-0 translate-y-[-50%] left-5 text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer'>
-            <BsChevronCompactLeft onClick={prevSlide} size={30} />
-          </div>
-          {/* Right Arrow */}
-          <div 
-          ref={chevronRightRef}
-          className='hidden group-hover:block absolute top-[50%] -translate-x-0 translate-y-[-50%] right-5 text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer'>
-            <BsChevronCompactRight onClick={nextSlide} size={30} />
-          </div>
-          <div className='flex top-4 justify-center py-2'>
-            {slides.map((slide, slideIndex) => (
-              <div
-                key={slideIndex}
-                onClick={() => goToSlide(slideIndex)}
-                className='text-2xl cursor-pointer'
-              >
-                <RxDotFilled />
-              </div>
-            ))}
-          </div>
-        </div>
-      );
+        ))}
+      </div>
+    </div>
+  );
 }

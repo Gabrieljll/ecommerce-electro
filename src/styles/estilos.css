@@ -826,40 +826,8 @@ select {
   color: hsl(0 0% 98% / var(--tw-text-opacity));
 }
 
-.sliderInformation {
-  display: block;
-  height: 100%;
-  width: 100%;
-  background-image: linear-gradient(to right, var(--tw-gradient-stops));
-  --tw-gradient-from: #000 var(--tw-gradient-from-position);
-  --tw-gradient-to: rgb(0 0 0 / 0) var(--tw-gradient-to-position);
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
-  --tw-gradient-to: transparent var(--tw-gradient-to-position);
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-  padding-left: 3rem;
-  padding-right: 3rem;
-  --tw-text-opacity: 1;
-  color: hsl(0 0% 98% / var(--tw-text-opacity));
-}
-
 .footer-area {
   grid-template-areas: "form" "navigation" "social-media" "logo" "copy";
-}
-
-.buttonAction {
-  display: block;
-  width: -webkit-max-content;
-  width: max-content;
-  border-radius: 9999px;
-  --tw-bg-opacity: 1;
-  background-color: hsl(12 88% 59% / var(--tw-bg-opacity));
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-  padding-left: 3rem;
-  padding-right: 3rem;
-  --tw-text-opacity: 1;
-  color: hsl(0 0% 98% / var(--tw-text-opacity));
 }
 
 .table th,
@@ -879,10 +847,6 @@ select {
 .table tbody tr:nth-child(2n+1) {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
-}
-
-.visible {
-  visibility: visible;
 }
 
 .fixed {
@@ -1131,6 +1095,10 @@ select {
   margin-top: 2rem;
 }
 
+.mt-1 {
+  margin-top: 0.25rem;
+}
+
 .block {
   display: block;
 }
@@ -1264,6 +1232,10 @@ select {
 
 .h-screen {
   height: 100vh;
+}
+
+.h-\[100vw\] {
+  height: 100vw;
 }
 
 .max-h-\[100px\] {
@@ -2009,6 +1981,10 @@ select {
   text-align: center;
 }
 
+.font-\[Arial-Regular\] {
+  font-family: Arial-Regular;
+}
+
 .font-\[Arimo-Bold\] {
   font-family: Arimo-Bold;
 }
@@ -2019,10 +1995,6 @@ select {
 
 .font-principal {
   font-family: "Be Vietnam Pro", sans-serif;
-}
-
-.font-\[Arial-Regular\] {
-  font-family: Arial-Regular;
 }
 
 .text-2xl {
@@ -2115,10 +2087,6 @@ select {
 
 .leading-\[1\.1\] {
   line-height: 1.1;
-}
-
-.leading-none {
-  line-height: 1;
 }
 
 .leading-tight {
@@ -2362,11 +2330,6 @@ select {
 
   .sm\:grid-flow-col {
     grid-auto-flow: column;
-  }
-
-  .sm\:text-5xl {
-    font-size: 3rem;
-    line-height: 1;
   }
 
   .sm\:text-sm {
@@ -2645,11 +2608,6 @@ select {
     line-height: 2rem;
   }
 
-  .lg\:text-6xl {
-    font-size: 3.75rem;
-    line-height: 1;
-  }
-
   .lg\:text-base {
     font-size: 1rem;
     line-height: 1.5rem;
@@ -2842,10 +2800,5 @@ select {
   .dark\:bg-gray-900 {
     --tw-bg-opacity: 1;
     background-color: rgb(17 24 39 / var(--tw-bg-opacity));
-  }
-
-  .dark\:text-white {
-    --tw-text-opacity: 1;
-    color: rgb(255 255 255 / var(--tw-text-opacity));
   }
 }
