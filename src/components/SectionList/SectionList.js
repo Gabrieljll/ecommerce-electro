@@ -2,17 +2,19 @@ import React, { useEffect } from "react"
 import  Slider from "react-slick";
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
-import {Link} from "react-router-dom"
+import {Link, useNavigate, Navigate} from "react-router-dom"
 import { useInView } from "react-intersection-observer";
 import "../../styles/animate.min.css"
 import "./Section.css"
 import { AiOutlineShoppingCart } from "react-icons/ai";
 
-const imagenSection1 = "/images/section/Diseño.png"
+const imagenSection1 = "/images/nuevas_imgs/buscas_renovar_tu_casa.png"
+const imagenSection1Mobile = "/images/nuevas_imgs/buscas_renovar_tu_casa_cuadrado.png"
 
 
 export const SectionList = () =>{
-
+    const navigate = useNavigate();
+    const isMobile = window.innerWidth < 1000;
     const [ref1, inView1] = useInView({
         triggerOnce: true,
         threshold: 0.1,
@@ -75,6 +77,18 @@ export const SectionList = () =>{
         
       ];
 
+      const navigateToShop = () => {
+        navigate("/productos")
+      }
+
+      const navigateToContact = () => {
+        navigate("/contactenos")
+      }
+
+      const navigateToWsp = () => {
+        navigate("/contactenos")
+      }
+      
     return (
         <>
         <section id="nosotros">
@@ -120,19 +134,10 @@ export const SectionList = () =>{
         </section>
 
         <section ref={ref4} className={`section transition-fade-up ${inView4 ? "active" : ""}`}>
-                <div className="h-[100%] w-full m-auto py-5 relative group">
+                <div className="h-[100%]  m-auto py-5 relative group">
                     <div className="flex justify-center items-center">
-                        <img className="max-w-[90%] bg-cover w-max" src={imagenSection1} alt="" />
-
+                        <img onClick={navigateToShop} className="bg-cover group-hover:scale-105 transition duration-300" src={`${isMobile ? imagenSection1Mobile : imagenSection1 }`} alt="" />
                     </div>
-{/*                     < style={{ backgroundImage: `url(${imagenSection1})` }} className='flex justify-evenly w-[100%] h-[1080px] bg-center bg-cover duration-500'> */}
-                            <div className="flex justify-center items-end">
-                                <Link to={"/productos"} className="shadow-slate-300 text-base button shadow-md py-3 flex justify-start items-center tracking-tight">
-                                    <h6>Consultar Outlet </h6>
-                                    <AiOutlineShoppingCart className="text-4xl" />
-                                </Link>
-                            </div>
-                   {/*  </> */}
                 </div>
             </section>  
 
@@ -152,7 +157,7 @@ export const SectionList = () =>{
 
                         </div>
                     
-                    <div className="flex justify-evenly mb-10 xl:mb-0">
+                    <div onClick={navigateToContact} className="flex justify-evenly mb-10 xl:mb-0 cursor-pointer">
                         <div className="flex flex-col  items-center justify-center">
                             <div className="flex justify-center mt-10 xl:mt-20">
                                 <img className="max-w-[50%]" src="./images/section/Mail_400.png" alt="" />
@@ -161,7 +166,7 @@ export const SectionList = () =>{
                                 <p className="text-white p-2 text-2xl uppercase font-[Arimo-Regular]">Mail</p>
                             </div>
                         </div>
-                        <div className="flex flex-col  items-center justify-center">
+                        <div onClick={navigateToWsp} className="flex flex-col items-center justify-center cursor-pointer">
                             <div className="flex justify-center mt-10 xl:mt-20">
                                 <img className="max-w-[50%]" src="./images/section/Wsp_400.png" alt="" />
                             </div>                        

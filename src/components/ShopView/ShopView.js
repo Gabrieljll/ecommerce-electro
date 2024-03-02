@@ -9,11 +9,13 @@ import "../../styles/animate.min.css"
 import { ToastContainer } from 'react-toastify';
 
 /* import image hero */
+const heroShop = "/images/nuevas_imgs/calidad_y_precio.png";
+const heroShopMobile = "/images/nuevas_imgs/calidad_y_precio_cuadrado.png";
 
 export const ShopView = () => {
-    const manHero = "/images/hero/hombre-apuntando-a-la-izquiera.jpg";
     //const manHero = "/images/hero/banner_tienda.png";
     //const manHero = "/images/hero/banner_tienda.png";
+    const isMobile = window.innerWidth < 1000;
     const flecha = "/images/shopView/flecha_50.png";
     const [isSidebarOpen, setSidebarOpen] = useState(true);
     const [selectedCategories, setSelectedCategories] = useState([]);
@@ -103,28 +105,13 @@ export const ShopView = () => {
         
         <>
 
-        <section ref={ref1} className={`bg-white h-[600px] bg-no-repeat bg-cover bg-center shop-transition-fade-up ${inView1 ? "active" : ""}`}>
+        <section ref={ref1} className={`bg-white h-[550px] xl:h-[750px] bg-no-repeat bg-cover bg-center shop-transition-fade-up ${inView1 ? "active" : ""}`}>
             <div ref={scrollRef} className="container mx-auto flex justify-around xl:justify-center h-full">
                 {/* text */}
-                <div className="flex flex-col justify-center">
-                    {/* pretitle */}
-                    <div className="font-semibold flex items-center uppercase justify-center lg:justify-normal">
-                        <div className="w-10 h-[2px] bg-red-500 mr-3"></div>Lorem Ipsum
-                    </div>
-                        {/* title */}
-                        <h1 className="text-[70px] leading-[1.1] font-light mb-4 text-center lg:text-left">
-                              LOREM IPSUM LOREM <br />
-                        <span className="font-semibold">IPSUM</span>
-                        </h1>
-                        <Link
-                         to={'/'}
-                         className="self-center lg:self-start uppercase font-semibold border-b-2 border-gray-800">
-                            Descubre mas
-                        </Link>
-                </div>
+
                     {/* image */}
-                    <div className="hidden xl:block">
-                        <img className="h-[80%]" src={manHero} alt="https://br.freepik.com/fotos-gratis/homem-bonito-apontando-para-o-lateral_1184718.htm?epik=dj0yJnU9RzRIMXNuUHlwM002VnlrQVlick9iUjNlLU1rZW5GQXMmcD0wJm49UjlIajhqQUdERzVvQmt1dmtDUGJoUSZ0PUFBQUFBR1dseGZn#page=3&query=Expressao&position=4" />
+                    <div className="">
+                        <img className="" src={isMobile ? heroShopMobile : heroShop} alt="https://br.freepik.com/fotos-gratis/homem-bonito-apontando-para-o-lateral_1184718.htm?epik=dj0yJnU9RzRIMXNuUHlwM002VnlrQVlick9iUjNlLU1rZW5GQXMmcD0wJm49UjlIajhqQUdERzVvQmt1dmtDUGJoUSZ0PUFBQUFBR1dseGZn#page=3&query=Expressao&position=4" />
                     </div>
             </div>
         </section>

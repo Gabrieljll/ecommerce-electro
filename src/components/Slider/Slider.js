@@ -6,10 +6,11 @@ import { Link } from "react-router-dom";
 const image1 = "/images/nuevas_imgs/electro_repuestos.png"
 const image2 = "/images/nuevas_imgs/electrodomesticos_de_hogar.png"
 const image3 = "/images/nuevas_imgs/las_mejores_marcas.png"
-const image4 = "/images/slider/pexels-photomix-company-213162_2.jpg"
+const image4 = "/images/nuevas_imgs/servicio_tecnico.png"
 
 const image1_movil = "/images/nuevas_imgs/electro_repuestos_cuadrado.png"
 const image2_movil = "/images/nuevas_imgs/electrodomesticos_de_hogar_cuadrado.png"
+const image4_movil = "/images/nuevas_imgs/las_mejores_marcas_cuadrado.png"
 const image3_movil = "/images/nuevas_imgs/sevicio_tecnico_cuadrado.png"
 
 export const Slider = () => {
@@ -17,13 +18,16 @@ export const Slider = () => {
   const slidesPC = [
     { url: image1 },
     { url: image2 },
-    { url: image3 }
+    { url: image3 },
+    { url: image4 }
+    
   ];
 
   const slidesMovil = [
     { url: image1_movil },
     { url: image2_movil },
-    { url: image3_movil }
+    { url: image3_movil },
+    { url: image4_movil }
   ];
 
   const slides = isMobile ? slidesMovil : slidesPC;
@@ -48,7 +52,7 @@ export const Slider = () => {
   useEffect(() => {
     const intervalId = setInterval(() => {
       nextSlide();
-    }, 7000);
+    }, 10000);
 
     return () => clearInterval(intervalId);
   }, [currentIndex]);
@@ -92,8 +96,10 @@ export const Slider = () => {
             alt={`Slide ${currentIndex + 1}`}
             className="w-full h-full object-fit"
             style={{
-              width: '100%', // Ajuste para dispositivos móviles
-              height: '100%', // Esto asegura que la imagen tenga la altura completa en dispositivos móviles
+                width: '100%', // Ajuste para dispositivos móviles
+                height: '100%', // Esto asegura que la imagen tenga la altura completa en dispositivos móviles
+                opacity: isActive ? 1 : 0,
+                transition: 'opacity 0.1s ease'
             }}
           />
         )}
