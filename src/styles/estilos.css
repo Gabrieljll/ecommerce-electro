@@ -1242,6 +1242,10 @@ select {
   height: 500px;
 }
 
+.h-\[550px\] {
+  height: 550px;
+}
+
 .max-h-\[100px\] {
   max-height: 100px;
 }

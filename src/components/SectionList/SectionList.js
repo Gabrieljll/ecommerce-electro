@@ -86,7 +86,7 @@ export const SectionList = () =>{
       }
 
       const navigateToWsp = () => {
-        navigate("/contactenos")
+        window.open(process.env.REACT_APP_URL_WSP, "_blank")
       }
       
     return (
@@ -157,17 +157,17 @@ export const SectionList = () =>{
 
                         </div>
                     
-                    <div onClick={navigateToContact} className="flex justify-evenly mb-10 xl:mb-0 cursor-pointer">
+                    <div className="flex justify-evenly mb-10 xl:mb-0 cursor-pointer">
                         <div className="flex flex-col  items-center justify-center">
-                            <div className="flex justify-center mt-10 xl:mt-20">
+                            <div onClick={navigateToContact} className="flex justify-center mt-10 xl:mt-20">
                                 <img className="max-w-[50%]" src="./images/section/Mail_400.png" alt="" />
                             </div>
                             <div className="shadow-slate-300 text-base text-center text-black block w-max mt-2 bg-[#ae322e] rounded shadow-xl">
                                 <p className="text-white p-2 text-2xl uppercase font-[Arimo-Regular]">Mail</p>
                             </div>
                         </div>
-                        <div onClick={navigateToWsp} className="flex flex-col items-center justify-center cursor-pointer">
-                            <div className="flex justify-center mt-10 xl:mt-20">
+                        <div className="flex flex-col items-center justify-center cursor-pointer">
+                            <div onClick={navigateToWsp} className="flex justify-center mt-10 xl:mt-20">
                                 <img className="max-w-[50%]" src="./images/section/Wsp_400.png" alt="" />
                             </div>                        
                             <div className="shadow-slate-300 text-base text-vary-light-gray block w-max mt-2 bg-[#ae322e] rounded shadow-xl">
