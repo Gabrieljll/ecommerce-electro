@@ -2,6 +2,7 @@ import { Link as LinkScroll   } from 'react-scroll'
 import { Link } from 'react-router-dom'
 import "./Footer.css"
 export const Footer = () => {
+    const urlWsp = process.env.REACT_APP_URL_WSP
     const logoImg = "/images/Logo_CJ_final.png"
     const scrollToTop = () => {
         window.scrollTo({
@@ -10,15 +11,16 @@ export const Footer = () => {
         });
       };
     return (
-    <footer className="bg-slate-800 py-24">
+    <footer className="bg-black py-24">
     <section className="wrapper grid gap-12 justify-center footer-area md:footer-area-md md:grid-cols-3 md:justify-items-center">
 
-        <nav className="grid gap-y-4 justify-center text-white w-full md:w-full md:grid-cols-2 lg:grid-cols-3">
-        <Link to="home"  onClick={scrollToTop}>Inicio</Link>
-        <LinkScroll to="/productos">Tienda</LinkScroll>
-        <LinkScroll to="nosotros" smooth={true} duration={500}>Sobre Nosotros</LinkScroll>
-        <Link to="/contacto">Contacto</Link>
-        <LinkScroll to="atencionCliente" smooth={true} duration={500}>Atención al Cliente</LinkScroll>
+        <nav className="grid gap-y-4 justify-center text-white w-full md:w-full md:grid-cols-2 lg:grid-cols-2">
+            <Link to="home"  onClick={scrollToTop}> <h1 className="text-xl font-[ArchivoBlack-Regular] text-white ">Inicio</h1></Link>
+            <LinkScroll to="/productos"><h1 className="text-xl font-[ArchivoBlack-Regular] text-white ">Tienda</h1></LinkScroll>
+            <LinkScroll to="nosotros" smooth={true} duration={500}><h1 className="text-xl font-[ArchivoBlack-Regular] text-white">Sobre Nosotros</h1></LinkScroll>
+            <Link to="/contacto"><h1 className="text-xl font-[ArchivoBlack-Regular] text-white">Contacto</h1></Link>
+            <LinkScroll to="atencionCliente" smooth={true} duration={500}><h1 className="text-xl font-[ArchivoBlack-Regular] text-white">Atención al Cliente</h1></LinkScroll>
+            <Link to={urlWsp} target="_blank"><h1 className="text-xl font-[ArchivoBlack-Regular] text-white">WhatsApp</h1></Link>
         </nav>
 
         <div className="flex flex-wrap gap-4 justify-center w-full md:justify-center">

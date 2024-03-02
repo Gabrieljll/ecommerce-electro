@@ -1707,6 +1707,11 @@ select {
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
+.bg-black {
+  --tw-bg-opacity: 1;
+  background-color: rgb(0 0 0 / var(--tw-bg-opacity));
+}
+
 .bg-gradient-to-b {
   background-image: linear-gradient(to bottom, var(--tw-gradient-stops));
 }
@@ -1927,6 +1932,18 @@ select {
 
 .font-principal {
   font-family: "Be Vietnam Pro", sans-serif;
+}
+
+.font-\[Aroma-Regular\] {
+  font-family: Aroma-Regular;
+}
+
+.font-\[ArchivoBlack-Regular\] {
+  font-family: ArchivoBlack-Regular;
+}
+
+.font-\[ArchivoBlack-Bold\] {
+  font-family: ArchivoBlack-Bold;
 }
 
 .text-2xl {
@@ -2473,6 +2490,10 @@ select {
 
   .lg\:grid-cols-3 {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .lg\:grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .lg\:flex-row {
