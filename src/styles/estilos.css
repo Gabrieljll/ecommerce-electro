@@ -1914,6 +1914,10 @@ select {
   padding-top: 1.5rem;
 }
 
+.text-left {
+  text-align: left;
+}
+
 .text-center {
   text-align: center;
 }
@@ -2738,6 +2742,10 @@ select {
 
   .xl\:p-4 {
     padding: 1rem;
+  }
+
+  .xl\:text-center {
+    text-align: center;
   }
 
   .xl\:text-base {

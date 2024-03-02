@@ -14,7 +14,7 @@ export const Footer = () => {
     <footer className="bg-black py-24">
     <section className="wrapper grid gap-12 justify-center footer-area md:footer-area-md md:grid-cols-3 md:justify-items-center">
 
-        <nav className="grid gap-y-4 justify-center text-white w-full md:w-full md:grid-cols-2 lg:grid-cols-2">
+        <nav className="grid gap-y-4 h-min justify-center text-center text-white w-full md:w-full md:grid-cols-2 lg:grid-cols-3">
             <Link to="home"  onClick={scrollToTop}> <h1 className="text-xl font-[ArchivoBlack-Regular] text-white ">Inicio</h1></Link>
             <LinkScroll to="/productos"><h1 className="text-xl font-[ArchivoBlack-Regular] text-white ">Tienda</h1></LinkScroll>
             <LinkScroll to="nosotros" smooth={true} duration={500}><h1 className="text-xl font-[ArchivoBlack-Regular] text-white">Sobre Nosotros</h1></LinkScroll>
