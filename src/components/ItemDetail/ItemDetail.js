@@ -7,7 +7,7 @@ import "./ItemDetail.css"
 
 const ItemDetail = ( {idItem, name, descriptionItem, imageItem, priceItem, category}) => {
     const { id } = useParams()
-    const { products } = useContext(ProductContext)
+    const { products, updateProducts } = useContext(ProductContext)
     const { addToCart } = useContext(CartContext)
     const itemRef = useRef();
     const navigate = useNavigate()
