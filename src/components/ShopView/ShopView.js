@@ -29,11 +29,11 @@ export const ShopView = () => {
         if (scrollRef.current) {
         scrollRef.current.scrollIntoView({ behavior: 'smooth' });
         }
+        updateProducts()
     }, []); // Esto asegura que el scroll ocurre solo una vez al cargar la página
 
     //get products form product context
-    const { products } = useContext(ProductContext);
-
+    const { products, updateProducts } = useContext(ProductContext);
     const [ref1, inView1] = useInView({
         triggerOnce: true,
         threshold: 0.1,

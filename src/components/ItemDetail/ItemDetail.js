@@ -17,6 +17,7 @@ const ItemDetail = ( {idItem, name, descriptionItem, imageItem, priceItem, categ
         if (itemRef.current) {
             itemRef.current.scrollIntoView({ behavior: 'smooth' });
         }
+        updateProducts()
     }, []); // Esto asegura que el scroll ocurre solo una vez al cargar la página
 
     const [ref1, inView1] = useInView({
