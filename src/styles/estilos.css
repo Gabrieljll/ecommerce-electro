@@ -1164,6 +1164,10 @@ select {
   height: 100vh;
 }
 
+.h-\[50px\] {
+  height: 50px;
+}
+
 .max-h-\[100px\] {
   max-height: 100px;
 }
@@ -1693,6 +1697,11 @@ select {
 .bg-white {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+}
+
+.bg-\[\#3165bf\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(49 101 191 / var(--tw-bg-opacity));
 }
 
 .bg-gradient-to-b {

@@ -40,9 +40,10 @@ const LoginScreen = () => {
   return (
     <div className="login-screen">
       <div className="login">
-        <h2>Login</h2>
         <hr />
-        <form onSubmit={formik.handleSubmit}>
+        <form className="flex justify-center items-center" onSubmit={formik.handleSubmit}>
+        <div className="flex flex-col justify-around items-center">
+        <label className="labelInput font-bold" htmlFor="nombre">Nombre</label>
           <input
             type="text"
             className={`form-control my-2 ${
@@ -58,7 +59,7 @@ const LoginScreen = () => {
           {formik.touched.nombre && formik.errors.nombre && (
             <div className="invalid-feedback">{formik.errors.nombre}</div>
           )}
-
+        <label className="labelInput font-bold" htmlFor="password">Clave</label>
           <input
             type="password"
             className={`form-control my-2 ${
@@ -74,10 +75,13 @@ const LoginScreen = () => {
           {formik.touched.password && formik.errors.password && (
             <div className="invalid-feedback">{formik.errors.password}</div>
           )}
-
-          <button className="btn btn-primary" type="submit">
+                  <div>
+          <button className="btn btn-primary h-[50px] w-[100px] border-2 font-[Arimo-Regular] bg-[#3165bf] text-white" type="submit">
             Ingresar
           </button>
+        </div>
+    </div>
+
         </form>
       </div>
     </div>
