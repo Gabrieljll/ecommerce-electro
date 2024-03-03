@@ -7,7 +7,7 @@ export const createProduct = async(product) => {
 }
 
 export const deleteProductRequest = async(id) => {
-  return await axios.post(urlBack + "/deleteProduct/", id)
+  return await axios.delete(`${urlBack}/deleteProduct/${id}`)
 }
 
 export const getLineasRequest = async() => {

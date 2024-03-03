@@ -55,7 +55,9 @@ export const AdminStockView = () => {
                                                 </Link>
                                             </div>
                                             <div className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
-                                                <div onClick={ () =>handleEliminar(product.id)} >
+                                                <div type="submit" onClick={ (e) => {
+                                                    e.preventDefault()
+                                                    handleEliminar(product.id)}} >
                                                     Eliminar
                                                 </div>
                                             </div>
