@@ -953,6 +953,11 @@ select {
   margin-bottom: 1.25rem;
 }
 
+.mx-0 {
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
 .mb-1 {
   margin-bottom: 0.25rem;
 }
@@ -1288,6 +1293,10 @@ select {
 
 .w-32 {
   width: 8rem;
+}
+
+.w-\[150px\] {
+  width: 150px;
 }
 
 .max-w-\[1920px\] {
