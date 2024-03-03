@@ -953,11 +953,6 @@ select {
   margin-bottom: 1.25rem;
 }
 
-.mx-0 {
-  margin-left: 0px;
-  margin-right: 0px;
-}
-
 .mb-1 {
   margin-bottom: 0.25rem;
 }
@@ -1087,10 +1082,6 @@ select {
   height: 10rem;
 }
 
-.h-44 {
-  height: 11rem;
-}
-
 .h-5 {
   height: 1.25rem;
 }
@@ -1147,8 +1138,8 @@ select {
   height: 70px;
 }
 
-.h-\[800px\] {
-  height: 800px;
+.h-\[950px\] {
+  height: 950px;
 }
 
 .h-auto {
@@ -1171,10 +1162,6 @@ select {
 
 .h-screen {
   height: 100vh;
-}
-
-.h-\[950px\] {
-  height: 950px;
 }
 
 .max-h-\[100px\] {
@@ -1208,6 +1195,10 @@ select {
 
 .w-28 {
   width: 7rem;
+}
+
+.w-32 {
+  width: 8rem;
 }
 
 .w-36 {
@@ -1285,18 +1276,6 @@ select {
 .w-max {
   width: -webkit-max-content;
   width: max-content;
-}
-
-.w-20 {
-  width: 5rem;
-}
-
-.w-32 {
-  width: 8rem;
-}
-
-.w-\[150px\] {
-  width: 150px;
 }
 
 .max-w-\[1920px\] {
@@ -1663,6 +1642,11 @@ select {
   background-color: rgb(225 58 53 / var(--tw-bg-opacity));
 }
 
+.bg-black {
+  --tw-bg-opacity: 1;
+  background-color: rgb(0 0 0 / var(--tw-bg-opacity));
+}
+
 .bg-black\/20 {
   background-color: rgb(0 0 0 / 0.2);
 }
@@ -1697,11 +1681,6 @@ select {
   background-color: rgb(239 68 68 / var(--tw-bg-opacity));
 }
 
-.bg-slate-800 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(30 41 59 / var(--tw-bg-opacity));
-}
-
 .bg-transparent {
   background-color: transparent;
 }
@@ -1714,11 +1693,6 @@ select {
 .bg-white {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
-}
-
-.bg-black {
-  --tw-bg-opacity: 1;
-  background-color: rgb(0 0 0 / var(--tw-bg-opacity));
 }
 
 .bg-gradient-to-b {
@@ -1923,12 +1897,12 @@ select {
   padding-top: 1.5rem;
 }
 
-.text-left {
-  text-align: left;
-}
-
 .text-center {
   text-align: center;
+}
+
+.font-\[ArchivoBlack-Regular\] {
+  font-family: ArchivoBlack-Regular;
 }
 
 .font-\[Arial-Regular\] {
@@ -1945,18 +1919,6 @@ select {
 
 .font-principal {
   font-family: "Be Vietnam Pro", sans-serif;
-}
-
-.font-\[Aroma-Regular\] {
-  font-family: Aroma-Regular;
-}
-
-.font-\[ArchivoBlack-Regular\] {
-  font-family: ArchivoBlack-Regular;
-}
-
-.font-\[ArchivoBlack-Bold\] {
-  font-family: ArchivoBlack-Bold;
 }
 
 .text-2xl {
@@ -2505,10 +2467,6 @@ select {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
-  .lg\:grid-cols-2 {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
   .lg\:flex-row {
     flex-direction: row;
   }
@@ -2644,6 +2602,10 @@ select {
     display: none;
   }
 
+  .xl\:h-48 {
+    height: 12rem;
+  }
+
   .xl\:h-56 {
     height: 14rem;
   }
@@ -2652,20 +2614,12 @@ select {
     height: 750px;
   }
 
-  .xl\:h-44 {
-    height: 11rem;
-  }
-
-  .xl\:h-40 {
-    height: 10rem;
-  }
-
-  .xl\:h-48 {
-    height: 12rem;
-  }
-
   .xl\:w-44 {
     width: 11rem;
+  }
+
+  .xl\:w-48 {
+    width: 12rem;
   }
 
   .xl\:w-\[100\%\] {
@@ -2705,18 +2659,6 @@ select {
     width: 100vw;
   }
 
-  .xl\:w-36 {
-    width: 9rem;
-  }
-
-  .xl\:w-40 {
-    width: 10rem;
-  }
-
-  .xl\:w-48 {
-    width: 12rem;
-  }
-
   .xl\:max-w-\[30vw\] {
     max-width: 30vw;
   }
@@ -2751,10 +2693,6 @@ select {
 
   .xl\:p-4 {
     padding: 1rem;
-  }
-
-  .xl\:text-center {
-    text-align: center;
   }
 
   .xl\:text-base {

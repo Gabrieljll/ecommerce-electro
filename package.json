@@ -1,5 +1,5 @@
 {
-  "name": "electro-ecommerce",
+  "name": "CJRepuestos",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -34,6 +34,7 @@
     "react-slick": "^0.29.0",
     "react-toastify": "^10.0.4",
     "react-transition-group": "^4.4.5",
+    "serve": "^14.2.1",
     "slick-carousel": "^1.8.1",
     "stream": "npm:stream-browserify",
     "stream-browserify": "^3.0.0",

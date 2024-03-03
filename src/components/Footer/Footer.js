@@ -38,8 +38,8 @@ export const Footer = () => {
     <section className="wrapper grid gap-12 justify-center items-center footer-area md:footer-area-md md:grid-cols-3 md:justify-items-center">
 
         <nav className="grid gap-y-4 h-min justify-center text-center text-white w-full md:w-full md:grid-cols-2 lg:grid-cols-3">
-            <Link to="home"  onClick={scrollToTop}> <h1 className="text-md font-[ArchivoBlack-Regular] text-white ">Inicio</h1></Link>
-            <Link to="productos" onClick={scrollToTop}><h1 className="text-md font-[ArchivoBlack-Regular] text-white ">Tienda</h1></Link>
+            <Link to="/home"  onClick={scrollToTop}> <h1 className="text-md font-[ArchivoBlack-Regular] text-white ">Inicio</h1></Link>
+            <Link to="/productos" onClick={scrollToTop}><h1 className="text-md font-[ArchivoBlack-Regular] text-white ">Tienda</h1></Link>
             <LinkScroll onClick={() => redirectToHomeAndScroll("nosotros")} duration={500}><h1 className="text-md font-[ArchivoBlack-Regular] text-white">Sobre Nosotros</h1></LinkScroll>
             <Link to="/contactenos"><h1 className="text-md font-[ArchivoBlack-Regular] text-white">Contacto</h1></Link>
             <LinkScroll onClick={() => redirectToHomeAndScroll("atencionCliente")} duration={500}><h1 className="text-md font-[ArchivoBlack-Regular] text-white">Atención al Cliente</h1></LinkScroll>
