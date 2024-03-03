@@ -19,6 +19,8 @@ export const Item = ( {product} ) => {
     
 );
 
+const formattedPrice = precio.toLocaleString();
+
     return (
 
         <div>
@@ -49,11 +51,11 @@ export const Item = ( {product} ) => {
             <div>
                 <div className="text-base capitalize text-gray-800 mb-1 p-1 font-[Arimo-Regular]">{linea} - {categoria}</div>
                 <Link className="flex justify-center" to={`/product/${id}`}>
-                    <div className="border w-[250px] flex justify-center bg-[#bf3631] rounded">
+                    <div className="border w-[350px] flex justify-center bg-[#bf3631] rounded">
                         <h2 className="mb-1 text-white text-2xl font-[Arimo-Regular]">{nombre}</h2>
                     </div>
                 </Link>
-                <div className="flex justify-center font-semibold"><h2 className='font-[Arimo-Regular]'>$ {precio}</h2></div>
+                <div className="flex justify-center font-semibold"><h2 className='font-[Arimo-Regular]'>$ {formattedPrice}</h2></div>
             </div>
             <div></div>
         </div>
