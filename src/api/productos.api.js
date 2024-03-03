@@ -6,6 +6,10 @@ export const createProduct = async(product) => {
   return await axios.post(urlBack + "/createProduct", product)
 }
 
+export const deleteProductRequest = async(id) => {
+  return await axios.post(urlBack + "/deleteProduct/", id)
+}
+
 export const getLineasRequest = async() => {
   return await axios.get(urlBack + "/getLineas")
 }

@@ -1,10 +1,16 @@
 import { ProductContext } from "../../context/ProductContext"
-import React, { useContext, useEffect } from "react"
+import React, { useContext, useEffect, useState } from "react"
 import { Link } from "react-router-dom"
-
+import {deleteProductRequest} from "../../api/productos.api"
 export const AdminStockView = () => {
-    const { products } = useContext(ProductContext)
+    const { products, updateProducts } = useContext(ProductContext)
     
+    const handleEliminar = async (id)=>{
+        console.log(id)
+        await deleteProductRequest(id)
+        updateProducts()
+    }
+
     return (
         <div className="min-h-max">
         <div className="flex justify-center xl:justify-end items-center m-10">
@@ -49,9 +55,9 @@ export const AdminStockView = () => {
                                                 </Link>
                                             </div>
                                             <div className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
-                                                <button>
+                                                <div onClick={ () =>handleEliminar(product.id)} >
                                                     Eliminar
-                                                </button>
+                                                </div>
                                             </div>
                                         </div>
                                     </td>
