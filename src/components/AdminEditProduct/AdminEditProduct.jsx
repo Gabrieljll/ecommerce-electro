@@ -137,7 +137,7 @@ export const AdminEditProduct = () => {
                                                     <input
                                                         className="form-control my-2 w-[100%] xl:w-[400px]"
                                                         onChange={handleChange}
-                                                        type="number"
+                                                        type="text"
                                                         id="sku"
                                                         name="sku"
                                                         placeholder="Código SKU"
