@@ -136,7 +136,7 @@ export const SectionList = () =>{
         <section ref={ref4} className={`section transition-fade-up ${inView4 ? "active" : ""}`}>
                 <div className="h-[100%]  m-auto py-5 relative group">
                     <div className="flex justify-center items-center">
-                        <img onClick={navigateToShop} className="bg-cover group-hover:scale-105 transition duration-300" src={`${isMobile ? imagenSection1Mobile : imagenSection1 }`} alt="" />
+                        <img onClick={navigateToWsp} className="bg-cover group-hover:scale-105 transition duration-300" src={`${isMobile ? imagenSection1Mobile : imagenSection1 }`} alt="" />
                     </div>
                 </div>
             </section>  
