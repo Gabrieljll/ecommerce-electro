@@ -16,7 +16,7 @@ const image4_movil = "/images/nuevas_imgs/sevicio_tecnico_cuadrado.png"
 const image5_movil = "/images/nuevas_imgs/atencion_personalizada_cuadrado.png"
 
 export const Slider = () => {
-  const isMobile = window.innerWidth < 1024;
+  const isMobile = window.innerWidth < 1030;
   const slidesPC = [
     { url: image1 },
     { url: image2 },
