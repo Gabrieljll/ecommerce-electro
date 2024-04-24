@@ -126,8 +126,8 @@ export const SectionList = () =>{
                 <div>
                     <h1 className="text-center text-3xl font-bold text-[#ae322e] md:text-5xl mb-4 uppercase">Una vida dedicada al servicio</h1>
 
-                    <p className="text-center text-black text-lg md:text-[23px]">CJ Repuestos nace con la idea de ofrecer al minorista y al consumidor final el mejor servicio, en el momento preciso, y al mejor precio. Con más de treinta y cinco años en la industria, nuestra trayectoria y nuestros clientes avalan el camino que nos ha traído hasta este lugar, apuntando siempre a ser el socio de confianza del técnico y el minorista, y colaborando a mantener en las mejores condiciones el hogar de todos los argentinos
-                    </p>
+                    <h2 className="text-center text-black text-lg md:text-[23px]">CJRepuestos nace con la idea de ofrecer al minorista y al consumidor final el mejor servicio, en el momento preciso, y al mejor precio. Con más de treinta y cinco años en la industria, nuestra trayectoria y nuestros clientes avalan el camino que nos ha traído hasta este lugar, apuntando siempre a ser el socio de confianza del técnico y el minorista, y colaborando a mantener en las mejores condiciones el hogar de todos los argentinos con nuestros electrodomésticos y repuestos.
+                    </h2>
                 </div>
                 <img src="./images/section/hand.png" className="transform w-44 max-w-lg mt-4 md:mt-0 md:ml-4 hidden lg:block" />
             </article>
@@ -148,7 +148,7 @@ export const SectionList = () =>{
                 <article>
                     
                         <div className="flex items-center justify-center text-center">
-                            <h1 className="text-2xl font-bold text-[#ae322e] mb-6 md:text-4xl uppercase">Consulta gratis para tus electrodomésticos.</h1>
+                            <h1 className="text-2xl font-bold text-[#ae322e] mb-6 md:text-4xl uppercase">Consulta gratis para tus electrodomésticos y repuestos.</h1>
 
                         </div>
                         <div className="flex items-center justify-center text-center">
@@ -188,7 +188,7 @@ export const SectionList = () =>{
                         </div>
 
                         <p className="text-lg md:text-[23px] text-center">Trabajamos con proveedores logísticos de primera línea.
-                        Consulte envíos a su región, costos y descuentos especiales por cantidad.</p>
+                        Consulte envíos a su región, costos y descuentos especiales por cantidad de electrodomésticos o repuestos.</p>
 
                     </article>
 
