@@ -18,7 +18,7 @@ import { ProtectedRoutes } from '../components/ProtectedRoutes/ProtectedRoutes';
 import Finish from '../components/Finish/Finish';
 import { useAuth } from '../hooks/useAuth'; // Importa el hook
 
-export const PublicRoutes = () => {
+export default function PublicRoutes() {
     const { user } = useAuth(); // Usa el hook para obtener el estado de autenticación
 
     return (
@@ -46,6 +46,7 @@ export const PublicRoutes = () => {
             </Routes>
             <Sidebar />
             <Footer />
+           
         </div>
     )
 }

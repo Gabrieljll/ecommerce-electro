@@ -15,7 +15,7 @@ const image3_movil = "/images/nuevas_imgs/las_mejores_marcas_cuadrado.webp"
 const image4_movil = "/images/nuevas_imgs/sevicio_tecnico_cuadrado.webp"
 const image5_movil = "/images/nuevas_imgs/atencion_personalizada_cuadrado.webp"
 
-export const Slider = () => {
+export default function Slider() {
   const isMobile = window.innerWidth < 1030;
   const slidesPC = [
     { url: image1 },

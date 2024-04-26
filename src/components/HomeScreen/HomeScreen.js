@@ -1,19 +1,21 @@
-import { Slider } from "../Slider/Slider"
-import { SectionList } from "../SectionList/SectionList"
-import "./HomeScreen.css"
-import React from "react"
+import "./HomeScreen.css";
+import React, { lazy, Suspense } from 'react';
+import { Loader } from "../Loader/Loader";
 
+const LazySlider = lazy(() => import("../Slider/Slider"));
+const LazySectionList = lazy(() => import("../SectionList/SectionList"));
 
 export const HomeScreen = () => {
     return (
         <div>
             <div className="divSlider">
-                <Slider />
+                <Suspense fallback={<Loader />}>
+                    <LazySlider />
+                </Suspense>
             </div>
-                <SectionList />
-{/*             <div className="home-information">
-                
-            </div> */}
+            <Suspense fallback={<Loader />}>
+                <LazySectionList />
+            </Suspense>
         </div>
     )
 }

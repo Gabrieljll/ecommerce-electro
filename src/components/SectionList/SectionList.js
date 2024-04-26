@@ -12,7 +12,7 @@ const imagenSection1 = "/images/nuevas_imgs/buscas_renovar_tu_casa.webp"
 const imagenSection1Mobile = "/images/nuevas_imgs/buscas_renovar_tu_casa_cuadrado.webp"
 
 
-export const SectionList = () =>{
+export default function SectionList() {
     const navigate = useNavigate();
     const isMobile = window.innerWidth < 1000;
     const [ref1, inView1] = useInView({
