@@ -176,7 +176,7 @@ export const CheckoutPayment = () => {
                         <h1 className="text-xl font-[Arimo-Regular]">Queremos garantizar seguridad, por eso ofrecemos</h1>
                         <h1 className="text-xl font-[Arimo-Regular]"><strong>Mercado Pago</strong> como intermediario para realizar la compra.</h1>
                         <h1 className="text-xl font-[Arimo-Regular]">De esta forma elegis cualquiera de sus medios de pago</h1>
-                        <img className="w-[300px] xl:w-[500px]" src={mercadoPagoImg} alt="" />
+                        <img className="w-[300px] xl:w-[500px]" src={mercadoPagoImg} alt="Logo de Mercardo Pago" title="Logo de Mercardo Pago" />
                     </div>
                     <div className="flex flex-col justify-center items-center">
                         <div className="">

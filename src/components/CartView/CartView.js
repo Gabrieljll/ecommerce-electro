@@ -41,7 +41,7 @@ const CartView = () => {
                     <h1 className="font-[Arimo-Regular]">¡Tu carrito está vacío!</h1>
                 </div>
                 <div className="mb-12 lg:p-0 pl-6 pr-6">
-                    <img src={emptyCartImage} alt="https://icons8.com/illustrations/author/zD2oqC8lLBBA" />
+                    <img src={emptyCartImage} alt="https://icons8.com/illustrations/author/zD2oqC8lLBBA" title="Carrito Vacío" />
                 </div>
                 <hr />
                 <div>

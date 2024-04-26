@@ -101,7 +101,7 @@ export const SectionList = () =>{
                     {data.map((d) => (
                     <div key={d.name} className="bg-white lg:h-[450px] h-[350px] text-black rounded-xl md:w-full lg:w-1/3">
                         <div className='h-40 xl:h-56 bg-transparent flex justify-center items-center rounded-t-xl'>
-                            <img src={d.img} alt={d.name} className="h-28 w-32 xl:h-48 xl:w-48"/>
+                            <img src={d.img} alt={d.name} title={d.name} className="h-28 w-32 xl:h-48 xl:w-48"/>
                         </div>
 
                         <div className="flex flex-col items-center justify-center gap-4 p-4">
@@ -136,7 +136,7 @@ export const SectionList = () =>{
         <section ref={ref4} className={`section transition-fade-up ${inView4 ? "active" : ""}`}>
                 <div className="h-[100%]  m-auto py-5 relative group">
                     <div className="flex justify-center items-center">
-                        <img onClick={navigateToWsp} className="bg-cover group-hover:scale-105 transition duration-300" src={`${isMobile ? imagenSection1Mobile : imagenSection1 }`} alt="" />
+                        <img onClick={navigateToWsp} className="bg-cover group-hover:scale-105 transition duration-300" src={`${isMobile ? imagenSection1Mobile : imagenSection1 }`} alt="¿Buscas Renovar tu casa?"  title="¿Buscas Renovar tu casa?"/>
                     </div>
                 </div>
             </section>  

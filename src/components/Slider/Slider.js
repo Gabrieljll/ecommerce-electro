@@ -96,6 +96,7 @@ export const Slider = () => {
     className = "w-full h-full object-cover duration-500" > {
       isMobile && ( <img src = { slides[currentIndex].url }
         alt = { `Slide ${currentIndex + 1}` }
+        title = { `Slide ${currentIndex + 1}` }
         className = "w-full h-full object-fit"
         style = {
           {
