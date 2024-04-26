@@ -52,7 +52,7 @@ export const Navbar = () =>{
 
                     <Link to="/home" className="">
                         {/* <img src="./images/logo.svg" className="w-full" /> */}
-                        <img className="w-[50%]" src={logoImg} alt="" />
+                        <img className="w-[50%]" src={logoImg} alt="Logo CJRepuestos Nav" />
                     </Link>
 
                     <input type="checkbox" id="menu" className="peer hidden" />

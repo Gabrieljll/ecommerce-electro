@@ -52,27 +52,27 @@ export const SectionList = () =>{
       const data = [
         {
           name: `Cocinas`,
-          img: `/images/nuevas_imgs/categorias/Cocinas.png`,
+          img: `/images/nuevas_imgs/categorias/Cocinas.webp`,
         },
         {
           name: `Termotanques`,
-          img: `/images/nuevas_imgs/categorias/Termotanques.png`,
+          img: `/images/nuevas_imgs/categorias/Termotanques.webp`,
         },
         {
           name: `Calefones`,
-          img: `/images/nuevas_imgs/categorias/Calefones.png`,
+          img: `/images/nuevas_imgs/categorias/Calefones.webp`,
         },
         {
           name: `Estufas`,
-          img: `/images/nuevas_imgs/categorias/Estufas.png`,
+          img: `/images/nuevas_imgs/categorias/Estufas.webp`,
         },
         {
           name: `Anafes`,
-          img: `/images/nuevas_imgs/categorias/Anafes.png`,
+          img: `/images/nuevas_imgs/categorias/Anafes.webp`,
         },
         {
             name: `Lavarropas`,
-            img: `/images/nuevas_imgs/categorias/Lavarropas.png`,
+            img: `/images/nuevas_imgs/categorias/Lavarropas.webp`,
         }
         
       ];
@@ -101,7 +101,7 @@ export const SectionList = () =>{
                     {data.map((d) => (
                     <div key={d.name} className="bg-white lg:h-[450px] h-[350px] text-black rounded-xl md:w-full lg:w-1/3">
                         <div className='h-40 xl:h-56 bg-transparent flex justify-center items-center rounded-t-xl'>
-                            <img src={d.img} alt="" className="h-28 w-32 xl:h-48 xl:w-48"/>
+                            <img src={d.img} alt={d.name} className="h-28 w-32 xl:h-48 xl:w-48"/>
                         </div>
 
                         <div className="flex flex-col items-center justify-center gap-4 p-4">
