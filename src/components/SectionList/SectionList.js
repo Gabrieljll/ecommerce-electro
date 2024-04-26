@@ -122,14 +122,14 @@ export const SectionList = () =>{
                 inView3 ? "active" : ""
             }`}>
 
-                <img src="./images/section/hand.png" className="w-44 max-w-lg scale-x-[-1] mb-4 md:mb-0 md:mr-4 hidden lg:block" />
+                <img src="./images/section/hand.png" alt="Mano Izquierda" title="Mano Izquierda" className="w-44 max-w-lg scale-x-[-1] mb-4 md:mb-0 md:mr-4 hidden lg:block" />
                 <div>
                     <h1 className="text-center text-3xl font-bold text-[#ae322e] md:text-5xl mb-4 uppercase">Una vida dedicada al servicio</h1>
 
                     <h2 className="text-center text-black text-lg md:text-[23px]">CJRepuestos nace con la idea de ofrecer al minorista y al consumidor final el mejor servicio, en el momento preciso, y al mejor precio. Con más de treinta y cinco años en la industria, nuestra trayectoria y nuestros clientes avalan el camino que nos ha traído hasta este lugar, apuntando siempre a ser el socio de confianza del técnico y el minorista, y colaborando a mantener en las mejores condiciones el hogar de todos los argentinos con nuestros electrodomésticos y repuestos.
                     </h2>
                 </div>
-                <img src="./images/section/hand.png" className="transform w-44 max-w-lg mt-4 md:mt-0 md:ml-4 hidden lg:block" />
+                <img src="./images/section/hand.png" alt="Mano Derecha" title="Mano Derecha" className="transform w-44 max-w-lg mt-4 md:mt-0 md:ml-4 hidden lg:block" />
             </article>
         </section>
 
@@ -160,7 +160,7 @@ export const SectionList = () =>{
                     <div className="flex justify-evenly mb-10 xl:mb-0 cursor-pointer">
                         <div className="flex flex-col  items-center justify-center">
                             <div onClick={navigateToContact} className="flex justify-center mt-10 xl:mt-20">
-                                <img className="max-w-[50%]" src="./images/section/Mail_400.png" alt="" />
+                                <img className="max-w-[50%]" src="./images/section/Mail_400.png" alt="Logo Mail" title="Logo Mail" />
                             </div>
                             <div className="shadow-slate-300 text-base text-center text-black block w-max mt-2 bg-[#ae322e] rounded shadow-xl">
                                 <p className="text-white p-2 text-2xl uppercase font-[Arimo-Regular]">Mail</p>
@@ -168,7 +168,7 @@ export const SectionList = () =>{
                         </div>
                         <div className="flex flex-col items-center justify-center cursor-pointer">
                             <div onClick={navigateToWsp} className="flex justify-center mt-10 xl:mt-20">
-                                <img className="max-w-[50%]" src="./images/section/Wsp_400.png" alt="" />
+                                <img className="max-w-[50%]" src="./images/section/Wsp_400.png" alt="Logo WhatsApp" title="Logo WhatsApp" />
                             </div>                        
                             <div className="shadow-slate-300 text-base text-vary-light-gray block w-max mt-2 bg-[#ae322e] rounded shadow-xl">
                             <h1 className="text-white p-2 text-2xl uppercase font-[Arimo-Regular]">Whatsapp</h1>

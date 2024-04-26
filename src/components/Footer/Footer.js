@@ -48,19 +48,19 @@ export const Footer = () => {
 
         <div className="flex flex-wrap gap-4 justify-center w-full md:justify-center">
         <a href="#">
-            <img onClick={() => redirectToHomeAndScroll("home")} src="./images/footer/icon-facebook.svg" className="w-8" />
+            <img onClick={() => redirectToHomeAndScroll("home")} src="./images/footer/icon-facebook.svg" alt="Facebook" title="Facebook" className="w-8" />
         </a>
         <a href="#">
-            <img onClick={() => redirectToHomeAndScroll("home")} src="./images/footer/icon-twitter.svg" className="w-8" />
+            <img onClick={() => redirectToHomeAndScroll("home")} src="./images/footer/icon-twitter.svg" alt='Twitter' title='Twitter' className="w-8" />
         </a>
         <a href="#">
-            <img onClick={() => redirectToHomeAndScroll("home")} src="./images/footer/icon-instagram.svg" className="w-8" />
+            <img onClick={() => redirectToHomeAndScroll("home")} src="./images/footer/icon-instagram.svg" alt='Instagram' title="Instagram" className="w-8" />
         </a>
         </div>
 
         <Link to="home"  onClick={scrollToTop} className="flex justify-center md:justify-end">
             {/* <p className="font-extrabold text-white text-6xl">LOGO</p> */}
-            <img className="w-[100%]" src={logoImg} alt="Logo CJRepuesto Footer" />
+            <img className="w-[100%]" src={logoImg} alt="Logo CJRepuesto Footer" title='Logo CJRepuestos Nav'/>
         </Link>
 
         <p className="text-dark-grayish-blue text-center md:text-right md:col-span-2 lg:col-span-3">
