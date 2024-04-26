@@ -9,8 +9,8 @@ import "../../styles/animate.min.css"
 import { ToastContainer } from 'react-toastify';
 
 /* import image hero */
-const heroShop = "/images/nuevas_imgs/calidad_y_precio.png";
-const heroShopMobile = "/images/nuevas_imgs/calidad_y_precio_cuadrado.png";
+const heroShop = "/images/nuevas_imgs/calidad_y_precio.webp";
+const heroShopMobile = "/images/nuevas_imgs/calidad_y_precio_cuadrado.webp";
 
 export const ShopView = () => {
     //const manHero = "/images/hero/banner_tienda.png";

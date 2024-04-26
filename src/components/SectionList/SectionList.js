@@ -8,8 +8,8 @@ import "../../styles/animate.min.css"
 import "./Section.css"
 import { AiOutlineShoppingCart } from "react-icons/ai";
 
-const imagenSection1 = "/images/nuevas_imgs/buscas_renovar_tu_casa.png"
-const imagenSection1Mobile = "/images/nuevas_imgs/buscas_renovar_tu_casa_cuadrado.png"
+const imagenSection1 = "/images/nuevas_imgs/buscas_renovar_tu_casa.webp"
+const imagenSection1Mobile = "/images/nuevas_imgs/buscas_renovar_tu_casa_cuadrado.webp"
 
 
 export const SectionList = () =>{
