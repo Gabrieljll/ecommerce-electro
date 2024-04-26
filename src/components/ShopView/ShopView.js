@@ -111,7 +111,7 @@ export const ShopView = () => {
 
                     {/* image */}
                     <div className="">
-                        <img className="" src={isMobile ? heroShopMobile : heroShop} alt="https://br.freepik.com/fotos-gratis/homem-bonito-apontando-para-o-lateral_1184718.htm?epik=dj0yJnU9RzRIMXNuUHlwM002VnlrQVlick9iUjNlLU1rZW5GQXMmcD0wJm49UjlIajhqQUdERzVvQmt1dmtDUGJoUSZ0PUFBQUFBR1dseGZn#page=3&query=Expressao&position=4" />
+                        <img className="" src={isMobile ? heroShopMobile : heroShop} alt="Calidad y Precio en cjrepuestos" title='CJRepuestos/cjrepuestos '/>
                     </div>
             </div>
         </section>
@@ -120,7 +120,7 @@ export const ShopView = () => {
 
         <div ref={ref2} className={`container py-4 flex items-center gap-3 lg:m-auto pl-5 shop-transition-fade-up ${inView2 ? "active" : ""}`}>
             <Link to={"/home"} className="flex text-primary text-gray-600  text-2xl font-[Arimo-Regular]">Inicio  </Link>
-            <img src={flecha} alt="" /><p className="relative left-[-12px] disabled font-medium text-gray-600 text-2xl font-[Arimo-Regular]">Tienda</p>
+            <img src={flecha} alt="flecha CJRepuestos" title='flecha cjrepuestos' /><p className="relative left-[-12px] disabled font-medium text-gray-600 text-2xl font-[Arimo-Regular]">Tienda</p>
         </div>
         <div className="container flex xl:grid xl:grid-cols-4 gap-6 pt-4 pb-16 items-start m-auto">
             

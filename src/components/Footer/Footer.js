@@ -60,7 +60,7 @@ export const Footer = () => {
 
         <Link to="home"  onClick={scrollToTop} className="flex justify-center md:justify-end">
             {/* <p className="font-extrabold text-white text-6xl">LOGO</p> */}
-            <img className="w-[100%]" src={logoImg} alt="Logo CJRepuesto Footer" title='Logo CJRepuestos Nav'/>
+            <img className="w-[100%]" src={logoImg} alt="Logo cjrepuestos Footer" title='Logo CJRepuestos Nav'/>
         </Link>
 
         <p className="text-dark-grayish-blue text-center md:text-right md:col-span-2 lg:col-span-3">

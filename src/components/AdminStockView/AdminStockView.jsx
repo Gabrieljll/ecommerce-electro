@@ -45,7 +45,7 @@ export const AdminStockView = () => {
                                     <td>{product.categoria}</td>
                                     <td>{product.descripcion}</td>
                                     <td>{product.precio}</td>
-                                    <td><img className="w-[250px]" src={"data:image/jpeg;base64,"+product.imagen} alt="" /></td>
+                                    <td><img className="w-[250px]" src={"data:image/jpeg;base64,"+product.imagen} alt={"cjrepuestos producto, "+product.nombre} title={product.nombre} /></td>
                                     <td>{product.stock}</td>
                                     <td>
                                         <div className="flex flex-col xl:flex-row justify-center items-center">
