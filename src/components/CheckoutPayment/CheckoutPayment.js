@@ -138,7 +138,7 @@ export const CheckoutPayment = () => {
                 <h2>Tu compra ha sido exitosa</h2>
                 <hr/>
                 <p>Tu código de orden es: {orderId}</p>
-                <Link className="btn btn-primary" to="/home">Volver</Link>
+                <Link className="btn btn-primary" to="/home" title="Home | CJRepuestos">Volver</Link>
             </div>
         )
     }

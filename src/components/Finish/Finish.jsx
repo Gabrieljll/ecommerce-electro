@@ -45,7 +45,7 @@ const Finish = () => {
                 </div>
                 <hr />
                 <div>
-                    <Link className="xl:w-full w-[250px] h-[70px] bg-white border-2 border-[#850400] py-4 px-8  my-4 flex p-4 justify-between items-center text-primary font-medium mb-2" to="/productos "><span className="text-xl font-bold text-[#850400] font-[Arimo-Regular]">Explorar productos </span> <AiOutlineShoppingCart className="self-center text-4xl" /></Link>
+                    <Link className="xl:w-full w-[250px] h-[70px] bg-white border-2 border-[#850400] py-4 px-8  my-4 flex p-4 justify-between items-center text-primary font-medium mb-2" to="/productos " title="Productos | CJRepuestos"><span className="text-xl font-bold text-[#850400] font-[Arimo-Regular]">Explorar productos </span> <AiOutlineShoppingCart className="self-center text-4xl" /></Link>
                 </div>
             </div>
             

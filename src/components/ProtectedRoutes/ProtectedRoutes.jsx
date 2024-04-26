@@ -4,7 +4,7 @@ export const ProtectedRoutes = ({ user, children }) => {
     
     if(!user){
         console.log("falla en protectedRoutes")
-        return <Navigate to="/login" />
+        return <Navigate to="/login" title="login"/>
     }
     return <Outlet/>
 

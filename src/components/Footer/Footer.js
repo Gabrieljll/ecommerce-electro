@@ -38,27 +38,27 @@ export const Footer = () => {
     <section className="wrapper grid gap-12 justify-center items-center footer-area md:footer-area-md md:grid-cols-3 md:justify-items-center">
 
         <nav className="grid gap-y-4 h-min justify-center text-center text-white w-full md:w-full md:grid-cols-2 lg:grid-cols-3">
-            <Link to="/home"  onClick={scrollToTop}> <h1 className="text-md font-[ArchivoBlack-Regular] text-white ">Inicio</h1></Link>
-            <Link to="/productos" onClick={scrollToTop}><h1 className="text-md font-[ArchivoBlack-Regular] text-white ">Tienda</h1></Link>
-            <LinkScroll onClick={() => redirectToHomeAndScroll("nosotros")} duration={500}><h1 className="text-md font-[ArchivoBlack-Regular] text-white">Sobre Nosotros</h1></LinkScroll>
+            <Link to="/home" title="Home | CJRepuestos" onClick={scrollToTop}> <h1 className="text-md font-[ArchivoBlack-Regular] text-white ">Inicio</h1></Link>
+            <Link to="/productos" title="Productos | CJRepuestos" onClick={scrollToTop}><h1 className="text-md font-[ArchivoBlack-Regular] text-white ">Tienda</h1></Link>
+{/*             <LinkScroll onClick={() => redirectToHomeAndScroll("nosotros")} duration={500}><h1 className="text-md font-[ArchivoBlack-Regular] text-white">Sobre Nosotros</h1></LinkScroll>
             <Link to="/contactenos"><h1 className="text-md font-[ArchivoBlack-Regular] text-white">Contacto</h1></Link>
             <LinkScroll onClick={() => redirectToHomeAndScroll("atencionCliente")} duration={500}><h1 className="text-md font-[ArchivoBlack-Regular] text-white">Atención al Cliente</h1></LinkScroll>
-            <Link to={urlWsp} target="_blank"><h1 className="text-md font-[ArchivoBlack-Regular] text-white">WhatsApp</h1></Link>
+            <Link to={urlWsp} target="_blank"><h1 className="text-md font-[ArchivoBlack-Regular] text-white">WhatsApp</h1></Link> */}
         </nav>
 
         <div className="flex flex-wrap gap-4 justify-center w-full md:justify-center">
-        <a href="#">
+        <a href="#" title="Facebook | CJRepuestos">
             <img onClick={() => redirectToHomeAndScroll("home")} src="./images/footer/icon-facebook.svg" alt="Facebook" title="Facebook" className="w-8" />
         </a>
-        <a href="#">
+        <a href="#" title='Twitter | CJRepuestos'>
             <img onClick={() => redirectToHomeAndScroll("home")} src="./images/footer/icon-twitter.svg" alt='Twitter' title='Twitter' className="w-8" />
         </a>
-        <a href="#">
+        <a href="#" title="Instagram | CJRepuestos">
             <img onClick={() => redirectToHomeAndScroll("home")} src="./images/footer/icon-instagram.svg" alt='Instagram' title="Instagram" className="w-8" />
         </a>
         </div>
 
-        <Link to="home"  onClick={scrollToTop} className="flex justify-center md:justify-end">
+        <Link to="home" title="Home | CJRepuestos" onClick={scrollToTop} className="flex justify-center md:justify-end">
             {/* <p className="font-extrabold text-white text-6xl">LOGO</p> */}
             <img className="w-[100%]" src={logoImg} alt="Logo cjrepuestos Footer" title='Logo CJRepuestos Nav'/>
         </Link>

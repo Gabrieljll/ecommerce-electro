@@ -27,7 +27,7 @@ export const RegisterScreen = () => {
                     <button className="btn btn-primary" disabled={loading}>Registrar</button>
                     {user.error && <p className="error">{user.error}</p>}
                 </form>
-                <Link to="/login">Ya estoy registrado</Link>
+                <Link to="/login" title="Login">Ya estoy registrado</Link>
             </div>
         </div>
     )

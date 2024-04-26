@@ -40,8 +40,8 @@ const Sidebar = () =>{
                     <FiTrash2 />
                 </div>
             </div>
-            <Link to="/cart" onClick={handleClose} className="bg-white border-[1.5px] border-[#850400] flex p-4 justify-center items-center text-primary w-full font-[Arimo-Bold] text-[#850400]">Ver Carrito</Link>
-            <Link to="/checkout" onClick={handleClose} className="flex p-4 justify-center items-center text-white w-full font-[Arimo-Bold] bg-[#850400]">Finalizar Compra</Link>
+            <Link to="/cart" onClick={handleClose} title="Carrito | CJRepuestos" className="bg-white border-[1.5px] border-[#850400] flex p-4 justify-center items-center text-primary w-full font-[Arimo-Bold] text-[#850400]">Ver Carrito</Link>
+            <Link to="/checkout" title="Checkout | CJRepuestos" onClick={handleClose} className="flex p-4 justify-center items-center text-white w-full font-[Arimo-Bold] bg-[#850400]">Finalizar Compra</Link>
         </div>
     </div>
 }

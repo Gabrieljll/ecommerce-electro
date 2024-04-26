@@ -50,7 +50,7 @@ export const Navbar = () =>{
 
                 <nav className="wrapper h-20 xl:w-screen flex items-center justify-between overflow-visible">
 
-                    <Link to="/home" className="">
+                    <Link to="/home" title="Home | CJRepuestos" className="">
                         {/* <img src="./images/logo.svg" className="w-full" /> */}
                         <img className="w-[50%]" src={logoImg} alt="Logo cjrepuestos Nav" title='Logo CJRepuestos Nav' />
                     </Link>
@@ -62,12 +62,12 @@ export const Navbar = () =>{
                     <div className="fixed inset-0 bg-gradient-to-b from-white/70 to-black/70 translate-x-full peer-checked:translate-x-0 transition-transform z-40 lg:static lg:bg-none lg:translate-x-0">
                     <ul className="absolute inset-x-0 top-24 p-12 bg-white w-[90%] mx-auto rounded-md h-max text-center grid gap-6 font-bold text-black shadow-2xl lg:w-max lg:text-2xl lg:bg-transparent lg:p-0 lg:grid-flow-col lg:static text-xl font-[Arimo-Regular]">
                     <li>
-                        <Link to="/home" onClick={closeMenu}>
+                        <Link to="/home" title="Home | CJRepuestos" onClick={closeMenu}>
                             Inicio
                         </Link>
                     </li>
                     <li>
-                        <Link to="/productos" onClick={closeMenu}>
+                        <Link to="/productos" title="Productos | CJRepuestos" onClick={closeMenu}>
                             Tienda
                         </Link>
                     </li>
@@ -82,7 +82,7 @@ export const Navbar = () =>{
                         </span>
                     </li>
                     <li>
-                        <Link className="cursor-pointer" to="/contactenos" onClick={closeMenu}>
+                        <Link className="cursor-pointer" to="/contactenos" title="Contacto | CJRepuestos" onClick={closeMenu}>
                             Contáctenos
                         </Link>
                     </li>
