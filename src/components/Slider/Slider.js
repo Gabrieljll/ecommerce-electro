@@ -78,7 +78,7 @@ export default function Slider() {
   useEffect(() => {
     setTimeout(() => {
       setIsActive(true);
-    }, 100);
+    }, 200);
   }, []);
 
   return ( 
