@@ -7,7 +7,7 @@ const jwt_secret = process.env.REACT_APP_SECRET_JSONWEBTOKEN
   const [user, setUser] = useState(null);
   useEffect(() => {
     const token = localStorage.getItem("token");
-    console.log("Token:", token);
+    
   
     if (token) {
       try {

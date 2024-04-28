@@ -1,8 +1,11 @@
 import "./Slider.css";
-import React, { useEffect, useState, useRef, MutableRefObject } from 'react';
+import React, { useEffect, useState, useRef, MutableRefObject, lazy, Suspense } from 'react';
 import { BsChevronCompactLeft, BsChevronCompactRight } from 'react-icons/bs';
 import { RxDotFilled } from 'react-icons/rx';
 
+import { Loader } from "../Loader/Loader";
+
+const LazySliderImages = lazy(() => import("../SliderImages/SliderImages"));
 
 const image1 = "/images/nuevas_imgs/electro_repuestos.webp"
 const image2 = "/images/nuevas_imgs/electrodomesticos_de_hogar.webp"
@@ -95,17 +98,11 @@ export default function Slider() {
 
   return (
     <div className={`max-w-[1920px] ${isMobile ? 'h-[100vw]' : 'h-[950px]'} w-full m-auto pb-5 relative group transition-fade-up ${isActive ? 'active' : ''}`}>
-      <div
-        className="w-full h-full object-cover duration-500"
-        style={{
-          backgroundImage: `url(${slides[currentIndex].url})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat',
-          height: isMobile ? '100vw' : '950px',
-          transition: 'background-image 1s ease',
-        }}
-      />
+
+        <Suspense fallback={<Loader />}>
+            <LazySliderImages imgs={slides[currentIndex]} flagIsMobile={isMobile} />
+        </Suspense> 
+      
       <div className='hidden group-hover:block absolute top-[50%] -translate-x-0 translate-y-[-50%] left-5 text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer'>
         <BsChevronCompactLeft onClick={prevSlide} size={30} />
       </div>
