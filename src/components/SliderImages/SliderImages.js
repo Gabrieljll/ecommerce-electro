@@ -11,7 +11,7 @@ export default function SliderImages( {imgs, flagIsMobile} ) {
       backgroundSize: 'cover',
       backgroundPosition: 'center',
       backgroundRepeat: 'no-repeat',
-      height: flagIsMobile ? '100vw' : '950px',
+      height: flagIsMobile === "true" ? '100vw' : '950px',
       transition: 'background-image 1s ease',
     }}>
     </div>
