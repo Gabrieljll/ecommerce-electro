@@ -39,3 +39,16 @@
     opacity: 0.01;
     transition: opacity 500ms ease-in;
 }
+
+.h1-slider {
+    letter-spacing: -5px;
+}
+
+.h1-white {
+    color: white;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+    opacity: 0.3;
+}
