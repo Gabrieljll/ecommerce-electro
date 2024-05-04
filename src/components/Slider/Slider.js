@@ -53,7 +53,7 @@ export default function Slider() {
           <div className="text-container">
             <div>
                 <div 
-                    className="w-full h-full object-cover duration-500 d-flex justify-center text-center"
+                    className={`w-full ${isMobile ? 'h-[100vw]' : 'h-full'} object-cover duration-500 d-flex justify-center text-center`}
                     style={{
                     backgroundImage: `url(${slide.url})`,
                     backgroundSize: 'cover',
@@ -61,6 +61,7 @@ export default function Slider() {
                     backgroundRepeat: 'no-repeat',
                     height: isMobile ? '100vw' : '950px',
                     transition: 'background-image 1s ease',
+                    marginBottom: '50px',
                     }}>
 
 {/*                     <div className="top-[32%] left-[12%] relative">
