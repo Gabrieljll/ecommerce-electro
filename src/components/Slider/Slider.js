@@ -1,10 +1,11 @@
-import React from 'react';
+import React ,{Suspense} from 'react';
 import './Slider.css'
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import { Navigation, Pagination, Autoplay } from 'swiper/modules';
+import { Loader } from "../Loader/Loader";
 
 const image1 = "/images/nuevas_imgs/electro_repuestos.webp";
 const image2 = "/images/nuevas_imgs/electrodomesticos_de_hogar.webp";
@@ -51,7 +52,7 @@ export default function Slider() {
       {slides.map((slide, index) => (
         <SwiperSlide key={index}>
           <div className="text-container">
-            <div>
+            <Suspense fallback={<Loader />}>
                 <div 
                     className={`w-full ${isMobile ? 'h-[100vw]' : 'h-full'} object-cover duration-500 d-flex justify-center text-center`}
                     style={{
@@ -76,7 +77,7 @@ export default function Slider() {
                     
                 </div>
 
-            </div>
+            </Suspense>
           </div>
         </SwiperSlide>
       ))}
