@@ -43,7 +43,9 @@
 .h1-slider {
     letter-spacing: -5px;
 }
-
+.h1-slider-mobile {
+    letter-spacing: -3px;
+}
 .h1-white {
     color: white;
 }
