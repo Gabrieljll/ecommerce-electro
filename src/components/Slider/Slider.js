@@ -7,7 +7,7 @@ import 'swiper/css/pagination';
 import { Navigation, Pagination, Autoplay } from 'swiper/modules';
 import { Loader } from "../Loader/Loader";
 
-const image1 = "/images/nuevas_imgs/electro_repuestos_sin_texto.webp";
+const image1 = "/images/nuevas_imgs/electro_repuestos.webp";
 const image2 = "/images/nuevas_imgs/electrodomesticos_de_hogar.webp";
 const image3 = "/images/nuevas_imgs/las_mejores_marcas.webp";
 const image4 = "/images/nuevas_imgs/servicio_tecnico.webp";
@@ -47,7 +47,7 @@ export default function Slider() {
       slidesPerView={1}
       navigation
       pagination={{ clickable: true }}
-      autoplay={{ delay: 90000 }}
+      autoplay={{ delay: 9000 }}
     >
       {slides.map((slide, index) => (
         <SwiperSlide key={index}>
