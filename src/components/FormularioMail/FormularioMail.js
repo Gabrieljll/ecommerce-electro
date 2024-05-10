@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { useToaster } from 'react-hot-toast';
@@ -8,6 +8,7 @@ import { enviarConsultaMailRequest } from "../../api/productos.api";
 export const FormularioMail = () => {
   const [isMailSent, setIsMailSent] = useState(false);
   const toast = useToaster();
+  const formRef = useRef(null);
 
   const formik = useFormik({
     initialValues: {
@@ -35,6 +36,11 @@ export const FormularioMail = () => {
   });
 
   useEffect(() => {
+    // Agrega scroll al cargar
+    formRef.current.scrollIntoView({ behavior: 'smooth' });
+  }, []);
+
+  useEffect(() => {
     const resetFormTimeout = setTimeout(() => {
       setIsMailSent(false);
       formik.resetForm();
@@ -44,7 +50,7 @@ export const FormularioMail = () => {
   }, [isMailSent, formik]);
 
   return (
-    <main className="animate__animated animate__fadeIn">
+    <main className="animate__animated animate__fadeIn" ref={formRef}>
       <div className="container mx-auto flex flex-wrap items-start mt-8">
         <div className="w-full pl-2 pr-2 mb-4 mt-4">
           <h1 className="text-3xl font-extrabold text-center">Envianos tu consulta</h1>

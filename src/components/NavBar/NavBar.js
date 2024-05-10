@@ -10,7 +10,7 @@ import {BsBag} from 'react-icons/bs'
 import { IoCart } from "react-icons/io5";
 
 export const Navbar = () =>{
-    const logoImg = "/images/Logo_CJ_final.png"
+    const logoImg = "/images/Logo_CJ_final.webp"
     
     const {isOpen, setIsOpen} = useContext(SidebarContext)
     const {itemAmount} = useContext(CartContext)

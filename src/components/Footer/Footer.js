@@ -4,7 +4,7 @@ import "./Footer.css"
 export const Footer = () => {
     const navigate = useNavigate()
     const urlWsp = process.env.REACT_APP_URL_WSP
-    const logoImg = "/images/Logo_CJ_final.png"
+    const logoImg = "/images/Logo_blanco.webp"
     const scrollToTop = () => {
         window.scrollTo({
           top: 0,
@@ -69,11 +69,11 @@ export const Footer = () => {
 
         <Link to="home" title="Home | CJRepuestos" onClick={scrollToTop} className="flex justify-center md:justify-end">
             {/* <p className="font-extrabold text-white text-6xl">LOGO</p> */}
-            <img className="w-[100%]" src={logoImg} alt="Logo cjrepuestos Footer" title='Logo CJRepuestos Nav'/>
+            <img className="w-[70%] md:w-[100%]" src={logoImg} alt="Logo cjrepuestos Footer" title='Logo CJRepuestos Nav'/>
         </Link>
 
         <p className="text-slate-500 text-center md:text-right md:col-span-2 lg:col-span-3">
-        Diseñado por <Link className="text-slate-400 underline" to="https://www.linkedin.com/in/gabriel-leguizam%C3%B3n-910bb0182/" title="Gabriel Leguizamón">Gabriel Leguizamón | Desarrollador Web.</Link> Todos los derechos reservados 2024.
+        Desarrollado por <Link className="text-slate-400 underline" to="https://www.linkedin.com/in/gabriel-leguizam%C3%B3n-910bb0182/" title="Gabriel Leguizamón">Gabriel Leguizamón | Desarrollador Web.</Link> Todos los derechos reservados 2024.
         </p>
     </section>
     </footer>
