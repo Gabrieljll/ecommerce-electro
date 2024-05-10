@@ -35,7 +35,7 @@ export const Footer = () => {
     };
     return (
     <footer className="bg-slate-950 border-t-0 py-5">
-    <section className="wrapper grid gap-12 justify-center items-center footer-area md:footer-area-md md:grid-cols-3 md:justify-items-center">
+    <section className="wrapper overflow-visible grid gap-12 justify-center items-center footer-area md:footer-area-md md:grid-cols-3 md:justify-items-center">
 
         <nav className="grid gap-y-4 h-min justify-center text-center text-white w-full md:w-max md:grid-cols-2 lg:grid-cols-3">
             <Link to="/home" title="Home | CJRepuestos" onClick={scrollToTop}> <h1 className="text-md font-[ArchivoBlack-Regular] text-slate-50 ">Inicio</h1></Link>
