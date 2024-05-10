@@ -72,7 +72,7 @@ export const Footer = () => {
             <img className="w-[70%] md:w-[100%]" src={logoImg} alt="Logo cjrepuestos Footer" title='Logo CJRepuestos Nav'/>
         </Link>
 
-        <p className="text-slate-500 text-center md:text-right md:col-span-2 lg:col-span-3">
+        <p className="text-slate-500 text-center md:text-right md:col-span-2 lg:col-span-3 text-sm md:text-base">
         Desarrollado por <Link className="text-slate-400 underline" to="https://www.linkedin.com/in/gabriel-leguizam%C3%B3n-910bb0182/" title="Gabriel Leguizamón">Gabriel Leguizamón | Desarrollador Web.</Link> Todos los derechos reservados 2024.
         </p>
     </section>
