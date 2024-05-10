@@ -42,6 +42,7 @@ const Finish = () => {
                 <div className="mb-12 lg:p-0 pl-6 pr-6 font-[Arial-Regular] text-xl">
                     <p>Te estaremos notificando sobre tu compra a tu correo electrónico</p>
                     <p>También consideraremos contactarnos mediante WhatsApp</p>
+                    <p>En caso de que no recibas ningún mail por favor comunicate al número: +54 1134890403</p>
                 </div>
                 <hr />
                 <div>
