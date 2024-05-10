@@ -2401,6 +2401,10 @@ select {
     margin-top: 1rem;
   }
 
+  .md\:flex {
+    display: flex;
+  }
+
   .md\:w-2\/3 {
     width: 66.666667%;
   }
