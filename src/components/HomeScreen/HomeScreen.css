@@ -1,3 +1,4 @@
 .divSlider {
     width: 100%;
+    height: min-content;
 }

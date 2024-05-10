@@ -799,6 +799,14 @@ select {
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
+.static {
+  position: static;
+}
+
+.\!static {
+  position: static !important;
+}
+
 .fixed {
   position: fixed;
 }
@@ -863,6 +871,10 @@ select {
 
 .top-6 {
   top: 1.5rem;
+}
+
+.start-0 {
+  inset-inline-start: 0px;
 }
 
 .z-0 {
@@ -1154,6 +1166,10 @@ select {
 
 .h-screen {
   height: 100vh;
+}
+
+.h-\[80vw\] {
+  height: 80vw;
 }
 
 .max-h-\[100px\] {
@@ -1745,6 +1761,10 @@ select {
   background-repeat: no-repeat;
 }
 
+.object-contain {
+  object-fit: contain;
+}
+
 .object-cover {
   object-fit: cover;
 }
@@ -1867,10 +1887,6 @@ select {
 
 .pb-16 {
   padding-bottom: 4rem;
-}
-
-.pb-24 {
-  padding-bottom: 6rem;
 }
 
 .pb-28 {
@@ -2431,6 +2447,10 @@ select {
     margin-bottom: calc(1.5rem * var(--tw-space-y-reverse));
   }
 
+  .md\:object-cover {
+    object-fit: cover;
+  }
+
   .md\:py-24 {
     padding-top: 6rem;
     padding-bottom: 6rem;
@@ -2601,6 +2621,10 @@ select {
 
   .lg\:bg-none {
     background-image: none;
+  }
+
+  .lg\:object-cover {
+    object-fit: cover;
   }
 
   .lg\:p-0 {
@@ -2788,6 +2812,10 @@ select {
 
   .xl\:justify-center {
     justify-content: center;
+  }
+
+  .xl\:object-cover {
+    object-fit: cover;
   }
 
   .xl\:p-0 {

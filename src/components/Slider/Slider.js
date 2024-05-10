@@ -20,8 +20,8 @@ const image4_movil = "/images/nuevas_imgs/sevicio_tecnico_cuadrado.webp";
 const image5_movil = "/images/nuevas_imgs/atencion_personalizada_cuadrado.webp";
 
 export default function Slider() {
-  const isMobile = window.innerWidth < 1370;
-
+  const isMobile = window.innerWidth < 1024;
+  const isNotebook = window.innerWidth < 1370 && window.innerWidth > 1024
   const slidesPC = [
     { url: image1, title:'Electro Repuestos', text: `Repuestos para Electrodomésticos\nTu solución rápida y confiable para mantener\ntus aparatos en funcionamiento\n\n¡Contáctanos!`, cellContact: '+54 011 34890403', mailContact: 'jcejas.repuestos@gmail.com' },
     { url: image2, title:'Electro Repuestos', text: 'Texto relacionado con electrodomésticos de hogar', cellContact: '+54 011 34890403', mailContact: 'jcejas.repuestos@gmail.com' },
@@ -47,18 +47,19 @@ export default function Slider() {
       slidesPerView={1}
       navigation
       pagination={{ clickable: true }}
-      autoplay={{ delay: 9000 }}
+      autoplay={{ delay: 90000 }}
+      className={isNotebook ? '!static' : 'relative'}
     >
       {slides.map((slide, index) => (
-        <SwiperSlide key={index}>
+        <SwiperSlide key={index} >
           <div className="text-container">
             <Suspense fallback={<Loader />}>
                 <div 
-                    className={`w-full ${isMobile ? 'h-[100vw]' : 'h-full'} object-cover duration-500 flex flex-col justify-center text-center`}
+                    className={`w-full ${isNotebook ? 'h-max' : isMobile ? 'h-[100vw]' : 'h-full'} object-cover duration-500 flex flex-col justify-center text-center`}
                     style={{
                     backgroundImage: `url(${slide.url})`,
-                    backgroundSize: 'cover',
-                    backgroundPosition: 'center',
+                    backgroundSize: isNotebook ? 'contain' : 'cover',
+                    backgroundPosition: isNotebook ? 'top':'center',
                     backgroundRepeat: 'no-repeat',
                     height: isMobile ? '100vw' : '950px',
                     transition: 'background-image 1s ease',
