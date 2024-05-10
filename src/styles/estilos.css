@@ -981,6 +981,10 @@ select {
   margin-bottom: 2rem;
 }
 
+.ml-10 {
+  margin-left: 2.5rem;
+}
+
 .ml-3 {
   margin-left: 0.75rem;
 }
@@ -1031,6 +1035,10 @@ select {
 
 .mt-8 {
   margin-top: 2rem;
+}
+
+.mb-24 {
+  margin-bottom: 6rem;
 }
 
 .block {
@@ -1154,6 +1162,14 @@ select {
 
 .h-screen {
   height: 100vh;
+}
+
+.h-64 {
+  height: 16rem;
+}
+
+.h-48 {
+  height: 12rem;
 }
 
 .max-h-\[100px\] {
@@ -1286,6 +1302,18 @@ select {
   width: max-content;
 }
 
+.w-\[40\%\] {
+  width: 40%;
+}
+
+.w-9 {
+  width: 2.25rem;
+}
+
+.w-48 {
+  width: 12rem;
+}
+
 .max-w-\[200px\] {
   max-width: 200px;
 }
@@ -1409,6 +1437,10 @@ select {
   align-items: center;
 }
 
+.justify-start {
+  justify-content: flex-start;
+}
+
 .justify-end {
   justify-content: flex-end;
 }
@@ -1477,6 +1509,10 @@ select {
   row-gap: 1rem;
 }
 
+.gap-x-1 {
+  column-gap: 0.25rem;
+}
+
 .space-y-2 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-y-reverse: 0;
   margin-top: calc(0.5rem * calc(1 - var(--tw-space-y-reverse)));
@@ -1512,10 +1548,6 @@ select {
 
 .self-center {
   align-self: center;
-}
-
-.overflow-auto {
-  overflow: auto;
 }
 
 .overflow-hidden {
@@ -1583,6 +1615,10 @@ select {
   border-width: 1.5px;
 }
 
+.border-\[1px\] {
+  border-width: 1px;
+}
+
 .border-b {
   border-bottom-width: 1px;
 }
@@ -1622,6 +1658,11 @@ select {
 .border-red-500 {
   --tw-border-opacity: 1;
   border-color: rgb(239 68 68 / var(--tw-border-opacity));
+}
+
+.border-red-800 {
+  --tw-border-opacity: 1;
+  border-color: rgb(153 27 27 / var(--tw-border-opacity));
 }
 
 .bg-\[\#3165bf\] {
@@ -1696,11 +1737,6 @@ select {
 .bg-white {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
-}
-
-.bg-black {
-  --tw-bg-opacity: 1;
-  background-color: rgb(0 0 0 / var(--tw-bg-opacity));
 }
 
 .bg-gradient-to-b {
@@ -1915,6 +1951,18 @@ select {
 
 .pt-6 {
   padding-top: 1.5rem;
+}
+
+.pb-20 {
+  padding-bottom: 5rem;
+}
+
+.pb-28 {
+  padding-bottom: 7rem;
+}
+
+.pb-24 {
+  padding-bottom: 6rem;
 }
 
 .text-center {
@@ -2137,9 +2185,9 @@ select {
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
-.text-dark-grayish-blue {
+.text-red-800 {
   --tw-text-opacity: 1;
-  color: hsl(227 12% 61% / var(--tw-text-opacity));
+  color: rgb(153 27 27 / var(--tw-text-opacity));
 }
 
 .underline {
@@ -2372,6 +2420,10 @@ select {
   .md\:w-max {
     width: -webkit-max-content;
     width: max-content;
+  }
+
+  .md\:w-48 {
+    width: 12rem;
   }
 
   .md\:grid-cols-2 {
