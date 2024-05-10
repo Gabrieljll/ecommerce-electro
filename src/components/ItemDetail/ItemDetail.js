@@ -48,8 +48,8 @@ const ItemDetail = ( {idItem, name, descriptionItem, imageItem, priceItem, categ
 
                 <div ref={ref1} className={`container mx-auto item-transition-fade-up ${inView1 ? "active" : ""}`}>
                         {/* imagen and text wrapper */}
-                    <div className="flex justify-start items-start w-full">
-                        <div className="flex justify-center items-center pb-24 w-[40%]">
+                    <div className="flex justify-start items-center w-full">
+                        <div className="flex justify-center items-center pb-16 md:pb-24 w-[40%]">
                             <Link to={-1} className="cursor-pointer flex justify-center items-center  border-[1px] border-red-800 w-36 md:w-48 p-3 gap-x-1">
                                 <IoMdArrowRoundBack className="text-[#850400] text-xl md:text-2xl left-0"/><p className="font-[Arimo-Regular] text-[#850400]  text-xl md:text-2xl">Volver</p> 
                             </Link>
