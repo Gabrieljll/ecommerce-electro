@@ -1,5 +1,7 @@
 import { Link as LinkScroll   } from 'react-scroll'
 import { Link, useNavigate } from 'react-router-dom'
+import { RiExternalLinkFill } from "react-icons/ri";
+
 import "./Footer.css"
 export const Footer = () => {
     const navigate = useNavigate()
@@ -37,22 +39,24 @@ export const Footer = () => {
     <footer className="bg-slate-950 border-t-0 py-5">
     <section className="wrapper overflow-visible grid gap-12 justify-center items-center footer-area md:footer-area-md md:grid-cols-3 md:justify-items-center">
 
-        <nav className="grid gap-y-4 h-min justify-center text-center text-white w-full md:w-max md:grid-cols-2 lg:grid-cols-3">
-            <Link to="/home" title="Home | CJRepuestos" onClick={scrollToTop}> <h1 className="text-md font-[ArchivoBlack-Regular] text-slate-50 ">Inicio</h1></Link>
-            <Link to="/productos" title="Productos | CJRepuestos" onClick={scrollToTop}><h1 className="text-md font-[ArchivoBlack-Regular] text-slate-50 ">Tienda</h1></Link>
+        <nav className="grid gap-y-4 gap-x-4 h-min justify-center text-center text-white w-full md:w-max md:grid-cols-2 lg:grid-cols-3">
+            <Link to="/home" title="Home | CJRepuestos" onClick={scrollToTop}> <h1 className="text-md font-[ArchivoBlack-Regular] text-slate-50 flex justify-center items-center"><RiExternalLinkFill className='mx-1' />Inicio</h1></Link>
+            <Link to="/productos" title="Productos | CJRepuestos" onClick={scrollToTop}><h1 className="text-md font-[ArchivoBlack-Regular] text-slate-50 flex justify-center items-center"><RiExternalLinkFill className='mx-1' />Tienda</h1></Link>
+            <Link to="/contactenos"><h1 className="text-md font-[ArchivoBlack-Regular] text-white flex justify-center items-center"><RiExternalLinkFill className='mx-1' />Consultas</h1></Link>
+            <Link to={urlWsp} target="_blank"><h1 className="text-md font-[ArchivoBlack-Regular] text-white flex justify-center items-center"><RiExternalLinkFill className='mx-1' />WhatsApp</h1></Link>
             <div className="text-md font-[ArchivoBlack-Regular] text-white">
                 <h1 className="text-md font-[ArchivoBlack-Regular] text-white">Horario de atención</h1>
-                <p className="font-[Arimo-Regular] text-sm">Lunes a Viernes de 9 a 18hs</p>
-                <p className="font-[Arimo-Regular] text-sm">Sábados de 9 a 12hs*</p>
+                <p className="font-[Arimo-Regular] text-sm">De Lunes a Viernes: 9 a 18hs</p>
+                <p className="font-[Arimo-Regular] text-sm">Sábados: 9 a 12hs*</p>
             
             </div>
-            <Link to="/contactenos"><h1 className="text-md font-[ArchivoBlack-Regular] text-white">Contacto</h1></Link>
+            
             <div>
                 <h1 className="text-md font-[ArchivoBlack-Regular] text-white">Atención al Cliente</h1>
                 <p className="font-[Arimo-Regular] text-sm"> +54 1134890403</p>
                 <p className="font-[Arimo-Regular] text-sm">jcejas.repuestos@gmail.com</p>                
             </div>
-            <Link to={urlWsp} target="_blank"><h1 className="text-md font-[ArchivoBlack-Regular] text-white">WhatsApp</h1></Link>
+
         </nav>
 
         <div className="flex flex-wrap gap-4 justify-center w-full md:justify-center">
@@ -73,7 +77,7 @@ export const Footer = () => {
         </Link>
 
         <p className="text-slate-500 text-center md:text-right md:col-span-2 lg:col-span-3 text-sm md:text-base">
-        Desarrollado por <Link className="text-slate-400 underline" to="https://www.linkedin.com/in/gabriel-leguizam%C3%B3n-910bb0182/" title="Gabriel Leguizamón">Gabriel Leguizamón | Desarrollador Web.</Link> Todos los derechos reservados 2024.
+        Desarrollado por <Link className="text-slate-400 underline" to="https://www.linkedin.com/in/gabriel-leguizam%C3%B3n-910bb0182/" target="_blank" title="Gabriel Leguizamón">Gabriel Leguizamón | Desarrollador Web.</Link> Todos los derechos reservados 2024.
         </p>
     </section>
     </footer>
