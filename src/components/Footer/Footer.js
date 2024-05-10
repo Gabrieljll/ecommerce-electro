@@ -41,14 +41,14 @@ export const Footer = () => {
             <Link to="/home" title="Home | CJRepuestos" onClick={scrollToTop}> <h1 className="text-md font-[ArchivoBlack-Regular] text-slate-50 ">Inicio</h1></Link>
             <Link to="/productos" title="Productos | CJRepuestos" onClick={scrollToTop}><h1 className="text-md font-[ArchivoBlack-Regular] text-slate-50 ">Tienda</h1></Link>
             <div className="text-md font-[ArchivoBlack-Regular] text-white">
-                <h1 className="text-md font-[ArchivoBlack-Regular] text-white">Horario de atención:</h1>
+                <h1 className="text-md font-[ArchivoBlack-Regular] text-white">Horario de atención</h1>
                 <p className="font-[Arimo-Regular] text-sm">Lunes a Viernes de 9 a 18hs</p>
                 <p className="font-[Arimo-Regular] text-sm">Sábados de 9 a 12hs*</p>
             
             </div>
             <Link to="/contactenos"><h1 className="text-md font-[ArchivoBlack-Regular] text-white">Contacto</h1></Link>
             <div>
-                <h1 className="text-md font-[ArchivoBlack-Regular] text-white">Atención al Cliente:</h1>
+                <h1 className="text-md font-[ArchivoBlack-Regular] text-white">Atención al Cliente</h1>
                 <p className="font-[Arimo-Regular] text-sm"> +54 1134890403</p>
                 <p className="font-[Arimo-Regular] text-sm">jcejas.repuestos@gmail.com</p>                
             </div>
