@@ -49,7 +49,7 @@ const ItemDetail = ( {idItem, name, descriptionItem, imageItem, priceItem, categ
                 <div ref={ref1} className={`container mx-auto item-transition-fade-up ${inView1 ? "active" : ""}`}>
                         {/* imagen and text wrapper */}
                     <div className="flex justify-start items-center w-full">
-                        <div className="flex justify-center items-center pb-16 md:pb-24 w-[40%]">
+                        <div className="flex justify-center items-center pt-4 pb-1 mb-4 lg:pb-24 lg:pt-0 w-[40%]">
                             <Link to={-1} className="cursor-pointer flex justify-center items-center  border-[1px] border-red-800 w-36 md:w-48 p-3 gap-x-1">
                                 <IoMdArrowRoundBack className="text-[#850400] text-xl md:text-2xl left-0"/><p className="font-[Arimo-Regular] text-[#850400]  text-xl md:text-2xl">Volver</p> 
                             </Link>
@@ -78,7 +78,7 @@ const ItemDetail = ( {idItem, name, descriptionItem, imageItem, priceItem, categ
                                 Cantidad: 1 Unidad ({stock} disponibles)
                             </div>
                             <p className="mb-8">{descripcion}</p>
-                            <div className="flex flex-col w-96 justify-center">
+                            <div className="flex flex-col w-full justify-center p-4 md:p-0">
                                 <button onClick={()=> {addToCart(product, product.id); navigate("/checkout") }} className="bg-[#850400] py-4 px-8 text-white my-4"><h2 className="font-[Arimo-Bold]">Comprar ahora</h2></button>
                                 <button onClick={()=> addToCart(product, product.id)} className="bg-white border border-[#850400] py-4 px-8 text-white my-4"><h1 className="font-[Arimo-Bold] text-[#850400]">Agregar al carrito</h1></button>
                             </div>
