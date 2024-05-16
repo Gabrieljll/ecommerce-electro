@@ -63,7 +63,6 @@ export default function Slider() {
                     backgroundRepeat: 'no-repeat',
                     height: isMobile ? '100vw' : '950px',
                     transition: 'background-image 1s ease',
-                    marginBottom: '50px',
                     }}>
 
                    {/*  {isMobile 

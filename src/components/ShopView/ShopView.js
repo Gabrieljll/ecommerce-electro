@@ -106,7 +106,7 @@ export const ShopView = () => {
         
         <>
         <WhatsAppButton />
-        <section ref={ref1} className={`bg-white h-[550px] xl:h-[750px] bg-no-repeat bg-cover bg-center shop-transition-fade-up ${inView1 ? "active" : ""}`}>
+        <section ref={ref1} className={`bg-white md:h-[550px] xl:h-[750px] bg-no-repeat bg-cover bg-center shop-transition-fade-up ${inView1 ? "active" : ""}`}>
             <div ref={scrollRef} className="container mx-auto flex justify-around xl:justify-center h-full">
                 {/* text */}
 

@@ -17,7 +17,7 @@ export default function SectionList() {
     const isMobile = window.innerWidth < 1000;
     const [ref1, inView1] = useInView({
         triggerOnce: true,
-        threshold: 0.5,
+        threshold: 0.1,
       });
       
       const [ref2, inView2] = useInView({
@@ -43,7 +43,7 @@ export default function SectionList() {
       const settings = {
         dots: true,
         infinite: true,
-        speed: 500,
+        speed: 600,
         slidesToShow: 3,
         slidesToScroll: 1
       };
@@ -92,7 +92,7 @@ export default function SectionList() {
     return (
         <>
         <section id="nosotros">
-            <div ref={ref1} className={`lg:w-3/5 w-4/5 mx-auto ${isMobile ? 'mt-10 pt-12' : 'mt-0'} transition-fade-up ${inView1 ? "active" : ""}`}>
+            <div ref={ref1} className={`lg:w-3/5 w-4/5 mx-auto transition-fade-up ${inView1 ? "active" : ""}`}>
                 <div className="mt-20">
                     <div className="flex justify-center h-[45px]">
                         <h1 className="text-4xl font-[Arimo-Bold]">Categorías</h1>
