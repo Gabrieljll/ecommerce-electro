@@ -43,7 +43,7 @@ export const Footer = () => {
             <Link to="/home" title="Home | CJRepuestos" onClick={scrollToTop}> <h1 className="text-md font-[ArchivoBlack-Regular] text-slate-50 flex justify-center items-center"><RiExternalLinkFill className='mx-1' />Inicio</h1></Link>
             <Link to="/productos" title="Productos | CJRepuestos" onClick={scrollToTop}><h1 className="text-md font-[ArchivoBlack-Regular] text-slate-50 flex justify-center items-center"><RiExternalLinkFill className='mx-1' />Tienda</h1></Link>
             <Link to="/contactenos"><h1 className="text-md font-[ArchivoBlack-Regular] text-white flex justify-center items-center"><RiExternalLinkFill className='mx-1' />Consultas</h1></Link>
-            <Link to={urlWsp} target="_blank"><h1 className="text-md font-[ArchivoBlack-Regular] text-white flex justify-center items-center"><RiExternalLinkFill className='mx-1' />WhatsApp</h1></Link>
+            <Link to={urlWsp} target="_blank" title="WhatsApp"><h1 className="text-md font-[ArchivoBlack-Regular] text-white flex justify-center items-center"><RiExternalLinkFill className='mx-1' />WhatsApp</h1></Link>
             <div className="text-md font-[ArchivoBlack-Regular] text-white">
                 <h1 className="text-md font-[ArchivoBlack-Regular] text-white">Horario de atención</h1>
                 <p className="font-[Arimo-Regular] text-sm">De Lunes a Viernes: 9 a 18hs</p>

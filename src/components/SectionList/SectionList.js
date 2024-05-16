@@ -105,8 +105,8 @@ export default function SectionList() {
                         </div>
 
                         <div className="flex flex-col items-center justify-center gap-4 p-4">
-                            <p className="text-md xl:text-xl text-center ">{d.name}</p>
-                            <Link to={"/productos"} className='shadow-slate-300 md:text-base text-[10px] bg-[#ae322e] text-vary-light-gray block w-24 text-center h-min lg:w-max py-3 lg:px-12 rounded-full shadow-md uppercase font-bold font-[Arimo-Regular]'>Ver productos</Link>
+                            <p className="md:text-lg text-sm xl:text-xl text-center ">{d.name}</p>
+                            <Link to={"/productos"} className='shadow-slate-300 md:text-sm text-[8px] bg-[#ae322e] text-vary-light-gray block md:w-40 w-20 text-center h-min lg:w-max py-3 lg:px-12 rounded-full shadow-md uppercase font-bold font-[Arimo-Regular]'>Ver productos</Link>
                         </div>
                     </div>
                     ))}
