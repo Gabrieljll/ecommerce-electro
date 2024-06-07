@@ -17,6 +17,7 @@ export const ShopView = () => {
     //const manHero = "/images/hero/banner_tienda.png";
     //const manHero = "/images/hero/banner_tienda.png";
     const isMobile = window.innerWidth < 1000;
+    const isSmallView = window.innerWidth < 750;
     const flecha = "/images/shopView/flecha_50.png";
     const [isSidebarOpen, setSidebarOpen] = useState(true);
     const [selectedCategories, setSelectedCategories] = useState([]);
@@ -119,87 +120,86 @@ export const ShopView = () => {
 
 
 
-        <div ref={ref2} className={`container py-4 flex items-center gap-3 lg:m-auto pl-5 shop-transition-fade-up ${inView2 ? "active" : ""}`}>
+        <div ref={ref2} className={`${isSmallView ? 'mt-[5vw]' : isMobile ? 'mt-[15vw]' : ''} container py-4 flex items-center gap-3 lg:m-auto pl-5 shop-transition-fade-up ${inView2 ? "active" : ""}`}>
             <Link to={"/home"} className="flex text-primary text-gray-600  text-2xl font-[Arimo-Regular]">Inicio  </Link>
             <img src={flecha} alt="flecha CJRepuestos" title='flecha cjrepuestos' /><p className="relative left-[-12px] disabled font-medium text-gray-600 text-2xl font-[Arimo-Regular]">Tienda</p>
         </div>
-        <div className="container flex xl:grid xl:grid-cols-4 gap-6 pt-4 pb-16 items-start m-auto">
+        <div className={`container flex xl:grid xl:grid-cols-4 gap-6 pt-4 pb-16 m-auto items-start ${isMobile ? 'justify-center w-[100%]' : ''} `}>
             
 
-            <div className={`xl:flex border-2 ${isSidebarOpen ? 'hidden translate-x-0' : 'flex -translate-x-full z-10'} absolute xl:static transition-all duration-300 flex-col bg-white xl:p-4 shadow xl:transform-none`} >
+            <div className={`xl:flex border-2 ${isSidebarOpen ? 'hidden translate-x-0' : 'flex -translate-x-full z-10'} absolute xl:static transition-all duration-1000 flex-col bg-white xl:p-4 shadow xl:transform-none ${isMobile ? 'z-20 d-flex items-center justify-start w-[full]'  : ''} `} >
                 
-                <div className="xl:flex xl:justify-center xl:items-center xl:w-[100%] left-0 w-[250px] xl:col-span-1 xl:static xl:inset-x-0 2xl:p-12 xl:top-24 bg-white mx-auto rounded-md h-max text-center gap-6 font-bold text-dark-blue xl:text-white xl:shadow-none shadow-2xl bg-transparent grid-flow-col absolute text-xl z-20 transition-all duration-300 xl:left-auto">
-                    <button className="xl:hidden relative bg-primary text-black p-2 mb-4 rounded shadow-lg xl:shadow-none" onClick={() => {
-                    setSidebarOpen(!isSidebarOpen); }}
-                    >
-                    Cerrar Filtros
-                    </button>
-                    <div className="divide-y divide-gray-200 space-y-5 p-8 xl:p-0">
-                        {/* category filter */}
-                        <div>
-                            <h3 className="text-xl text-gray-800 mb-3 uppercase font-[Arimo-Regular]">categorías</h3>
-                            <div className="space-y-2">
-                                {/* single category */}
-                                {Object.entries(categoriasPorLinea).map(([linea, categoriasSet]) => (
-                                    <div key={linea}>
-                                        <div className="flex flex-start">
-                                            <h1 className="font-[Arimo-Regular] text-gray-600">{linea}</h1>
-                                        </div>
-                                        {[...categoriasSet].map((categoria) => (
-                                            <div key={categoria} className="flex items-center mx-auto my-2 pl-12">
-                                                <input
-                                                    type="checkbox"
-                                                    id={`cat-${categoria}`}
-                                                    className="text-primary focus:ring-0 rounded-sm cursor-pointer border border-[#850400] font-[Arimo-Regular]"
-                                                    checked={selectedCategories.includes(categoria)}
-                                                    onChange={() => toggleCategory(categoria)}
-                                                />
-                                                <label htmlFor={`cat-${categoria}`} className="text-gray-600 ml-3 cursor-pointer text-base">{categoria}</label>
-                                                <div className="ml-auto text-gray-600 text-sm font-[Arimo-Regular]">({categoriesCount[categoria] || 0})</div>
+                    <div className="xl:flex xl:justify-center xl:items-center xl:w-[100%] w-[400px] justify-center items-center xl:border-0 border-4 xl:col-span-1 xl:static xl:inset-x-0 2xl:p-12 xl:top-24 bg-white mx-auto rounded-md h-max text-center gap-6 font-bold text-dark-blue xl:text-white xl:shadow-none shadow-2xl bg-transparent grid-flow-col absolute text-xl z-20 transition-all duration-300 xl:left-auto">
+                        <button className="xl:hidden relative bg-primary text-black p-2 mb-4 rounded shadow-lg xl:shadow-none" onClick={() => {
+                        setSidebarOpen(!isSidebarOpen); }}
+                        >
+                        Cerrar Filtros
+                        </button>
+                        <div className="divide-y divide-gray-200 space-y-5 p-8 xl:p-0">
+                            {/* category filter */}
+                            <div>
+                                <h3 className="text-xl text-gray-800 mb-3 uppercase font-[Arimo-Regular]">categorías</h3>
+                                <div className="space-y-2">
+                                    {/* single category */}
+                                    {Object.entries(categoriasPorLinea).map(([linea, categoriasSet]) => (
+                                        <div key={linea}>
+                                            <div className="flex flex-start">
+                                                <h1 className="font-[Arimo-Regular] text-gray-600">{linea}</h1>
                                             </div>
-                                        ))}
-                                    </div>
-                                ))}
+                                            {[...categoriasSet].map((categoria) => (
+                                                <div key={categoria} className="flex items-center mx-auto my-2 pl-12">
+                                                    <input
+                                                        type="checkbox"
+                                                        id={`cat-${categoria}`}
+                                                        className="text-primary focus:ring-0 rounded-sm cursor-pointer border border-[#850400] font-[Arimo-Regular]"
+                                                        checked={selectedCategories.includes(categoria)}
+                                                        onChange={() => toggleCategory(categoria)}
+                                                    />
+                                                    <label htmlFor={`cat-${categoria}`} className="text-gray-600 ml-3 cursor-pointer text-base">{categoria}</label>
+                                                    <div className="ml-auto text-gray-600 text-sm font-[Arimo-Regular]">({categoriesCount[categoria] || 0})</div>
+                                                </div>
+                                            ))}
+                                        </div>
+                                    ))}
+                                </div>
                             </div>
-                        </div>
-                            {/* category filter end */}
-                        {/* FILTRO PRECIOS */}
-                        <div className="pt-4">
-                            <h3 className="text-xl text-gray-800 mb-3 uppercase font-[Arimo-Regular]">precio</h3>
-                            <div className="mt-4 flex items-center">
-                                <input 
-                                value={minPrice}
-                                onChange={handleMinPriceChange}
-                                type="text" className="w-full border-gray-300 focus:border-primary focus:ring-0 px-3 py-1 text-gray-600 text-sm shadow-sm rounded font-[Arimo-Regular]" placeholder="Minimo" />
-                                <span className="mx-3 text-gray-500">-</span>
-                                <input 
-                                value={maxPrice}
-                                onChange={handleMaxPriceChange}
-                                type="text" className="w-full border-gray-300 focus:border-primary focus:ring-0 px-3 py-1 text-gray-600 text-sm shadow-sm rounded font-[Arimo-Regular]" placeholder="Maximo" />
+                                {/* category filter end */}
+                            {/* FILTRO PRECIOS */}
+                            <div className="pt-4">
+                                <h3 className="text-xl text-gray-800 mb-3 uppercase font-[Arimo-Regular]">precio</h3>
+                                <div className="mt-4 flex items-center">
+                                    <input 
+                                    value={minPrice}
+                                    onChange={handleMinPriceChange}
+                                    type="text" className="w-full border-gray-300 focus:border-primary focus:ring-0 px-3 py-1 text-gray-600 text-sm shadow-sm rounded font-[Arimo-Regular]" placeholder="Minimo" />
+                                    <span className="mx-3 text-gray-500">-</span>
+                                    <input 
+                                    value={maxPrice}
+                                    onChange={handleMaxPriceChange}
+                                    type="text" className="w-full border-gray-300 focus:border-primary focus:ring-0 px-3 py-1 text-gray-600 text-sm shadow-sm rounded font-[Arimo-Regular]" placeholder="Maximo" />
+                                </div>
                             </div>
-                        </div>
-                        <br />
-                        {/* FILTRO PRECIOS FINAL */}
+                            <br />
+                            {/* FILTRO PRECIOS FINAL */}
 
+                        </div>
                     </div>
-                </div>
-                
                 {/* sidebar */}
 
             </div>
             {/* products */}
             <div className="col-span-3 relative z-1">
                 {/* ordenamiento */}
-                <div className="flex items-center pl-5 lg:pl-0">
+                <div className="flex items-center lg:pl-0 justify-center">
 
                 {/* ordenamiento Final*/}
-                    <button id="botonCerrarFiltros" className="text-sm items-center w-24 xl:w-44 px-4 py-3 border-gray-300  shadow-sm rounded focus:ring-primary focus:border-primary text-center  text-dark-blue xl:hidden relative bg-primary p-2 border z-10" onClick={(event) => {
+                    <button id="botonCerrarFiltros" className={`text-sm h-[45px] items-center w-24 xl:w-44 px-4 py-3 border-gray-500  shadow-sm rounded focus:ring-primary focus:border-primary text-center  text-dark-blue xl:hidden relative bg-primary p-2 border z-10 ${isMobile ? 'text-black rounded text-xl shadow-lg font-bold underline' : ''} `} onClick={(event) => {
                         setSidebarOpen(!isSidebarOpen)
                         quitarBordes(event);    }
                 }
                     
                     >
-                    {isSidebarOpen ? 'Filtros':'' }
+                    {isSidebarOpen && isMobile ? 'Filtros' :  isSidebarOpen ? 'Filtros' : '' }
                     </button>
                 </div>
                 <div className="bg-overlay z-0"></div>
